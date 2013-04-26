@@ -1,0 +1,132 @@
+.hintItem {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    width: 140px;
+    text-align: center;
+    background-color: #1E64A5;
+    color: white;
+    margin: 2px 0px;
+    font-family: Segoe UI Light;
+    font-size: 19px;
+    -webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+
+}
+.hintItem:hover {
+    height: 40px;
+    line-height: 40px;
+    width: 130px;
+    background-color: #2081DA;
+    font-size: 16px;
+    border: 0px solid #2081DA;
+    margin: 2px 5px;
+}
+.btn,.pull-right{
+    display: inline-block;
+    position: relative;
+    width: 90px;
+    height: 80px;
+    text-indent: 5px;
+    background: #2081DA;
+    color: white!important;
+    font-family: Segoe UI Light;
+    font-size: 19px;
+    vertical-align: middle;
+}
+.btn:hover,.pull-right:hover{
+    background-color: #1E64A5;
+}
+#btnAutoScroll {
+    width: 170px;
+}
+.metro-icon{
+    background: url(../images/icon/back.png) no-repeat;
+    background-size: 30px;
+    height: 30px;
+    width: 30px;
+    display: block;
+    position: relative;
+    margin: 20px auto 0px auto;
+}
+#btnNext5Sec .metro-icon{
+    background: url(../images/icon/next.png) no-repeat;
+    background-size: 30px;
+}
+#btnAutoScroll .metro-icon{
+    background: url(../images/icon/autoscroll.png) no-repeat;
+    background-size: 30px;
+}
+.metro-text{
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 5px;
+    display: block;
+}
+.metro-ic-text {
+    font-size: 30px;
+    line-height: 60px;
+    vertical-align: bottom;
+}
+#answerStat {
+    width: 140px;
+    text-align: center;
+}
+#videoController {
+    height: 110px;
+}
+
+
+#displayContentContainer {
+    height: 300px;
+    background: #EEE;
+    overflow-y: scroll;
+    margin-top: 30px;
+}
+h2{margin: 0}
+.metro-header{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.items.table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border: 1px solid #EEE;
+}
+.items.table td {
+    border: 1px solid #CACACA;
+    text-align: center;
+}
+.comment-list{
+    margin: 30px;
+}
+#finishAction {
+    margin-top: 10px;
+}
+.btn.pull-right{
+    float: right;
+    background-color: #F50F43;
+}
+.btn.pull-right:hover{
+    background-color: #E60033;
+}
+#btnSubmitVideoAnswer .metro-icon{
+    background: url(../images/icon/finish.png) no-repeat;
+    background-size: 30px;
+}
+#btnReset .metro-icon{
+    background: url(../images/icon/refresh.png) no-repeat;
+    background-size: 30px;
+}
+#btnOpenReportDialog .metro-icon{
+    background: url(../images/icon/error.png) no-repeat;
+    background-size: 30px;
+}
+#highscoreContainer{
+    margin-top: 10px;
+}
