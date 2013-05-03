@@ -25,7 +25,7 @@ function checkVideoTime() {
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
-            setCaptionInView(item);
+            setCaptiosanInView(item);
             activeCaptionTime(item);
             break;
         }
@@ -78,15 +78,12 @@ function activeCaptionTime(item) {
 }
 $(document).ready(function()
 {
-
     $('.fb-comments').attr('data-width', $('.span6').width());
 
     $('#btnAutoScroll').click(function() {
 
     })
-
-
-    $('.captionItem .hand').on('click', function() {
+    $('.captionItem .hand').live('click', function() {
         var item = $(this).parent();
         startTime = item.find('.startTime').val();
         lastCaptionTime = startTime;
@@ -94,9 +91,6 @@ $(document).ready(function()
         activeCaptionTime(item);
     });
     getVideoContent();
-
-
-
     //$('#hintList').show();
     $('.txtAnswer').live('blur keyup focus', function() {
         answeredField = 0;
