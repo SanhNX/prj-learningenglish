@@ -3,14 +3,14 @@
     "url": "http://www.youtube.com/watch?feature=player_embedded&v=gnT8pD9eSCc",
     "rows": [
         {
-            "start-time": "6",
-            "end-time": "8",
-            "caption-text": "Kissing"
+            "start_time": "6",
+            "end_time": "8",
+            "caption_text": "Kissing"
         },
         {
-            "start-time": "8",
-            "end-time": "12",
-            "caption-text": "A kiss is the <input/> of pressing ones lips against another's lips, body or an",
+            "start_time": "8",
+            "end_time": "12",
+            "caption_text": "A kiss is the <input/> of pressing ones lips against another's lips, body or an",
             "hints": [
                 {
                     "id": "1",
