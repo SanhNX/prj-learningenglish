@@ -9,7 +9,7 @@ var answeredField = 0;
 var btnAutoScroll;
 var autoscroll;
 var timeIdentity = null;
-//var BASE_URL = "";
+var BASE_URL = "";
 //setInterval(checkVideoTime, 1000);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
@@ -485,7 +485,7 @@ function getVideoContent(callback) {
     $.ajax({
         url: BASE_URL + '/video/start',
         data: {
-            id: video.id
+//            id: video.id
         },
         type: 'post',
         success: function(json) {
