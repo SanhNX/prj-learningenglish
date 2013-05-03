@@ -109,18 +109,21 @@ $(document).ready(function()
         var html = '';
         var txtAnswer = $(this);
         var index = txtAnswer.index('.txtAnswer');
+        $.getJSON('data-video/1.json', function(data) {
+            hintList = data.rows[index + 1].hints;
+            if (hintList[index + 1] != undefined && hintList.length > 0) {
+                html = '';
+                for (i = 0; i < hintList.length - 1; i++) {
+                    hint = hintList[i].value;
+                    html += '<span class="hintItem">' + hint + '</span>';
+                }
+                $('#hintList').html(html);
 
-        if (hintList[index] != undefined && hintList[index].length > 0) {
-            html = '';
-            for (i = 0; i < hintList[index].length; i++) {
-                hint = hintList[index][i];
-                html += '<span class="hintItem">' + hint + '</span>';
+            } else {
+                $('#hintList').html('Không có từ gợi ý');
             }
-            $('#hintList').html(html);
+        });
 
-        } else {
-            $('#hintList').html('Không có từ gợi ý');
-        }
     });
 
     $('.hintItem').live('click', function(e) {
