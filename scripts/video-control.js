@@ -10,7 +10,7 @@ var btnAutoScroll;
 var autoscroll;
 var timeIdentity = null;
 //var BASE_URL = "";
-setInterval(checkVideoTime, 1000);
+//setInterval(checkVideoTime, 1000);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
 //    

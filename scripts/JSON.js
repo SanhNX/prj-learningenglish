@@ -9,7 +9,7 @@ $(document).ready(function() {
                         '<a class="hand">'+
                                 '<i class="select icon-hand-right"></i>'+
                                 '<i class="play icon-play" style="display:none;"></i>'+
-                                '<span class="captionTime">00:06</span>'+
+                                '<span class="captionTime">00:0'+ data.rows[i].start_time +'</span>'+
                         '</a><div class="captionText" style="width: 463px;">' + data.rows[i].caption_text + '</div></div>';
                 html += row;
         }
