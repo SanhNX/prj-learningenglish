@@ -10,7 +10,7 @@
         {
             "start_time": "8",
             "end_time": "12",
-            "caption_text": "A kiss is the <input/> of pressing ones lips against another's lips, body or an",
+            "caption_text": "A kiss is the <input type='text' class='txtAnswer' > of pressing ones lips against another's lips, body or an",
             "hints": [
                 {
                     "id": "1",
