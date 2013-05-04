@@ -32,6 +32,11 @@ $(function () {
         $(this).css({left:500,opacity:0}).delay(metroIndex++*50).animate({left:0,opacity:1}, 2000, "easeOutQuint");
 
     });
+    $(".metro-item").hover(function () {
+        $(this).children(".metro-bar").animate({height:200}, 500, "easeOutQuint");
+    },function () {
+        $(this).children(".metro-bar").animate({height:90}, 500, "easeOutQuint");
+    });
 });
 function setMenuHover(item) {
     $(item).children(".menu-arrow").stop().animate({right: 0}, 200);
