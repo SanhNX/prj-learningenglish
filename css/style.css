@@ -9,7 +9,6 @@ body {
     height: 100%;
     width: 100%;
     background: #999999;
-    position: fixed;
 }
 
 /* ★★★★★★★★★★★★★★★★★★★★★★★ MENU ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
@@ -17,7 +16,7 @@ body {
     height: 100%;
     width: 100px;
     background: #111;
-    position: relative;
+    position: fixed;
     z-index: 100;
 }
 
@@ -27,11 +26,12 @@ body {
     position: absolute;
     width: 100px;
     top: 0;
+    overflow: hidden;
 }
 
 .menu-item {
     height: 120px;
-    background: url("../images/icon/menu-ico.png") no-repeat;
+    background: url("../images/icon/menu-ico.png") no-repeat #111111;
     position: relative;
 }
 
@@ -55,11 +55,11 @@ body {
     background-position: -400px center;
 }
 
-.menu-item:hover {
+.menu-item.hover {
     background-color: #222;
 }
 
-.menu-item:hover .menu-arrow {
+.menu-item.hover .menu-arrow {
     display: block;
 }
 
@@ -79,6 +79,9 @@ body {
     top: 0;
     left: 100px;
     height: 100%;
+    transition: background 200ms linear;
+    -webkit-transition: background 200ms linear;
+    -moz-transition: background 200ms linear;
 }
 
 .menu-popup.acc {
@@ -102,9 +105,8 @@ body {
     height: 40px;
     position: absolute;
     top: 40px;
-    right: 0px;
+    right: -20px;
     background: url("../images/icon/menu-arr.png") no-repeat;
-    display: none;
 }
 
 .menu-item.menu-group.acc .menu-arrow {
@@ -162,20 +164,74 @@ body {
     color: #FFF;
     text-indent: 60px;
     font-size: 16px;
+    transition: background 200ms linear;
+    -webkit-transition: background 200ms linear;
+    -moz-transition: background 200ms linear;
 }
 
 .menu-popup-item:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+.menu-popup-list.special {
+}
+
+.menu-popup-list.special .menu-popup-item {
+    height: 50px;
+    line-height: 50px;
+    color: #FFF;
+    text-indent: 60px;
+    font-size: 16px;
+}
+.menu-popup-list.special .menu-popup-item.odd {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.menu-popup-list.special .menu-popup-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 /* ★★★★★★★★★★★★★★★★★★★★★★★ FORM ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 .form {
     height: 100%;
-    width: 100%;
-    position: fixed;
     top: 0px;
     float: left;
-    background: #EEE;
+    background: #FFF;
     margin-left: 100px;
     z-index: 0;
+}
+
+.form-head {
+    height: 90px;
+    line-height: 90px;
+    font-size: 48px;
+    font-family: "Segoe UI light";
+    color: #16499a;
+    text-indent: 20px;
+}
+
+.form-head .form-head-gray {
+    color: #999;
+    text-indent: 20px;
+}
+
+.metro-list {
+    list-style: none;
+    margin: 0px 5px;
+    padding: 0;
+}
+
+.metro-item {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    background-color: #EEEEEE;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+.metro-item.large{
+    width: 410px;
+    background-color: #EEEEEE;
 }
