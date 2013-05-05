@@ -183,13 +183,14 @@ body {
     text-indent: 60px;
     font-size: 16px;
 }
+
 .menu-popup-list.special .menu-popup-item.odd {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
 .menu-popup-list.special .menu-popup-item:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
-
 
 /* ★★★★★★★★★★★★★★★★★★★★★★★ FORM ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 .form {
@@ -215,6 +216,7 @@ body {
     text-indent: 20px;
 }
 
+/*METRO*/
 .metro-list {
     list-style: none;
     margin: 0px 5px;
@@ -233,13 +235,16 @@ body {
     top: 0px;
 
 }
-.metro-item.large{
+
+.metro-item.large {
     width: 410px;
     background-color: #EEEEEE;
 }
+
 .metro-item.large .metro-bar {
     background: rgba(238, 76, 112, 0.8);
 }
+
 .metro-item.medium .metro-bar {
     background: rgba(88, 213, 43, 0.8);
 }
@@ -252,6 +257,13 @@ body {
     width: 100%;
     background: rgba(238, 227, 51, 0.8);
 }
+
+.metro-bar-wrapper {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
 .metro-title {
     position: absolute;
     top: 40px;
@@ -262,15 +274,57 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
+
 .metro-times {
     position: absolute;
     top: 10px;
     left: 10px;
-}.metro-level {
+}
+
+.metro-level {
     position: absolute;
-     top: 10px;
+    top: 10px;
     right: 10px;
 }
- .metro-item:hover .metro-bar .metro-title{
-     -webkit-line-clamp: 7;
- }
+
+.metro-item:hover .metro-bar .metro-title {
+    -webkit-line-clamp: 7;
+}
+
+/*TOOLKIT*/
+.control-bar {
+    clear: both;
+    padding: 5px 0px 50px 10px;
+    height: 200px;
+}
+
+.control-fb {
+    float: left;
+    height: 200px;
+    width: 200px;
+    background: url("../images/icon/fb-ico.png") no-repeat #EEE;
+}
+
+.control-contact {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.control-mess{
+    height: 95px;
+    background: url("../images/icon/mess-ico.png") no-repeat center #0046a9;
+} .control-mail {
+    height: 95px;
+    background: url("../images/icon/mail-ico.png") no-repeat center #0046a9;
+    margin-top: 10px;
+}
+
+.control-rank-recent {
+    float: left;
+    height: 200px;
+    width: 620px;
+    margin-left: 10px;
+    background-color: #d92266;
+}
