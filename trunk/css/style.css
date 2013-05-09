@@ -303,19 +303,22 @@ body {
     height: 200px;
     width: 200px;
     background: url("../images/icon/fb-ico.png") no-repeat #EEE;
+    margin: 0px 10px 10px 0px;
 }
 
 .control-contact {
     float: left;
     height: 200px;
     width: 200px;
-    margin-left: 10px;
+    margin: 0px 10px 10px 0px;
 }
 
-.control-mess{
+.control-mess {
     height: 95px;
     background: url("../images/icon/mess-ico.png") no-repeat center #0046a9;
-} .control-mail {
+}
+
+.control-mail {
     height: 95px;
     background: url("../images/icon/mail-ico.png") no-repeat center #0046a9;
     margin-top: 10px;
@@ -327,4 +330,58 @@ body {
     width: 620px;
     margin-left: 10px;
     background-color: #d92266;
+}
+
+/* ★★★★★★★★★★★★★★★★★★★★★★★ PLAY ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+.panel-video {
+    width: 570px;
+    float: left;
+}
+
+.video-control {
+    height: 80px;
+}
+
+.video-control-metro {
+    height: 80px;
+    width: 80px;
+    background-color: #111;
+    float: left;
+    margin-left: 5px;
+}
+
+.video-control-metro.large {
+    width: 190px;
+}
+
+.video-control-metro.skip5 {
+    background: url("../images/icon/next.png") center no-repeat #111;
+}
+
+.video-control-metro.back5 {
+    background: url("../images/icon/back.png") center no-repeat #111;
+}
+
+.video-control-metro.scroll {
+    background: url("../images/icon/autoscroll.png") center no-repeat #111;
+}
+
+.video-control-metro.score {
+}
+
+.video-player {
+
+}
+
+.panel-play {
+    width: 590px;
+    float: left;
+}
+
+.play-keywords {
+
+}
+
+.play-exam {
+
 }
