@@ -1,6 +1,61 @@
 {
-    "title": "Bí ẩn về nụ hôn",
+    "title": "The Infographics Show Kissing",
     "url": "http://www.youtube.com/watch?feature=player_embedded&v=gnT8pD9eSCc",
+    "timeList":
+        {
+            "6":"1",
+            "8":"2",
+            "12":"3",
+            "13":"4",
+            "19":"5"
+        },
+    "hintList": [
+            {
+                "1": "acadia",
+                "2": "act",
+                "3": "azoted",
+                "4": "acquit",
+                "5": "acidity",
+                "6": "agouta",
+                "7": "agisted",
+                "8": "aquate",
+                "9": "assuade",
+                "10": "achiote",
+                "11": "agst",
+                "12": "aceite",
+                "length": "12"
+            },
+            {
+                "1": "phaseun",
+                "2": "pygmy",
+                "3": "physiogony",
+                "4": "pogonia",
+                "5": "pickmaw",
+                "6": "psychon",
+                "7": "poussin",
+                "8": "pushmina",
+                "9": "peachen",
+                "10": "paisano",
+                "11": "passion",
+                "12": "pikemen",
+                "length": "12"
+            },
+            {
+                "1": "nominated",
+                "2": "named",
+                "3": "note",
+                "4": "nunned",
+                "5": "nonanimated",
+                "6": "nanawood",
+                "7": "need",
+                "8": "naunt",
+                "9": "nomothete",
+                "10": "neut",
+                "11": "naiad",
+                "12": "nonaid",
+                "length": "12"
+            }
+        ],
     "rows": [
         {
             "start_time": "6",
@@ -10,57 +65,23 @@
         {
             "start_time": "8",
             "end_time": "12",
-            "caption_text": "A kiss is the <input type='text' class='txtAnswer' > of pressing ones lips against another's lips, body or an",
-            "hints": [
-                {
-                    "id": "1",
-                    "value": "acadia"
-                },
-                {
-                    "id": "2",
-                    "value": "act"
-                },
-                {
-                    "id": "3",
-                    "value": "azoted"
-                },
-                {
-                    "id": "4",
-                    "value": "acquit"
-                },
-                {
-                    "id": "5",
-                    "value": "acidity"
-                },
-                {
-                    "id": "6",
-                    "value": "agouta"
-                },
-                {
-                    "id": "7",
-                    "value": "agisted"
-                },
-                {
-                    "id": "8",
-                    "value": "aquate"
-                },
-                {
-                    "id": "9",
-                    "value": "assuade"
-                },
-                {
-                    "id": "10",
-                    "value": "achiote"
-                },
-                {
-                    "id": "11",
-                    "value": "agst"
-                },
-                {
-                    "id": "12",
-                    "value": "aceite"
-                }
-            ]
+            "caption_text": "A kiss is the <input type='text' class='txtAnswer' > of pressing ones lips against another's lips, body or an"
+            
+        },
+        {
+            "start_time": "12",
+            "end_time": "13",
+            "caption_text": "Object"
+        },
+        {
+            "start_time": "13",
+            "end_time": "19",
+            "caption_text": "Among other things a kiss can express love, <input type='text' class='txtAnswer' >, affection, respect, greeting"     
+        },
+        {
+            "start_time": "19",
+            "end_time": "24",
+            "caption_text": "friendship and good luck. The science of kissing is <input type='text' class='txtAnswer' > philematology. Kissing is"     
         }
     ]
 }

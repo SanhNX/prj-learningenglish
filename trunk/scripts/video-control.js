@@ -8,9 +8,12 @@ var totalField = 0;
 var answeredField = 0;
 var btnAutoScroll;
 var autoscroll;
-var timeIdentity = null;
+var timeIdentity = null;    
 var BASE_URL = "";
-//setInterval(checkVideoTime, 1000);
+$.getJSON('data-video/1.json',function(data){
+        timeList = data.timeList;
+    });
+setInterval(checkVideoTime, 800);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
 //    
@@ -21,19 +24,19 @@ function checkVideoTime() {
     for (p in timeList) {
         p = parseInt(p);
         number = timeList[p];
-
+        console.log("-------------------------"+lastCaptionTime);
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
-            setCaptiosanInView(item);
+            // setCaptionInView(item);
             activeCaptionTime(item);
             break;
         }
     }
 }
 
-var captionContainer;
-var captionContent;
+var captionContainer = $('#displayContentContainer');
+var captionContent = $('#displayContent');
 var captionItemHeight;
 var viewPortHeight;
 function setCaptionInView(item) {
@@ -72,12 +75,14 @@ function activeCaptionTime(item) {
         item.addClass('playing');
         item.find('.play').show();
         item.find('.select').hide();
+        console.log("-------------------------"+item);
     }
 
 
 }
 $(document).ready(function()
 {
+
     $('.fb-comments').attr('data-width', $('.span6').width());
 
     $('#btnAutoScroll').click(function() {
@@ -110,17 +115,17 @@ $(document).ready(function()
         var txtAnswer = $(this);
         var index = txtAnswer.index('.txtAnswer');
         $.getJSON('data-video/1.json', function(data) {
-            hintList = data.rows[index + 1].hints;
-            if (hintList[index + 1] != undefined && hintList.length > 0) {
+            hintList = data.hintList[index];
+            if (hintList[1] != undefined && hintList.length > 0) {
                 html = '';
-                for (i = 0; i < hintList.length - 1; i++) {
-                    hint = hintList[i].value;
+                for (i = 0; i < hintList.length; i++) {
+                    hint = hintList[i + 1];
                     html += '<span class="hintItem">' + hint + '</span>';
                 }
                 $('#hintList').html(html);
 
             } else {
-                $('#hintList').html('Không có từ gợi ý');
+                $('#hintList').html('No suggestions');
             }
         });
 
