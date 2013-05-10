@@ -331,7 +331,21 @@ body {
     margin-left: 10px;
     background-color: #d92266;
 }
-
+.control-rank-head {
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    background:url("../images/icon/clock-ico.png") center 10px #B81E57;
+}
+.control-rank-list {
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 /* ★★★★★★★★★★★★★★★★★★★★★★★ PLAY ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 .panel-video {
     width: 570px;
