@@ -331,12 +331,14 @@ body {
     margin-left: 10px;
     background-color: #d92266;
 }
+
 .control-rank-head {
     width: 50px;
     height: 100%;
     display: inline-block;
-    background:url("../images/icon/clock-ico.png") center 10px #B81E57;
+    background: url("../images/icon/clock-ico.png") no-repeat center 10px #B81E57;
 }
+
 .control-rank-list {
     width: 50px;
     height: 100%;
@@ -346,6 +348,7 @@ body {
     padding: 0;
     list-style: none;
 }
+
 /* ★★★★★★★★★★★★★★★★★★★★★★★ PLAY ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 .panel-video {
     width: 570px;
@@ -357,11 +360,16 @@ body {
 }
 
 .video-control-metro {
+    position: relative;
     height: 80px;
     width: 80px;
     background-color: #111;
+    color: #FFF;
     float: left;
     margin-left: 5px;
+    line-height: 140px;
+    text-align: center;
+    font-size: 12px;
 }
 
 .video-control-metro.large {
@@ -369,22 +377,35 @@ body {
 }
 
 .video-control-metro.skip5 {
-    background: url("../images/icon/next.png") center no-repeat #111;
+    background: url("../images/icon/next.png") center 15px no-repeat #111;
 }
 
 .video-control-metro.back5 {
-    background: url("../images/icon/back.png") center no-repeat #111;
+    background: url("../images/icon/back.png") center 15px no-repeat #111;
 }
 
 .video-control-metro.scroll {
-    background: url("../images/icon/autoscroll.png") center no-repeat #111;
+    background: url("../images/icon/autoscroll.png") center 15px no-repeat #111;
 }
 
 .video-control-metro.score {
+    background-color: #B32F2F;
+}
+
+.video-control-score {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: 0px;
+    left: 0;
+    line-height: 60px;
+    font-size: 30px;
 }
 
 .video-player {
-
+    height: 100px;
+    background-color: #2C2B2B;
+    margin: 5px 10px 0px 5px;
 }
 
 .panel-play {
@@ -394,6 +415,30 @@ body {
 
 .play-keywords {
 
+}
+
+.play-keyword-item {
+    height: 30px;
+    line-height: 30px;
+    width: 140px;
+    text-align: center;
+    float: left;
+    color: #FFF;
+    background:url("../images/icon/pin-map-ico.png") no-repeat 5px center #0761E7;
+    margin: 0px 0px 5px 5px;
+    cursor: pointer;
+    -webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+    transition: all 100ms linear;
+}
+.play-keyword-item:hover {
+    background-color: #054CB6;
+}
+
+.play-keyword-item:active {
+    background-color: #84B6FF;
+    margin: 0px 10px 5px 15px;
+    width: 120px;
 }
 
 .play-exam {
