@@ -14,6 +14,17 @@
 	<script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
+	<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id))
+                return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 <div class="page">
 	<div class="menu">
 		<ul class="menu-list">
@@ -102,6 +113,9 @@
 			</div>
 			<div class="video-player">
 				<iframe id="player" width="100%" height="100%" src="http://www.youtube.com/embed/gnT8pD9eSCc" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div class="fb-comment">
+				<div class="fb-comments" data-href="http://www.haivl.com/photo/217688" data-width="470" data-num-posts="1"></div>
 			</div>
 		</div>
 		<div class="panel-play">
