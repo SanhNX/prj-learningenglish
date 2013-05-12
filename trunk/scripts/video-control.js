@@ -12,6 +12,7 @@ var timeIdentity = null;
 var BASE_URL = "";
 $.getJSON('data-video/1.json',function(data){
         timeList = data.timeList;
+        totalField = data.hintList.length;
     });
 $.getJSON('data-video/1.json', function(data) {
             hintList = data.hintList[0];
@@ -120,7 +121,7 @@ $(document).ready(function()
             if ($(this).val().trim().length > 0) {
                 answeredField++;
             }
-            $('.video-control .video-control-score').html(answeredField + "/20");
+            $('.video-control .video-control-score').html(answeredField + "/" + totalField);
         });
     });
 
