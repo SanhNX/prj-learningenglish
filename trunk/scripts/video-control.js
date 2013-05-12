@@ -11,24 +11,22 @@ var autoscroll;
 var timeIdentity = null;    
 var BASE_URL = "";
 $.getJSON('data-video/1.json',function(data){
-        timeList = data.timeList;
-        totalField = data.hintList.length;
+    timeList = data.timeList;
+    totalField = data.hintList.length;
+    hintList = data.hintList[0];
+    if (hintList[1] != undefined && hintList.length > 0) {
+
+        html = '';
+        for (i = 0; i < hintList.length; i++) {
+            hint = hintList[i + 1];
+            html += '<span class="play-keyword-item">' + hint + '</span>';
+        }
+        $('.play-keywords').html(html);
+
+    } else {
+        $('.play-keywords').html('No suggestions');
+    }
     });
-$.getJSON('data-video/1.json', function(data) {
-            hintList = data.hintList[0];
-            if (hintList[1] != undefined && hintList.length > 0) {
-
-                html = '';
-                for (i = 0; i < hintList.length; i++) {
-                    hint = hintList[i + 1];
-                    html += '<span class="play-keyword-item">' + hint + '</span>';
-                }
-                $('.play-keywords').html(html);
-
-            } else {
-                $('.play-keywords').html('No suggestions');
-            }
-        });
  
 setInterval(checkVideoTime, 500);
 //setInterval(function() {
@@ -41,7 +39,7 @@ function checkVideoTime() {
     for (p in timeList) {
         p = parseInt(p);
         number = timeList[p];
-        console.log("-------------------------"+lastCaptionTime);
+        // console.log("-------------------------"+lastCaptionTime);
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
@@ -92,7 +90,7 @@ function activeCaptionTime(item) {
         item.addClass('play');
         item.find('.play').show();
         // item.find('.select').hide();
-        console.log("-------------------------"+item);
+        // console.log("-------------------------"+item);
     }
 
 
