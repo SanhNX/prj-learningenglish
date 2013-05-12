@@ -30,7 +30,7 @@ $.getJSON('data-video/1.json', function(data) {
             }
         });
  
-setInterval(checkVideoTime, 800);
+setInterval(checkVideoTime, 500);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
 //    
