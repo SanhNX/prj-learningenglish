@@ -1,6 +1,8 @@
 $(document).ready(function() {
     $.getJSON('data-video/1.json',function(data){
         var html = "";
+        $("#player")[0].src = data.url;
+        $(".video-title")[0].innerText = data.title;
         for(var i = 0; i < data.rows.length; i++){
             // var row = '<div class="captionItem" id="captionItem-'+ (i+1) +'" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">'+
             //             '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">'+
