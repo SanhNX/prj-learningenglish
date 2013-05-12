@@ -65,7 +65,7 @@
         {
             "start_time": "8",
             "end_time": "12",
-            "caption_text": "A kiss is the <input type='text' class='txtAnswer' > of pressing ones lips against another's lips, body or an"
+            "caption_text": "A kiss is the <input class='play-exam-answer' type='text' value='' name='answer[]'> of pressing ones lips against another's lips, body or an"
             
         },
         {
@@ -76,12 +76,12 @@
         {
             "start_time": "13",
             "end_time": "19",
-            "caption_text": "Among other things a kiss can express love, <input type='text' class='txtAnswer' >, affection, respect, greeting"     
+            "caption_text": "Among other things a kiss can express love, <input class='play-exam-answer' type='text' value='' name='answer[]'>, affection, respect, greeting"     
         },
         {
             "start_time": "19",
             "end_time": "24",
-            "caption_text": "friendship and good luck. The science of kissing is <input type='text' class='txtAnswer' > philematology. Kissing is"     
+            "caption_text": "friendship and good luck. The science of kissing is <input class='play-exam-answer' type='text' value='' name='answer[]'> philematology. Kissing is"     
         }
     ]
 }

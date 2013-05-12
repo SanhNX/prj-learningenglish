@@ -13,6 +13,22 @@ var BASE_URL = "";
 $.getJSON('data-video/1.json',function(data){
         timeList = data.timeList;
     });
+$.getJSON('data-video/1.json', function(data) {
+            hintList = data.hintList[0];
+            if (hintList[1] != undefined && hintList.length > 0) {
+
+                html = '';
+                for (i = 0; i < hintList.length; i++) {
+                    hint = hintList[i + 1];
+                    html += '<span class="play-keyword-item">' + hint + '</span>';
+                }
+                $('.play-keywords').html(html);
+
+            } else {
+                $('.play-keywords').html('No suggestions');
+            }
+        });
+ 
 setInterval(checkVideoTime, 800);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
@@ -68,13 +84,13 @@ function stopCheckVideoTime() {
     window.clearInterval(intervalId);
 }
 function activeCaptionTime(item) {
-    if (item.hasClass('playing') == false) {
-        $('.captionItem').removeClass('playing');
-        $('.play').hide();
-        $('.select').show();
-        item.addClass('playing');
+    if (item.hasClass('play') == false) {
+        $('.play-exam-item').removeClass('play');
+        // $('.play').hide();
+        // $('.select').show();
+        item.addClass('play');
         item.find('.play').show();
-        item.find('.select').hide();
+        // item.find('.select').hide();
         console.log("-------------------------"+item);
     }
 
@@ -88,7 +104,7 @@ $(document).ready(function()
     $('#btnAutoScroll').click(function() {
 
     })
-    $('.captionItem .hand').live('click', function() {
+    $('.play-exam-item .play-exam-tag').live('click', function() {
         var item = $(this).parent();
         startTime = item.find('.startTime').val();
         lastCaptionTime = startTime;
@@ -109,23 +125,23 @@ $(document).ready(function()
         });
     });
 
-    $('.txtAnswer').live('focus', function() {
+    $('.play-exam-answer').live('focus', function() {
         lastAnswerField = $(this);
         var html = '';
         var txtAnswer = $(this);
-        var index = txtAnswer.index('.txtAnswer');
+        var index = txtAnswer.index('.play-exam-answer');
         $.getJSON('data-video/1.json', function(data) {
             hintList = data.hintList[index];
             if (hintList[1] != undefined && hintList.length > 0) {
                 html = '';
                 for (i = 0; i < hintList.length; i++) {
                     hint = hintList[i + 1];
-                    html += '<span class="hintItem">' + hint + '</span>';
+                    html += '<span class="play-keyword-item">' + hint + '</span>';
                 }
-                $('#hintList').html(html);
+                $('.play-keywords').html(html);
 
             } else {
-                $('#hintList').html('No suggestions');
+                $('.play-keywords').html('No suggestions');
             }
         });
 
