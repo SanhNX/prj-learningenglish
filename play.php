@@ -8,9 +8,9 @@
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/JSON.js"></script>
     <script type="text/javascript" src="scripts/video-control.js"></script>
-	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
@@ -115,7 +115,7 @@
 				<iframe id="player" width="100%" height="100%" src="http://www.youtube.com/embed/gnT8pD9eSCc" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="fb-comment">
-				<div class="fb-comments" data-href="http://www.haivl.com/photo/217688" data-width="470" data-num-posts="1"></div>
+				<div class="fb-comments" data-href="http://www.youtube.com/embed/gnT8pD9eSCc" data-width="470" data-num-posts="1"></div>
 			</div>
 		</div>
 		<div class="panel-play">
