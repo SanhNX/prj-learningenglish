@@ -353,10 +353,12 @@ body {
 	list-style: none;
 	font-size: 13px;
 }
+
 .control-rank-item {
 	height: 40px;
 	line-height: 40px;
 	text-indent: 20px;
+	text-align: left;
 	color: #FFF;
 }
 
@@ -399,12 +401,15 @@ body {
 .video-control-metro.scroll {
 	background: url("../images/icon/autoscroll.png") center 15px no-repeat #111;
 }
-.skip5,.back5,.scroll{
+
+.skip5, .back5, .scroll {
 	cursor: pointer;
 }
-.skip5:hover, .back5:hover, .scroll:hover{
+
+.skip5:hover, .back5:hover, .scroll:hover {
 	background-color: #333;
 }
+
 .video-control-metro.score {
 	background-color: #B32F2F;
 }
@@ -425,6 +430,19 @@ body {
 	margin: 5px;
 }
 
+.video-social {
+	height: 40px;
+	background-color: #555;
+	margin: 0px 5px;
+}
+
+.video-comment {
+	height: 200px;
+	background-color: #AAA;
+	margin: 0px 5px;
+}
+
+/*Play*/
 .panel-play {
 	width: 590px;
 	display: inline-block;
@@ -476,8 +494,12 @@ body {
 	font-size: 0;
 	background-color: #9B9B9B;
 }
+
 .play-exam-item.play {
 	background-color: #0FC407;
+}
+.play-exam-item:last-child {
+	margin-bottom: 0px;
 }
 
 .play-exam-tag {
@@ -491,6 +513,7 @@ body {
 	cursor: pointer;
 	vertical-align: top;
 }
+
 .play-exam-tag:hover {
 	background-color: #777;
 }
@@ -523,16 +546,52 @@ body {
 	background: url("../images/icon/pin-map-blue-ico.png") no-repeat 5px center #FFF;
 	padding: 0px 0px 0px 20px;
 	width: 120px;
-	color: #111;
+	color: #0761E7;
 	font-family: "Segoe UI";
 	font-size: 15px;
+	font-weight: bold;
 }
+
 .play-exam-answer:focus {
 	border-color: #52A8EC;
 	outline: 0;
 
 }
-/*Control 2*/
-.control-play-post{
 
+/*Control 2*/
+.control-play-post {
+	height: 50px;
+	margin-bottom: 5px;
+}
+
+.control-button {
+	height: 50px;
+	width: 110px;
+	float: left;
+	background-color: #222;
+	margin: 0px 5px 0px 0px;
+	color: #FFF;
+	font-size: 13px;
+	line-height: 80px;
+	text-align: center;
+	cursor: pointer;
+}
+.control-button.finish {
+	background:url("../images/icon/finish-ico.png") no-repeat center 5px #0FC407;
+}
+.control-button.retry {
+	background:url("../images/icon/retry-ico.png") no-repeat center 5px #F98B00;
+}
+.control-button.error {
+	background:url("../images/icon/alert-ico.png") no-repeat center 5px #F90A00;
+	float: right;
+}
+.control-button.finish:hover {
+	background-color: #0f7107;
+}
+.control-button.retry:hover {
+	background-color: #975100;
+}
+.control-button.error:hover {
+	background-color: #a30a00;
 }
