@@ -113,15 +113,14 @@ $(document).ready(function()
     });
     getVideoContent();
     //$('#hintList').show();
-    $('.txtAnswer').live('blur keyup focus', function() {
+    $('.play-exam-answer').live('blur keyup focus', function() {
         answeredField = 0;
-        $('.txtAnswer').each(function(index) {
+        $('.play-exam-answer').each(function(index) {
 
             if ($(this).val().trim().length > 0) {
                 answeredField++;
             }
-
-            $('#answerStat #totalAnswer').html(answeredField);
+            $('.video-control .video-control-score').html(answeredField + "/20");
         });
     });
 
@@ -147,7 +146,7 @@ $(document).ready(function()
 
     });
 
-    $('.hintItem').live('click', function(e) {
+    $('.play-keyword-item').live('click', function(e) {
         e.preventDefault();
         lastAnswerField.val($(this).html());
         lastAnswerField.focus();
