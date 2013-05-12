@@ -420,7 +420,7 @@ body {
 }
 
 .video-player {
-	height: 300px;
+	height: 400px;
 	background-color: #2C2B2B;
 	margin: 5px;
 }
@@ -505,6 +505,7 @@ body {
 	background: #EEE;
 	color: #4D4D4D;
 	vertical-align: top;
+	text-align: left;
 }
 
 .play-exam-item.play .play-exam-tag {
@@ -525,6 +526,11 @@ body {
 	color: #111;
 	font-family: "Segoe UI";
 	font-size: 15px;
+}
+.play-exam-answer:focus {
+	border-color: #52A8EC;
+	outline: 0;
+
 }
 /*Control 2*/
 .control-play-post{
