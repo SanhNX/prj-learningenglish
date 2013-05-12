@@ -8,9 +8,9 @@
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
-	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/JSON.js"></script>
     <script type="text/javascript" src="scripts/video-control.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
@@ -28,20 +28,20 @@
 <div class="page">
 	<div class="menu">
 		<ul class="menu-list">
-			<li class="menu-item home"><a href="#">Trang chủ</a></li>
-			<li class="menu-item menu-group acc" id="acc"><a href="#">Tài khoản</a>
+			<li class="menu-item home"><a href="#">Home</a></li>
+			<li class="menu-item menu-group acc" id="acc"><a href="#">Account</a>
 
 				<div class="menu-arrow"></div>
 			</li>
-			<li class="menu-item menu-group cate" id="cate"><a href="#">Thể loại</a>
+			<li class="menu-item menu-group cate" id="cate"><a href="#">Category</a>
 
 				<div class="menu-arrow"></div>
 			</li>
-			<li class="menu-item menu-group day" id="day"><a href="#">BXH Ngày</a>
+			<li class="menu-item menu-group day" id="day"><a href="#">Ranking in day</a>
 
 				<div class="menu-arrow"></div>
 			</li>
-			<li class="menu-item menu-group week" id="week"><a href="#">BXH Tuần</a>
+			<li class="menu-item menu-group week" id="week"><a href="#">Ranking in week</a>
 
 				<div class="menu-arrow"></div>
 			</li>
@@ -51,24 +51,24 @@
 
 			<div class="menu-popup-form acc">
 				<ul class="menu-popup-list">
-					<li class="menu-popup-item">Đăng nhập</li>
-					<li class="menu-popup-item">Đăng kí</li>
+					<li class="menu-popup-item">Log in</li>
+					<li class="menu-popup-item">Register</li>
 				</ul>
 			</div>
 			<div class="menu-popup-form cate">
 				<ul class="menu-popup-list">
-					<li class="menu-popup-item">Giải trí</li>
-					<li class="menu-popup-item">Âm nhạc</li>
-					<li class="menu-popup-item">Làm thế nào</li>
-					<li class="menu-popup-item">Khoa học</li>
-					<li class="menu-popup-item">Thế giới tự nhiên</li>
-					<li class="menu-popup-item">Thể thao</li>
-					<li class="menu-popup-item">Tâm lý người</li>
-					<li class="menu-popup-item">Máy tính</li>
-					<li class="menu-popup-item">Giao tiếp</li>
-					<li class="menu-popup-item">Dành cho trẻ em</li>
-					<li class="menu-popup-item">Thế giới</li>
-					<li class="menu-popup-item">Khi yêu</li>
+					<li class="menu-popup-item">Entertainment</li>
+					<li class="menu-popup-item">Music</li>
+					<li class="menu-popup-item">How to...</li>
+					<li class="menu-popup-item">Science</li>
+					<li class="menu-popup-item">The natural world</li>
+					<li class="menu-popup-item">Sport</li>
+					<li class="menu-popup-item">Psychology</li>
+					<li class="menu-popup-item">Computer</li>
+					<li class="menu-popup-item">Communication</li>
+					<li class="menu-popup-item">For children</li>
+					<li class="menu-popup-item">World</li>
+					<li class="menu-popup-item">The Love</li>
 				</ul>
 			</div>
 			<div class="menu-popup-form day">
@@ -105,12 +105,13 @@
 
 		<div class="panel-video">
 			<div class="video-control">
-				<div class="video-control-metro back5">Lùi 5 giây</div>
-				<div class="video-control-metro skip5"> Tiến 5 giây</div>
-				<div class="video-control-metro large scroll">Tự cuộn theo video</div>
-				<div class="video-control-metro large score"> Kết quả
+				<div class="video-control-metro back5">5 seconds</div>
+				<div class="video-control-metro skip5">5 seconds</div>
+				<div class="video-control-metro large scroll">Auto Scroll</div>
+				<div class="video-control-metro large score"> Result
 					<span class="video-control-score"></span></div>
 			</div>
+			<div class="video-title"></div>
 			<div class="video-player">
 				<iframe id="player" width="100%" height="100%" src="http://www.youtube.com/embed/gnT8pD9eSCc" frameborder="0" allowfullscreen></iframe>
 			</div>
@@ -140,12 +141,13 @@
 			</div>
 
 			<div class="control-play-post">
-				<div class="control-button finish">
+				<div class="control-button finish">Submit
 				</div>
-				<div class="control-button retry">
+				<div class="control-button retry">Try Again
 				</div>
-				<div class="control-button error">
+				<div class="control-button error">Notify Error
 				</div>
+			</div>
 				<div class="control-rank-recent">
 					<div class="control-rank-head"></div>
 					<ul class="control-rank-list">
