@@ -5,11 +5,11 @@
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="scripts/JSON.js"></script>
-    <script type="text/javascript" src="scripts/video-control.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
+	<script type="text/javascript" src="scripts/JSON.js"></script>
+    <script type="text/javascript" src="scripts/video-control.js"></script>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
 </head>
