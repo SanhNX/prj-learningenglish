@@ -98,7 +98,7 @@
 				<div class="video-control-metro skip5"> Tiến 5 giây</div>
 				<div class="video-control-metro large scroll">Tự cuộn theo video</div>
 				<div class="video-control-metro large score"> Kết quả
-					<span class="video-control-score">15/20</span></div>
+					<span class="video-control-score"></span></div>
 			</div>
 			<div class="video-player">
 				<iframe id="player" width="100%" height="100%" src="http://www.youtube.com/embed/gnT8pD9eSCc" frameborder="0" allowfullscreen></iframe>
