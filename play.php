@@ -112,7 +112,7 @@
 				<div class="video-control-metro back5">5 seconds</div>
 				<div class="video-control-metro skip5">5 seconds</div>
 				<div class="video-control-metro large scroll">Auto Scroll</div>
-				<div class="video-control-metro large score"> Result
+				<div class="video-control-metro large score"> Number of answers
 					<span class="video-control-score"></span></div>
 			</div>
 			<div class="video-title"></div>
