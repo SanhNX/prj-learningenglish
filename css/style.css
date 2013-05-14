@@ -192,7 +192,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ★★★★★★★★★★★★★★★★★★★★★★★ FORM ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+/* ??????????????????????? FORM ?????????????????????????????*/
 .form {
 	height: 100%;
 	top: 0px;
@@ -333,7 +333,7 @@ body {
 	height: 200px;
 	width: 620px;
 	background-color: #d92266;
-	font-size: 14px;
+	font-size: 0;
 }
 
 .control-rank-head {
@@ -362,7 +362,7 @@ body {
 	color: #FFF;
 }
 
-/* ★★★★★★★★★★★★★★★★★★★★★★★ PLAY ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+/* ??????????????????????? PLAY ?????????????????????????????*/
 .panel-video {
 	width: 565px;
 	display: inline-block;
@@ -411,7 +411,7 @@ body {
 }
 
 .video-control-metro.score {
-	background-color: #111;
+	background-color: #B32F2F;
 }
 
 .video-control-score {
@@ -422,16 +422,6 @@ body {
 	left: 0;
 	line-height: 60px;
 	font-size: 30px;
-}
-.video-title {
-	height: 40px;
-	line-height: 45px;
-	font-size: 25px;
-	font-family: "Segoe UI light";
-	color: #16499a;
-	text-indent: 5px;
-	text-align: center;
-	font-weight: bold;
 }
 
 .video-player {
@@ -508,6 +498,7 @@ body {
 .play-exam-item.play {
 	background-color: #0FC407;
 }
+
 .play-exam-item:last-child {
 	margin-bottom: 0px;
 }
@@ -586,22 +577,159 @@ body {
 	text-align: center;
 	cursor: pointer;
 }
+
 .control-button.finish {
-	background:url("../images/icon/finish-ico.png") no-repeat center 5px #0761E7;
+	background: url("../images/icon/finish-ico.png") no-repeat center 5px #0761E7;
 }
+
 .control-button.retry {
-	background:url("../images/icon/retry-ico.png") no-repeat center 5px #F98B00;
+	background: url("../images/icon/retry-ico.png") no-repeat center 5px #F98B00;
 }
+
 .control-button.error {
-	background:url("../images/icon/alert-ico.png") no-repeat center 5px #F90A00;
+	background: url("../images/icon/alert-ico.png") no-repeat center 5px #F90A00;
 	float: right;
 }
+
 .control-button.finish:hover {
-	background-color: #054CB6;
+	background-color: #0761E7;
 }
+
 .control-button.retry:hover {
 	background-color: #975100;
 }
+
 .control-button.error:hover {
 	background-color: #a30a00;
+}
+
+/* ★★★★★★★★★★★★★★★★★★★★★★★ POPUP ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+.popup {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 0px 60px 0px #000;
+	z-index: 200;
+	color: #FFF;
+}
+
+.popup-form {
+	height: 350px;
+	width: 100%;
+	position: fixed;
+	top: 150px;
+	left: 0;
+	background: #002D87;
+	-webkit-box-shadow: 0px 0px 50px 0px #000;
+	-moz-box-shadow: 0px 0px 50px 0px #000;
+	box-shadow: 0px 0px 50px 0px #000;
+}
+
+.popup-wrapper {
+	width: 570px;
+	height: 100%;
+	margin: 0px auto;
+}
+
+.login-avt {
+	height: 100%;
+	width: 160px;
+	float: left;
+	position: relative;
+	background: url("../images/icon/avata-ico.png") no-repeat center;
+}
+
+.login-info {
+	height: 100%;
+	width: 360px;
+	float: left;
+	padding-left: 50px;
+}
+
+.login-info-title {
+	height: 100px;
+	line-height: 100px;
+	font-family: "Segoe UI light";
+	font-size: 50px;
+}
+
+.login-info-row {
+	height: 32px;
+	line-height: 32px;
+	margin: 5px 0px;
+}
+.login-info-row.large {
+	margin: 20px 0px 0px 0px;
+}
+
+.login-info-label {
+	vertical-align: middle;
+}
+
+.login-info-input {
+	vertical-align: middle;
+	width: 200px;
+	height: 26px;
+	line-height: 26px;
+	float: right;
+	border: 2px solid #FFF;
+	background: none;
+	text-indent: 10px;
+	color: #FFF;
+	font-family: "Segoe UI";
+	font-size: 15px;
+	font-weight: bold;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+
+.login-info-input:focus {
+	outline: 0;
+	background: #1E54BE;
+}
+
+.login-info-button {
+	vertical-align: middle;
+	width: 150px;
+	height: 26px;
+	line-height: 26px;
+	float: right;
+	border: 2px solid #FFF;
+	font-size: 15px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+
+.login-info-button:hover {
+	background: #5D91F8;
+}
+
+.login-info-button:active {
+	background: #0025be;
+}
+
+.login-info-link {
+	background: url("../images/icon/bullet-ico.png") no-repeat left center;
+	text-indent: 20px;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-transition: color 250ms linear;
+	-moz-transition: color 250ms linear;
+	transition: color 250ms linear;
+}
+.login-info-link:hover {
+	color: #5D91F8;
+}
+.login-info-link:active {
+	color: #0025be;
+}
+.disable{
+	display: none;
 }
