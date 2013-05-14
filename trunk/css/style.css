@@ -733,3 +733,6 @@ body {
 .disable{
 	display: none;
 }
+.fb-bar {
+	margin: 0px 425px 10px 0px;
+}
