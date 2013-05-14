@@ -411,7 +411,7 @@ body {
 }
 
 .video-control-metro.score {
-	background-color: #B32F2F;
+	background-color: #111;
 }
 
 .video-control-score {
@@ -587,7 +587,7 @@ body {
 	cursor: pointer;
 }
 .control-button.finish {
-	background:url("../images/icon/finish-ico.png") no-repeat center 5px #0FC407;
+	background:url("../images/icon/finish-ico.png") no-repeat center 5px #0761E7;
 }
 .control-button.retry {
 	background:url("../images/icon/retry-ico.png") no-repeat center 5px #F98B00;
@@ -597,7 +597,7 @@ body {
 	float: right;
 }
 .control-button.finish:hover {
-	background-color: #0f7107;
+	background-color: #054CB6;
 }
 .control-button.retry:hover {
 	background-color: #975100;

@@ -24,7 +24,7 @@ $(document).ready(function() {
                             '</a>'+
                             '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>'+
                         '</div>';
-            console.log(row);
+            // console.log(row);
             html += row;
         }
         $(".play-exam-list").append(html);
