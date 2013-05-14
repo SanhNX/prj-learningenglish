@@ -39,11 +39,12 @@ function checkVideoTime() {
     for (p in timeList) {
         p = parseInt(p);
         number = timeList[p];
-        // console.log("-------------------------"+lastCaptionTime);
+        console.log("-------------------------"+lastCaptionTime);
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
             // setCaptionInView(item);
+
             activeCaptionTime(item);
             break;
         }
@@ -155,7 +156,10 @@ $(document).ready(function()
         e.preventDefault();
         $('#btnSubmitVideoAnswer').button('reset').show();
 
-        getVideoContent();
+        // getVideoContent();
+        $(".play-exam-answer").each(function(index) {
+            $(this).val('');
+        });
     })
 
     $('#btnSubmitVideoAnswer').click(function(e) {
@@ -167,7 +171,7 @@ $(document).ready(function()
 
             $(this).button('loading');
             var answer = [];
-            $(".txtAnswer").each(function(index) {
+            $(".play-exam-answer").each(function(index) {
                 value = $(this).val();
                 answer.push(value);
             });
@@ -269,9 +273,9 @@ function saveHighScore(score) {
 }
 
 function checkEmptyField() {
-    $('.txtAnswer').removeClass('inputError');
+    $('.play-exam-answer').removeClass('inputError');
     var result = false;
-    $(".txtAnswer").each(function(index) {
+    $(".play-exam-answer").each(function(index) {
 
         value = $(this).val();
 

@@ -4,9 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
 	<script type="text/javascript" src="scripts/JSON.js"></script>
     <script type="text/javascript" src="scripts/video-control.js"></script>
@@ -141,9 +144,9 @@
 			</div>
 
 			<div class="control-play-post">
-				<div class="control-button finish">Submit
+				<div id="btnSubmitVideoAnswer" class="control-button finish">Submit
 				</div>
-				<div class="control-button retry">Try Again
+				<div id="btnReset" class="control-button retry">Try Again
 				</div>
 				<div class="control-button error">Notify Error
 				</div>
