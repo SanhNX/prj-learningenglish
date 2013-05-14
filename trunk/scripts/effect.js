@@ -23,10 +23,14 @@ $(function () {
         });
     });
 	loadMetroPage();
-	showLogin();
+	// showLogin();
 	$(".login-info-button").click(function(){
 		hideLogin();
 	});
+
+    $("#btnLogin").click(function(){
+        showLogin();
+    });
 });
 function loadMetroPage() {
 	var metroIndex=0;
