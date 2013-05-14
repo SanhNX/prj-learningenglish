@@ -1,5 +1,5 @@
 $(function () {
-    $(".menu-item").each(function () {
+    $(".menu-group").each(function () {
         $(this).hover(function () {
             blurAllMenu();
             $(this).addClass("hover");
@@ -9,15 +9,10 @@ $(function () {
             $("#menu-popup").css({overflow: "visible"}).stop().animate({width: 350}, 1000, "easeOutQuint");
             $(".menu-popup-form." + this.id + " .menu-popup-list").css({right: 350}).animate({right: 0}, 1100, "easeOutQuint");
         }, function () {
-
-//            $(this).removeClass("hover");
-//            setMenuBlur(this);
-//            $("#menu-popup").css({overflow: "hidden"}).stop().animate({width: 0}, "easeOutQuint", function () {
-//                $(this).removeClass("active");
-//            });
         });
 
     });
+
     $("#menu-popup").hover(function () {
         $(this).addClass("active");
         $(this).stop().animate({width: 350});
@@ -27,17 +22,25 @@ $(function () {
             $(this).removeClass("active");
         });
     });
-    var metroIndex=0;
-    $(".metro-item").each(function () {
-        $(this).css({left:500,opacity:0}).delay(metroIndex++*50).animate({left:0,opacity:1}, 2000, "easeOutQuint");
-
-    });
-    $(".metro-item").hover(function () {
-        $(this).children(".metro-bar").animate({height:200}, 500, "easeOutQuint");
-    },function () {
-        $(this).children(".metro-bar").animate({height:90}, 500, "easeOutQuint");
-    });
+	loadMetroPage();
+	showLogin();
+	$(".login-info-button").click(function(){
+		hideLogin();
+	});
 });
+function loadMetroPage() {
+	var metroIndex=0;
+	$(".metro-item").each(function () {
+		$(this).css({left:500,opacity:0}).delay(metroIndex++*50).animate({left:0,opacity:1}, 2000, "easeOutQuint");
+
+	});
+
+	$(".metro-item").hover(function () {
+		$(this).children(".metro-bar").animate({height:200}, 500, "easeOutQuint");
+	},function () {
+		$(this).children(".metro-bar").animate({height:90}, 500, "easeOutQuint");
+	});
+}
 function setMenuHover(item) {
     $(item).children(".menu-arrow").stop().animate({right: 0}, 200);
     $(item).stop().animate({backgroundColor: "#222222"}, 200);
@@ -53,4 +56,19 @@ function blurAllMenu() {
         $(this).removeClass("hover");
         setMenuBlur(this);
     });
+}
+function showLogin() {
+	$(".popup").removeClass("disable");
+	$(".popup").css({opacity:0}).animate({opacity:1},250);
+	$(".popup-wrapper").css({opacity:0});
+	$(".popup-form").css({width:0}).animate({width:"100%"},1000, "easeOutQuint",function(){
+		$(".popup-wrapper").animate({opacity:1},250);
+	});
+}
+function hideLogin() {
+	$(".popup").removeClass("disable");
+
+	$(".popup-wrapper").animate({opacity:0},250);
+	$(".popup-form").animate({width:0},1000, "easeOutQuint");
+	$(".popup").delay(300).animate({opacity:0},250);
 }
