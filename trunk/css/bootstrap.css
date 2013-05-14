@@ -877,7 +877,9 @@ textarea {
 }
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  float: left;
+  margin-left: 5px;
 }
 select,
 /*textarea,
@@ -1143,7 +1145,7 @@ input.span5, textarea.span5, .uneditable-input.span5 {
   width: 366px;
 }
 input.span4, textarea.span4, .uneditable-input.span4 {
-  width: 286px;
+  width: 515px;
 }
 input.span3, textarea.span3, .uneditable-input.span3 {
   width: 206px;
@@ -4343,7 +4345,7 @@ input[type="submit"].btn.btn-mini {
   top: -25%;
 }
 .modal.fade.in {
-  top: 40%;
+  top: 20%;
 }
 .modal-header {
   padding: 9px 15px;
