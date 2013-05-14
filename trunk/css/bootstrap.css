@@ -216,7 +216,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #0066cc;
+  /*color: #0066cc;*/
   text-decoration: underline;
 }
 .img-rounded {

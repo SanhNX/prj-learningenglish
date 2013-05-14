@@ -160,6 +160,8 @@ $(document).ready(function()
         $(".play-exam-answer").each(function(index) {
             $(this).val('');
         });
+        answeredField = 0;
+        $('.video-control .video-control-score').html(answeredField + "/" + totalField);
     })
 
     $('#btnSubmitVideoAnswer').click(function(e) {
