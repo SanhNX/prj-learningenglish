@@ -23,78 +23,9 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <div class="page">
-<div class="menu">
-	<ul class="menu-list">
-		<li class="menu-item home"><a href="#">Trang chủ</a></li>
-		<li class="menu-item menu-group acc" id="acc"><a href="#">Tài khoản</a>
-
-			<div class="menu-arrow"></div>
-		</li>
-		<li class="menu-item menu-group cate" id="cate"><a href="#">Thể loại</a>
-
-			<div class="menu-arrow"></div>
-		</li>
-		<li class="menu-item menu-group day" id="day"><a href="#">BXH Ngày</a>
-
-			<div class="menu-arrow"></div>
-		</li>
-		<li class="menu-item menu-group week" id="week"><a href="#">BXH Tuần</a>
-
-			<div class="menu-arrow"></div>
-		</li>
-
-	</ul>
-	<div class="menu-popup" id="menu-popup">
-
-		<div class="menu-popup-form acc">
-			<ul class="menu-popup-list">
-				<li class="menu-popup-item">Đăng nhập</li>
-				<li class="menu-popup-item">Đăng kí</li>
-			</ul>
-		</div>
-		<div class="menu-popup-form cate">
-			<ul class="menu-popup-list">
-				<li class="menu-popup-item">Giải trí</li>
-				<li class="menu-popup-item">Âm nhạc</li>
-				<li class="menu-popup-item">Làm thế nào</li>
-				<li class="menu-popup-item">Khoa học</li>
-				<li class="menu-popup-item">Thế giới tự nhiên</li>
-				<li class="menu-popup-item">Thể thao</li>
-				<li class="menu-popup-item">Tâm lý người</li>
-				<li class="menu-popup-item">Máy tính</li>
-				<li class="menu-popup-item">Giao tiếp</li>
-				<li class="menu-popup-item">Dành cho trẻ em</li>
-				<li class="menu-popup-item">Thế giới</li>
-				<li class="menu-popup-item">Khi yêu</li>
-			</ul>
-		</div>
-		<div class="menu-popup-form day">
-			<ul class="menu-popup-list special">
-				<li class="menu-popup-item odd">Name1 2000</li>
-				<li class="menu-popup-item">Name2 4000</li>
-				<li class="menu-popup-item odd">Name3 2000</li>
-				<li class="menu-popup-item">Name4 4000</li>
-				<li class="menu-popup-item odd">Name5 2000</li>
-				<li class="menu-popup-item">Name6 4000</li>
-				<li class="menu-popup-item odd">Name7 2000</li>
-				<li class="menu-popup-item">Name8 4000</li>
-				<li class="menu-popup-item odd">Name9 2000</li>
-				<li class="menu-popup-item">Name10 4000</li>
-			</ul>
-		</div>
-		<div class="menu-popup-form week">
-			<ul class="menu-popup-list special">
-				<li class="menu-popup-item odd">Name1 2000</li>
-				<li class="menu-popup-item">Name2 4000</li>
-				<li class="menu-popup-item odd">Name3 2000</li>
-				<li class="menu-popup-item">Name4 4000</li>
-				<li class="menu-popup-item odd">Name5 2000</li>
-				<li class="menu-popup-item">Name6 4000</li>
-			</ul>
-		</div>
-	</div>
-
-</div>
+<?php
+	include 'common/menu.php';
+?>
 <div class="form">
 	<div class="form-head">
 		<span>Learning-English</span><span class="form-head-gray">Home</span>
@@ -245,17 +176,17 @@
 			<div class="login-avt"></div>
 			<div class="login-info">
 				<div class="login-info-title">
-					Đăng nhập
+					Login Form !
 				</div>
-				<div class="login-info-row"><span class="login-info-label">Tên tài khoản:</span>
+				<div class="login-info-row"><span class="login-info-label">User Name </span>
 					<input class="login-info-input" type="text" value=""/>
 				</div>
-				<div class="login-info-row"><span class="login-info-label">Mật khẩu:</span>
+				<div class="login-info-row"><span class="login-info-label">Password </span>
 					<input class="login-info-input" type="password" value=""/>
 				</div>
 				<div class="login-info-row large">
-					<a class="login-info-link">Quên mật khẩu?</a>
-					<a class="login-info-button">Đăng nhập</a>
+					<a class="login-info-link">Forgot password ?</a>
+					<a class="login-info-button">Submit</a>
 				</div>
 			</div>
 		</div>
