@@ -170,28 +170,8 @@
 		<div class="fb-like-box" data-href="http://www.facebook.com/voalearningenglish" data-width="1040" data-height="210" data-show-faces="true" data-stream="false" data-header="false"></div>
 	</div>
 </div>
-<div class="popup disable">
-	<div class="popup-form login">
-		<div class="popup-wrapper">
-			<div class="login-avt"></div>
-			<div class="login-info">
-				<div class="login-info-title">
-					Login Form !
-				</div>
-				<div class="login-info-row"><span class="login-info-label">User Name </span>
-					<input class="login-info-input" type="text" value=""/>
-				</div>
-				<div class="login-info-row"><span class="login-info-label">Password </span>
-					<input class="login-info-input" type="password" value=""/>
-				</div>
-				<div class="login-info-row large">
-					<a class="login-info-link">Forgot password ?</a>
-					<a class="login-info-button">Submit</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
+<?php
+	include 'common/login-register.php';
+?>
 </body>
 </html>

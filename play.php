@@ -85,28 +85,31 @@
 			</div>
 				<div class="control-rank-recent">
 					<div id="feedbackDialog" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
-					  <div class="modal-header">
-					    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					    <h3 id="myModalLabel">Report Error</h3>
-					  </div>
-					        <div class="modal-body">            
-					            <p>So glad you have informed us of the fault site . All comments will be taken seriously and fix as quickly as possible .</p>
-					            
-					            <form class="form-vertical" id="yw2" action="/play/197/video/start" method="post">            	
-					            	<label for="Report_url" class="required">Url <span class="required">*</span></label><input class="span4" style="color:black;" name="Report[url]" id="Report_url" type="text" maxlength="100" value="http://localhost/prj-learningenglish/play.php">
-					            	<label for="Report_message" class="required">Message <span class="required">*</span></label><textarea class="span4" name="Report[message]" id="Report_message"></textarea>            	<p>Your email is required but can help us notify you in case of error recovery
-</p>
-					            	<label for="Report_email">Email</label><input class="span4" style="color:black;" name="Report[email]" id="Report_email" type="text" maxlength="100">            	
-					            </form>            
-					        </div>
-					        <div class="modal-footer">
-					            
-					            <a href="#" class="btn btn-primary" id="btnSendReport"><i class="icon-ok icon-white"></i> Submit</a>            
-					            <a href="#" data-dismiss="modal" class="btn">Exit</a>
-					            
-					        </div>
-					    
-					    </div>
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel">Report Error</h3>
+						</div>
+				        <div class="modal-body">            
+				            <p>So glad you have informed us of the fault site . All comments will be taken seriously and fix as quickly as possible .</p>
+				            <form class="form-vertical" id="yw2" action="/play/197/video/start" method="post">            	
+				            	<label for="Report_url" class="required">Url <span class="required">*</span></label>
+				            	<input class="span4" style="color:black;" name="Report[url]" id="Report_url" type="text" maxlength="100" 
+				            			value="http://localhost/prj-learningenglish/play.php">
+				            	<label for="Report_message" class="required">Message <span class="required">*</span></label>
+				            	<textarea class="span4" name="Report[message]" id="Report_message"></textarea>            	
+				            	<p>Your email is required but can help us notify you in case of error recovery</p>
+				            	<label for="Report_email">Email</label>
+				            	<input class="span4" style="color:black;" name="Report[email]" id="Report_email" type="text" maxlength="100">            	
+				            </form>            
+				        </div>
+				        <div class="modal-footer">
+				            
+				            <a href="#" class="btn btn-primary" id="btnSendReport"><i class="icon-ok icon-white"></i> Submit</a>            
+				            <a href="#" data-dismiss="modal" class="btn">Exit</a>
+				            
+				        </div>
+				    
+				    </div>
 					<div class="control-rank-head"></div>
 					<ul class="control-rank-list">
 						<li class="control-rank-item">User 1</li>
@@ -119,5 +122,8 @@
 		</div>
 
 	</div>
+	<?php
+		include 'common/login-register.php';
+	?>
 </body>
 </html>
