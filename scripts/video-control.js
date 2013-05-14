@@ -167,7 +167,7 @@ $(document).ready(function()
         var button = $(this);
 
         if (checkEmptyField() == true) {
-            bootbox.alert('Bài làm của bạn đang được gửi, kết quả sẽ trả về trong vài giây...');
+            bootbox.alert('Your assignment is to be sent , returns results in seconds...');
 
             $(this).button('loading');
             var answer = [];
@@ -188,7 +188,7 @@ $(document).ready(function()
                 },
                 type: 'post',
                 error: function(json) {
-                    bootbox.alert('Rất tiếc, chúng tôi đang gặp sự cố, và chúng tôi đang khắc phục lỗi này');
+                    bootbox.alert("Sorry, we're having trouble , and we are to overcome this error");
                 },
                 complete: function(json) {
 
@@ -207,10 +207,10 @@ $(document).ready(function()
                     }
                 }
             });
-            button.val('Đã làm xong');
+            button.val('Done');
             return false;
         } else {
-            bootbox.alert('Để nộp bài làm, bạn cần nhập ít nhất một ô', 'Đồng ý');
+            bootbox.alert('To submit assignments , you need to enter at least one box', 'Agree');
             return false;
         }
     });
@@ -351,9 +351,9 @@ $(document).ready(function() {
     });
     function setAutoScrollText() {
         if (autoscroll == 0 || autoscroll == null) {
-            btnAutoScroll.html('<i class="icon-ok-sign icon-white"></i> Bật tự cuộn');
+            btnAutoScroll.html('<i class="icon-ok-sign icon-white"></i> Enable Auto Scroll');
         } else {
-            btnAutoScroll.html('<i class="icon-remove-sign icon-white"></i> Tắt tự cuộn');
+            btnAutoScroll.html('<i class="icon-remove-sign icon-white"></i> Disable Auto Scroll');
         }
     }
 
