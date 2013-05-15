@@ -36,7 +36,9 @@
                                 for ($i = 0; $i < count($categoryList); $i ++ ) {
                                     $item = $categoryList[$i];
                                     echo '
-                                        <a href="index.php?category=' .$item ->id. '"><li class="menu-popup-item">' .$item ->name. '</li></a>
+                                        <a href="index.php?category=' .$item ->id. '" style="text-decoration: initial;">
+                                            <li class="menu-popup-item">' .$item ->name. '</li>
+                                        </a>
                                         ';  
                                 }
 
