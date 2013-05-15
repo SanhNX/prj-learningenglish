@@ -36,12 +36,13 @@
                                 for ($i = 0; $i < count($categoryList); $i ++ ) {
                                     $item = $categoryList[$i];
                                     echo '
-                                        <li class="menu-popup-item">' .$item ->name. '</li>
+                                        <a href="index.php?category=' .$item ->id. '"><li class="menu-popup-item">' .$item ->name. '</li></a>
                                         ';  
                                 }
 
                             ?>
 			</ul>
+                    
 		</div>
 		<div class="menu-popup-form day">
 			<ul class="menu-popup-list special">
