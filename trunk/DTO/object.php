@@ -13,4 +13,10 @@ class User{
 	var $status;
 }
 
+class Category{
+	var $id;
+	var $name;
+	var $description;
+}
+
 ?>

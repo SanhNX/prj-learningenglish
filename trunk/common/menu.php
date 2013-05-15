@@ -29,18 +29,18 @@
 		</div>
 		<div class="menu-popup-form cate">
 			<ul class="menu-popup-list">
-				<li class="menu-popup-item">Entertainment</li>
-				<li class="menu-popup-item">Music</li>
-				<li class="menu-popup-item">How to...</li>
-				<li class="menu-popup-item">Science</li>
-				<li class="menu-popup-item">The natural world</li>
-				<li class="menu-popup-item">Sport</li>
-				<li class="menu-popup-item">Psychology</li>
-				<li class="menu-popup-item">Computer</li>
-				<li class="menu-popup-item">Communication</li>
-				<li class="menu-popup-item">For children</li>
-				<li class="menu-popup-item">World</li>
-				<li class="menu-popup-item">The Love</li>
+                            <?php                                  
+                                // ----------------------------------
+                                $categoryList = getAllCategory();
+
+                                for ($i = 0; $i < count($categoryList); $i ++ ) {
+                                    $item = $categoryList[$i];
+                                    echo '
+                                        <li class="menu-popup-item">' .$item ->name. '</li>
+                                        ';  
+                                }
+
+                            ?>
 			</ul>
 		</div>
 		<div class="menu-popup-form day">
