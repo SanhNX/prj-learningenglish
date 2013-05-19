@@ -70,8 +70,6 @@ function showLogin() {
 	});
 }
 function hideLogin() {
-
-
 	$(".popup-wrapper").animate({opacity:0},250);
 	$(".popup-form").animate({width:0},1000, "easeOutQuint");
 	$(".popup").delay(300).animate({opacity:0},250,function(){
