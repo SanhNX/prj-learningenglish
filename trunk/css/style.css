@@ -367,6 +367,7 @@ body {
 	width: 565px;
 	display: inline-block;
 	vertical-align: top;
+	margin-bottom: 5px;
 }
 
 .video-control {
@@ -602,7 +603,62 @@ body {
 .control-button.error:hover {
 	background-color: #a30a00;
 }
+/* ★★★★★★★★★★★★★★★★★★★★★★★ BLOG ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+.panel-blog {
+	width: 500px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 5px;
+}
+.blog-list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.blog-item{
+	height: 100px;
+	background: #EEE;
+	margin: 0px 0px 5px 5px;
+	text-align: left;
+}
+.blog-item-title {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 10px;
+	color: #005CFF;
+}
+.blog-item-sub {
+	font-size: 12px;
+	text-align: right;
+	color: #0078A7;
+}
+.blog-item-info{
+	display: inline-block;
+	width: 350px;
+	height: 100%;
+}
+.blog-item-info-desc {
+	font-size: 12px;
+	text-align: left;
+	padding-left: 10px;
+}
+.blog-item-info-img {
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+	vertical-align: top;
+	background:url("../images/temp.jpg") center center #DDD;
+	background-size: auto 100%;
+}
+.blog-item-info-link{}
 
+.panel-rank-blog {
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 5px;
+}
 /* ★★★★★★★★★★★★★★★★★★★★★★★ POPUP ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 .popup {
 	height: 100%;
