@@ -284,6 +284,9 @@ body {
 	list-style: none;
 	margin: 0px 5px;
 	padding: 0;
+	max-width: 1050px;
+	position: relative;
+	overflow: visible;
 }
 
 .metro-item {
@@ -307,10 +310,12 @@ body {
 
 .metro-item.large .metro-bar {
 	background: rgba(238, 76, 112, 0.8);
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .metro-item.medium .metro-bar {
 	background: rgba(88, 213, 43, 0.8);
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .metro-bar {
@@ -320,6 +325,7 @@ body {
 	height: 90px;
 	width: 100%;
 	background: rgba(238, 227, 51, 0.8);
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .metro-bar-wrapper {
@@ -353,6 +359,20 @@ body {
 
 .metro-item:hover .metro-bar .metro-title {
 	-webkit-line-clamp: 7;
+}
+.metro-item-clear{
+	clear: both;
+}
+.metro-item-more{
+	height: 80px;
+	width: 50px;
+	color: #FFFFFF;
+	background:url("../images/icon/more-ico.png") no-repeat center 35px #0046A9;
+	position: absolute;
+	font-size: 13px;
+	bottom: 5px;
+	right: -55px;
+	cursor: pointer;
 }
 
 /*TOOLKIT*/
