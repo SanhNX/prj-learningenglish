@@ -37,7 +37,7 @@
 		<span>Learning-English</span><span class="form-head-gray">Home</span>
 	</div>
 	<ul class="metro-list">
-		<li class="metro-item">
+		<li class="metro-item" style="background-image: url('images/resource/metro/m1.jpg')">
 			<div class="metro-bar">
 				<a class="metro-bar-wrapper" href="">
 					<div class=metro-title>It is a long established fact that a reader will be distracted by the
@@ -52,7 +52,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="metro-item large">
+		<li class="metro-item large" style="background-image: url('images/resource/metro/m2.jpg')">
 			<div class="metro-bar">
 				<a class="metro-bar-wrapper">
 					<div class=metro-title>It is a long established ntentIt is a long established fact that a reader
@@ -67,7 +67,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="metro-item">
+		<li class="metro-item" style="background-image: url('images/resource/metro/m3.jpg')">
 			<div class="metro-bar">
 				<a class="metro-bar-wrapper" href="">
 					<div class=metro-title></div>
@@ -76,7 +76,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="metro-item medium">
+		<li class="metro-item medium" style="background-image: url('images/resource/metro/m4.jpg')">
 			<div class="metro-bar">
 				<a class="metro-bar-wrapper" href="">
 					<div class=metro-title>It is a long established fact that a reader will be distracted by the
@@ -87,7 +87,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="metro-item">
+		<li class="metro-item" style="background-image: url('images/resource/metro/m5.jpg')">
 			<div class="metro-bar">
 				<a class="metro-bar-wrapper" href="">
 					<div class=metro-title>It is a long established fact that a reader will be distracted by the
@@ -98,7 +98,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="metro-item large">
+		<li class="metro-item large" style="background-image: url('images/resource/metro/m6.jpg')">
 			<div class="metro-bar">
 				<div class="metro-bar-wrapper">
 					<div class=metro-title>It is a long established fact that a ntentIt is a long established fact that
@@ -113,7 +113,7 @@
 				</div>
 			</div>
 		</li>
-		<li class="metro-item large">
+		<li class="metro-item large" style="background-image: url('images/resource/metro/m7.jpg')">
 			<div class="metro-bar">
 				<div class="metro-bar-wrapper">
 					<div class=metro-title>It is a long established factntentIt is a long established fact that a reader
@@ -128,7 +128,7 @@
 				</div>
 			</div>
 		</li>
-		<li class="metro-item">
+		<li class="metro-item" style="background-image: url('images/resource/metro/m8.jpg')">
 			<div class="metro-bar">
 				<div class="metro-bar-wrapper">
 					<div class=metro-title>It is a long established fact that a reader will be distracted by the
@@ -139,7 +139,7 @@
 				</div>
 			</div>
 		</li>
-		<li class="metro-item medium">
+		<li class="metro-item medium" style="background-image: url('images/resource/metro/m9.jpg')">
 			<div class="metro-bar">
 				<div class="metro-bar-wrapper">
 					<div class=metro-title>It is a long established fact ntentIt is a long established fact that a
@@ -153,6 +153,11 @@
 					<div class=metro-level>999</div>
 				</div>
 			</div>
+		</li>
+		<li class="metro-item-clear">
+
+		</li>
+		<li class="metro-item-more"><span>Thêm</span>
 		</li>
 		
 	</ul>

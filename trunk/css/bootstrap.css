@@ -205,19 +205,19 @@ textarea {
   box-sizing: border-box;
 }
 body {  
-  margin: 0;  
+  /*margin: 0;  
   font-size: 14px;
   line-height: 20px;
   color: #555555;
-  background-color: #ffffff;
+  background-color: #ffffff;*/
 }
 a {
-  /*color: #007fff;*/
-  text-decoration: none;
+  /*color: #007fff;
+  text-decoration: none;*/
 }
 a:hover {
-  /*color: #0066cc;*/
-  text-decoration: underline;
+  /*color: #0066cc;
+  text-decoration: underline;*/
 }
 .img-rounded {
   -webkit-border-radius: 6px;
