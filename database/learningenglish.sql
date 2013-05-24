@@ -45,16 +45,6 @@ create table tbl_followuser
 	CONSTRAINT FOREIGN KEY(followuser) references tbl_user(id),
 	CONSTRAINT FOREIGN KEY(userfollow) references tbl_user(id)
 );
-create table tbl_activityhistory
-(
-    historyid int auto_increment primary key not null,
-    userid int not null,
-    articleid int not null,
-    datesubmit datetime,
-    score int,
-	CONSTRAINT FOREIGN KEY(articleid) references article(id),
-	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id)
-);
 create table tbl_article
 (
     id int auto_increment primary key not null,
@@ -68,6 +58,17 @@ create table tbl_article
     datecreate datetime,
 	CONSTRAINT FOREIGN KEY(categoryid) references tbl_category(id)
 );
+create table tbl_activityhistory
+(
+    historyid int auto_increment primary key not null,
+    userid int not null,
+    articleid int not null,
+    datesubmit datetime,
+    score int,
+	CONSTRAINT FOREIGN KEY(articleid) references article(id),
+	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id)
+);
+
 
 INSERT INTO tbl_category(name) VALUES('Entertainment');
 INSERT INTO tbl_category(name) VALUES('Music');

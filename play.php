@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+	include 'DAO/connection.php';
+	include 'DTO/object.php';
+	include 'BLL/categoryBll.php';      
+?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

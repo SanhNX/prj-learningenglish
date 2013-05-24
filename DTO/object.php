@@ -19,4 +19,16 @@ class Category{
 	var $description;
 }
 
+class Article{
+	var $idArticle;
+	var $idvideo;
+	var $categoryid;
+        var $title;
+	var $link;
+	var $thumbnail;
+        var $level;
+	var $timesplay;
+	var $datecreate;
+}
+
 ?>

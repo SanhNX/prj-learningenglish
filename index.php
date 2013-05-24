@@ -2,7 +2,8 @@
 <?php
         include 'DAO/connection.php';
         include 'DTO/object.php';
-        include 'BLL/categoryBll.php';      
+        include 'BLL/categoryBll.php';
+        include 'BLL/articleBLL.php';
 ?>
 <html>
 <head>
@@ -36,130 +37,67 @@
 	<div class="form-head">
 		<span>Learning-English</span><span class="form-head-gray">Home</span>
 	</div>
-	<ul class="metro-list">
-		<li class="metro-item" style="background-image: url('images/resource/metro/m1.jpg')">
-			<div class="metro-bar">
-				<a class="metro-bar-wrapper" href="">
-					<div class=metro-title>It is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</a>
-			</div>
-		</li>
-		<li class="metro-item large" style="background-image: url('images/resource/metro/m2.jpg')">
-			<div class="metro-bar">
-				<a class="metro-bar-wrapper">
-					<div class=metro-title>It is a long established ntentIt is a long established fact that a reader
-						will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is fact that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</a>
-			</div>
-		</li>
-		<li class="metro-item" style="background-image: url('images/resource/metro/m3.jpg')">
-			<div class="metro-bar">
-				<a class="metro-bar-wrapper" href="">
-					<div class=metro-title></div>
-					<div class=metro-times></div>
-					<div class=metro-level></div>
-				</a>
-			</div>
-		</li>
-		<li class="metro-item medium" style="background-image: url('images/resource/metro/m4.jpg')">
-			<div class="metro-bar">
-				<a class="metro-bar-wrapper" href="">
-					<div class=metro-title>It is a long established fact that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</a>
-			</div>
-		</li>
-		<li class="metro-item" style="background-image: url('images/resource/metro/m5.jpg')">
-			<div class="metro-bar">
-				<a class="metro-bar-wrapper" href="">
-					<div class=metro-title>It is a long established fact that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</a>
-			</div>
-		</li>
-		<li class="metro-item large" style="background-image: url('images/resource/metro/m6.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>It is a long established fact that a ntentIt is a long established fact that
-						a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
-		<li class="metro-item large" style="background-image: url('images/resource/metro/m7.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>It is a long established factntentIt is a long established fact that a reader
-						will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
-		<li class="metro-item" style="background-image: url('images/resource/metro/m8.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>It is a long established fact that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
-		<li class="metro-item medium" style="background-image: url('images/resource/metro/m9.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>It is a long established fact ntentIt is a long established fact that a
-						reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is a long established fact that a reader will be distracted by the
-						readable contentIt is that a reader will be distracted by the
-						readable content
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
+            <ul class="metro-list">
+                <?php
+                     $id = $_GET['category'];
+                     echo '<script>alert("'.$id.'");</script>';
+                     if ($id == null) {
+                         $page = 1;
+                     } else {
+                         $page ++;
+                     }
+                     echo '<script>alert("'.$page.'");</script>';
+                     $articleList = getArticleByCategoryid($id, $page);
+                      echo '<script>alert("'.count($articleList).'");</script>';
+                     $show = 0 ; 
+                     for ($y = 0; $y < count($articleList); $y ++ ) {
+                        $itemArticle = $articleList[$y];             
+                        if ($show == 1 || $show == 5 || $show == 6 || $show == 9 ) {
+                            echo '
+                                <li class="metro-item large" style="background-image: url('.$itemArticle ->thumbnail.')">
+                                    <div class="metro-bar">
+                                        <a class="metro-bar-wrapper" href="">
+                                            <div class=metro-title>
+                                                    <span>'.$itemArticle ->title.'</span>
+                                                    <div class="metro-title-duration">04:50</div>
+                                            </div>
+                                            <div class=metro-times>200</div>
+                                            <div class=metro-level>999</div>
+                                        </a>
+                                    </div>
+                                </li>
+                            ';
+                        }else {
+                            echo '
+                                <li class="metro-item" style="background-image: url('.$itemArticle ->thumbnail.')">
+                                    <div class="metro-bar">
+                                        <a class="metro-bar-wrapper" href="">
+                                            <div class=metro-title>
+                                                    <span>'.$itemArticle ->title.'</span>
+                                                    <div class="metro-title-duration">04:50</div>
+                                            </div>
+                                            <div class=metro-times>200</div>
+                                            <div class=metro-level>999</div>
+                                        </a>
+                                    </div>
+                                </li>
+                            ';
+                        }
+                        
+                        if ($y ==  10) {
+                            $show = 0 ;
+                        } else {
+                            $show ++;
+                        }
+                        
+                     }
+                ?>
+    
 		<li class="metro-item-clear">
 
 		</li>
 		<li class="metro-item-more"><span>Thêm</span>
 		</li>
-		
 	</ul>
 	<div class="control-bar">
 		<div class=control-fb></div>
