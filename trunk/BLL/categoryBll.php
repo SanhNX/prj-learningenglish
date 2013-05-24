@@ -9,12 +9,12 @@ function getAllCategory () {
     $sql = "SELECT * FROM tbl_category";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
-        echo 'Could not run query: ' . $id . mysql_error();
+        echo 'Could not run query: ';
         exit;
     }
 	
 	$i = 0;
-    $result;
+    $result = null;
     while ($seletedItem = mysql_fetch_array($queryResult)) {
         $item = new Category();
         $item->id = $seletedItem['id'];
