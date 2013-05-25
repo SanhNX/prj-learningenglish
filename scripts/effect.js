@@ -29,14 +29,20 @@ $(function () {
 	    $(this).stop().animate({width: 80}, 1000, "easeOutQuint");
     });
 	loadMetroPage();
-	// showLogin();
-	$(".login-info-button").click(function(){
+	$(".login-info-button").click(function () {
+		hideLogin();
+	});
+	$(".popup-back").click(function () {
 		hideLogin();
 	});
 
     $("#btnLogin").click(function(){
-        showLogin();
+        showLogin("login");
     });
+    $("#btnRegis").click(function(){
+        showLogin("register");
+    });
+
 });
 function loadMetroPage() {
 	var metroIndex=0;
@@ -67,13 +73,13 @@ function blurAllMenu() {
         setMenuBlur(this);
     });
 }
-function showLogin() {
+function showLogin(id) {
 	$(".popup").removeClass("disable");
 	$(".popup").css({opacity:0}).animate({opacity:1},250);
 	$(".popup-wrapper").css({opacity:0});
-	$(".popup-form").css({width:0}).animate({width:"100%"},1000, "easeOutQuint",function(){
-		$(".popup-wrapper").animate({opacity:1},250);
-	});
+	$(".popup-form."+id).css({width:0}).animate({width:"100%"},1000, "easeOutQuint");
+	$(".popup-form."+id +" .popup-wrapper").delay(300).animate({opacity:1},250);
+	$(".popup-form."+id +" .login-info-input").first().focus();
 }
 function hideLogin() {
 	$(".popup-wrapper").animate({opacity:0},250);
