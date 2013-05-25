@@ -36,8 +36,8 @@
 
 		<div class="menu-popup-form acc">
 			<ul class="menu-popup-list">
-				<li class="menu-popup-item">Đăng nhập</li>
-				<li class="menu-popup-item">Đăng kí</li>
+				<li class="menu-popup-item" id="btnLogin">Đăng nhập</li>
+				<li class="menu-popup-item" id="btnRegis">Đăng kí</li>
 			</ul>
 		</div>
 		<div class="menu-popup-form cate">
@@ -326,6 +326,7 @@
 	</div>
 </div>
 <div class="popup disable">
+	<div class="popup-back"></div>
 	<div class="popup-form login">
 		<div class="popup-wrapper">
 			<div class="login-avt"></div>
@@ -343,6 +344,45 @@
 					<a class="login-info-link">Quên mật khẩu?</a>
 					<a class="login-info-button">Đăng nhập</a>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup-form register">
+		<div class="popup-wrapper">
+			<div class="login-info">
+				<div class="login-info-title">
+					Đăng kí
+				</div>
+				<div class="login-info-row error">
+					<span class="login-info-label">Tên tài khoản:</span>
+					<input class="login-info-input" placeholder="Không quá 12 ký tự" type="text" value=""/>
+				</div>
+				<div class="login-info-row error">
+					<span class="login-info-label">Email:</span>
+					<input class="login-info-input" type="text" value=""/>
+				</div>
+				<div class="login-info-row">
+					<span class="login-info-label">Xác nhận email:</span>
+					<input class="login-info-input" type="text" value=""/>
+				</div>
+				<div class="login-info-row ok"><span class="login-info-label">Mật khẩu:</span>
+					<input class="login-info-input" type="password" value=""/>
+				</div>
+				<div class="login-info-row"><span class="login-info-label">Xác nhận mật khẩu:</span>
+					<input class="login-info-input" type="password" value=""/>
+				</div>
+				<div class="login-info-row large">
+					<a class="login-info-button">Đăng kí</a>
+				</div>
+			</div>
+			<div class="login-message">
+			<div class="login-message-content">
+				Xảy ra sự cố trong quá trình đăng kí...<br/>
+				- Tên đăng nhập không hợp lệ<br/>
+				- Email không hợp lệ<br/>
+				- ...<br/>
+			</div>
+				<div class="login-message-footer"></div>
 			</div>
 		</div>
 	</div>

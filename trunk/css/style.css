@@ -843,37 +843,67 @@ body {
 	color: #FFF;
 }
 
-.popup-form {
-	height: 350px;
+.popup-back {
+	height: 100%;
 	width: 100%;
 	position: fixed;
+	z-index: 0;
+	background: transparent;
+}
+
+.popup-form {
+	height: 350px;
+	width: 0%;
+	text-align: center;
+	position: fixed;
 	top: 150px;
-	left: 450px;
+	left: 0px;
 	background: #002D87;
 	-webkit-box-shadow: 0px 0px 50px 0px #000;
 	-moz-box-shadow: 0px 0px 50px 0px #000;
 	box-shadow: 0px 0px 50px 0px #000;
+	z-index: 100;
 }
 
 .popup-wrapper {
-	width: 570px;
 	height: 100%;
-	margin: 0px auto;
+	display: inline-block;
+	text-align: left;
 }
 
 .login-avt {
 	height: 100%;
 	width: 160px;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	position: relative;
 	background: url("../images/icon/avata-ico.png") no-repeat center;
+	margin-right: 50px;
+}
+.login-message {
+	width: 250px;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin: 100px 0px 0px 20px;
+}
+.login-message-content {
+	border: 3px solid #FFF;
+	color: #FFF;
+	background: #B32525;
+	line-height: 20px;
+	padding: 5px 10px;
+}
+.login-message-footer {
+	height: 36px;
+	background: url("../images/icon/mess-footer.png") no-repeat 20px top;
 }
 
 .login-info {
 	height: 100%;
-	width: 360px;
-	float: left;
-	padding-left: 50px;
+	width: 420px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .login-info-title {
@@ -887,6 +917,13 @@ body {
 	height: 32px;
 	line-height: 32px;
 	margin: 5px 0px;
+	padding-right: 40px;
+}
+.login-info-row.ok {
+	background: url("../images/icon/check-ico.png") no-repeat right center;
+}
+.login-info-row.error {
+	background: url("../images/icon/fail-ico.png") no-repeat right center;
 }
 .login-info-row.large {
 	margin: 20px 0px 0px 0px;
