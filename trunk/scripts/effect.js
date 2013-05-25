@@ -22,6 +22,12 @@ $(function () {
             $(this).removeClass("active");
         });
     });
+    $(".form-head-search").hover(function () {
+        $(this).stop().animate({width: 400}, 1000, "easeOutQuint");
+	    $(".search-text").focus();
+    }, function () {
+	    $(this).stop().animate({width: 80}, 1000, "easeOutQuint");
+    });
 	loadMetroPage();
 	// showLogin();
 	$(".login-info-button").click(function(){

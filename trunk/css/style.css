@@ -272,8 +272,73 @@ body {
 	color: #16499a;
 	text-indent: 20px;
 	text-align: left;
+	padding: 0px 0px 5px 100px;
+	background: #FFF;
 }
 
+.form-head-task {
+	position: absolute;
+	height: 90px;
+	text-align: right;
+	top: 0;
+	right: 0;
+	font-size: 0;
+}
+.form-head-search {
+	display: inline-block;
+	height: 100%;
+	width: 80px;
+	vertical-align: top;
+	font-size: 17px;
+	overflow: hidden;
+	background: #EEE;
+	position: relative;
+}
+.form-head-search-mask {
+	height: 100%;
+	width: 400px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.form-head-account {
+	display: inline-block;
+	height: 100%;
+	vertical-align: top;
+	font-size: 17px;
+	background-color: #FFF;
+	background-color: rgba(255, 255, 255, 0.85);
+}
+.search-button {
+	display: inline-block;
+	height: 100%;
+	vertical-align: top;
+	width: 80px;
+	background:url("../images/icon/search-ico.png") no-repeat right center #EEE;
+	cursor: pointer;
+}
+.search-button:hover{
+	background-color: #E5E5E5;
+}
+.search-button:active{
+	background-color: #DDD;
+}
+.search-text {
+	border: 2px solid #999;
+	height: 30px;
+	line-height: 30px;
+	width: 280px;
+	font-size: 18px;
+	vertical-align: middle;
+	font-family: "Segoe UI";
+	text-indent: 10px;
+	margin-right: 5px;
+}
+.search-text:focus {
+	border-color: #455cee;
+	outline: none;
+}
 .form-head .form-head-gray {
 	color: #999;
 	text-indent: 20px;
