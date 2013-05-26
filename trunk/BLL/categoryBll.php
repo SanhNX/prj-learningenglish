@@ -1,12 +1,6 @@
 <?php
-
-/**
- * @author thanh
- * @copyright 2013
- */
-
 function getAllCategory () {
-    $sql = "SELECT * FROM tbl_category";
+    $sql = "SELECT * FROM tbl_category ORDER BY name ASC";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ';
