@@ -80,6 +80,14 @@ function showLogin(id) {
 	$(".popup-form."+id).css({width:0}).animate({width:"60%"},1000, "easeOutQuint");
 	$(".popup-form."+id +" .popup-wrapper").delay(300).animate({opacity:1},250);
 	$(".popup-form."+id +" .login-info-input").first().focus();
+        if(id == "login"){
+            $(".register .popup-wrapper").css({display:'none'});
+            $(".login .popup-wrapper").css({display:'initial'});
+        }
+        else{
+            $(".login .popup-wrapper").css({display:'none'});
+            $(".register .popup-wrapper").css({display:'initial'});
+        }
 }
 function hideLogin() {
 	$(".popup-wrapper").animate({opacity:0},250);

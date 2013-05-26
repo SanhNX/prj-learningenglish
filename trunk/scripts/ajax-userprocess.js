@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
         else if (email_regex.test(email)) {
             $(".login-popup-error-mess").html('<i></i> Processes running ............');
-            $(".login-loading-spin").removeClass("undisplayed");
+            $(".popup-progress").removeClass("undisplayed");
             $.ajax({
                 type: "POST",
                 url: "./BLL/signup_inBll.php",
@@ -29,7 +29,7 @@ $(document).ready(function () {
                         if (dto === 'success') {
                             $(".login-popup-error-mess").html('<i></i> LOGIN SUCCESSFULL. Please wait a minutes to return page.');
                             setTimeout(function () {
-                                $(".login-loading-spin").addClass("undisplayed");
+                                $(".popup-progress").addClass("undisplayed");
                                 $(".login-popup-error-mess").html('');
                                 hideLogin();
                                 location.reload();
@@ -39,7 +39,7 @@ $(document).ready(function () {
                         if (dto === 'fail') {
                             $("#email").focus();
                             $(".login-popup-error-mess").html('<i></i> Email or password is not valid');
-                            $(".login-loading-spin").addClass("undisplayed");
+                            $(".popup-progress").addClass("undisplayed");
                             return false;
                         }
                     }, 5000);

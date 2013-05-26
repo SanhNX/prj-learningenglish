@@ -6,6 +6,7 @@
 			<div class="login-info">
 				<div class="login-info-title">
 					Login Form !
+                                        <div class="popup-progress undisplayed"></div>
 				</div>
 				<div class="login-info-row"><span class="login-info-label">Email </span>
 					<input id="txtemail" class="login-info-input" name='txtemail' type="text"/>
@@ -17,6 +18,9 @@
 					<a class="login-info-link">Forgot password ?</a>
 					<input id="btn-login" class="login-info-button" name='btn-login'  type='submit' value='Submit'/>
 				</div>
+                                <div class="login-info-row">
+                                        <a class="login-info-link" id="login-info-link-register">Register account </a>
+                                </div>
 			</div>
             <span class="login-popup-error-mess"> </span>
 		</div>
@@ -26,6 +30,7 @@
             <div class="login-info">
                 <div class="login-info-title">
                     Register Form
+                    <div class="popup-progress undisplayed"></div>
                 </div>
                 <div class="login-info-row error">
                     <span class="login-info-label">User Name :</span>
