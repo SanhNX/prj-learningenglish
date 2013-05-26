@@ -29,9 +29,6 @@ $(function () {
 	    $(this).stop().animate({width: 80}, 1000, "easeOutQuint");
     });
 	loadMetroPage();
-	$(".login-info-button").click(function () {
-		hideLogin();
-	});
 	$(".popup-back").click(function () {
 		hideLogin();
 	});
@@ -80,7 +77,7 @@ function showLogin(id) {
 	$(".popup").removeClass("disable");
 	$(".popup").css({opacity:0}).animate({opacity:1},250);
 	$(".popup-wrapper").css({opacity:0});
-	$(".popup-form."+id).css({width:0}).animate({width:"100%"},1000, "easeOutQuint");
+	$(".popup-form."+id).css({width:0}).animate({width:"60%"},1000, "easeOutQuint");
 	$(".popup-form."+id +" .popup-wrapper").delay(300).animate({opacity:1},250);
 	$(".popup-form."+id +" .login-info-input").first().focus();
 }
