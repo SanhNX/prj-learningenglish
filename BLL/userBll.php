@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @author thanh
- * @copyright 2013
- */
-
 function login ($email, $pword) {
     $sql = "SELECT * FROM tbl_user Where Password = $pword AND Email = '".$email."'";
     $queryResult = mysql_query($sql);
@@ -27,7 +22,7 @@ function login ($email, $pword) {
 
 
 function emailExist($email) {
-    $sql = "SELECT * FROM tbl_user Where Email = '".$email."'";
+    $sql = "SELECT * FROM tbl_user Where email = '".$email."'";
     $queryResult = mysql_query($sql);
     
     if (!$queryResult) {
@@ -42,10 +37,10 @@ function emailExist($email) {
 }
 
 
-function insertUser ($name, $email, $pword, $DOB, $gender, $avatar){
+function insertUser ($email, $pword, $joindate, $gender, $avatar){
     $sql = "INSERT INTO tbl_user 
-                ( Email, Password, FullName, Avatar, Dob, Gender, Scores) 
-                VALUES ('$email', '$pword', '$name', '$avatar', '$DOB', '$gender', 0)";              
+                ( email, password, joindate, gender, avatar, status) 
+                VALUES ('$email', '$pword', '$joindate', '$gender', '$avatar', '1')";              
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {
@@ -59,29 +54,4 @@ function insertUser ($name, $email, $pword, $DOB, $gender, $avatar){
         return -1;
 }
 
-
-function countPredictions() {
-    $sql = "SELECT DISTINCT Id FROM tbl_predict";
-    $queryResult = mysql_query($sql);
-    
-    if (!$queryResult) {
-        echo 'Error: ' . $id . mysql_error();
-        return -1;
-    }
-    
-    return mysql_num_rows($queryResult);
-}
-function countParticipants() {
-    $sql = "SELECT DISTINCT Id FROM tbl_user";
-    $sqlf = "SELECT DISTINCT Id FROM tbl_facebook";
-    $queryResult = mysql_query($sql);
-    $queryResultf = mysql_query($sqlf);
-    
-    if (!$queryResult || !$queryResultf) {
-        echo 'Error: ';
-        return -1;
-    }
-    
-    return (mysql_num_rows($queryResult) + mysql_num_rows($queryResultf));
-}
 ?>
