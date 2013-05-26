@@ -32,36 +32,36 @@
                     Register Form
                     <div class="popup-progress undisplayed"></div>
                 </div>
-                <div class="login-info-row error">
-                    <span class="login-info-label">User Name :</span>
-                    <input class="login-info-input" placeholder="largest 12 characters" type="text" value=""/>
-                </div>
-                <div class="login-info-row error">
+                
+                <div class="login-info-row">
                     <span class="login-info-label">Email:</span>
-                    <input class="login-info-input" type="text" value=""/>
+                    <input id="email" class="login-info-input" type="text" name="email"/>
                 </div>
                 <div class="login-info-row">
                     <span class="login-info-label">Confirm email :</span>
-                    <input class="login-info-input" type="text" value=""/>
+                    <input id="cemail" class="login-info-input" type="text" name="cemail"/>
                 </div>
-                <div class="login-info-row ok"><span class="login-info-label">Password :</span>
-                    <input class="login-info-input" type="password" value=""/>
+                <div class="login-info-row"><span class="login-info-label">Password :</span>
+                    <input id="pass" class="login-info-input" type="password" name="pass"/>
                 </div>
-                <div class="login-info-row"><span class="login-info-label">Confirm Password:</span>
-                    <input class="login-info-input" type="password" value=""/>
+                <div class="login-info-row"><span class="login-info-label">Confirm Password :</span>
+                    <input id="cpass" class="login-info-input" type="password" name="cpass"/>
+                </div>
+                <div class="login-info-row"><span class="login-info-label">Gender :</span>
+                    <div class="login-info-radio-group">
+                        <input class="login-info-radio" type="radio" name="sex" value="male" checked="true">Male
+                        <input class="login-info-radio" type="radio" name="sex" value="female">Female
+                    </div>
                 </div>
                 <div class="login-info-row large">
-                    <a class="login-info-button">Register</a>
+                    <a id="btn-register" name='btn-register' class="login-info-button">Register</a>
                 </div>
             </div>
             <div class="login-message">
-            <div class="login-message-content">
-                Occurs error in registration process...<br/>
-                - Invalid Username<br/>
-                - Invalid Email<br/>
-                - ...<br/>
+            <div class="login-message-content undisplayed">
+                
             </div>
-                <div class="login-message-footer"></div>
+                <div class="login-message-footer undisplayed"></div>
             </div>
         </div>
     </div>
