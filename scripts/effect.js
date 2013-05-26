@@ -36,6 +36,9 @@ $(function () {
 		hideLogin();
 	});
 
+    $("#login-info-link-register").click(function(){
+	    changeLogin("register");
+    });
     $("#btnLogin").click(function(){
         showLogin("login");
     });
@@ -86,5 +89,12 @@ function hideLogin() {
 	$(".popup-form").animate({width:0},1000, "easeOutQuint");
 	$(".popup").delay(300).animate({opacity:0},250,function(){
 		$(".popup").addClass("disable");
+	});
+}
+function changeLogin(id) {
+	$(".popup-wrapper").animate({opacity:0},250);
+	$(".popup-form").animate({width:0},1000, "easeOutQuint");
+	$(".popup").delay(300).animate({opacity:0.5},250,function(){
+		showLogin(id);
 	});
 }
