@@ -4,7 +4,9 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, sans-serif;
     font-size: 13px;
 }
-
+.undisplayed {
+    display: none;
+}
 .page {
     height: 100%;
     width: 100%;
@@ -1015,11 +1017,11 @@ body {
 .login-popup-error-mess {
     position: absolute;
     display: block;
-    width: 30%;
+    width: 50%;
     font-size: 15px;
     font-style: italic;
     color: #F5EB00;
-    margin-left: 155px;
+    margin-left: 320px;
     bottom: 40px;
 }
 .login-popup-error-mess i {
