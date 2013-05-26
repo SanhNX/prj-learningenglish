@@ -4,9 +4,10 @@
 function getVideoContent($e){
     //GET THE URL
     $url = $e;
-    $queryString = parse_url($url, PHP_URL_QUERY);
-    parse_str($queryString, $params);
-    $v = $params['v'];
+//    $queryString = parse_url($url, PHP_URL_QUERY);
+//    parse_str($queryString, $params);
+//    $v = $params['v'];
+    $v = _get_video_id($url);
     // get video ID from $_GET
     if (!isset($v)) {
         echo '<script>alert("ERROR: Missing video ID")</script>';
@@ -77,6 +78,36 @@ function parseInt($string) {
             return $array[1];
     } else {
             return 0;
+    }
+}
+
+
+function _get_video_id($url) {
+    if( preg_match( '/http:\/\/youtu.be/', $url, $matches) ) {
+        $url = parse_url($url, PHP_URL_PATH);
+        $url = str_replace( '/', '',  $url);
+        return $url;
+ 
+    } elseif ( preg_match( '/watch/', $url, $matches) ) {
+        $arr = parse_url($url);
+        $url = str_replace( 'v=', '', $arr['query'] );
+        return $url;
+ 
+    } elseif ( preg_match( '/http:\/\/www.youtube.com\/v/', $url, $matches) ) {
+        $arr = parse_url($url);
+        $url = str_replace( '/v/', '', $arr['path'] );
+        return $url;
+ 
+    } elseif ( preg_match( '/http:\/\/www.youtube.com\/embed/', $url, $matches) ) {
+        $arr = parse_url($url);
+        $url = str_replace( '/embed/', '', $arr['path'] );
+        return $url;
+ 
+    } elseif ( preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=[0-9]/)[^&\n]+|(?<=v=)[^&\n]+#", $url, $matches) ) {
+        return $matches[0];
+ 
+    } else {
+        return false;
     }
 }
 ?>

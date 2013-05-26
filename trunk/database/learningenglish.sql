@@ -85,9 +85,9 @@ INSERT INTO tbl_category(name) VALUES('The Love');
 INSERT INTO tbl_category(name) VALUES('In the kitchen');
 
 
-INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('justinnguyen@gmail.com', '123456', '2012-04-05', '/images/resource/avt1.jpg', 0, 1);
-INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('kelvinnguyen@gmail.com', '123456', '2012-02-08', '/images/resource/avt0.jpg', 1, 1);
-INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('alizanguyen@gmail.com', '123456', '2012-10-05', '/images/resource/avt0.jpg', 1, 1);
+INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('justinnguyen@gmail.com', '123456', '2012-04-05', 'images/resource/avt1.jpg', 0, 1);
+INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('kelvinnguyen@gmail.com', '123456', '2012-02-08', 'images/resource/avt0.jpg', 1, 1);
+INSERT INTO tbl_user(email, password, joindate, avatar, gender, status) VALUES('alizanguyen@gmail.com', '123456', '2012-10-05', 'images/resource/avt0.jpg', 1, 1);
 
 
 INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
