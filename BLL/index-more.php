@@ -25,7 +25,7 @@ for ($i = 0; $i < count($itemList); $i++) {
                                         <span>' .$item->title . '</span>
                                         <div class="metro-title-duration">' . $currTime . '</div>
                                 </div>
-                                <div class=metro-times>200</div>
+                                <div class=metro-times>'.$item->timesplay.'</div>
                                 <div class=metro-level>999</div>
                             </a>
                         </div>
@@ -40,7 +40,7 @@ for ($i = 0; $i < count($itemList); $i++) {
                                     <span>' . $item->title . '</span>
                                     <div class="metro-title-duration">' . $currTime . '</div>
                                 </div>
-                                <div class=metro-times>200</div>
+                                <div class=metro-times>'.$item->timesplay.'</div>
                                 <div class=metro-level>999</div>
                             </a>
                         </div>
@@ -68,7 +68,7 @@ for ($i = 0; $i < count($itemList); $i++) {
                                     <span>' . $item->title . '</span>
                                     <div class="metro-title-duration">' . $currTime . '</div>
                             </div>
-                            <div class=metro-times>200</div>
+                            <div class=metro-times>'.$item->timesplay.'</div>
                             <div class=metro-level>999</div>
                         </a>
                     </div>
