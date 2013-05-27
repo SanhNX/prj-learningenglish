@@ -16,11 +16,13 @@
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
 	<script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
 	<script type="text/javascript" src="scripts/bootstrap.js"></script>
+        <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
 	<script type="text/javascript" src="scripts/JSON.js"></script>
-    <script type="text/javascript" src="scripts/video-control.js"></script>
+        <script type="text/javascript" src="scripts/video-control.js"></script>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
+        
 </head>
 <body>
 	<div id="fb-root"></div>

@@ -19,6 +19,9 @@ include 'BLL/getcontentBLL.php';
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/JSON.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
+        <script type="text/javascript" src="scripts/ajax-index.js"></script>
+        <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
+        <script type="text/javascript" src="scripts/ajax-search.js"></script>
 
     </head>
     <body>
@@ -41,6 +44,7 @@ include 'BLL/getcontentBLL.php';
                 <div class="form-head">
                     <span>Learning-English</span><span class="form-head-gray">Home</span>
                     <div class="form-head-task">
+                        // ------------ Check user login----------------//
                         <?php
                         if (isset($_SESSION["email"])) {
                             echo '<div class="form-head-account">
@@ -59,16 +63,21 @@ include 'BLL/getcontentBLL.php';
 
                     </div>
                 </div>
-                <ul class="metro-list">
+                <ul class="metro-list" id ="listvideo">
+                    //----------------- Show list video--------------------//
                     <?php
-                    $id = $_GET['category'];
-                    // echo '<script>alert("'.$id.'");</script>';
-                    if ($id == null) {
-                        $page = 1;
-                    } else {
-                        $page++;
+                    $id = null;
+                    
+                    if (isset($_GET['category'])) {
+                        $id = $_GET['category'];
                     }
-                    // echo '<script>alert("'.$page.'");</script>';
+                    
+                    if (isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                    } else {
+                        $page = 1;
+                    }
+                    
                     $articleList = getArticleByCategoryid($id, $page);
                     // echo '<script>alert("'.count($articleList).'");</script>';
                     $show = 0;
@@ -118,13 +127,22 @@ include 'BLL/getcontentBLL.php';
                             $show++;
                         }
                     }
+                    echo '<li class="metro-item-clear">
+                          </li>
+                    ';
+                    
+                    if (count($articleList) == 22) {
+                        echo '<li class="metro-item-more">
+                                <span id="more">More</span>
+                                <input id="pagevalue" value="'.($page + 1).'" type="hidden">
+                                <input id="idvalue" value="'.$id.'" type="hidden">    
+                              </li>
+                        ';
+                    }
                     ?>
 
-                    <li class="metro-item-clear">
-
-                    </li>
-                    <li class="metro-item-more"><span>Thêm</span>
-                    </li>
+                    
+                    
                 </ul>
                 <div class="control-bar">
                     <div class=control-fb></div>
