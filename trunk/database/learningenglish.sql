@@ -54,6 +54,7 @@ create table tbl_article
     title varchar(50) not null,
     link varchar(500) not null,
 	thumbnail varchar(100) not null,
+	duration varchar(10) not null,
     level varchar(50) not null,
 	timesplay int default 0,
     datecreate datetime,
@@ -91,18 +92,18 @@ INSERT INTO tbl_user(name,email, password, joindate, avatar, gender, status) VAL
 INSERT INTO tbl_user(name,email, password, joindate, avatar, gender, status) VALUES('ThanhTC3','alizanguyen@gmail.com', '123456', '2012-10-05', 'images/resource/avt0.jpg', 1, 1);
 
 
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('gnT8pD9eSCc', 7, 'The Infographics Show Kissing', 'http://www.youtube.com/embed/gnT8pD9eSCc', 'http://img.youtube.com/vi/gnT8pD9eSCc/mqdefault.jpg', 1, '2013-05-20');
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('y92i_C5UJT4', 7, 'Why do we cry ?', 'http://www.youtube.com/embed/y92i_C5UJT4', 'http://img.youtube.com/vi/y92i_C5UJT4/mqdefault.jpg', 1, '2013-01-05');
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('Ya0CckG5GpQ', 4, 'Discover sleep', 'http://www.youtube.com/embed/Ya0CckG5GpQ', 'http://img.youtube.com/vi/Ya0CckG5GpQ/mqdefault.jpg', 1, '2013-02-05');
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('sbbjeDVgMQg', 5, 'Colds and things you may not know', 'http://www.youtube.com/embed/sbbjeDVgMQg', 'http://img.youtube.com/vi/sbbjeDVgMQg/mqdefault.jpg', 1, '2013-03-05');
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('iIsHr2EuSmo', 13, 'Chocolate and things you may not know', 'http://www.youtube.com/embed/iIsHr2EuSmo', 'http://img.youtube.com/vi/iIsHr2EuSmo/mqdefault.jpg', 1, '2013-04-05');
-INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, level, datecreate) 
-VALUES('ZsSWog-v840', 2, 'I knew you were trouble', 'http://www.youtube.com/embed/ZsSWog-v840', 'http://img.youtube.com/vi/ZsSWog-v840/mqdefault.jpg', 1, '2013-05-05');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('gnT8pD9eSCc', 7, 'The Infographics Show Kissing', 'http://www.youtube.com/embed/gnT8pD9eSCc', 'http://img.youtube.com/vi/gnT8pD9eSCc/mqdefault.jpg', '03:31', 1, '2013-05-20');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('y92i_C5UJT4', 7, 'Why do we cry ?', 'http://www.youtube.com/embed/y92i_C5UJT4', 'http://img.youtube.com/vi/y92i_C5UJT4/mqdefault.jpg', '02:30', 1, '2013-01-05');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('Ya0CckG5GpQ', 4, 'Discover sleep', 'http://www.youtube.com/embed/Ya0CckG5GpQ', 'http://img.youtube.com/vi/Ya0CckG5GpQ/mqdefault.jpg', '02:41', 1, '2013-02-05');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('sbbjeDVgMQg', 5, 'Colds and things you may not know', 'http://www.youtube.com/embed/sbbjeDVgMQg', 'http://img.youtube.com/vi/sbbjeDVgMQg/mqdefault.jpg', '01:51', 1, '2013-03-05');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('iIsHr2EuSmo', 13, 'Chocolate and things you may not know', 'http://www.youtube.com/embed/iIsHr2EuSmo', 'http://img.youtube.com/vi/iIsHr2EuSmo/mqdefault.jpg', '02:17', 1, '2013-04-05');
+INSERT INTO tbl_article(idvideo, categoryid, title, link, thumbnail, duration, level, datecreate) 
+VALUES('ZsSWog-v840', 2, 'I knew you were trouble', 'http://www.youtube.com/embed/ZsSWog-v840', 'http://img.youtube.com/vi/ZsSWog-v840/mqdefault.jpg', '03:41', 1, '2013-05-05');
 
 INSERT INTO tbl_activityhistory(userid, articleid, datesubmit, score) VALUES(1, 1, '2013-01-01', 10);
 INSERT INTO tbl_activityhistory(userid, articleid, datesubmit, score) VALUES(2, 1, '2013-02-02', 30);
