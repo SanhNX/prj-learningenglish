@@ -85,9 +85,9 @@ include 'BLL/getcontentBLL.php';
 //                        echo '<script>alert("'.$show.'-------'.$y.'");</script>';
                         $itemArticle = $articleList[$y];
 //                        echo '<script>alert("'.$itemArticle->link.'");</script>';
-                        $video = getVideoContent($itemArticle->link);
+                       // $video = getVideoContent($itemArticle->link);
 //                        echo '<script>alert("************'.$video->length.'");</script>';
-                        $currTime = customizeTime($video->length);
+                        $currTime = customizeTime($itemArticle->duration);
                         
                         if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
                             echo '

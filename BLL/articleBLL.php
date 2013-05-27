@@ -38,6 +38,7 @@ function getArticleByCategoryid ($id, $pa) {
         $item->title = $seletedItem['title'];
         $item->link = $seletedItem['link'];
         $item->thumbnail = $seletedItem['thumbnail'];
+        $item->duration = $seletedItem['duration'];
         
         $item->level = $seletedItem['level'];
         $item->timesplay = $seletedItem['timesplay'];
@@ -69,7 +70,7 @@ function searchByTitle ($key) {
         $item->title = $seletedItem['title'];
         $item->link = $seletedItem['link'];
         $item->thumbnail = $seletedItem['thumbnail'];
-        
+         $item->duration = $seletedItem['duration'];
         $item->level = $seletedItem['level'];
         $item->timesplay = $seletedItem['timesplay'];
         $item->datecreate = $seletedItem['datecreate'];

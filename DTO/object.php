@@ -20,10 +20,11 @@ class Article{
 	var $idArticle;
 	var $idvideo;
 	var $categoryid;
-    var $title;
+        var $title;
 	var $link;
 	var $thumbnail;
-    var $level;
+        var $duration;
+        var $level;
 	var $timesplay;
 	var $datecreate;
 }
