@@ -3,7 +3,6 @@
 include '../DAO/connection.php';
 include '../DTO/object.php';
 include '../BLL/articleBLL.php';
-include '../BLL/getcontentBLL.php';
 
 $keyword = $_POST['keyword'];
 $itemList = searchByTitle($keyword);
@@ -13,7 +12,7 @@ for ($i = 0; $i < count($itemList); $i++) {
     $item = $itemList[$i];
     
    // $video = getVideoContent($item->link);
-    $currTime = customizeTime($item->duration);
+    $currTime = $item->duration;
     
     if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
             $html = '

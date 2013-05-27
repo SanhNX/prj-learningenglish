@@ -5,7 +5,6 @@ include 'DAO/connection.php';
 include 'DTO/object.php';
 include 'BLL/categoryBll.php';
 include 'BLL/articleBLL.php';
-include 'BLL/getcontentBLL.php';
 ?>
 <html>
     <head>
@@ -87,7 +86,7 @@ include 'BLL/getcontentBLL.php';
 //                        echo '<script>alert("'.$itemArticle->link.'");</script>';
                        // $video = getVideoContent($itemArticle->link);
 //                        echo '<script>alert("************'.$video->length.'");</script>';
-                        $currTime = customizeTime($itemArticle->duration);
+                        $currTime = $itemArticle->duration;
                         
                         if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
                             echo '
