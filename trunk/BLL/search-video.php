@@ -12,8 +12,8 @@ $show = 0;
 for ($i = 0; $i < count($itemList); $i++) {
     $item = $itemList[$i];
     
-    $video = getVideoContent($item->link);
-    $currTime = customizeTime($video->length);
+   // $video = getVideoContent($item->link);
+    $currTime = customizeTime($item->duration);
     
     if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
             $html = '
