@@ -45,19 +45,19 @@
 			</ul>
                     
 		</div>
-		<div class="menu-popup-form day">
+	<div class="menu-popup-form day">
             <div class="menu-popup-head">
                 <div class="menu-popup-calendar">
                     <div class="menu-popup-calendar-prev"></div>
-                    <div class="menu-popup-calendar-current">
-                        <i class="menu-popup-icon calendar-date"></i>
-                        <span>6-5-2013 12-5-2013</span>
+                    <div class="menu-popup-calendar-current" id="popup-current-ranking-date">
+<!--                        <i class="menu-popup-icon calendar-date"></i>
+                        <span>6-5-2013 12-5-2013</span>-->
                     </div>
                     <div class="menu-popup-calendar-next"></div>
                 </div>
             </div>
-            <ul class="menu-popup-list special">
-                <li class="menu-popup-item odd">
+            <ul class="menu-popup-list special" id="popupRankingDate">
+<!--                <li class="menu-popup-item odd">
                     <span class="menu-popup-num">1</span>
                     <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span><span>Name1 2000</span>
                 </li>
@@ -96,22 +96,22 @@
                 <li class="menu-popup-item">
                     <span class="menu-popup-num">10</span>
                     <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span><span>Name10 4000</span>
-                </li>
+                </li>-->
             </ul>
         </div>
         <div class="menu-popup-form week">
             <div class="menu-popup-head">
                 <div class="menu-popup-calendar">
                     <div class="menu-popup-calendar-prev"></div>
-                    <div class="menu-popup-calendar-current">
-                        <i class="menu-popup-icon calendar-week"></i>
+                    <div class="menu-popup-calendar-current" id="popup-current-ranking-week">
+                        <i class="menu-popup-icon calendar-week" ></i>
                         <span>6-5-2013 12-5-2013</span>
                     </div>
                     <div class="menu-popup-calendar-next"></div>
                 </div>
             </div>
-            <ul class="menu-popup-list special">
-                <li class="menu-popup-item odd">
+            <ul class="menu-popup-list special" id="popupRankingWeek">
+<!--                <li class="menu-popup-item odd">
                     <span class="menu-popup-num">1</span>
                     <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span><span>Name1 2000</span>
                 </li>
@@ -134,7 +134,7 @@
                 <li class="menu-popup-item">
                     <span class="menu-popup-num">6</span>
                     <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span><span>Name6 4000</span>
-                </li>
+                </li>-->
             </ul>
         </div>
 	</div>
