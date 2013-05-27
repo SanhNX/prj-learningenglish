@@ -3,7 +3,6 @@
 include '../DAO/connection.php';
 include '../DTO/object.php';
 include '../BLL/articleBll.php';
-include '../BLL/getcontentBLL.php';
 
 $param1 = $_POST['id'];
 $param2 = $_POST['page'];
@@ -13,7 +12,7 @@ $show = 0;
 for ($i = 0; $i < count($itemList); $i++) {
     $item = $itemList[$i];
      // $video = getVideoContent($item->link);
-        $currTime = customizeTime($item->duration);
+        $currTime = $item->duration;
     if ($i != 21) {
 
         if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
