@@ -134,7 +134,7 @@ include 'BLL/articleBLL.php';
                     ';
                     
                     if (count($articleList) == 22) {
-                        echo '<li class="metro-item-more">
+                        echo '<li class="metro-item-more" onclick="loadMore()">
                                 <span id="more">More</span>
                                 <input id="pagevalue" value="'.($page + 1).'" type="hidden">
                                 <input id="idvalue" value="'.$id.'" type="hidden">    
@@ -155,10 +155,17 @@ include 'BLL/articleBLL.php';
                     <div class=control-rank-recent>
                         <div class="control-rank-head"></div>
                         <ul class="control-rank-list">
-                            <li class="control-rank-item">User 1</li>
-                            <li class="control-rank-item">User 2</li>
-                            <li class="control-rank-item">User 3</li>
-                            <li class="control-rank-item">User 4</li>
+                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
+                            <li class="control-rank-item">User1111111111111111111111111111</li>
+                            <li class="control-rank-item">User 31111111111111111111111</li>
+                            <li class="control-rank-item">User 41111111111111111111111111</li>
+                            <li class="control-rank-item">User 51111111111111111111111111111</li>
+                            <li class="control-rank-item">User 61111111111111111111111111111</li>
+                            <li class="control-rank-item">User 71111111111111111111111111111</li>
+                            <li class="control-rank-item">User 81111111111111111111111111111</li>
+                            <li class="control-rank-item">User 91111111111111111111111111111</li>
+                            <li class="control-rank-item">User 101111111111111111111111111111</li>
+                            <li class="control-rank-item">User 11111111111111111111111111111</li>
                         </ul>
                     </div>
                 </div>
