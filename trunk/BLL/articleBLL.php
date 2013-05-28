@@ -6,9 +6,9 @@
  */
 
 function getArticleByCategoryid ($id, $pa) {
-    $display = 22 * $pa;
-    
-    if ($display > 22) {
+    $check1 = 22 * $pa;
+    $display = 22;
+    if ($check1 > 22) {
         $page = 22 * ($pa - 1);
     } else {
         $page = 0;
