@@ -37,7 +37,7 @@ $(function() {
     });
 
     $("#login-info-link-register").click(function() {
-        $(".popup-form").css({height: "390px"});
+        $(".popup-form").css({height: "410px"});
         changeLogin("register");
     });
     $("#btnLogin").click(function() {
@@ -45,10 +45,10 @@ $(function() {
         showLogin("login");
     });
     $("#btnRegis").click(function() {
-        $(".popup-form").css({height: "390px"});
+        $(".popup-form").css({height: "410px"});
         showLogin("register");
     });
-	resetCalendar();
+    resetCalendar();
 });
 function loadMetroPage() {
     var metroIndex = 0;
@@ -127,9 +127,28 @@ function resetForm() {
 }
 
 function resetCalendar() {
+    setTimeout(function(){
 	$('.date-pick').datePicker({closeOnSelect:false});
 	$('.date-pick.week').datePicker({selectWeek:true,closeOnSelect:false});
+    },1500);
 }
 function removeCalendar() {
 	$('#dp-popup').remove(false);
+}
+
+function readURL(input, thumbimage) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("#thumbimage").attr('src', e.target.result);
+//            $("#thumbimage").css({background: "url('"+e.target.result+"') no-repeat center"});
+        }
+        reader.readAsDataURL(input.files[0]);
+        $("#thumbimage").show();
+    }
+    else {
+        $("#thumbimage").attr('src', input.value);
+        $("#thumbimage").show();
+    }
+    $(".removeimg").show();
 }
