@@ -54,9 +54,10 @@ function loadMetroPage() {
     var metroIndex = 0;
     $(".metro-item").each(function() {
         $(this).css({left: 500, opacity: 0}).delay(metroIndex++ * 50).animate({left: 0, opacity: 1}, 2000, "easeOutQuint");
-
     });
-
+    resetMetroHover();
+}
+function resetMetroHover() {
     $(".metro-item").hover(function() {
         $(this).children(".metro-bar").animate({height: 200}, 500, "easeOutQuint");
     }, function() {
