@@ -67,7 +67,7 @@ create table tbl_activityhistory
     articleid int not null,
     datesubmit datetime,
     score int,
-	CONSTRAINT FOREIGN KEY(articleid) references article(id),
+	CONSTRAINT FOREIGN KEY(articleid) references tbl_article(id),
 	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id)
 );
 
