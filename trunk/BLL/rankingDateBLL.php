@@ -36,7 +36,9 @@ if ($param2 == 1) {
     while ($seletedItem = mysql_fetch_array($queryResult)) {
         $html = ' <li class="menu-popup-item odd">
                     <span class="menu-popup-num">'.$i.'</span>
-                    <span class="menu-popup-avt" style="background-image:url('.$seletedItem['avatar'].')"></span><span>'.$seletedItem['name'].'  '.$seletedItem['score'].'</span>
+                    <span class="menu-popup-avt" style="background-image:url('.$seletedItem['avatar'].')"></span>
+                    <span class="menu-popup-user">'.$seletedItem['name'].'</span>
+                    <span class="menu-popup-score">'.$seletedItem['score'].'</span>
                 </li>
                 ';
         $girdView = $girdView . $html;

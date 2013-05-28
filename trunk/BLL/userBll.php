@@ -37,10 +37,10 @@ function emailExist($email) {
 }
 
 
-function insertUser ($email, $pword, $joindate, $gender, $avatar){
+function insertUser ($fname, $email, $pword, $joindate, $gender, $avatar){
     $sql = "INSERT INTO tbl_user 
-                ( email, password, joindate, gender, avatar, status) 
-                VALUES ('$email', '$pword', '$joindate', '$gender', '$avatar', '1')";              
+                ( name, email, password, joindate, gender, avatar, status) 
+                VALUES ('$fname', '$email', '$pword', '$joindate', '$gender', '$avatar', '1')";              
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {

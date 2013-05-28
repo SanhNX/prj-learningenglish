@@ -896,7 +896,7 @@ body {
 }
 
 .popup-form {
-    height: 390px;
+    height: 410px;
     width: 0%;
     text-align: center;
     position: fixed;
@@ -925,6 +925,16 @@ body {
     background: url("../images/icon/avata-ico.png") no-repeat center;
     margin-right: 50px;
 }
+.register-avt {
+    height: 140px;
+    width: 160px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin-left: 71px;
+    background: no-repeat center;
+    background-size: 100% 100%;
+}
 .login-message {
     width: 295px;
     display: inline-block;
@@ -950,6 +960,13 @@ body {
     display: inline-block;
     vertical-align: top;
 }
+.register-info {
+    height: 100%;
+    width: 420px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 100px;
+}
 
 .login-info-title {
     height: 100px;
@@ -965,7 +982,7 @@ body {
     float: right;
 }
 .login-info-row {
-    height: 32px;
+    height: 42px;
     line-height: 32px;
     margin: 5px 0px;
     padding-right: 40px;
@@ -979,7 +996,17 @@ body {
 .login-info-row.large {
     margin: 20px 0px 0px 0px;
 }
-
+.register-info-row {
+    height: 35px;
+    line-height: 32px;
+    margin: 5px 67px;
+}
+.register-info-row input {
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    display: block;
+}
 .login-info-label {
     vertical-align: middle;
 }
@@ -1029,6 +1056,31 @@ body {
 }
 
 .login-info-button:active {
+    background: #0025be;
+}
+.register-info-button {
+    vertical-align: middle;
+    width: 150px;
+    height: 26px;
+    line-height: 25px;
+    float: right;
+    background: none;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #FFF;
+    border: 2px solid #FFF;
+    text-decoration: none;
+    -webkit-transition: background 250ms linear;
+    -moz-transition: background 250ms linear;
+    transition: background 250ms linear;
+}
+
+.register-info-button:hover {
+    background: #5D91F8;
+}
+
+.register-info-button:active {
     background: #0025be;
 }
 
