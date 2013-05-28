@@ -74,7 +74,7 @@ for ($i = 0; $i < count($itemList); $i++) {
                 </li>
                 <li class="metro-item-clear">
                 </li>
-                <li class="metro-item-more">
+                <li class="metro-item-more" onclick="loadMore()">
                     <span id="more">More</span>
                     <input id="pagevalue" value="'.($param2 + 1).'" type="hidden">
                     <input id="idvalue" value="'.$param1.'" type="hidden">    

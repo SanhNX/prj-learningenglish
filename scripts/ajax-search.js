@@ -13,6 +13,8 @@ $(document).ready(function() {
                     $("#listvideo").html(dto);
                 else
                     $("#listvideo").html('<span class="mess-no-result">* Not found result matched. Please input another keyword !</span>');
+                
+                loadMetroPage();
             }
         });
     });
