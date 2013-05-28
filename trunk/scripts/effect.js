@@ -8,6 +8,7 @@ $(function() {
             $("#menu-popup").addClass("active");
             $("#menu-popup").css({overflow: "visible"}).stop().animate({width: 350}, 1000, "easeOutQuint");
             $(".menu-popup-form." + this.id + " .menu-popup-list").css({right: 350}).animate({right: 0}, 1100, "easeOutQuint");
+	        removeCalendar();
         }, function() {
         });
 
@@ -20,6 +21,7 @@ $(function() {
         blurAllMenu();
         $(this).stop().animate({width: 0}, "easeOutQuint", function() {
             $(this).removeClass("active");
+	        removeCalendar();
         });
     });
     $(".form-head-search").hover(function() {
@@ -46,7 +48,7 @@ $(function() {
         $(".popup-form").css({height: "390px"});
         showLogin("register");
     });
-
+	resetCalendar();
 });
 function loadMetroPage() {
     var metroIndex = 0;
@@ -121,4 +123,12 @@ function resetForm() {
     $(".login-info-row")[7].className = "login-info-row";
     $(".login-message-content").addClass("undisplayed");
     $(".login-message-footer").addClass("undisplayed");
+}
+
+function resetCalendar() {
+	$('.date-pick').datePicker({closeOnSelect:false});
+	$('.date-pick.week').datePicker({selectWeek:true,closeOnSelect:false});
+}
+function removeCalendar() {
+	$('#dp-popup').remove(false);
 }
