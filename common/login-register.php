@@ -27,7 +27,7 @@
     </div>
     <div class="popup-form register">
         <div class="popup-wrapper">
-            <form id="createGroupForm" name="createGroupForm" action="BLL/registerBll.php" 
+            <form id="registerForm" name="registerForm" action="BLL/registerBll.php" 
                           onsubmit="return AIM.submit(this, {'onStart': startResCallback, 'onComplete': completeResCallback})"
                           method="post" enctype="multipart/form-data">
                 <div class="register-info">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="login-info-row large">
-                        <a id="btn-register" name='btn-register' type="submit" class="login-info-button">Register</a>
+                        <a id="btn-register" type="button" class="login-info-button">Register</a>
                     </div>
                 </div>
                 <div class="login-message">

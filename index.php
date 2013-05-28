@@ -14,6 +14,8 @@ include 'BLL/articleBLL.php';
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-latest.js"></script>
+        <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
+        <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
@@ -21,10 +23,8 @@ include 'BLL/articleBLL.php';
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/JSON.js"></script>
-        <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/ajax-index.js"></script>
         <script type="text/javascript" src="scripts/ajax-search.js"></script>
-        <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
     </head>
     <body>
         <div id="fb-root"></div>
