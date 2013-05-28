@@ -556,6 +556,7 @@ body {
     padding: 0;
     list-style: none;
     font-size: 13px;
+	overflow-y: scroll;
 }
 
 .control-rank-item {
