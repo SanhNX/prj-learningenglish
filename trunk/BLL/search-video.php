@@ -52,7 +52,7 @@ for ($i = 0; $i < count($itemList); $i++) {
             $html = $html."".$addString;
         }
 
-        if ($i == 10) {
+        if ($show == 10) {
             $show = 0;
         } else {
             $show++;
