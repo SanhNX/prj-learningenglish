@@ -1,6 +1,6 @@
 <div class="menu">
     <ul class="menu-list">
-        <li class="menu-item home"><a href="#">Home</a></li>
+        <li class="menu-item home"><a href="index.php">Home</a></li>
         <li class="menu-item menu-group acc" id="acc"><a href="#">Account</a>
 
             <div class="menu-arrow"></div>
