@@ -2,32 +2,75 @@ var hintList = [];
 var timeList = [];
 var intervalId = null;
 
+var captionContainer = $('#displayContentContainer');
+var captionContent = $('#displayContent');
+var captionItemHeight;
+var viewPortHeight;
+
 var lastCaptionTime = 0;
 var lastAnswerField = null;
 var totalField = 0;
 var answeredField = 0;
 var btnAutoScroll;
 var autoscroll;
-var timeIdentity = null;    
+var timeIdentity = null;
 var BASE_URL = "";
-$.getJSON('data-video/1.json',function(data){
+function getDataYT(id){
+$.getJSON('data-video/'+ id +'.json', function(data) {
     timeList = data.timeList;
     totalField = data.hintList.length;
-    hintList = data.hintList[0];
-    if (hintList[1] != undefined && hintList.length > 0) {
+    hintList = data.hintList;
+    hintItem = data.hintList[0];
+    if (hintItem[1] !== undefined && hintItem.length > 0) {
 
-        html = '';
-        for (i = 0; i < hintList.length; i++) {
-            hint = hintList[i + 1];
-            html += '<span class="play-keyword-item">' + hint + '</span>';
+        hintHtml = '';
+        for (i = 0; i < hintItem.length; i++) {
+            hint = hintItem[i + 1];
+            hintHtml += '<span class="play-keyword-item">' + hint + '</span>';
         }
-        $('.play-keywords').html(html);
+        $('.play-keywords').html(hintHtml);
 
     } else {
         $('.play-keywords').html('No suggestions');
     }
-    });
- 
+
+    //------------------------------ fill exam list --------------------------------------------
+
+    var html = "";
+    //$("#player")[0].src = data.url;
+    //$(".video-title")[0].innerText = data.title;
+    for (var i = 0; i < data.rows.length; i++) {
+        // var row = '<div class="captionItem" id="captionItem-'+ (i+1) +'" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">'+
+        //             '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">'+
+        //             '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">'+
+        //             '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">'+
+        //             '<a class="hand">'+
+        //                     '<i class="select icon-hand-right"></i>'+
+        //                     '<i class="play icon-play" style="display:none;"></i>'+
+        //                     '<span class="captionTime">00:0'+ data.rows[i].start_time +'</span>'+
+        //             '</a><div class="captionText" style="width: 555px;">' + data.rows[i].caption_text + '</div></div>';
+
+
+        var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
+                '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
+                '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
+                '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
+                '<a class="play-exam-tag" title="click to seek">' +
+                '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
+                '</a>' +
+                '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
+                '</div>';
+        // console.log(row);
+        html += row;
+    }
+    setTimeout(function() {
+        $(".play-exam-list").append(html);
+        $('.play-exam-answer:eq(0)').focus();
+    }, 10);
+
+});
+}
+
 setInterval(checkVideoTime, 500);
 //setInterval(function() {
 //    console.log(Math.round(player.getCurrentTime()));
@@ -39,7 +82,7 @@ function checkVideoTime() {
     for (p in timeList) {
         p = parseInt(p);
         number = timeList[p];
-        console.log("-------------------------"+lastCaptionTime);
+        console.log("-------------------------" + lastCaptionTime);
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
@@ -51,17 +94,33 @@ function checkVideoTime() {
     }
 }
 
-var captionContainer = $('#displayContentContainer');
-var captionContent = $('#displayContent');
-var captionItemHeight;
-var viewPortHeight;
+function formatTime(start_time) {
+    // var time = parseInt(Math.round(t));
+    var minute, second;
+    var m = parseInt(start_time / 60);
+    var s = parseInt(start_time % 60);
+    if (m === 0)
+        minute = "00";
+    else if (m < 10)
+        minute = "0" + m;
+    else
+        minute = m;
+    if (s === 0)
+        second = "00";
+    else if (s < 10)
+        second = "0" + s;
+    else
+        second = s;
+    return minute + ":" + second;
+}
+
 function setCaptionInView(item) {
-    if (autoscroll == 0) {
+    if (autoscroll === 0) {
         return;
     }
     captionTextHeight = item.find('.captionText').height();
     viewTop = captionContent.offset().top;
-    if ($.browser.mozilla != undefined) {
+    if ($.browser.mozilla !== undefined) {
         viewTop -= 20;
     }
     viewBottom = viewTop + viewPortHeight - captionTextHeight;
@@ -84,7 +143,7 @@ function stopCheckVideoTime() {
     window.clearInterval(intervalId);
 }
 function activeCaptionTime(item) {
-    if (item.hasClass('play') == false) {
+    if (item.hasClass('play') === false) {
         $('.play-exam-item').removeClass('play');
         // $('.play').hide();
         // $('.select').show();
@@ -93,17 +152,14 @@ function activeCaptionTime(item) {
         // item.find('.select').hide();
         // console.log("-------------------------"+item);
     }
-
-
 }
 $(document).ready(function()
 {
-
     $('.fb-comments').attr('data-width', $('.span6').width());
 
     $('#btnAutoScroll').click(function() {
 
-    })
+    });
     $('.play-exam-item .play-exam-tag').live('click', function() {
         var item = $(this).parent();
         startTime = item.find('.startTime').val();
@@ -129,21 +185,18 @@ $(document).ready(function()
         var html = '';
         var txtAnswer = $(this);
         var index = txtAnswer.index('.play-exam-answer');
-        $.getJSON('data-video/1.json', function(data) {
-            hintList = data.hintList[index];
-            if (hintList[1] != undefined && hintList.length > 0) {
-                html = '';
-                for (i = 0; i < hintList.length; i++) {
-                    hint = hintList[i + 1];
-                    html += '<span class="play-keyword-item">' + hint + '</span>';
-                }
-                $('.play-keywords').html(html);
-
-            } else {
-                $('.play-keywords').html('No suggestions');
+        hintItem = hintList[index];
+        if (hintItem[1] !== undefined && hintItem.length > 0) {
+            html = '';
+            for (i = 0; i < hintItem.length; i++) {
+                hint = hintItem[i + 1];
+                html += '<span class="play-keyword-item">' + hint + '</span>';
             }
-        });
+            $('.play-keywords').html(html);
 
+        } else {
+            $('.play-keywords').html('No suggestions');
+        }
     });
 
     $('.play-keyword-item').live('click', function(e) {
@@ -162,13 +215,13 @@ $(document).ready(function()
         });
         answeredField = 0;
         $('.video-control .video-control-score').html(answeredField + "/" + totalField);
-    })
+    });
 
     $('#btnSubmitVideoAnswer').click(function(e) {
         e.preventDefault();
         var button = $(this);
 
-        if (checkEmptyField() == true) {
+        if (checkEmptyField() === true) {
             bootbox.alert('Your assignment is to be sent , returns results in seconds...');
 
             $(this).button('loading');
@@ -217,9 +270,7 @@ $(document).ready(function()
         }
     });
 
-
     $('#btnSavePlayerName').click(function(e) {
-
         $.ajax({
             url: BASE_URL + '/video/saveScore',
             data: {
@@ -258,15 +309,12 @@ $(document).ready(function()
             success: function(json) {
                 var data = $.parseJSON(json);
                 bootbox.alert(data.msg);
-
             },
             complete: function() {
                 $('#feedbackDialog').modal('hide');
             }
-        })
-    })
-
-
+        });
+    });
 });
 
 function saveHighScore(score) {
@@ -281,7 +329,7 @@ function checkEmptyField() {
 
         value = $(this).val();
 
-        if (value != null && value.trim() != '') {
+        if (value !== null && value.trim() !== '') {
 
             result = true;
             return false;
@@ -328,11 +376,11 @@ function onPlayerReady() {
     $('#btnNext5Sec').click(function(e) {
         e.preventDefault();
         player.seekTo(player.getCurrentTime() + 5);
-    })
+    });
 }
 
 function onPlayerStateChange(event) {
-    if (event.data == 1) {
+    if (event.data === 1) {
         startCheckVideoTime();
     } else {
         stopCheckVideoTime();
@@ -343,7 +391,7 @@ function onPlayerStateChange(event) {
 
 $(document).ready(function() {
     btnAutoScroll = $('#btnAutoScroll');
-    autoscroll = $.cookie('autoscroll');
+//    autoscroll = $.cookie('autoscroll');
     setAutoScrollText();
     btnAutoScroll.click(function(e) {
         e.preventDefault();
@@ -352,7 +400,7 @@ $(document).ready(function() {
 
     });
     function setAutoScrollText() {
-        if (autoscroll == 0 || autoscroll == null) {
+        if (autoscroll === 0 || autoscroll === null) {
             btnAutoScroll.html('<i class="icon-ok-sign icon-white"></i> Enable Auto Scroll');
         } else {
             btnAutoScroll.html('<i class="icon-remove-sign icon-white"></i> Disable Auto Scroll');
@@ -360,7 +408,7 @@ $(document).ready(function() {
     }
 
     function changeAutoScroll() {
-        if (autoscroll == 0 || autoscroll == null) {
+        if (autoscroll === 0 || autoscroll === null) {
             $.cookie('autoscroll', 1);
             autoscroll = 1;
         } else {
@@ -368,32 +416,32 @@ $(document).ready(function() {
             autoscroll = 0;
         }
     }
-})
+});
 
 
 $(document).ready(function() {
     $('#btnYourPosition').click(function() {
 
-    })
-})
+    });
+});
 
 function shareScore(score, rank, video) {
 
-    if (fbUserData != null) {
+    if (fbUserData !== null) {
         message = fbUserData.name + ' vừa đạt ' + score + ' trong video tiếng Anh ' + video.title + ' tại ListenToMe.vn';
         FB.api('/me/feed', 'post', {
             'message': message,
             'link': video.website_url,
             'description': 'Số điểm: ' + score + '\r\n' + 'Xếp hạng: ' + rank
         }, function(response) {
-            console.log(response)
-        })
+            console.log(response);
+        });
     }
 }
 
 function increasePlayCount() {
     var count = $.cookie('playcount');
-    if (count == undefined)
+    if (count === undefined)
         count = 0;
     $.cookie('playcount', ++count);
 
@@ -415,7 +463,7 @@ function informPlayerScore(score, rank, time) {
 
     }
 
-    if (fbUserData != null) {
+    if (fbUserData !== null) {
         bootbox.confirm('Chúc mừng bạn đã đạt được ' + score + ' điểm. '
                 + rankText + '.<br/>'
                 + 'Thời gian hoàn thành của bạn là ' + time
@@ -442,23 +490,22 @@ function reloadHighScore(videoId) {
                 $('#highscoreList').html(data.msg.html);
             }
         }
-    })
+    });
 }
-
 
 $(document).ready(function() {
     $('#btnShowResult').click(function(e) {
         e.preventDefault();
         seeResult(video);
-    })
-})
+    });
+});
 
 
 var isShowResult = false;
 
 
 function seeResult(video) {
-    if (isShowResult == false) {
+    if (isShowResult === false) {
         bootbox.confirm('Bạn đang yêu cầu xem đáp án của video: ' + video.title + '. <br/>Đáp án video chỉ được xem <strong>một lần</strong> duy nhất. <br/>Bạn chỉ có <strong>30 giây</strong> để xem kết quả. <br/>Hãy quan sát thật kỹ những từ mà bạn muốn xem đáp án.', 'Thôi', 'Tiếp tục xem', function(confirm) {
             if (confirm) {
                 getResult(video.id);
@@ -484,7 +531,7 @@ function getResult(videoId) {
                 startCountDown();
             }
         }
-    })
+    });
 }
 
 function startCountDown() {
@@ -526,7 +573,7 @@ function getVideoContent(callback) {
                 $('#hintContainer').show();
                 $('#finishAction').show();
                 $('.txtAnswer:eq(0)').focus();
-                if (data.msg.timeList != undefined) {
+                if (data.msg.timeList !== undefined) {
                     timeList = data.msg.timeList;
                 }
                 startCheckVideoTime();

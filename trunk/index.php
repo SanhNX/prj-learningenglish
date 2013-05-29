@@ -19,7 +19,7 @@ include 'BLL/articleBLL.php';
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
-	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
+        <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/JSON.js"></script>
@@ -69,17 +69,17 @@ include 'BLL/articleBLL.php';
                     //----------------- Show list video--------------------//
                     <?php
                     $id = null;
-                    
+
                     if (isset($_GET['category'])) {
                         $id = $_GET['category'];
                     }
-                    
+
                     if (isset($_GET['page'])) {
                         $page = $_GET['page'];
                     } else {
                         $page = 1;
                     }
-                    
+
                     $articleList = getArticleByCategoryid($id, $page);
                     // echo '<script>alert("'.count($articleList).'");</script>';
                     $show = 0;
@@ -87,20 +87,20 @@ include 'BLL/articleBLL.php';
 //                        echo '<script>alert("'.$show.'-------'.$y.'");</script>';
                         $itemArticle = $articleList[$y];
 //                        echo '<script>alert("'.$itemArticle->link.'");</script>';
-                       // $video = getVideoContent($itemArticle->link);
+                        // $video = getVideoContent($itemArticle->link);
 //                        echo '<script>alert("************'.$video->length.'");</script>';
                         $currTime = $itemArticle->duration;
-                        
+
                         if ($show == 1 || $show == 5 || $show == 6 || $show == 9) {
                             echo '
                                 <li class="metro-item large" style="background-image: url(' . $itemArticle->thumbnail . ')">
                                     <div class="metro-bar">
-                                        <a class="metro-bar-wrapper" href="">
+                                        <a name="redirect-play" class="metro-bar-wrapper" href="play.php?id=' . $itemArticle->idArticle . '" >
                                             <div class=metro-title>
-                                                    <span>' .$itemArticle->title . '</span>
+                                                    <span>' . $itemArticle->title . '</span>
                                                     <div class="metro-title-duration">' . $currTime . '</div>
                                             </div>
-                                            <div class=metro-times>'.$itemArticle->timesplay.'</div>
+                                            <div class=metro-times>' . $itemArticle->timesplay . '</div>
                                             <div class=metro-level>999</div>
                                         </a>
                                     </div>
@@ -110,12 +110,12 @@ include 'BLL/articleBLL.php';
                             echo '
                                 <li class="metro-item" style="background-image: url(' . $itemArticle->thumbnail . ')">
                                     <div class="metro-bar">
-                                        <a class="metro-bar-wrapper" href="">
+                                        <a name="redirect-play" class="metro-bar-wrapper" href="play.php?id=' . $itemArticle->idArticle . '">
                                             <div class=metro-title>
                                                     <span>' . $itemArticle->title . '</span>
                                                     <div class="metro-title-duration">' . $currTime . '</div>
                                             </div>
-                                            <div class=metro-times>'.$item->timesplay.'</div>
+                                            <div class=metro-times>' . $itemArticle->timesplay . '</div>
                                             <div class=metro-level>999</div>
                                         </a>
                                     </div>
@@ -132,19 +132,19 @@ include 'BLL/articleBLL.php';
                     echo '<li class="metro-item-clear">
                           </li>
                     ';
-                    
+
                     if (count($articleList) == 22) {
                         echo '<li class="metro-item-more" onclick="loadMore()">
                                 <span id="more">More</span>
-                                <input id="pagevalue" value="'.($page + 1).'" type="hidden">
-                                <input id="idvalue" value="'.$id.'" type="hidden">    
+                                <input id="pagevalue" value="' . ($page + 1) . '" type="hidden">
+                                <input id="idvalue" value="' . $id . '" type="hidden">    
                               </li>
                         ';
                     }
                     ?>
 
-                    
-                    
+
+
                 </ul>
                 <div class="control-bar">
                     <div class=control-fb></div>
@@ -173,8 +173,8 @@ include 'BLL/articleBLL.php';
                     <div class="fb-like-box" data-href="http://www.facebook.com/voalearningenglish" data-width="1040" data-height="210" data-show-faces="true" data-stream="false" data-header="false"></div>
                 </div>
             </div>
-<?php
-include 'common/login-register.php';
-?>
+            <?php
+            include 'common/login-register.php';
+            ?>
     </body>
 </html>
