@@ -15,150 +15,9 @@ var btnAutoScroll;
 var autoscroll;
 var timeIdentity = null;
 var BASE_URL = "";
-function getDataYT(id){
-$.getJSON('data-video/'+ id +'.json', function(data) {
-    timeList = data.timeList;
-    totalField = data.hintList.length;
-    hintList = data.hintList;
-    hintItem = data.hintList[0];
-    if (hintItem[1] !== undefined && hintItem.length > 0) {
-
-        hintHtml = '';
-        for (i = 0; i < hintItem.length; i++) {
-            hint = hintItem[i + 1];
-            hintHtml += '<span class="play-keyword-item">' + hint + '</span>';
-        }
-        $('.play-keywords').html(hintHtml);
-
-    } else {
-        $('.play-keywords').html('No suggestions');
-    }
-
-    //------------------------------ fill exam list --------------------------------------------
-
-    var html = "";
-    //$("#player")[0].src = data.url;
-    //$(".video-title")[0].innerText = data.title;
-    for (var i = 0; i < data.rows.length; i++) {
-        // var row = '<div class="captionItem" id="captionItem-'+ (i+1) +'" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">'+
-        //             '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">'+
-        //             '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">'+
-        //             '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">'+
-        //             '<a class="hand">'+
-        //                     '<i class="select icon-hand-right"></i>'+
-        //                     '<i class="play icon-play" style="display:none;"></i>'+
-        //                     '<span class="captionTime">00:0'+ data.rows[i].start_time +'</span>'+
-        //             '</a><div class="captionText" style="width: 555px;">' + data.rows[i].caption_text + '</div></div>';
-
-
-        var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
-                '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
-                '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
-                '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
-                '<a class="play-exam-tag" title="click to seek">' +
-                '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
-                '</a>' +
-                '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
-                '</div>';
-        // console.log(row);
-        html += row;
-    }
-    setTimeout(function() {
-        $(".play-exam-list").append(html);
-        $('.play-exam-answer:eq(0)').focus();
-    }, 10);
-
-});
-}
-
-setInterval(checkVideoTime, 500);
-//setInterval(function() {
-//    console.log(Math.round(player.getCurrentTime()));
-//    
-//}, 1000);
-function checkVideoTime() {
-    currentTime = player.getCurrentTime();
-    number = null;
-    for (p in timeList) {
-        p = parseInt(p);
-        number = timeList[p];
-        console.log("-------------------------" + lastCaptionTime);
-        if (currentTime > p && p > lastCaptionTime) {
-            lastCaptionTime = p;
-            var item = $('#captionItem-' + number);
-            // setCaptionInView(item);
-
-            activeCaptionTime(item);
-            break;
-        }
-    }
-}
-
-function formatTime(start_time) {
-    // var time = parseInt(Math.round(t));
-    var minute, second;
-    var m = parseInt(start_time / 60);
-    var s = parseInt(start_time % 60);
-    if (m === 0)
-        minute = "00";
-    else if (m < 10)
-        minute = "0" + m;
-    else
-        minute = m;
-    if (s === 0)
-        second = "00";
-    else if (s < 10)
-        second = "0" + s;
-    else
-        second = s;
-    return minute + ":" + second;
-}
-
-function setCaptionInView(item) {
-    if (autoscroll === 0) {
-        return;
-    }
-    captionTextHeight = item.find('.captionText').height();
-    viewTop = captionContent.offset().top;
-    if ($.browser.mozilla !== undefined) {
-        viewTop -= 20;
-    }
-    viewBottom = viewTop + viewPortHeight - captionTextHeight;
-    itemTop = item.offset().top;
-
-    if (!(itemTop >= viewTop && itemTop <= viewBottom)) {
-        if (itemTop < viewTop) {
-            captionContainer.scrollTop(itemTop - viewTop);
-        } else if (itemTop > viewBottom) {
-
-            captionContainer.scrollTop(itemTop - (viewBottom) + captionTextHeight);
-        }
-    }
-
-}
-function startCheckVideoTime() {
-    intervalId = setInterval(checkVideoTime, 1000);
-}
-function stopCheckVideoTime() {
-    window.clearInterval(intervalId);
-}
-function activeCaptionTime(item) {
-    if (item.hasClass('play') === false) {
-        $('.play-exam-item').removeClass('play');
-        // $('.play').hide();
-        // $('.select').show();
-        item.addClass('play');
-        item.find('.play').show();
-        // item.find('.select').hide();
-        // console.log("-------------------------"+item);
-    }
-}
-$(document).ready(function()
-{
+$(document).ready(function(){
     $('.fb-comments').attr('data-width', $('.span6').width());
-
     $('#btnAutoScroll').click(function() {
-
     });
     $('.play-exam-item .play-exam-tag').live('click', function() {
         var item = $(this).parent();
@@ -166,6 +25,14 @@ $(document).ready(function()
         lastCaptionTime = startTime;
         player.seekTo(startTime, true);
         activeCaptionTime(item);
+    });
+    $('.video-control .back5').live('click', function(e) {
+        e.preventDefault();
+        player.seekTo(player.getCurrentTime() - 5);
+    });
+    $('.video-control .skip5').live('click', function(e) {
+        e.preventDefault();
+        player.seekTo(player.getCurrentTime() + 5);
     });
     getVideoContent();
     //$('#hintList').show();
@@ -235,11 +102,10 @@ $(document).ready(function()
             //show spin  button first
             //confirm: Bạn có muốn gửi bài làm của mình ?
             $.ajax({
-                url: BASE_URL + '/video/finish?id=' + video.id,
+                url: './BLL/submitExamBll.php',
                 data: {
                     answer: answer,
-                    id: video.id,
-                    timeIdentity: timeIdentity
+                    timeIdentity: 20
                 },
                 type: 'post',
                 error: function(json) {
@@ -316,6 +182,145 @@ $(document).ready(function()
         });
     });
 });
+
+function getDataYT(id){
+$.getJSON('data-video/'+ id +'.json', function(data) {
+    timeList = data.timeList;
+    totalField = data.hintList.length;
+    hintList = data.hintList;
+    hintItem = data.hintList[0];
+    if (hintItem[1] !== undefined && hintItem.length > 0) {
+
+        hintHtml = '';
+        for (i = 0; i < hintItem.length; i++) {
+            hint = hintItem[i + 1];
+            hintHtml += '<span class="play-keyword-item">' + hint + '</span>';
+        }
+        $('.play-keywords').html(hintHtml);
+
+    } else {
+        $('.play-keywords').html('No suggestions');
+    }
+
+    //------------------------------ fill exam list --------------------------------------------
+
+    var html = "";
+    //$("#player")[0].src = data.url;
+    //$(".video-title")[0].innerText = data.title;
+    for (var i = 0; i < data.rows.length; i++) {
+        // var row = '<div class="captionItem" id="captionItem-'+ (i+1) +'" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">'+
+        //             '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">'+
+        //             '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">'+
+        //             '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">'+
+        //             '<a class="hand">'+
+        //                     '<i class="select icon-hand-right"></i>'+
+        //                     '<i class="play icon-play" style="display:none;"></i>'+
+        //                     '<span class="captionTime">00:0'+ data.rows[i].start_time +'</span>'+
+        //             '</a><div class="captionText" style="width: 555px;">' + data.rows[i].caption_text + '</div></div>';
+
+
+        var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
+                '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
+                '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
+                '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
+                '<a class="play-exam-tag" title="click to seek">' +
+                '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
+                '</a>' +
+                '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
+                '</div>';
+        // console.log(row);
+        html += row;
+    }
+    setTimeout(function() {
+        $(".play-exam-list").append(html);
+        $('.play-exam-answer:eq(0)').focus();
+    }, 10);
+
+});
+}
+
+setInterval(checkVideoTime, 500);
+//setInterval(function() {
+//    console.log(Math.round(player.getCurrentTime()));
+//    
+//}, 1000);
+function checkVideoTime() {
+    currentTime = player.getCurrentTime();
+    number = null;
+    for (p in timeList) {
+        p = parseInt(p);
+        number = timeList[p];
+//        console.log("-------------------------" + lastCaptionTime);
+        if (currentTime > p && p > lastCaptionTime) {
+            lastCaptionTime = p;
+            var item = $('#captionItem-' + number);
+            // setCaptionInView(item);
+
+            activeCaptionTime(item);
+            break;
+        }
+    }
+}
+
+function formatTime(start_time) {
+    // var time = parseInt(Math.round(t));
+    var minute, second;
+    var m = parseInt(start_time / 60);
+    var s = parseInt(start_time % 60);
+    if (m === 0)
+        minute = "00";
+    else if (m < 10)
+        minute = "0" + m;
+    else
+        minute = m;
+    if (s === 0)
+        second = "00";
+    else if (s < 10)
+        second = "0" + s;
+    else
+        second = s;
+    return minute + ":" + second;
+}
+
+function setCaptionInView(item) {
+    if (autoscroll === 0) {
+        return;
+    }
+    captionTextHeight = item.find('.captionText').height();
+    viewTop = captionContent.offset().top;
+    if ($.browser.mozilla !== undefined) {
+        viewTop -= 20;
+    }
+    viewBottom = viewTop + viewPortHeight - captionTextHeight;
+    itemTop = item.offset().top;
+
+    if (!(itemTop >= viewTop && itemTop <= viewBottom)) {
+        if (itemTop < viewTop) {
+            captionContainer.scrollTop(itemTop - viewTop);
+        } else if (itemTop > viewBottom) {
+
+            captionContainer.scrollTop(itemTop - (viewBottom) + captionTextHeight);
+        }
+    }
+
+}
+function startCheckVideoTime() {
+    intervalId = setInterval(checkVideoTime, 1000);
+}
+function stopCheckVideoTime() {
+    window.clearInterval(intervalId);
+}
+function activeCaptionTime(item) {
+    if (item.hasClass('play') === false) {
+        $('.play-exam-item').removeClass('play');
+        // $('.play').hide();
+        // $('.select').show();
+        item.addClass('play');
+        item.find('.play').show();
+        // item.find('.select').hide();
+        // console.log("-------------------------"+item);
+    }
+}
 
 function saveHighScore(score) {
     $('#playScore').html(data.msg.score);

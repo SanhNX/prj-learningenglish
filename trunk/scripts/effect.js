@@ -8,7 +8,7 @@ $(function() {
             $("#menu-popup").addClass("active");
             $("#menu-popup").css({overflow: "visible"}).stop().animate({width: 350}, 1000, "easeOutQuint");
             $(".menu-popup-form." + this.id + " .menu-popup-list").css({right: 350}).animate({right: 0}, 1100, "easeOutQuint");
-	        removeCalendar();
+            removeCalendar();
         }, function() {
         });
 
@@ -21,7 +21,7 @@ $(function() {
         blurAllMenu();
         $(this).stop().animate({width: 0}, "easeOutQuint", function() {
             $(this).removeClass("active");
-	        removeCalendar();
+            removeCalendar();
         });
     });
     $(".form-head-search").hover(function() {
@@ -50,6 +50,15 @@ $(function() {
     });
     resetCalendar();
 });
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id))
+        return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 function loadMetroPage() {
     var metroIndex = 0;
     $(".metro-item").each(function() {
@@ -127,13 +136,13 @@ function resetForm() {
 }
 
 function resetCalendar() {
-    setTimeout(function(){
-	$('.date-pick').datePicker({closeOnSelect:false});
-	$('.date-pick.week').datePicker({selectWeek:true,closeOnSelect:false});
-    },1500);
+    setTimeout(function() {
+        $('.date-pick').datePicker({closeOnSelect: false});
+        $('.date-pick.week').datePicker({selectWeek: true, closeOnSelect: false});
+    }, 1500);
 }
 function removeCalendar() {
-	$('#dp-popup').remove(false);
+    $('#dp-popup').remove(false);
 }
 
 function readURL(input, thumbimage) {

@@ -16,13 +16,14 @@ include 'BLL/articleBll.php';
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
 
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
+        <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
-        <script type="text/javascript" src="scripts/JSON.js"></script>
         <script type="text/javascript" src="scripts/video-control.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>

@@ -809,7 +809,7 @@ body {
 }
 
 .control-button.finish:hover {
-    background-color: #0761E7;
+    background-color: rgb(23, 73, 146);;
 }
 
 .control-button.retry:hover {

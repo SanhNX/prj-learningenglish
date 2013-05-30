@@ -12,8 +12,8 @@ include 'BLL/articleBLL.php';
         <title></title>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
+        
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery-latest.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
@@ -28,16 +28,6 @@ include 'BLL/articleBLL.php';
     </head>
     <body>
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
         <div class="page">
             <?php
             include 'common/menu.php';
