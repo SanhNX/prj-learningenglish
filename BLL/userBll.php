@@ -54,4 +54,23 @@ function insertUser ($fname, $email, $pword, $joindate, $gender, $avatar){
         return -1;
 }
 
+function getInforUserById ($id) {
+    $sql = "SELECT * FROM tbl_user Where Id = $id";
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo 'Could not run query: ' . $id . mysql_error();
+        exit;
+    }
+    $seletedItem = mysql_fetch_array($queryResult);
+    $item = new User();
+    $item->id = $seletedItem['id'];
+    $item->name = $seletedItem['name'];
+    $item->email = $seletedItem['email'];
+    $item->joindate = $seletedItem['joindate'];
+    $item->gender = $seletedItem['gender'];
+    $item->avatar = $seletedItem['avatar'];
+    $item->status = $seletedItem['status'];
+    return $item;
+}
+
 ?>

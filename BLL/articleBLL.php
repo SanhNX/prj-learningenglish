@@ -9,9 +9,15 @@ function getArticleByCategoryid($id, $pa) {
     }
 
     if ($id != null && $id != "") {
-        $sql = "SELECT * FROM tbl_article Where categoryid = '" . $id . "' LIMIT $page, $display";
+        $sql = "SELECT * 
+                FROM
+                    (SELECT * FROM tbl_article Where categoryid = '" . $id . "' ORDER BY id DESC) AS T
+                LIMIT $page, $display";
     } else {
-        $sql = "SELECT * FROM tbl_article LIMIT $page, $display";
+        $sql = "SELECT * 
+                FROM
+                    (SELECT * FROM tbl_article ORDER BY id DESC) AS T
+                LIMIT $page, $display";
     }
 
 
