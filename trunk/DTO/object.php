@@ -2,6 +2,7 @@
 
 class User{
 	var $id;
+        var $name;
 	var $email;
 	var $password;
 	var $avatar;
@@ -27,6 +28,13 @@ class Article{
 	var $level;
 	var $timesplay;
 	var $datecreate;
+}
+
+class UserInfor{
+	var $idAr;
+	var $titleAr;
+	var $score;
+	var $ranking;
 }
 
 ?>
