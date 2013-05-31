@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: "Segoe UI", Tahoma, Geneva, sans-serif;
     font-size: 13px;
+    height: 100%;
 }
 .undisplayed {
     display: none;
@@ -178,6 +179,7 @@ body {
 .menu-popup-list.special {
 }
 
+.control-rank-list .menu-popup-item,
 .menu-popup-list.special .menu-popup-item {
     height: 50px;
     line-height: 50px;
@@ -407,7 +409,6 @@ body {
     left: 0px;
     top: 0px;
     background-size: 100% 100%;
-
 }
 
 .metro-item.large {
@@ -487,16 +488,24 @@ body {
 .metro-item-clear{
     clear: both;
 }
-.metro-item-more{
-    height: 80px;
-    width: 50px;
+.metro-item.more{
+    /*height: 80px;*/
+    /*width: 50px;*/
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    position: relative;
+    font-size: 13px;
+    left: 0px;
+    top: 0px;
     color: #FFFFFF;
     background:url("../images/icon/more-ico.png") no-repeat center 35px #0046A9;
-    position: absolute;
-    font-size: 13px;
-    bottom: 5px;
-    right: -55px;
-    cursor: pointer;
+    /*position: absolute;*/
+    /*font-size: 13px;*/
+    /*bottom: 5px;*/
+    /*right: -55px;*/
+    /*cursor: pointer;*/
 }
 
 /*TOOLKIT*/
@@ -523,7 +532,13 @@ body {
 
 .control-mess {
     height: 95px;
+}
+.control-mess .front {
     background: url("../images/icon/mess-ico.png") no-repeat center #0046a9;
+}
+
+.control-mess .back {
+    background: #2283a9;
 }
 
 .control-mail {
@@ -538,6 +553,7 @@ body {
     width: 620px;
     background-color: #d92266;
     font-size: 0;
+    overflow: hidden;
 }
 
 .control-rank-head {
@@ -556,7 +572,7 @@ body {
     padding: 0;
     list-style: none;
     font-size: 13px;
-	overflow-y: scroll;
+    text-align: left;
 }
 
 .control-rank-item {
@@ -1140,4 +1156,35 @@ body {
 }
 .login-info-radio {
     margin-left: 30px;
+}
+/*FLIP*/
+.flip-container {
+    -webkit-perspective: 1000px;
+}
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 100%;
+}
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    height: 100%;
+    position: relative;
+}
+.front, .back {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.front {
+    z-index: 2;
+    height: 100%;
+}
+.back {
+    -webkit-transform: rotateY(180deg);
+    height: 100%;
 }

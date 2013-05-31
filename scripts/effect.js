@@ -49,6 +49,7 @@ $(function () {
         showLogin("register");
     });
     resetCalendar();
+    initScrollBar();
 });
 (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -162,4 +163,12 @@ function readURL(input, thumbimage) {
         $("#thumbimage").show();
     }
     $(".removeimg").show();
+}
+function initScrollBar(){
+    $(window).load(function(){
+        $(".control-rank-list").mCustomScrollbar({
+            autoHideScrollbar:true,
+            theme:"light-thin"
+        });
+    });
 }
