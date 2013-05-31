@@ -5,11 +5,13 @@
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
 	<script type="text/javascript" src="scripts/date.js"></script>
 	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
 </head>
 <body>
@@ -65,7 +67,7 @@
 					<div class="menu-popup-calendar-prev"></div>
 					<div class="menu-popup-calendar-current">
 						<i class="menu-popup-icon calendar-date"></i>
-						<input type="text" class="date-pick" value="5/28/2013"/>
+						<input type="text" class="date-pick" value="28/05/2013"/>
 					</div>
 					<div class="menu-popup-calendar-next"></div>
 				</div>
@@ -139,7 +141,7 @@
 					<div class="menu-popup-calendar-prev"></div>
 					<div class="menu-popup-calendar-current">
 						<i class="menu-popup-icon calendar-week"></i>
-						<input type="text" class="date-pick week" value="5/28/2013"/>
+						<input type="text" class="date-pick week" value="28/05/2013"/>
 					</div>
 					<div class="menu-popup-calendar-next"></div>
 				</div>
@@ -308,18 +310,6 @@
 				</div>
 			</div>
 		</li>
-		<li class="metro-item medium" style="background-image: url('images/resource/metro/m9.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>
-						<span>It is a long established fact that a reader will be distracted by the readable content</span>
-						<div class="metro-title-duration">04:50</div>
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
 		<li class="metro-item large" style="background-image: url('images/resource/metro/m10.jpg')">
 			<div class="metro-bar">
 				<div class="metro-bar-wrapper">
@@ -331,37 +321,75 @@
 				</div>
 			</div>
 		</li>
-		<li class="metro-item medium" style="background-image: url('images/resource/metro/m11.jpg')">
-			<div class="metro-bar">
-				<div class="metro-bar-wrapper">
-					<div class=metro-title>
-						<span>It is a long established fact that a reader will be distracted by the readable content</span>
-						<div class="metro-title-duration">04:50</div>
-					</div>
-					<div class=metro-times>200</div>
-					<div class=metro-level>999</div>
-				</div>
-			</div>
-		</li>
-		<li class="metro-item-clear">
+        <li class="metro-item more"><span>Thêm</span>
+        <li class="metro-item-clear">
 
 		</li>
-		<li class="metro-item-more"><span>Thêm</span>
 		</li>
 	</ul>
 	<div class="control-bar">
 		<div class=control-fb></div>
 		<div class=control-contact>
-			<div class="control-mess"></div>
-			<div class="control-mail"></div>
+			<div class="control-mess flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <!-- front content -->
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                    </div>
+                </div>
+			</div>
+			<div class="control-mail flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <!-- front content -->
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                    </div>
+                </div>
+            </div>
 		</div>
 		<div class=control-rank-recent>
 			<div class="control-rank-head"></div>
 			<ul class="control-rank-list">
-				<li class="control-rank-item">User 1</li>
-				<li class="control-rank-item">User 2</li>
-				<li class="control-rank-item">User 3</li>
-				<li class="control-rank-item">User 4</li>
+                <li class="menu-popup-item odd">
+                    <span class="menu-popup-num">1</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+                    <span class="menu-popup-user">Name1</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
+                <li class="menu-popup-item">
+                    <span class="menu-popup-num">2</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+                    <span class="menu-popup-user">Name1</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
+                <li class="menu-popup-item odd">
+                    <span class="menu-popup-num">3</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+                    <span class="menu-popup-user">Name3</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
+                <li class="menu-popup-item">
+                    <span class="menu-popup-num">4</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+                    <span class="menu-popup-user">Name1</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
+                <li class="menu-popup-item odd">
+                    <span class="menu-popup-num">5</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+                    <span class="menu-popup-user">Name1</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
+                <li class="menu-popup-item">
+                    <span class="menu-popup-num">6</span>
+                    <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+                    <span class="menu-popup-user">Name1</span>
+                    <span class="menu-popup-score">2000</span>
+                </li>
 			</ul>
 		</div>
 	</div>
