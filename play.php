@@ -23,8 +23,8 @@ include 'BLL/articleBll.php';
         <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
-        <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/video-control.js"></script>
+        <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
@@ -33,10 +33,23 @@ include 'BLL/articleBll.php';
     </head>
     <?php
     $idArticle = $_GET["id"];
-    echo '<body onload = "getDataYT('.$idArticle.')">';
+    echo '<body onload = "getDataYT(' . $idArticle . ')">';
     ?>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: "285197988253414",
+                channelUrl: '//WWW.listentome.vn/channel.html',
+                frictionlessRequests: true
+            });
+            FB.getLoginStatus(function(response) {
+                onFacebookReady();
+                getFbUserData();
+            });
+
+        };
+        (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id))
                 return;
@@ -64,7 +77,6 @@ include 'BLL/articleBll.php';
                         <span class="video-control-score"></span></div>
                 </div>
                 <?php
-                
                 $article = getArticleById($idArticle);
                 echo '<div class="video-title">' . $article->title . '</div>
                             <div class="video-player">

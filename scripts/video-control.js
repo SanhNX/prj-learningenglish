@@ -1,5 +1,6 @@
 var hintList = [];
 var timeList = [];
+var ansContent = [];
 var intervalId = null;
 
 var captionContainer = $('#displayContentContainer');
@@ -15,7 +16,7 @@ var btnAutoScroll;
 var autoscroll;
 var timeIdentity = null;
 var BASE_URL = "";
-$(document).ready(function(){
+$(document).ready(function() {
     $('.fb-comments').attr('data-width', $('.span6').width());
     $('#btnAutoScroll').click(function() {
     });
@@ -87,7 +88,7 @@ $(document).ready(function(){
     $('#btnSubmitVideoAnswer').click(function(e) {
         e.preventDefault();
         var button = $(this);
-
+        var score = 0;
         if (checkEmptyField() === true) {
             bootbox.alert('Your assignment is to be sent , returns results in seconds...');
 
@@ -101,33 +102,38 @@ $(document).ready(function(){
             player.stopVideo();
             //show spin  button first
             //confirm: Bạn có muốn gửi bài làm của mình ?
-            $.ajax({
-                url: './BLL/submitExamBll.php',
-                data: {
-                    answer: answer,
-                    timeIdentity: 20
-                },
-                type: 'post',
-                error: function(json) {
-                    bootbox.alert("Sorry, we're having trouble , and we are to overcome this error");
-                },
-                complete: function(json) {
-
-                },
-                success: function(json) {
-                    bootbox.hideAll();
-                    var data = $.parseJSON(json);
-                    if (data.success) {
-
-                        $('#displayContent').html(data.msg.resultContent);
-                        informPlayerScore(data.msg.score, data.msg.rank, data.msg.time);
-                        $('#highscoreList #yw0').yiiGridView('update');
-                        //reloadHighScore(video.id);						
-                    } else {
-                        bootbox.alert(data.msg);
-                    }
-                }
-            });
+            for(var i = 0; i < answer.length; i++){
+                if(ansContent[i + 1] === answer[i])
+                    score += 1;
+            }
+            informPlayerScore(score, 1, "02:25");
+//            $.ajax({
+//                url: './BLL/submitExamBll.php',
+//                data: {
+//                    answer: answer,
+//                    timeIdentity: 20
+//                },
+//                type: 'post',
+//                error: function(json) {
+//                    bootbox.alert("Sorry, we're having trouble , and we are to overcome this error");
+//                },
+//                complete: function(json) {
+//
+//                },
+//                success: function(json) {
+//                    bootbox.hideAll();
+//                    var data = $.parseJSON(json);
+//                    if (data.success) {
+//
+//                        $('#displayContent').html(data.msg.resultContent);
+//                        informPlayerScore(data.msg.score, data.msg.rank, data.msg.time);
+//                        $('#highscoreList #yw0').yiiGridView('update');
+//                        //reloadHighScore(video.id);						
+//                    } else {
+//                        bootbox.alert(data.msg);
+//                    }
+//                }
+//            });
             button.val('Done');
             return false;
         } else {
@@ -183,60 +189,55 @@ $(document).ready(function(){
     });
 });
 
-function getDataYT(id){
-$.getJSON('data-video/'+ id +'.json', function(data) {
-    timeList = data.timeList;
-    totalField = data.hintList.length;
-    hintList = data.hintList;
-    hintItem = data.hintList[0];
-    if (hintItem[1] !== undefined && hintItem.length > 0) {
+function getDataYT(id) {
+    $.ajax({
+        url: './BLL/getDataJSONBll.php',
+        data: {
+            id: id
+        },
+        type: 'post',
+        complete: function() {
+        },
+        success: function(resp) {
+            var jsonParse = JSON.parse(resp);
+            var data = jsonParse.content[1];
+            ansContent = jsonParse.content[0].answers;
+            timeList = data.timeList;
+            totalField = data.hintList.length;
+            hintList = data.hintList;
+            hintItem = data.hintList[0];
+            if (hintItem[1] !== undefined && hintItem.length > 0) {
+                hintHtml = '';
+                for (i = 0; i < hintItem.length; i++) {
+                    hint = hintItem[i + 1];
+                    hintHtml += '<span class="play-keyword-item">' + hint + '</span>';
+                }
+                $('.play-keywords').html(hintHtml);
 
-        hintHtml = '';
-        for (i = 0; i < hintItem.length; i++) {
-            hint = hintItem[i + 1];
-            hintHtml += '<span class="play-keyword-item">' + hint + '</span>';
+            } else {
+                $('.play-keywords').html('No suggestions');
+            }
+            //------------------------------ fill exam list --------------------------------------------
+            var html = "";
+            for (var i = 0; i < data.rows.length; i++) {
+                var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
+                        '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
+                        '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
+                        '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
+                        '<a class="play-exam-tag" title="click to seek">' +
+                        '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
+                        '</a>' +
+                        '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
+                        '</div>';
+                // console.log(row);
+                html += row;
+            }
+            setTimeout(function() {
+                $(".play-exam-list").append(html);
+                $('.play-exam-answer:eq(0)').focus();
+            }, 10);
         }
-        $('.play-keywords').html(hintHtml);
-
-    } else {
-        $('.play-keywords').html('No suggestions');
-    }
-
-    //------------------------------ fill exam list --------------------------------------------
-
-    var html = "";
-    //$("#player")[0].src = data.url;
-    //$(".video-title")[0].innerText = data.title;
-    for (var i = 0; i < data.rows.length; i++) {
-        // var row = '<div class="captionItem" id="captionItem-'+ (i+1) +'" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">'+
-        //             '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">'+
-        //             '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">'+
-        //             '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">'+
-        //             '<a class="hand">'+
-        //                     '<i class="select icon-hand-right"></i>'+
-        //                     '<i class="play icon-play" style="display:none;"></i>'+
-        //                     '<span class="captionTime">00:0'+ data.rows[i].start_time +'</span>'+
-        //             '</a><div class="captionText" style="width: 555px;">' + data.rows[i].caption_text + '</div></div>';
-
-
-        var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
-                '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
-                '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
-                '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
-                '<a class="play-exam-tag" title="click to seek">' +
-                '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
-                '</a>' +
-                '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
-                '</div>';
-        // console.log(row);
-        html += row;
-    }
-    setTimeout(function() {
-        $(".play-exam-list").append(html);
-        $('.play-exam-answer:eq(0)').focus();
-    }, 10);
-
-});
+    });
 }
 
 setInterval(checkVideoTime, 500);
@@ -451,6 +452,22 @@ function increasePlayCount() {
     $.cookie('playcount', ++count);
 
 }
+function getFbUserData(callback){
+  callback = callback||function(){};
+  if(fbUserData==null){
+    FB.api('/me',function(response){
+      if(!response || response.error){
+        console.log('error get user data');
+        console.log(response);
+      }else{
+        fbUserData = response;
+        callback();
+      }
+    });
+  }
+  return fbUserData;
+  
+}
 function informPlayerScore(score, rank, time) {
     rankText = null;
     switch (rank) {
@@ -467,7 +484,6 @@ function informPlayerScore(score, rank, time) {
             rankText = 'Bạn là người đứng thứ ' + rank + ' trong video này';
 
     }
-
     if (fbUserData !== null) {
         bootbox.confirm('Chúc mừng bạn đã đạt được ' + score + ' điểm. '
                 + rankText + '.<br/>'
