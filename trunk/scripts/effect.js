@@ -1,6 +1,6 @@
-$(function() {
-    $(".menu-group").each(function() {
-        $(this).hover(function() {
+$(function () {
+    $(".menu-group").each(function () {
+        $(this).hover(function () {
             blurAllMenu();
             $(this).addClass("hover");
             setMenuHover(this);
@@ -9,48 +9,48 @@ $(function() {
             $("#menu-popup").css({overflow: "visible"}).stop().animate({width: 350}, 1000, "easeOutQuint");
             $(".menu-popup-form." + this.id + " .menu-popup-list").css({right: 350}).animate({right: 0}, 1100, "easeOutQuint");
             removeCalendar();
-        }, function() {
+        }, function () {
         });
 
     });
 
-    $("#menu-popup").hover(function() {
+    $("#menu-popup").hover(function () {
         $(this).addClass("active");
         $(this).stop().animate({width: 350});
-    }, function() {
+    }, function () {
         blurAllMenu();
-        $(this).stop().animate({width: 0}, "easeOutQuint", function() {
+        $(this).stop().animate({width: 0}, "easeOutQuint", function () {
             $(this).removeClass("active");
             removeCalendar();
         });
     });
-    $(".form-head-search").hover(function() {
+    $(".form-head-search").hover(function () {
         $(this).stop().animate({width: 400}, 1000, "easeOutQuint");
         $(".search-text").focus();
-    }, function() {
+    }, function () {
         $(this).stop().animate({width: 80}, 1000, "easeOutQuint");
     });
     loadMetroPage();
-    $(".popup-back").click(function() {
+    $(".popup-back").click(function () {
         hideLogin();
         resetForm();
     });
 
-    $("#login-info-link-register").click(function() {
+    $("#login-info-link-register").click(function () {
         $(".popup-form").css({height: "410px"});
         changeLogin("register");
     });
-    $("#btnLogin").click(function() {
+    $("#btnLogin").click(function () {
         $(".popup-form").css({height: "350px"});
         showLogin("login");
     });
-    $("#btnRegis").click(function() {
+    $("#btnRegis").click(function () {
         $(".popup-form").css({height: "410px"});
         showLogin("register");
     });
     resetCalendar();
 });
-(function(d, s, id) {
+(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id))
         return;
@@ -61,15 +61,15 @@ $(function() {
 }(document, 'script', 'facebook-jssdk'));
 function loadMetroPage() {
     var metroIndex = 0;
-    $(".metro-item").each(function() {
+    $(".metro-item").each(function () {
         $(this).css({left: 500, opacity: 0}).delay(metroIndex++ * 50).animate({left: 0, opacity: 1}, 2000, "easeOutQuint");
     });
     resetMetroHover();
 }
 function resetMetroHover() {
-    $(".metro-item").hover(function() {
+    $(".metro-item").hover(function () {
         $(this).children(".metro-bar").animate({height: 200}, 500, "easeOutQuint");
-    }, function() {
+    }, function () {
         $(this).children(".metro-bar").animate({height: 90}, 500, "easeOutQuint");
     });
 }
@@ -84,7 +84,7 @@ function setMenuBlur(item) {
 
 }
 function blurAllMenu() {
-    $(".menu-item").each(function() {
+    $(".menu-item").each(function () {
         $(this).removeClass("hover");
         setMenuBlur(this);
     });
@@ -108,14 +108,14 @@ function showLogin(id) {
 function hideLogin() {
     $(".popup-wrapper").animate({opacity: 0}, 250);
     $(".popup-form").animate({width: 0}, 1000, "easeOutQuint");
-    $(".popup").delay(300).animate({opacity: 0}, 250, function() {
+    $(".popup").delay(300).animate({opacity: 0}, 250, function () {
         $(".popup").addClass("disable");
     });
 }
 function changeLogin(id) {
     $(".popup-wrapper").animate({opacity: 0}, 250);
     $(".popup-form").animate({width: 0}, 1000, "easeOutQuint");
-    $(".popup").delay(300).animate({opacity: 0.5}, 250, function() {
+    $(".popup").delay(300).animate({opacity: 0.5}, 250, function () {
         showLogin(id);
     });
 }
@@ -136,9 +136,11 @@ function resetForm() {
 }
 
 function resetCalendar() {
-    setTimeout(function() {
-        $('.date-pick').datePicker({closeOnSelect: false});
-        $('.date-pick.week').datePicker({selectWeek: true, closeOnSelect: false});
+    var today = new Date();
+    $('.date-pick').val(today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear());
+    setTimeout(function () {
+        $('.date-pick').datePicker({ closeOnSelect: false, showYearNavigation: true, startDate: "1/1/1980" });
+        $('.date-pick.week').datePicker({ selectWeek: true, closeOnSelect: false, startDate: "1/1/1980"});
     }, 1500);
 }
 function removeCalendar() {
@@ -148,7 +150,7 @@ function removeCalendar() {
 function readURL(input, thumbimage) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             $("#thumbimage").attr('src', e.target.result);
 //            $("#thumbimage").css({background: "url('"+e.target.result+"') no-repeat center"});
         }
