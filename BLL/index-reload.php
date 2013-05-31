@@ -2,11 +2,12 @@
 
 include '../DAO/connection.php';
 
-$sql = "SELECT ac.score, ar.id as idar, ar.title , us.id as idus, us.name, us.avatar
+$sql = "SELECT ac.historyid, ac.score, ar.id as idar, ar.title , us.id as idus, us.name, us.avatar
         FROM tbl_activityhistory ac 
             JOIN tbl_article ar ON ac.articleid = ar.id
             JOIN tbl_user us ON ac.userid = us.id
         WHERE ac.datesubmit = CURDATE()
+        ORDER BY ac.historyid DESC
         LIMIT 0, 10";
 
 

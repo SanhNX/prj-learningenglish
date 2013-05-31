@@ -103,7 +103,8 @@ include 'BLL/activityHistoryBLL.php';
                             
                                 <?php
                                     //if (isset($_GET['userid'])) {
-                                        $itemUser = getInforUserById(1);
+                                        $id = 1;
+                                        $itemUser = getInforUserById($id);
                                         
                                         echo '<li class="blog-item">
                                                     <div class="blog-item-info-img"></div>
@@ -113,6 +114,7 @@ include 'BLL/activityHistoryBLL.php';
                                                             <div class="blog-item-title">'.$itemUser->gender.'</div>
                                                             <div class="blog-item-title">'.$itemUser->joindate.'</div>
                                                             <div class="blog-item-title">'.$itemUser->status.'</div>
+                                                            <div class="blog-item-title">Sum score ::::'.  countScore($id).'</div>    
                                                     </div>
                                             </li>
                                             ';
@@ -132,11 +134,11 @@ include 'BLL/activityHistoryBLL.php';
                         <div class="control-rank-head"></div>
                         <ul class="control-rank-list">
                             <?php
-                                $itemListUser = getInforTestofUser(1);
+                                $itemListUser = getInforTestofUser($id);
                                 $asdsad = "   ";
                                 for ($y = 0; $y < count($itemListUser); $y++) {
                                      $itemUserInforTest  = $itemListUser[$y];
-                                     echo '<li class="control-rank-item">'.($y + 1).''.$asdsad.''.$itemUserInforTest->titleAr.''.$asdsad.''.$itemUserInforTest->score.''.$asdsad.'</li>';
+                                     echo '<li class="control-rank-item">'.($y + 1).''.$asdsad.''.$itemUserInforTest->titleAr.''.$asdsad.''.$itemUserInforTest->score.' Ranking :::: '.$itemUserInforTest->ranking.'</li>';
                                     
                                 }
                             ?>
