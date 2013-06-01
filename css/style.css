@@ -710,12 +710,15 @@ body {
 	height: 100px;
 	line-height: 160px;
 	width: 80px;
-	background-color: #111;
+	background: center 15px no-repeat #111;
 	color: #FFF;
 	float: left;
 	margin-left: 5px;
 	text-align: center;
 	font-size: 12px;
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	transition: background 100ms linear;
 }
 
 .video-control-metro.large {
@@ -723,24 +726,34 @@ body {
 }
 
 .video-control-metro.skip5 {
-	background: url("../images/icon/next.png") center 15px no-repeat #111;
+	background-image: url("../images/icon/next.png");
 }
 
 .video-control-metro.back5 {
-	background: url("../images/icon/back.png") center 15px no-repeat #111;
+	background-image: url("../images/icon/back.png");
 }
 
 .video-control-metro.scroll {
-	background: url("../images/icon/autoscroll.png") center 15px no-repeat #111;
+	background-image: url("../images/icon/autoscroll.png");
+}
+.video-control-metro.scroll.off {
+	background-image: url("../images/icon/autoscroll-off.png");
+}
+
+.video-control-metro:hover {
+	background-color: #333;
+}
+.video-control-metro:active {
+	background-color: #a30a00;
+}
+.video-control-metro.score:active {
+	background-color: #111;
 }
 
 .skip5, .back5, .scroll {
 	cursor: pointer;
 }
 
-.skip5:hover, .back5:hover, .scroll:hover {
-	background-color: #333;
-}
 
 .video-control-metro.score {
 	background-color: #111;
