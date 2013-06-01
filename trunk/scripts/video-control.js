@@ -3,8 +3,8 @@ var timeList = [];
 var ansContent = [];
 var intervalId = null;
 
-var captionContainer = $('#displayContentContainer');
-var captionContent = $('#displayContent');
+var captionContainer;
+var captionContent;
 var captionItemHeight;
 var viewPortHeight;
 
@@ -16,6 +16,7 @@ var btnAutoScroll;
 var autoscroll;
 var timeIdentity = null;
 var BASE_URL = "";
+
 $(document).ready(function() {
     $('.fb-comments').attr('data-width', $('.span6').width());
     $('#btnAutoScroll').click(function() {
@@ -102,44 +103,23 @@ $(document).ready(function() {
             player.stopVideo();
             //show spin  button first
             //confirm: Bạn có muốn gửi bài làm của mình ?
-            for(var i = 0; i < answer.length; i++){
-                if(ansContent[i + 1] === answer[i])
+            for (var i = 0; i < answer.length; i++) {
+                if (ansContent[i + 1] === answer[i])
                     score += 1;
             }
-            informPlayerScore(score, 1, "02:25");
-//            $.ajax({
-//                url: './BLL/submitExamBll.php',
-//                data: {
-//                    answer: answer,
-//                    timeIdentity: 20
-//                },
-//                type: 'post',
-//                error: function(json) {
-//                    bootbox.alert("Sorry, we're having trouble , and we are to overcome this error");
-//                },
-//                complete: function(json) {
-//
-//                },
-//                success: function(json) {
-//                    bootbox.hideAll();
-//                    var data = $.parseJSON(json);
-//                    if (data.success) {
-//
-//                        $('#displayContent').html(data.msg.resultContent);
-//                        informPlayerScore(data.msg.score, data.msg.rank, data.msg.time);
-//                        $('#highscoreList #yw0').yiiGridView('update');
-//                        //reloadHighScore(video.id);						
-//                    } else {
-//                        bootbox.alert(data.msg);
-//                    }
-//                }
-//            });
+            informPlayerScore(score, 1, toHHMMSS(timeIdentity));
             button.val('Done');
             return false;
         } else {
+            stopCountTimer();
+            bootbox.hideAll();
             bootbox.alert('To submit assignments , you need to enter at least one box', 'Agree');
             return false;
         }
+    });
+    $('#btnReset').click(function(e) {
+        timeIdentity = 0;
+        startCountTimer();
     });
 
     $('#btnSavePlayerName').click(function(e) {
@@ -190,6 +170,9 @@ $(document).ready(function() {
 });
 
 function getDataYT(id) {
+    captionContainer = $('#play-exam');
+    captionContent = $('#play-exam-list');
+    viewPortHeight = captionContainer.height();
     $.ajax({
         url: './BLL/getDataJSONBll.php',
         data: {
@@ -235,6 +218,7 @@ function getDataYT(id) {
             setTimeout(function() {
                 $(".play-exam-list").append(html);
                 $('.play-exam-answer:eq(0)').focus();
+                startCountTimer();
             }, 10);
         }
     });
@@ -255,8 +239,7 @@ function checkVideoTime() {
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
             var item = $('#captionItem-' + number);
-            // setCaptionInView(item);
-
+            setCaptionInView(item);
             activeCaptionTime(item);
             break;
         }
@@ -284,10 +267,11 @@ function formatTime(start_time) {
 }
 
 function setCaptionInView(item) {
+
     if (autoscroll === 0) {
         return;
     }
-    captionTextHeight = item.find('.captionText').height();
+    captionTextHeight = item.find('.play-exam-text').height();
     viewTop = captionContent.offset().top;
     if ($.browser.mozilla !== undefined) {
         viewTop -= 20;
@@ -297,11 +281,14 @@ function setCaptionInView(item) {
 
     if (!(itemTop >= viewTop && itemTop <= viewBottom)) {
         if (itemTop < viewTop) {
-            captionContainer.scrollTop(itemTop - viewTop);
+//            console.log("itemTop < viewTop : " + itemTop - viewTop)
+            captionContainer.mCustomScrollbar("scrollTo", itemTop - viewTop);
         } else if (itemTop > viewBottom) {
-
-            captionContainer.scrollTop(itemTop - (viewBottom) + captionTextHeight);
+//            console.log("itemTop > viewTop : " + itemTop - (viewBottom) + captionTextHeight);
+            captionContainer.mCustomScrollbar("scrollTo", itemTop - (viewBottom) + captionTextHeight);
         }
+    } else {
+        captionContainer.mCustomScrollbar("scrollTo", 0);
     }
 
 }
@@ -397,19 +384,22 @@ function onPlayerStateChange(event) {
 
 $(document).ready(function() {
     btnAutoScroll = $('#btnAutoScroll');
-//    autoscroll = $.cookie('autoscroll');
+    autoscroll = $.cookie('autoscroll');
+    $.cookie('autoscroll', 1);
     setAutoScrollText();
     btnAutoScroll.click(function(e) {
         e.preventDefault();
+        console.log("before -----------" + autoscroll);
         changeAutoScroll();
+        console.log("after -----------" + autoscroll);
         setAutoScrollText();
 
     });
     function setAutoScrollText() {
-        if (autoscroll === 0 || autoscroll === null) {
-            btnAutoScroll.html('<i class="icon-ok-sign icon-white"></i> Enable Auto Scroll');
+        if (parseInt(autoscroll) === 0 || autoscroll === null) {
+            $("#btnAutoScroll")[0].addClassName = "video-control-metro large scroll off";
         } else {
-            btnAutoScroll.html('<i class="icon-remove-sign icon-white"></i> Disable Auto Scroll');
+            $("#btnAutoScroll")[0].addClassName = "video-control-metro large scroll";
         }
     }
 
@@ -452,21 +442,22 @@ function increasePlayCount() {
     $.cookie('playcount', ++count);
 
 }
-function getFbUserData(callback){
-  callback = callback||function(){};
-  if(fbUserData==null){
-    FB.api('/me',function(response){
-      if(!response || response.error){
-        console.log('error get user data');
-        console.log(response);
-      }else{
-        fbUserData = response;
-        callback();
-      }
-    });
-  }
-  return fbUserData;
-  
+function getFbUserData(callback) {
+    callback = callback || function() {
+    };
+    if (fbUserData == null) {
+        FB.api('/me', function(response) {
+            if (!response || response.error) {
+                console.log('error get user data');
+                console.log(response);
+            } else {
+                fbUserData = response;
+                callback();
+            }
+        });
+    }
+    return fbUserData;
+
 }
 function informPlayerScore(score, rank, time) {
     rankText = null;
@@ -485,6 +476,7 @@ function informPlayerScore(score, rank, time) {
 
     }
     if (fbUserData !== null) {
+        bootbox.hideAll();
         bootbox.confirm('Chúc mừng bạn đã đạt được ' + score + ' điểm. '
                 + rankText + '.<br/>'
                 + 'Thời gian hoàn thành của bạn là ' + time
@@ -494,7 +486,8 @@ function informPlayerScore(score, rank, time) {
             }
         });
     } else {
-        bootbox.alert('Chúc mừng bạn đã đạt được ' + score + ' điểm. ' + rankText);
+        bootbox.hideAll();
+        bootbox.alert('Chúc mừng bạn đã đạt được ' + score + ' điểm.Thời gian hoàn thành của bạn là ' + time +'s');
     }
 
 }
@@ -615,4 +608,42 @@ function getVideoContent(callback) {
             }
         }
     });
+}
+//------------------------------FUNCTION TIMER----------------------------------
+var timeIdentity = 0;
+var t;
+var timer_is_on = 0;
+function timedCount()
+{
+//    document.getElementById('txt').value=c;
+    timeIdentity += 1;
+    t = setTimeout("timedCount()", 1000);
+}
+
+function startCountTimer()
+{
+    if (!timer_is_on)
+    {
+        timer_is_on = 1;
+        timedCount();
+    }
+}
+
+function stopCountTimer()
+{
+    clearTimeout(t);
+    timer_is_on = 0;
+}
+//------------------------------END FUNCTION TIMER------------------------------
+function toHHMMSS(number) {
+    var sec_num = parseInt(number, 10); // don't forget the second parm
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    var time    = hours+':'+minutes+':'+seconds;
+    return time;
 }
