@@ -10,12 +10,15 @@ include 'BLL/articleBll.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title></title>
+        <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap-yii.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive-style.css" rel="stylesheet" type="text/css">
 
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
@@ -24,6 +27,7 @@ include 'BLL/articleBll.php';
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/video-control.js"></script>
+        <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
@@ -72,7 +76,7 @@ include 'BLL/articleBll.php';
                 <div class="video-control">
                     <div class="video-control-metro back5">5 seconds</div>
                     <div class="video-control-metro skip5">5 seconds</div>
-                    <div class="video-control-metro large scroll">Auto Scroll</div>
+                    <div id="btnAutoScroll" class="video-control-metro large scroll">Auto Scroll</div>
                     <div class="video-control-metro large score"> Number of answers
                         <span class="video-control-score"></span></div>
                 </div>
@@ -83,7 +87,7 @@ include 'BLL/articleBll.php';
                             <iframe id="player" width="100%" height="100%" src="' . $article->link . '" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="fb-comment">
-                            <div class="fb-comments" data-href="' . $article->link . '" data-width="470" data-num-posts="1"></div>
+                            <div class="fb-comments" data-href="' . $article->link . '" data-width="670" data-num-posts="1"></div>
                         </div>';
                 ?>
             </div>
@@ -91,8 +95,8 @@ include 'BLL/articleBll.php';
                 <div class="play-keywords">
                     <!--<div class="play-keyword-item">keyword 0</div>-->
                 </div>
-                <div class="play-exam">
-                    <div class="play-exam-list">
+                <div id="play-exam" class="play-exam">
+                    <div id="play-exam-list" class="play-exam-list">
 
                     </div>
                 </div>

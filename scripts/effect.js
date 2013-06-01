@@ -109,15 +109,6 @@ function postPlay(video) {
 		}
 	);
 }
-(function (d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id))
-		return;
-	js = d.createElement(s);
-	js.id = id;
-	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 function loadMetroPage() {
 	var metroIndex = 0;
 	$(".metro-item").each(function () {
@@ -254,8 +245,13 @@ function initScrollBar() {
 		});
 		$(".play-exam").mCustomScrollbar({
 			autoHideScrollbar: false,
-			theme: "dark-thin"
+			theme: "dark-thin",
+                        advanced:{
+                            autoScrollOnFocus: true,
+                            updateOnContentResize: true
+                        }
 		});
+                
 		$("#rank-list-week").mCustomScrollbar({
 			autoHideScrollbar: false,
 			theme: "light-thin",
