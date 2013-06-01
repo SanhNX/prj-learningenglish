@@ -1,0 +1,36 @@
+@media all and (min-width: 985px) {
+	/*.form{background: #ff0000}*/
+	.panel-video{
+		width: 50%;
+	}
+	.panel-play {
+		width: 50%;
+	}
+}
+@media all and (max-width: 985px) {
+	/*.form{background: #ffe261*/
+	/*}*/
+	.panel-video{
+		width: 100%;
+		margin: 0;
+	}
+	.panel-play {
+		width: 100%;
+	}
+    .video-player{
+	    height: 190px;
+	    width: 98%;
+    }
+	.video-control-metro.large {
+		width: 35%;
+	}
+	.video-control-metro {
+		width: 13%;
+	}
+    .video-comment, .video-social{
+	    display: none;
+    }
+	.play-keywords {
+		margin-left: 5px;
+	}
+}
