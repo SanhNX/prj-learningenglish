@@ -41,6 +41,10 @@ $(function () {
 		$(".search-text").focus();
 	}, function () {
 		$(this).stop().animate({width: 80}, 1000, "easeOutQuint");
+	});$(".form-head-account").hover(function () {
+		$(".form-head-account-wrapper").stop().animate({top: -90}, 1000, "easeOutQuint");
+	}, function () {
+		$(".form-head-account-wrapper").stop().animate({top: 0}, 1000, "easeOutQuint");
 	});
 	loadMetroPage();
 	$(".popup-back").click(function () {
