@@ -5,7 +5,7 @@
 //       
 //}
 $(function () {
-    
+
 	$(".menu-group").each(function () {
 		$(this).hover(function () {
 			blurAllMenu();
@@ -61,7 +61,7 @@ $(function () {
 		showLogin("register");
 	});
 	resetCalendarDate();
-        resetCalendarWeek();
+	resetCalendarWeek();
 	initScrollBar();
 });
 var fbUserData = null;
@@ -194,8 +194,8 @@ function resetCalendarDate() {
 			startDate: "1/1/1980",
 			onSelect: function (value) {
 				//alert(value.getDate()+"/"+(value.getMonth()+1)+"/"+value.getFullYear());
-                                var param1 = value.getFullYear()+"/"+(value.getMonth()+1)+"/"+value.getDate();
-                                getRankingByDate(param1, "1");
+				var param1 = value.getFullYear() + "/" + (value.getMonth() + 1) + "/" + value.getDate();
+				getRankingByDate(param1, "1");
 			},
 			showYearNavigation: true, startDate: "1/1/1980"});
 	}, 1500);
@@ -211,9 +211,9 @@ function resetCalendarWeek() {
 				var date = value.getDate() + "/" + (value.getMonth() + 1) + "/" + value.getFullYear();
 				var sdate = endDate.getDate() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getFullYear();
 				$('.date-pick.week').val(date + " - " + sdate);
-                                var param1 = value.getFullYear()+"/"+(value.getMonth()+1)+"/"+value.getDate();
-                                var param2 = endDate.getFullYear() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getDate();
-                                getRankingByDate(param1, param2);
+				var param1 = value.getFullYear() + "/" + (value.getMonth() + 1) + "/" + value.getDate();
+				var param2 = endDate.getFullYear() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getDate();
+				getRankingByDate(param1, param2);
 			}
 		});
 	}, 1500);
@@ -246,6 +246,17 @@ function initScrollBar() {
 			theme: "light-thin"
 		});
 		$(".play-exam").mCustomScrollbar({
+			autoHideScrollbar: false,
+			theme: "dark-thin"
+		});
+		$("#rank-list-week").mCustomScrollbar({
+			autoHideScrollbar: false,
+			theme: "light-thin",
+			advanced: {updateOnContentResize: true}
+		});
+		$("#rank-list-day").mCustomScrollbar({
+			autoHideScrollbar: false,
+			advanced: {updateOnContentResize: true },
 			theme: "light-thin"
 		});
 	});
