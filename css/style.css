@@ -739,8 +739,7 @@ body {
 }
 
 .play-exam {
-    overflow-x: auto;
-    overflow-y: scroll;
+	overflow: hidden;
     width: 600px;
     height: 400px;
     margin-bottom: 5px;

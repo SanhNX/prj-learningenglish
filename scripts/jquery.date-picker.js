@@ -537,6 +537,7 @@
 		this.horizontalOffset = null;
 		this.button = null;
 		this.renderCallback = [];
+		this.onSelect = null;
 		this.selectedDates = {};
 		this.inline = null;
 		this.context = '#dp-popup';
@@ -560,6 +561,7 @@
 				this.verticalPosition = s.verticalPosition;
 				this.horizontalPosition = s.horizontalPosition;
 				this.hoverClass = s.hoverClass;
+				this.onSelect = s.onSelect;
 				this.setOffset(s.verticalOffset, s.horizontalOffset);
 				this.inline = s.inline;
 				this.settings = s;
@@ -896,6 +898,7 @@
 							c.setSelected(d, !$this.is('.selected') || !c.selectMultiple, false, true);
 							if (c.closeOnSelect) {
 								// Focus the next input in the form…
+								c.onSelect(d);
 								if (c.settings.autoFocusNextInput) {
 									var ele = c.ele;
 									var found = false;
@@ -910,6 +913,7 @@
 											}
 										}
 									);
+
 								} else {
 									try {
 										c.ele.focus();
@@ -922,6 +926,7 @@
 					}
 				);
 				if (c.isSelected(d)) {
+
 					$td.addClass('selected');
 					if (c.settings.selectWeek) {
 						$td.parent().addClass('selectedWeek');
@@ -1128,6 +1133,7 @@
 		verticalOffset: 0,
 		horizontalOffset: 0,
 		hoverClass: 'dp-hover',
+		onSelect: null,
 		autoFocusNextInput: false
 	};
 
