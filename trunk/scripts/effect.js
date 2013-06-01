@@ -64,6 +64,9 @@ $(function () {
 		$(".popup-form").css({height: "410px"});
 		showLogin("register");
 	});
+	$(".video-control-metro.large.scroll").click(function () {
+		$(this).toggleClass("off")
+	});
 	resetCalendarDate();
 	resetCalendarWeek();
 	initScrollBar();
