@@ -277,9 +277,8 @@ body {
 }
 .menu-popup-calendar{}
 .menu-popup-calendar-current {
-    display: inline-block;
+    display: block;
     vertical-align: middle;
-    width: 140px;
     text-align: center;
 	position: relative;
 }
@@ -778,7 +777,7 @@ body {
 
 .play-exam-text {
     display: inline-block;
-    width: 503px;
+    width: 490px;
     padding: 0px 10px;
     line-height: 30px;
     min-height: 60px;
