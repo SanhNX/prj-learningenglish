@@ -24,6 +24,7 @@ function loadMore()
      var page = $("#pagevalue").val();
         var id = $("#idvalue").val();
         var str_string = 'page=' + page + '&id=' + id;
+        //location.hash=page;
         $.ajax({
             type: "POST",
             url: "./BLL/index-more.php",
