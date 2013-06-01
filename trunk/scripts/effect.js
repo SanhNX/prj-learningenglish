@@ -236,9 +236,3 @@ function initScrollBar() {
 		});
 	});
 }
-$(".image").hover(
-	function () {
-		$(".detail").stop().css({"top": "0px"}).animate({"top": "50px"});
-	}, function () {
-		$(".detail").stop().css({"top": "50px"}).animate({"top": "0px"});
-	});
