@@ -24,6 +24,11 @@ $(function() {
             removeCalendar();
         });
     });
+    $(".metro-item-more").hover(function() {
+        $(this).stop().animate({height: 120}, 1000, "easeOutQuint");
+    }, function() {
+        $(this).stop().animate({height: 80}, 1000, "easeOutQuint");
+    });
     $(".form-head-search").hover(function() {
         $(this).stop().animate({width: 400}, 1000, "easeOutQuint");
         $(".search-text").focus();
