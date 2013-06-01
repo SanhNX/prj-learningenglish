@@ -12,6 +12,7 @@ include 'BLL/articleBLL.php';
         <title></title>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
         
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
@@ -21,6 +22,7 @@ include 'BLL/articleBLL.php';
         <script type="text/javascript" src="scripts/date.js"></script>
         <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
+        <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/JSON.js"></script>
         <script type="text/javascript" src="scripts/ajax-index.js"></script>
@@ -139,13 +141,31 @@ include 'BLL/articleBLL.php';
                 <div class="control-bar">
                     <div class=control-fb></div>
                     <div class=control-contact>
-                        <div class="control-mess"></div>
-                        <div class="control-mail"></div>
-                    </div>
+                            <div class="control-mess flip-container" ontouchstart="this.classList.toggle('hover');">
+                                    <div class="flipper">
+                                            <div class="front">
+                                                    <!-- front content -->
+                                            </div>
+                                            <div class="back">
+                                                    <!-- back content -->
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="control-mail flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flipper">
+                                                <div class="front">
+                                                        <!-- front content -->
+                                                </div>
+                                                <div class="back">
+                                                        <!-- back content -->
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
                     <div class=control-rank-recent>
                         <div class="control-rank-head"></div>
                         <ul class="control-rank-list">
-                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
+<!--                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
                             <li class="control-rank-item">User1111111111111111111111111111</li>
                             <li class="control-rank-item">User 31111111111111111111111</li>
                             <li class="control-rank-item">User 41111111111111111111111111</li>
@@ -155,7 +175,7 @@ include 'BLL/articleBLL.php';
                             <li class="control-rank-item">User 81111111111111111111111111111</li>
                             <li class="control-rank-item">User 91111111111111111111111111111</li>
                             <li class="control-rank-item">User 101111111111111111111111111111</li>
-                            <li class="control-rank-item">User 11111111111111111111111111111</li>
+                            <li class="control-rank-item">User 11111111111111111111111111111</li>-->
                         </ul>
                     </div>
                 </div>

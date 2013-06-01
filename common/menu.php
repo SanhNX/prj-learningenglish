@@ -48,12 +48,12 @@
         <div class="menu-popup-form day">
             <div class="menu-popup-head">
                 <div class="menu-popup-calendar">
-                    <div class="menu-popup-calendar-prev"></div>
-                    <div id="popup-current-ranking-date" class="menu-popup-calendar-current">
-<!--                        <i class="menu-popup-icon calendar-date"></i>
-                        <input type="text" class="date-pick" value="5/28/2013"/>-->
+<!--                    <div class="menu-popup-calendar-prev"></div>-->
+                    <div class="menu-popup-calendar-current" id="popup-current-ranking-date">
+    <!--                        <i class="menu-popup-icon calendar-date"></i>
+                            <input type="text" class="date-pick" value="5/28/2013"/>-->
                     </div>
-                    <div class="menu-popup-calendar-next"></div>
+<!--                    <div class="menu-popup-calendar-next"></div>-->
                 </div>
             </div>
             <ul id="popupRankingDate" class="menu-popup-list special"></ul>
