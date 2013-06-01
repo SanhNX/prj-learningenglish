@@ -1,4 +1,11 @@
+//window.onhashchange = function() {
+//    if (location.hash != ""){
+//        
+//    }
+//       
+//}
 $(function () {
+    
 	$(".menu-group").each(function () {
 		$(this).hover(function () {
 			blurAllMenu();
@@ -53,7 +60,8 @@ $(function () {
 		$(".popup-form").css({height: "410px"});
 		showLogin("register");
 	});
-	resetCalendar();
+	resetCalendarDate();
+        resetCalendarWeek();
 	initScrollBar();
 });
 var fbUserData = null;
@@ -179,20 +187,22 @@ function resetForm() {
 	$(".login-message-footer").addClass("undisplayed");
 }
 
-function resetCalendar() {
-	var today = new Date();
-	$('.date-pick').val(today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear());
-	var callback = function () {
-		alert("aaaa");
-	}
+function resetCalendarDate() {
 	setTimeout(function () {
 		$('.date-pick').datePicker({
 			closeOnSelect: true,
 			startDate: "1/1/1980",
 			onSelect: function (value) {
 				//alert(value.getDate()+"/"+(value.getMonth()+1)+"/"+value.getFullYear());
+                                var param1 = value.getFullYear()+"/"+(value.getMonth()+1)+"/"+value.getDate();
+                                getRankingByDate(param1, "1");
 			},
 			showYearNavigation: true, startDate: "1/1/1980"});
+	}, 1500);
+}
+
+function resetCalendarWeek() {
+	setTimeout(function () {
 		$('.date-pick.week').datePicker({selectWeek: true,
 			closeOnSelect: true,
 			startDate: "1/1/1980",
@@ -201,10 +211,14 @@ function resetCalendar() {
 				var date = value.getDate() + "/" + (value.getMonth() + 1) + "/" + value.getFullYear();
 				var sdate = endDate.getDate() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getFullYear();
 				$('.date-pick.week').val(date + " - " + sdate);
+                                var param1 = value.getFullYear()+"/"+(value.getMonth()+1)+"/"+value.getDate();
+                                var param2 = endDate.getFullYear() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getDate();
+                                getRankingByDate(param1, param2);
 			}
 		});
 	}, 1500);
 }
+
 function removeCalendar() {
 	$('#dp-popup').remove(false);
 }

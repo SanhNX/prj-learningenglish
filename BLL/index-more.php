@@ -19,7 +19,7 @@ for ($i = 0; $i < count($itemList); $i++) {
                 $html = '
                     <li class="metro-item large" style="background-image: url(' . $item->thumbnail . ')">
                         <div class="metro-bar">
-                            <a class="metro-bar-wrapper" href="">
+                            <a name="redirect-play" class="metro-bar-wrapper" href="play.php?id=' . $item->idArticle . '">
                                 <div class=metro-title>
                                         <span>' .$item->title . '</span>
                                         <div class="metro-title-duration">' . $currTime . '</div>
@@ -34,7 +34,7 @@ for ($i = 0; $i < count($itemList); $i++) {
             $html = '
                 <li class="metro-item" style="background-image: url(' . $item->thumbnail . ')">
                     <div class="metro-bar">
-                        <a class="metro-bar-wrapper" href="">
+                        <a name="redirect-play" class="metro-bar-wrapper" href="play.php?id=' . $item->idArticle . '">
                             <div class=metro-title>
                                     <span>' . $item->title . '</span>
                                     <div class="metro-title-duration">' . $currTime . '</div>
@@ -62,7 +62,7 @@ for ($i = 0; $i < count($itemList); $i++) {
             $html = '
                 <li class="metro-item" style="background-image: url(' . $item->thumbnail . ')">
                     <div class="metro-bar">
-                        <a class="metro-bar-wrapper" href="">
+                        <a name="redirect-play" class="metro-bar-wrapper" href="play.php?id=' . $item->idArticle . '">
                             <div class=metro-title>
                                     <span>' . $item->title . '</span>
                                     <div class="metro-title-duration">' . $currTime . '</div>
