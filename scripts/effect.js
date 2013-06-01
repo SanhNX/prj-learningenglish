@@ -25,9 +25,9 @@ $(function() {
         });
     });
     $(".metro-item-more").hover(function() {
-        $(this).stop().animate({height: 120}, 1000, "easeOutQuint");
+        $(this).stop().animate({height: 120,backgroundColor:"#062E68"}, 1000, "easeOutQuint");
     }, function() {
-        $(this).stop().animate({height: 80}, 1000, "easeOutQuint");
+        $(this).stop().animate({height: 80,backgroundColor:"#0046A9"}, 1000, "easeOutQuint");
     });
     $(".form-head-search").hover(function() {
         $(this).stop().animate({width: 400}, 1000, "easeOutQuint");
@@ -209,9 +209,10 @@ function readURL(input, thumbimage) {
 }
 function initScrollBar() {
     $(window).load(function() {
-        $(".control-rank-list").mCustomScrollbar({
-            autoHideScrollbar: true,
-            theme: "light-thin"
-        });
+
     });
+	$(".control-rank-list").mCustomScrollbar({
+		autoHideScrollbar: true,
+		theme: "light-thin"
+	});
 }
