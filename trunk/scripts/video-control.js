@@ -408,7 +408,7 @@ $(document).ready(function() {
     }
 
     function changeAutoScroll() {
-        if (autoscroll === 0 || autoscroll === null) {
+        if (parseInt(autoscroll) === 0 || autoscroll === null) {
             $.cookie('autoscroll', 1);
             autoscroll = 1;
         } else {
