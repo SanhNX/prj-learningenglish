@@ -41,18 +41,23 @@ include 'BLL/articleBll.php';
     ?>
     <div id="fb-root"></div>
     <script>
+        // Additional JS functions here
         window.fbAsyncInit = function() {
             FB.init({
-                appId: "285197988253414",
-                channelUrl: '//WWW.listentome.vn/channel.html',
-                frictionlessRequests: true
+                appId: "359445744178937",
+                channelUrl: '//WWW.localhost/prjj-learningenglish/channel.html',
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true  // parse XFBML
             });
+            // Additional init code here
             FB.getLoginStatus(function(response) {
                 onFacebookReady();
                 getFbUserData();
             });
 
         };
+        // Load the SDK asynchronously
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id))
@@ -83,11 +88,12 @@ include 'BLL/articleBll.php';
                 <?php
                 $article = getArticleById($idArticle);
                 echo '<div class="video-title">' . $article->title . '</div>
-                            <div class="video-player">
+                        <div class="video-player">
                             <iframe id="player" width="100%" height="100%" src="' . $article->link . '" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="fb-comment">
-                            <div class="fb-comments" data-href="' . $article->link . '" data-width="670" data-num-posts="1"></div>
+                        <div class="video-social"></div>
+                        <div class="video-comment">
+                            <div class="fb-comments" data-href="' . $article->link . '" data-width="730" data-num-posts="5" ></div>
                         </div>';
                 ?>
             </div>
@@ -151,5 +157,6 @@ include 'BLL/articleBll.php';
     <?php
     include 'common/login-register.php';
     ?>
+
 </body>
 </html>
