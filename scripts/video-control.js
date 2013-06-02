@@ -7,6 +7,7 @@ var captionContainer;
 var captionContent;
 var captionItemHeight;
 var viewPortHeight;
+var articleid;
 
 var lastCaptionTime = 0;
 var lastAnswerField = null;
@@ -170,6 +171,7 @@ $(document).ready(function() {
 });
 
 function getDataYT(id) {
+    articleid = id;
     captionContainer = $('#play-exam');
     captionContent = $('#play-exam-list');
     viewPortHeight = captionContainer.height();
@@ -385,7 +387,7 @@ function onPlayerStateChange(event) {
 $(document).ready(function() {
     btnAutoScroll = $('#btnAutoScroll');
     autoscroll = $.cookie('autoscroll');
-    $.cookie('autoscroll', 1);
+    $.cookie('autoscroll', 0);
     setAutoScrollText();
     btnAutoScroll.click(function(e) {
         e.preventDefault();
@@ -397,9 +399,11 @@ $(document).ready(function() {
     });
     function setAutoScrollText() {
         if (parseInt(autoscroll) === 0 || autoscroll === null) {
-            $("#btnAutoScroll")[0].addClassName = "video-control-metro large scroll off";
-        } else {
             $("#btnAutoScroll")[0].addClassName = "video-control-metro large scroll";
+            $("#btnAutoScroll")[0].innerText = "Enable Autoscroll";
+        } else {
+            $("#btnAutoScroll")[0].addClassName = "video-control-metro large scroll off";
+            $("#btnAutoScroll")[0].innerText = "Disable Autoscroll";
         }
     }
 
@@ -487,7 +491,24 @@ function informPlayerScore(score, rank, time) {
         });
     } else {
         bootbox.hideAll();
-        bootbox.alert('Chúc mừng bạn đã đạt được ' + score + ' điểm.Thời gian hoàn thành của bạn là ' + time +'s');
+        bootbox.confirm('Congratulations on getting  ' + score + ' points. Your Completion time is ' + time + '.<br/>Do you want save this result ??', function(result) {
+            if (result) {
+                $.ajax({
+                    url: './BLL/submitExamBll.php',
+                    data: {
+                        articleid: articleid,
+                        score: score
+                    },
+                    type: 'post',
+                    success: function(resp) {
+                        if(resp){
+                            bootbox.hideAll();
+                            bootbox.alert('This exam saved success !')
+                        }
+                    }
+                });
+            }
+        });
     }
 
 }
@@ -637,13 +658,19 @@ function stopCountTimer()
 //------------------------------END FUNCTION TIMER------------------------------
 function toHHMMSS(number) {
     var sec_num = parseInt(number, 10); // don't forget the second parm
-    var hours   = Math.floor(sec_num / 3600);
+    var hours = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    var time    = hours+':'+minutes+':'+seconds;
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    var time = hours + ':' + minutes + ':' + seconds;
     return time;
 }
