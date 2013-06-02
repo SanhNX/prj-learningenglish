@@ -45,29 +45,30 @@ include 'BLL/articleBLL.php';
             <?php
             include 'common/menu.php';
             ?>
-            <div class="form">
-                <div class="form-head">
-                    <span>Learning-English</span><span class="form-head-gray">Home</span>
-                    <div class="form-head-task">
-                        // ------------ Check user login----------------//
-                        <?php
-                        if (isset($_SESSION["email"])) {
-                            echo '<div class="form-head-account">
-                                    <span>' . $_SESSION["email"] . '</span>
-                                    <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span></div>';
-                        }
-                        ?>
+           
+            <div class="form-head">
+                <span>Learning-English</span><span class="form-head-gray">Home</span>
+                <div class="form-head-task">
+                    // ------------ Check user login----------------//
+                    <?php
+                    if (isset($_SESSION["email"])) {
+                        echo '<div class="form-head-account">
+                                <span>' . $_SESSION["email"] . '</span>
+                                <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span></div>';
+                    }
+                    ?>
 
-                        <div class="form-head-search">
-                            <div class="form-head-search-mask">
-                                <input class="search-text" type="text" placeholder="Enter keyword ..." value=""/>
-                                <div class="search-button"></div>
+                    <div class="form-head-search">
+                        <div class="form-head-search-mask">
+                            <input class="search-text" type="text" placeholder="Enter keyword ..." value=""/>
+                            <div class="search-button"></div>
 
-                            </div>
                         </div>
-
                     </div>
+
                 </div>
+            </div>
+             <div class="form">
                 <ul class="metro-list" id ="listvideo">
                     //----------------- Show list video--------------------//
                     <?php
