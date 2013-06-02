@@ -13,7 +13,7 @@ include 'BLL/articleBLL.php';
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
-        
+
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
@@ -30,6 +30,17 @@ include 'BLL/articleBLL.php';
     </head>
     <body>
         <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         <div class="page">
             <?php
             include 'common/menu.php';
@@ -139,43 +150,52 @@ include 'BLL/articleBLL.php';
 
                 </ul>
                 <div class="control-bar">
-                    <div class=control-fb></div>
-                    <div class=control-contact>
-                            <div class="control-mess flip-container" ontouchstart="this.classList.toggle('hover');">
-                                    <div class="flipper">
-                                            <div class="front">
-                                                    <!-- front content -->
-                                            </div>
-                                            <div class="back">
-                                                    <!-- back content -->
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="control-mail flip-container" ontouchstart="this.classList.toggle('hover');">
-                                        <div class="flipper">
-                                                <div class="front">
-                                                        <!-- front content -->
-                                                </div>
-                                                <div class="back">
-                                                        <!-- back content -->
-                                                </div>
-                                        </div>
-                                </div>
+                    <div class="control-fb flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <!-- front content -->
+                            </div>
+                            <div class="back">
+                                <!-- back content -->
+                            </div>
                         </div>
+                    </div>
+                    <div class=control-contact>
+                        <div class="control-mess flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front">
+                                    <!-- front content -->
+                                </div>
+                                <div class="back">
+                                    <!-- back content -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-mail flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front">
+                                    <!-- front content -->
+                                </div>
+                                <div class="back">
+                                    <!-- back content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class=control-rank-recent>
                         <div class="control-rank-head"></div>
                         <ul class="control-rank-list">
-<!--                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
-                            <li class="control-rank-item">User1111111111111111111111111111</li>
-                            <li class="control-rank-item">User 31111111111111111111111</li>
-                            <li class="control-rank-item">User 41111111111111111111111111</li>
-                            <li class="control-rank-item">User 51111111111111111111111111111</li>
-                            <li class="control-rank-item">User 61111111111111111111111111111</li>
-                            <li class="control-rank-item">User 71111111111111111111111111111</li>
-                            <li class="control-rank-item">User 81111111111111111111111111111</li>
-                            <li class="control-rank-item">User 91111111111111111111111111111</li>
-                            <li class="control-rank-item">User 101111111111111111111111111111</li>
-                            <li class="control-rank-item">User 11111111111111111111111111111</li>-->
+                            <!--                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
+                                                        <li class="control-rank-item">User1111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 31111111111111111111111</li>
+                                                        <li class="control-rank-item">User 41111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 51111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 61111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 71111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 81111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 91111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 101111111111111111111111111111</li>
+                                                        <li class="control-rank-item">User 11111111111111111111111111111</li>-->
                         </ul>
                     </div>
                 </div>
