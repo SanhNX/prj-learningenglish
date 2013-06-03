@@ -16,6 +16,7 @@
 	}
 	.panel-play {
 		width: 100%;
+        margin-left: 5px;
 	}
     .video-player{
 	    height: 190px;
@@ -33,4 +34,8 @@
 	.play-keywords {
 		margin-left: 5px;
 	}
+    .profile-tag, .profile-panel{
+        display: block;
+        width: 100%;
+    }
 }
