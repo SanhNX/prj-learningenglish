@@ -226,7 +226,6 @@ body {
     color: #FFF;
     font-size: 14px;
     text-decoration: none;
-    vertical-align: middle;
 }
 
 .menu-popup-mess {
@@ -278,7 +277,93 @@ body {
     margin: 5px auto;
     vertical-align: middle;
 }
+.rank-row-item{
+    height: 40px;
+    line-height: 40px;
+    color: #FFF;
+    font-size: 16px;
+    transition: background 200ms linear;
+    -webkit-transition: background 200ms linear;
+    -moz-transition: background 200ms linear;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.21);
+}
+.rank-row-num {
+    font-weight: bold;
+    font-size: 14px;
+    width: 20px;
+    color: #FFF;
+    height: 100%;
+    display: inline-block;
+    text-indent: 0px;
+    text-align: right;
+}
+.rank-row-avt {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    margin: 0px 5px;
+    border-radius: 20px;
+    background: url("../images/icon/avata-ico.png") no-repeat center;
+    background-size: cover;
+    font-weight: bold;
+}
+.rank-row-point {
+    height: 100%;
+    display: inline-block;
+    width: 140px;
+    text-align: center;
+    vertical-align: top;
+    background: rgba(255, 255, 255, 0.06);
+}
 
+.rank-row-time  {
+    height: 100%;
+    display: inline-block;
+    width: 110px;
+    text-indent: 10px;
+    font-size: 13px;
+}
+
+.rank-row-name {
+    height: 100%;
+    display: inline-block;
+    width: 200px;
+    text-indent: 10px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+.rank-row-item.top{
+    background: url("../images/icon/laurel-ico.png")no-repeat 21px 0px;
+    background-size: 45px;
+}.rank-row-item.top .rank-row-point{
+     font-weight: bold;
+ }
+.rank-row-item.head {
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.21);
+    border: none;
+}
+.rank-row-item.head .rank-row-name{
+    width: 268px;
+    text-indent: 80px;
+}
+
+.rank-row-item.more {
+    height: 40px;
+    background: url("../images/icon/more-ico.png") 210px center rgba(255, 255, 255, 0.21) no-repeat;
+    background-size: 30px;
+    text-align: center;
+    border: none;
+}
+.rank-row-item.more:hover {
+    background-size: 35px;
+    background-color: #A81A4F;
+}
 .menu-popup-head {
     height: 70px;
 }
@@ -659,8 +744,9 @@ body {
 
 .control-rank-recent {
     float: left;
-    height: 200px;
+    height: 360px;
     width: 620px;
+    margin-bottom: 20px;
     background-color: #d92266;
     font-size: 0;
     overflow: hidden;
@@ -671,6 +757,11 @@ body {
     height: 100%;
     display: inline-block;
     background: url("../images/icon/clock-ico.png") no-repeat center 10px #B81E57;
+}
+
+.control-rank-head.cup {
+    background: url("../images/icon/cup-ico.png") no-repeat center 10px #B81E57;
+
 }
 
 .control-rank-list {
@@ -695,7 +786,7 @@ body {
 
 /* ??????????????????????? PLAY ?????????????????????????????*/
 .panel-video {
-    /*width: 565px;*/
+    width: 565px;
     display: inline-block;
     vertical-align: top;
     margin-bottom: 5px;
@@ -736,6 +827,7 @@ body {
 .video-control-metro.scroll {
     background-image: url("../images/icon/autoscroll.png");
 }
+
 .video-control-metro.scroll.off {
     background-image: url("../images/icon/autoscroll-off.png");
 }
@@ -743,9 +835,11 @@ body {
 .video-control-metro:hover {
     background-color: #333;
 }
+
 .video-control-metro:active {
     background-color: #a30a00;
 }
+
 .video-control-metro.score:active {
     background-color: #111;
 }
@@ -753,7 +847,6 @@ body {
 .skip5, .back5, .scroll {
     cursor: pointer;
 }
-
 
 .video-control-metro.score {
     background-color: #111;
@@ -793,10 +886,8 @@ body {
 }
 
 .video-comment {
-    /*position:  absolute;*/
-    /*height: 200px;*/
-    /*width: 730px;*/
-    /*background-color: #AAA;*/
+    height: 200px;
+    background-color: #AAA;
     margin: 0px 5px;
 }
 
@@ -1276,7 +1367,7 @@ body {
 }
 
 .fb-bar {
-    margin: 0px 425px 10px 10px;
+    margin: 0px 425px 10px 0px;
 }
 
 .login-popup-error-mess {
@@ -1349,4 +1440,110 @@ body {
 .back {
     -webkit-transform: rotateY(180deg);
     height: 100%;
+}
+/*PROFILE*/
+.profile-tag {
+    background: #3F2AD6;
+    width: 280px;
+    height: 500px;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+}
+.profile-panel {
+    background: #D5D5D5;
+    width: 720px;
+    height: 500px;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.profile-head {
+    font-family: "Segoe UI light";
+    text-align: left;
+    background: #FFF;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+}
+.profile-name{
+    font-family: "Segoe UI light";
+    color: #16499A;
+    text-indent: 20px;
+    text-align: left;
+    font-size: 30px;
+}
+.profile-title {
+    font-size: 16px;
+    text-align: left;
+    text-indent: 20px;
+    font-weight: bold;
+    color: #3F3F3F;
+    margin-top: 10px;
+}
+.profile-title.white {
+    color: #FFF;
+}
+.profile-avt{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    background: url("../images/icon/avata-ico.png") no-repeat center;
+    background-size: cover;
+    margin-top: 10px;
+}
+.profile-text {
+    line-height: 20px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+}
+.profile-text.white {
+    color: #FFF;
+}
+.profile-button {
+    height: 35px;
+    padding: 0px 10px;
+    font-size: 18px;
+    border: 2px solid;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: background 250ms linear;
+    -moz-transition: background 250ms linear;
+    transition: background 250ms linear;
+}
+.profile-button.white {
+    color: #FFF;
+    margin-top: 10px;
+}
+.profile-button>span {
+    vertical-align: middle;
+}
+.profile-button-icon {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.profile-button-icon.edit {
+    background: url("../images/icon/edit-ico.png") no-repeat center;
+}
+.profile-button:hover {
+    background: #5D91F8;
+}
+.profile-button:active {
+    background: #0025BE;
+}
+.control-rank-list.profile{
+    width: 100%;
+}
+.control-rank-list.profile .rank-row-name{
+    width:400px
+}
+.control-rank-list.profile .rank-row-item.head .rank-row-name {
+    width: 425px;
 }

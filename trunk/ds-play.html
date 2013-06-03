@@ -1,217 +1,501 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/responsive-style.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
-	<script type="text/javascript" src="scripts/date.js"></script>
-	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
-	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="scripts/effect.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/responsive-style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
+    <script type="text/javascript" src="scripts/date.js"></script>
+    <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="scripts/effect.js"></script>
 </head>
 <body>
 <div class="page">
-	<div class="menu">
-		<ul class="menu-list">
-			<li class="menu-item home"><a href="#">Trang chủ</a></li>
-			<li class="menu-item menu-group acc" id="acc"><a href="#">Tài khoản</a>
+<div class="menu">
+<ul class="menu-list">
+    <li class="menu-item home"><a href="#">Trang chủ</a></li>
+    <li class="menu-item menu-group acc" id="acc"><a href="#">Tài khoản</a>
 
-				<div class="menu-arrow"></div>
-			</li>
-			<li class="menu-item menu-group cate" id="cate"><a href="#">Thể loại</a>
+        <div class="menu-arrow"></div>
+    </li>
+    <li class="menu-item menu-group cate" id="cate"><a href="#">Thể loại</a>
 
-				<div class="menu-arrow"></div>
-			</li>
-			<li class="menu-item menu-group day" id="day"><a href="#">BXH Ngày</a>
+        <div class="menu-arrow"></div>
+    </li>
+    <li class="menu-item menu-group day" id="day"><a href="#">BXH Ngày</a>
 
-				<div class="menu-arrow"></div>
-			</li>
-			<li class="menu-item menu-group week" id="week"><a href="#">BXH Tuần</a>
+        <div class="menu-arrow"></div>
+    </li>
+    <li class="menu-item menu-group week" id="week"><a href="#">BXH Tuần</a>
 
-				<div class="menu-arrow"></div>
-			</li>
+        <div class="menu-arrow"></div>
+    </li>
 
-		</ul>
-		<div class="menu-popup" id="menu-popup">
+</ul>
+<div class="menu-popup" id="menu-popup">
 
-			<div class="menu-popup-form acc">
-				<ul class="menu-popup-list">
-					<li class="menu-popup-item">Đăng nhập</li>
-					<li class="menu-popup-item">Đăng kí</li>
-				</ul>
-			</div>
-			<div class="menu-popup-form cate">
-				<ul class="menu-popup-list">
-					<li class="menu-popup-item">Giải trí</li>
-					<li class="menu-popup-item">Âm nhạc</li>
-					<li class="menu-popup-item">Làm thế nào</li>
-					<li class="menu-popup-item">Khoa học</li>
-					<li class="menu-popup-item">Thế giới tự nhiên</li>
-					<li class="menu-popup-item">Thể thao</li>
-					<li class="menu-popup-item">Tâm lý người</li>
-					<li class="menu-popup-item">Máy tính</li>
-					<li class="menu-popup-item">Giao tiếp</li>
-					<li class="menu-popup-item">Dành cho trẻ em</li>
-					<li class="menu-popup-item">Thế giới</li>
-					<li class="menu-popup-item">Khi yêu</li>
-				</ul>
-			</div>
-			<div class="menu-popup-form day">
-				<ul class="menu-popup-list special">
-					<li class="menu-popup-item odd">Name1 2000</li>
-					<li class="menu-popup-item">Name2 4000</li>
-					<li class="menu-popup-item odd">Name3 2000</li>
-					<li class="menu-popup-item">Name4 4000</li>
-					<li class="menu-popup-item odd">Name5 2000</li>
-					<li class="menu-popup-item">Name6 4000</li>
-					<li class="menu-popup-item odd">Name7 2000</li>
-					<li class="menu-popup-item">Name8 4000</li>
-					<li class="menu-popup-item odd">Name9 2000</li>
-					<li class="menu-popup-item">Name10 4000</li>
-				</ul>
-			</div>
-			<div class="menu-popup-form week">
-				<ul class="menu-popup-list special">
-					<li class="menu-popup-item odd">Name1 2000</li>
-					<li class="menu-popup-item">Name2 4000</li>
-					<li class="menu-popup-item odd">Name3 2000</li>
-					<li class="menu-popup-item">Name4 4000</li>
-					<li class="menu-popup-item odd">Name5 2000</li>
-					<li class="menu-popup-item">Name6 4000</li>
-				</ul>
-			</div>
-		</div>
+<div class="menu-popup-form acc">
+    <ul class="menu-popup-list">
+        <li class="menu-popup-item simple" id="btnLogin">Đăng nhập</li>
+        <li class="menu-popup-item simple" id="btnRegis">Đăng kí</li>
+    </ul>
+    <div class="menu-popup-profile" style="display: none;">
+        <div class="form-head-profile">
 
-	</div>
-	<div class="form">
-		<div class="form-head">
-			<span>Learning-English</span><span class="form-head-gray">Home</span>
-		</div>
+            <div class="popup-profile-avt" style="background-image:url('images/resource/avt0.jpg')"></div>
+            <div class="popup-profile-name">Username</div></div></div>
+</div>
+<div class="menu-popup-form cate">
+    <ul class="menu-popup-list">
+        <li class="menu-popup-item simple">Giải trí</li>
+        <li class="menu-popup-item simple">Âm nhạc</li>
+        <li class="menu-popup-item simple">Làm thế nào</li>
+        <li class="menu-popup-item simple">Khoa học</li>
+        <li class="menu-popup-item simple">Thế giới tự nhiên</li>
+        <li class="menu-popup-item simple">Thể thao</li>
+        <li class="menu-popup-item simple">Tâm lý người</li>
+        <li class="menu-popup-item simple">Máy tính</li>
+        <li class="menu-popup-item simple">Giao tiếp</li>
+        <li class="menu-popup-item simple">Dành cho trẻ em</li>
+        <li class="menu-popup-item simple">Thế giới</li>
+        <li class="menu-popup-item simple">Khi yêu</li>
+    </ul>
+</div>
+<div class="menu-popup-form day">
+    <div class="menu-popup-head">
+        <div class="menu-popup-calendar">
+            <div class="menu-popup-calendar-current">
+                <i class="menu-popup-icon calendar-date"></i>
+                <input readonly="readonly" type="text" class="date-pick" value="28/05/2013"/>
+            </div>
+        </div>
+    </div>
+    <ul class="menu-popup-list special" id="rank-list-day">
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">1</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">2</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">3</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <span class="menu-popup-user">Name3</span>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">4</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">5</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">8</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">4</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">5</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">8</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">4</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">5</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">8</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">9</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">10</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+    </ul>
+</div>
+<div class="menu-popup-form week">
+    <div class="menu-popup-head">
+        <div class="menu-popup-calendar">
+            <div class="menu-popup-calendar-current">
+                <i class="menu-popup-icon calendar-week"></i>
+                <input readonly="readonly" type="text" class="date-pick week" value="28/05/2013"/>
+            </div>
+        </div>
+    </div>
+    <ul class="menu-popup-list special" id="rank-list-week">
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">1</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">2</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">3</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <span class="menu-popup-user">Name3</span>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">4</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">5</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item">
+            <span class="menu-popup-num">6</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt1.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+        <li class="menu-popup-item odd">
+            <span class="menu-popup-num">7</span>
+            <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+            <a href="" class="menu-popup-user">Name1</a>
+            <span class="menu-popup-score">2000</span>
+        </li>
+    </ul>
+</div>
+</div>
 
-		<div class="panel-video">
-			<div class="video-control">
-				<div class="video-control-metro back5">Lùi 5 giây</div>
-				<div class="video-control-metro skip5"> Tiến 5 giây</div>
-				<div class="video-control-metro large scroll">Tự cuộn theo video</div>
-				<div class="video-control-metro large score"> Kết quả
-					<span class="video-control-score">15/20</span></div>
-			</div>
-			<div class="video-player">
-				<iframe width="100%" height="100%" src="http://www.youtube.com/embed/NiHNlNSrupg" frameborder="0"
-				        allowfullscreen></iframe>
-			</div>
-			<div class="video-social"></div>
-			<div class="video-comment"></div>
-		</div>
-		<div class="panel-play">
-			<div class="play-keywords">
-				<div class="play-keyword-item">keyword 0</div>
-				<div class="play-keyword-item">keyword 1</div>
-				<div class="play-keyword-item">keyword 2</div>
-				<div class="play-keyword-item">keyword 3</div>
-				<div class="play-keyword-item">keyword 4</div>
-				<div class="play-keyword-item">keyword 5</div>
-				<div class="play-keyword-item">keyword 6</div>
-				<div class="play-keyword-item">keyword 7</div>
-				<div class="play-keyword-item">keyword 8</div>
-				<div class="play-keyword-item">keyword 9</div>
-				<div class="play-keyword-item">keyword 0</div>
-				<div class="play-keyword-item">keyword 1</div>
-			</div>
-			<div class="play-exam">
-				<div class="play-exam-list">
-					<div class="play-exam-item">
-						<a class="play-exam-tag"> <span class="caption-time">00:00</span> </a>
+</div>
+<div class="form">
+<div class="form-head">
+    <span>Learning-English</span><span class="form-head-gray">Home</span>
+</div>
 
-						<div class="play-exam-text">You've probably
-							people say that if your mother's people say that if your mother's father was bald you're more
-						</div>
-					</div>
-					<div class="play-exam-item play">
-						<a class="play-exam-tag"> <span class="caption-time">00:00</span> </a>
+<div class="panel-video">
+    <div class="video-control">
+        <div class="video-control-metro back5">Lùi 5 giây</div>
+        <div class="video-control-metro skip5"> Tiến 5 giây</div>
+        <div class="video-control-metro large scroll">Tự cuộn theo video</div>
+        <div class="video-control-metro large score"> Kết quả
+            <span class="video-control-score">15/20</span></div>
+    </div>
+    <div class="video-player">
+        <iframe width="100%" height="100%" src="http://www.youtube.com/embed/NiHNlNSrupg" frameborder="0"
+                allowfullscreen></iframe>
+    </div>
+    <div class="video-social"></div>
+    <div class="video-comment"></div>
+</div>
+<div class="panel-play">
+    <div class="play-keywords">
+        <div class="play-keyword-item">keyword 0</div>
+        <div class="play-keyword-item">keyword 1</div>
+        <div class="play-keyword-item">keyword 2</div>
+        <div class="play-keyword-item">keyword 3</div>
+        <div class="play-keyword-item">keyword 4</div>
+        <div class="play-keyword-item">keyword 5</div>
+        <div class="play-keyword-item">keyword 6</div>
+        <div class="play-keyword-item">keyword 7</div>
+        <div class="play-keyword-item">keyword 8</div>
+        <div class="play-keyword-item">keyword 9</div>
+        <div class="play-keyword-item">keyword 0</div>
+        <div class="play-keyword-item">keyword 1</div>
+    </div>
+    <div class="play-exam">
+        <div class="play-exam-list">
+            <div class="play-exam-item">
+                <a class="play-exam-tag"> <span class="caption-time">00:00</span> </a>
 
-						<div class="play-exam-text">likely lose those
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							locks of hair down the road. But what truth is there
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"> <span class="caption-time">00:10</span> </a>
+                <div class="play-exam-text">You've probably
+                    people say that if your mother's people say that if your mother's father was bald you're more
+                </div>
+            </div>
+            <div class="play-exam-item play">
+                <a class="play-exam-tag"> <span class="caption-time">00:00</span> </a>
 
-						<div class="play-exam-text">You've if your mother's father was bald you're more
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"> <span class="caption-time">00:15</span> </a>
+                <div class="play-exam-text">likely lose those
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    locks of hair down the road. But what truth is there
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"> <span class="caption-time">00:10</span> </a>
 
-						<div class="play-exam-text">likely lose those
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							locks of hair down the road. But what truth is there locks of hair down the road. But what
-							truth is there
-							locks of hair down the road. But what truth is there
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"><span class="caption-time">00:20</span> </a>
+                <div class="play-exam-text">You've if your mother's father was bald you're more
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"> <span class="caption-time">00:15</span> </a>
 
-						<div class="play-exam-text">You've the road. But what truth is there.
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							father was bald you're more
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"> <span class="caption-time">00:30</span> </a>
+                <div class="play-exam-text">likely lose those
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    locks of hair down the road. But what truth is there locks of hair down the road. But what
+                    truth is there
+                    locks of hair down the road. But what truth is there
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"><span class="caption-time">00:20</span> </a>
 
-						<div class="play-exam-text">likely lose thoselocks of hair down the road. But what truth is there.
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							locks of hair down the road. But what truth is there. But what truth is there
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"><span class="caption-time">00:35</span> </a>
+                <div class="play-exam-text">You've the road. But what truth is there.
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    father was bald you're more
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"> <span class="caption-time">00:30</span> </a>
 
-						<div class="play-exam-text">You've probably
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							people say that if your mother's father was bald you're more
-						</div>
-					</div>
-					<div class="play-exam-item">
-						<a class="play-exam-tag"> <span class="caption-time">00:50</span> </a>
+                <div class="play-exam-text">likely lose thoselocks of hair down the road. But what truth is there.
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    locks of hair down the road. But what truth is there. But what truth is there
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"><span class="caption-time">00:35</span> </a>
 
-						<div class="play-exam-text">likely lose thoselocks of hair down the road. But what truth is there.
-							<input class="play-exam-answer" type="text" value="" name="answer[]">
-							 But what truth is there
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="control-play-post">
-				<div class="control-button finish">Hoàn tất
-				</div>
-				<div class="control-button retry">Làm lại
-				</div>
-				<div class="control-button error">Báo lỗi
-				</div>
-			</div>
-			<div class="control-rank-recent">
-				<div class="control-rank-head"></div>
-				<ul class="control-rank-list">
-					<li class="control-rank-item">User 1</li>
-					<li class="control-rank-item">User 2</li>
-					<li class="control-rank-item">User 3</li>
-					<li class="control-rank-item">User 4</li>
-				</ul>
-			</div>
+                <div class="play-exam-text">You've probably
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    people say that if your mother's father was bald you're more
+                </div>
+            </div>
+            <div class="play-exam-item">
+                <a class="play-exam-tag"> <span class="caption-time">00:50</span> </a>
+
+                <div class="play-exam-text">likely lose thoselocks of hair down the road. But what truth is there.
+                    <input class="play-exam-answer" type="text" value="" name="answer[]">
+                    But what truth is there
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-play-post">
+        <div class="control-button finish">Hoàn tất
+        </div>
+        <div class="control-button retry">Làm lại
+        </div>
+        <div class="control-button error">Báo lỗi
+        </div>
+    </div>
+    <div class="control-rank-recent">
+        <div class="control-rank-head cup"></div>
+        <ul class="control-rank-list">
+            <li class="rank-row-item head">
+                <span href="" class="rank-row-name">Name</span>
+                <span class="rank-row-point">Points </span>
+                <span href="" class="rank-row-time">Date time</span>
+            </li>
+            <li class="rank-row-item top">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item top">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item top">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item">
+                <span class="rank-row-num">1</span>
+                <span class="rank-row-avt"></span>
+                <a href="" class="rank-row-name">Name1</a>
+                <span class="rank-row-point">3,000</span>
+                <span class="rank-row-time">12/12/2013</span>
+            </li>
+            <li class="rank-row-item more">
+                <span class="rank-row-button more">More</span>
+            </li>
+        </ul>
+    </div>
 
 
-		</div>
+</div>
 
-	</div>
+</div>
 </div>
 </body>
 </html>
