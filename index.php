@@ -185,7 +185,7 @@ include 'BLL/articleBLL.php';
                             </div>
                         </div>
                     </div>
-                    <div class=control-rank-recent>
+                    <div class=control-rank-recent-index>
                         <div class="control-rank-head"></div>
                         <ul class="control-rank-list">
                             <!--                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
