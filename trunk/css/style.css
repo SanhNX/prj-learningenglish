@@ -1377,7 +1377,12 @@ body {
 }
 
 .fb-bar {
-    margin: 0px 425px 10px 0px;
+    margin: 0px 425px 10px 10px;
+}
+
+.fb-btnLogin{
+    position: absolute;
+    margin: 0px 0px 0px 311px;
 }
 
 .login-popup-error-mess {

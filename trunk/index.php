@@ -15,6 +15,8 @@ include 'BLL/articleBLL.php';
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
 
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+        <script type="text/javascript" src="scripts/facebookAPI.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>

@@ -10,15 +10,16 @@ include 'BLL/articleBll.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title></title>
-        <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap-yii.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive-style.css" rel="stylesheet" type="text/css">
 
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+        <script type="text/javascript" src="scripts/facebookAPI.js"></script>
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
@@ -42,21 +43,21 @@ include 'BLL/articleBll.php';
     <div id="fb-root"></div>
     <script>
         // Additional JS functions here
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: "359445744178937",
-                channelUrl: '//WWW.localhost/prjj-learningenglish/channel.html',
-                status: true, // check login status
-                cookie: true, // enable cookies to allow the server to access the session
-                xfbml: true  // parse XFBML
-            });
-            // Additional init code here
-            FB.getLoginStatus(function(response) {
-                onFacebookReady();
-                getFbUserData();
-            });
-
-        };
+//        window.fbAsyncInit = function() {
+//            FB.init({
+//                appId: "359445744178937",
+//                channelUrl: '//WWW.localhost/prjj-learningenglish/channel.html',
+//                status: true, // check login status
+//                cookie: true, // enable cookies to allow the server to access the session
+//                xfbml: true  // parse XFBML
+//            });
+//            // Additional init code here
+//            FB.getLoginStatus(function(response) {
+//                onFacebookReady();
+//                getFbUserData();
+//            });
+//
+//        };
         // Load the SDK asynchronously
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
