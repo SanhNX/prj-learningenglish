@@ -35,6 +35,7 @@ class UserInfor{
 	var $titleAr;
 	var $score;
 	var $ranking;
+        var $date;
 }
 
 ?>
