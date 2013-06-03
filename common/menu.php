@@ -56,7 +56,9 @@
 <!--                    <div class="menu-popup-calendar-next"></div>-->
                 </div>
             </div>
-            <ul id="popupRankingDate" class="menu-popup-list special"></ul>
+            <ul id="rank-list-day" class="menu-popup-list special">
+                
+            </ul>
         </div>
         <div class="menu-popup-form week">
             <div class="menu-popup-head">
@@ -69,7 +71,7 @@
 <!--                    <div class="menu-popup-calendar-next"></div>-->
                 </div>
             </div>
-            <ul id="popupRankingWeek" class="menu-popup-list special"></ul>
+            <ul id="rank-list-week" class="menu-popup-list special"></ul>
         </div>
     </div>
 
