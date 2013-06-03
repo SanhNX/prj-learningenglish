@@ -752,6 +752,16 @@ body {
     overflow: hidden;
 }
 
+.control-rank-recent-index {
+    float: left;
+    height: 201px;
+    width: 620px;
+    margin-bottom: 20px;
+    background-color: #d92266;
+    font-size: 0;
+    overflow: hidden;
+}
+
 .control-rank-head {
     width: 50px;
     height: 100%;
