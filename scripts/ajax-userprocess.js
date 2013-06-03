@@ -17,7 +17,7 @@ $(document).ready(function() {
             return false;
         }
         else if (email_regex.test(email)) {
-            $(".login-popup-error-mess").html('<i></i> Processes running ............');
+            $(".login-popup-error-mess").html('<i></i>  Fetching your information ............');
             $(".popup-progress").removeClass("undisplayed");
             $.ajax({
                 type: "POST",
@@ -61,7 +61,7 @@ $(document).ready(function() {
         var err3 = "- Full name can not blank and less than or equal 15 character</br>";
         var err4 = "- Password can not blank and larger than 8 character</br>";
         var err5 = "- Confirn Password can not blank and similar with Password</br>";
-        var err6 = "- Processes running ............";
+        var err6 = "- Saving your information ............";
         if (!email_regex.test(email) || email === "") {
             $("#email").focus();
             $(".login-info-row")[4].className = "login-info-row error";

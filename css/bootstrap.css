@@ -78,7 +78,7 @@ img {
   max-width: none;
 }
 button,
-input,
+/*input,*/
 select,
 textarea {
   margin: 0;
@@ -861,7 +861,7 @@ legend small {
   color: #dfdfdf;
 }
 label,
-input,
+/*input,*/
 button,
 select,
 textarea {
@@ -982,7 +982,7 @@ input[type="checkbox"] {
 }
 input[type="file"],
 input[type="image"],
-input[type="submit"],
+/*input[type="submit"],*/
 input[type="reset"],
 input[type="button"],
 /*input[type="radio"],*/
@@ -2745,7 +2745,7 @@ button.close {
 .btn-block + .btn-block {
   margin-top: 5px;
 }
-input[type="submit"].btn-block,
+/*input[type="submit"].btn-block,*/
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
@@ -2948,7 +2948,7 @@ input[type="button"].btn-block {
 .btn-inverse.active {
   background-color: #000000 \9;
 }
-button.btn,
+/*button.btn,
 input[type="submit"].btn {
   *padding-top: 3px;
   *padding-bottom: 3px;
@@ -2972,7 +2972,7 @@ button.btn.btn-mini,
 input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
-}
+}*/
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
