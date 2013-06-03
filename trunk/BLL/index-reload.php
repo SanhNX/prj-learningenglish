@@ -8,7 +8,7 @@ $sql = "SELECT ac.historyid, ac.score, ar.id as idar, ar.title , us.id as idus, 
             JOIN tbl_user us ON ac.userid = us.id
         WHERE ac.datesubmit = CURDATE()
         ORDER BY ac.historyid DESC
-        LIMIT 0, 10";
+        LIMIT 0, 20";
 
 
  $queryResult = mysql_query($sql);
@@ -24,7 +24,7 @@ $sql = "SELECT ac.historyid, ac.score, ar.id as idar, ar.title , us.id as idus, 
      $html = '<li class="menu-popup-item odd">
                     <span class="menu-popup-num">'.$i.'</span>
                     <span class="menu-popup-avt" style="background-image:url('.$seletedItem['avatar'].')"></span>
-                    <a href="inforUser.php?id='.$seletedItem['idus'].'" class="menu-popup-user">'.$seletedItem['name'].'</a>
+                    <a href="profile.php?id='.$seletedItem['idus'].'" class="menu-popup-user">'.$seletedItem['name'].'</a>
                     <span class="menu-popup-mess">receives '.$seletedItem['score'].' points for this video.</span>
                     <a href="play.php?id='.$seletedItem['idar'].'" class="menu-popup-video-link">'.$seletedItem['title'].'</a>
               </li>';

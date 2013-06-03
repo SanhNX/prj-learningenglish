@@ -20,9 +20,9 @@ function getInforTestofUser($id) {
 //        WHERE ac.userid  = $id
 //       ORDER BY ac.historyid DESC ";
 
-    $sql1 .=" SELECT T1.id, T1.title, T1.score, T1.historyid, T2.ranking
+    $sql1 .=" SELECT T1.id, T1.title, T1.score, T1.historyid, T2.ranking ,T1.datesubmit
                 FROM 
-                    (SELECT  ar.id, ar.title ,ac.score, ac.historyid
+                    (SELECT  ar.id, ar.title ,ac.score, ac.historyid , ac.datesubmit
                         FROM tbl_activityhistory ac 
                             JOIN tbl_article ar ON ac.articleid = ar.id
                         WHERE ac.userid  = '" . $id . "') AS T1
@@ -52,6 +52,7 @@ function getInforTestofUser($id) {
         $item->score = $seletedItem['score'];
 
         $item->ranking = $seletedItem['ranking'];
+        $item->date = $seletedItem['datesubmit'];
 
         $result[$i] = $item;
         $i++;

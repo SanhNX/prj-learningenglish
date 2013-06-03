@@ -112,11 +112,12 @@ function getRankingByDate($paramDate1, $paramDate2) {
             data: str_string,
             cache: false,
             success: function(dto) {
-                $("#popupRankingDate").html('');
+                $("#rank-list-day").html('');
+                initScrollBar();
                 if (dto.trim() != "")
-                    $("#popupRankingDate").html(dto);
+                    $("#rank-list-day").html(dto);
                 else 
-                    $("#popupRankingDate").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
+                    $("#rank-list-day").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
 
             }
         });
@@ -127,12 +128,14 @@ function getRankingByDate($paramDate1, $paramDate2) {
             data: str_string,
             cache: false,
             success: function(dto) {
-                $("#popupRankingWeek").html('');
-               
+        
+                $("#rank-list-week").html('');
+                initScrollBar();
                 if (dto.trim() != "")
-                     $("#popupRankingWeek").html(dto);
+                     $("#rank-list-week").html(dto);
                 else 
-                    $("#popupRankingWeek").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
+                    $("#rank-list-week").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
+                
             }
         });
     }
