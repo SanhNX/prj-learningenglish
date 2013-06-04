@@ -8,8 +8,7 @@
 }
 
 .admin-panel {
-	width: 720px;
-	height: 500px;
+	width: 800px;
 	display: inline-block;
 	margin-left: 10px;
 	vertical-align: top;
@@ -66,6 +65,7 @@
 .gap {
 	margin-bottom: 10px;
 }
+
 /*CHECK-BOX*/
 input[type=checkbox].admin-checkbox {
 	display: none;
@@ -89,6 +89,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .admin-checkbox-label {
 	background: url('../images/bg/check-bg.png') no-repeat 0 -20px;
 }
+
 /*FILE-UPLOAD*/
 .admin-upload {
 	display: block;
@@ -141,11 +142,13 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .admin-upload>span.file {
 	background: url('../images/icon/file-ico.png') no-repeat 20px center;
 }
+
 /*TEXT-BOX*/
 .admin-text-input:focus {
 	border-color: #455CEE;
 	outline: none;
 }
+
 .admin-text-input {
 	border: 2px solid #999;
 	height: 30px;
@@ -156,23 +159,27 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	font-family: "Segoe UI";
 	padding-left: 5px;
 }
+
 .admin-text-input.area {
 	height: 90px;
 	max-height: 90px;
 	width: 300px;
 	max-width: 298px;
 }
+
 .admin-text-label {
 	height: 20px;
 	font-size: 14px;
 	display: block;
 }
+
 .admin-text-label.inline {
 	height: 40px;
 	line-height: 40px;
 	width: 150px;
 	display: inline-block;
 }
+
 /*BUTTON*/
 .admin-button {
 	color: #16499A;
@@ -201,19 +208,132 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .admin-button:active {
 	background-color: #0025BE;
 }
-
-.admin-button.add {
+.add {
 	background-image: url('../images/icon/add-ico.png');
 }
-.admin-button.edit {
+.edit {
 	background-image: url('../images/icon/edit-blue-ico.png');
 }
-.admin-button.delete {
+.delete {
 	background-image: url('../images/icon/delete-ico.png');
 }
-.admin-button.cancel {
+.cancel {
 	background-image: url('../images/icon/cancel-ico.png');
 }
-.admin-button.submit {
+
+.submit {
 	background-image: url('../images/icon/submit-ico.png');
+}
+.prev {
+	background-image: url('../images/icon/back-blue-ico.png');
+}
+.next {
+	background-image: url('../images/icon/next-blue-ico.png');
+}
+
+.admin-table {
+	width: 100%;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.admin-table-cell, .admin-table-cell-full {
+	line-height: 30px;
+	margin: 0px;
+	padding: 0px 10px 5px 10px;
+	height: 30px;
+	vertical-align: top;
+}
+
+.admin-table-cell-full {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.1);
+}
+.admin-table-row {
+	background: #E5E5E5;
+	font-size: 13px;
+}
+.admin-table-row:nth-child(2n) {
+	background: #EEE;
+}
+
+.admin-table-head {
+	background: #16499A;
+	height: 30px;
+	line-height: 30px;
+	color: #FFF;
+}
+.admin-table-head .admin-table-cell,
+.admin-table-head .admin-table-cell-full {
+	line-height: 30px;
+}
+
+.admin-table-button {
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	background-color: #FFF;
+	height: 25px;
+	width: 100px;
+	background-size: 20px;
+	color: #16499A;
+	font-family: "Segoe UI";
+	font-weight: bold;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+.admin-table-button:hover {
+	background-color: #B6B6FF;
+}
+.admin-table-button:active {
+	background-color: #2C6CD1;
+}
+.admin-table-button.unable {
+	background-color: #A8A8A8;
+}
+
+.table-long-text {
+	max-height: 90px;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	text-indent: 20px;
+}
+
+.admin-table-foot {
+	background: #16499A;
+	height: 30px;
+	line-height: 30px;
+	color: #FFF;
+}
+
+.admin-select {
+	width: 240px;
+	height: 34px;
+	overflow: hidden;
+	background: url("../images/icon/drop-down-ico.png") no-repeat right center #FFF;
+	border: 2px solid #999;
+}
+.admin-select>select {
+	background: transparent;
+	width: 268px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 34px;
+	-webkit-appearance: none;
+}
+
+.admin-select>select:focus {
+	outline: none;
+}
+
+.admin-footer {
+	height: 50px;
 }
