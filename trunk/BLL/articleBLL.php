@@ -105,4 +105,20 @@ function getArticleById($id) {
     return $item;
 }
 
+function updateArticle($articleid) {
+    $sql = "SELECT * FROM tbl_article Where id = '" . $articleid . "' ";
+    $query = mysql_query($sql) or die("Couldn't execute query.");
+    if (!$query) {
+        echo 'Could not run query: ' . $id . mysql_error();
+        exit;
+    }
+    $seletedItem = mysql_fetch_array($query);
+    
+    $value = (int)$seletedItem['timesplay'] + 1;
+    $sql = "UPDATE tbl_article SET timesplay = '".$value."' WHERE id = '".$articleid."' ";
+    $queryResult = mysql_query($sql) or die("Couldn't execute query.");
+    
+    return $queryResult;
+}
+
 ?>
