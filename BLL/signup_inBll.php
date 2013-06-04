@@ -4,7 +4,7 @@ include '../DAO/connection.php';
 include '../DTO/object.php';
 
 $usingfb = $_POST['usingfb'];
-if($usingfb === false )
+if(!$usingfb)
 {
     $isExist = checkExistEmail($_POST['txtemail'], $_POST['txtpass']);
     //echo '<script>alert("'.$isExist.'");</script>';
@@ -29,7 +29,7 @@ if($usingfb === false )
 }
 
 function checkExistEmail($email, $pass) {
-    $sql = "SELECT * FROM  tbl_user WHERE email = '" . $email . "' AND password = '" . $pass . "' ";
+    $sql = "SELECT * FROM  tbl_user WHERE email = '" . $email . "' AND password = '" . $pass . "' AND status = 1";
     $result = mysql_query($sql);
     if (!$result) {
         echo 'Could not run query: ' . $email . mysql_error();

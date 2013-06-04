@@ -29,6 +29,13 @@ class Article{
 	var $timesplay;
 	var $datecreate;
 }
+class ActivityHistory{
+	var $historyid;
+	var $userid;
+	var $articleid;
+	var $datesubmit;
+	var $score;
+}
 
 class UserInfor{
 	var $idAr;

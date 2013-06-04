@@ -5,6 +5,8 @@ include 'DAO/connection.php';
 include 'DTO/object.php';
 include 'BLL/categoryBll.php';
 include 'BLL/articleBll.php';
+include 'BLL/activityHistoryBll.php';
+include 'BLL/userBll.php';
 ?>
 <html>
     <head>
@@ -42,22 +44,6 @@ include 'BLL/articleBll.php';
     ?>
     <div id="fb-root"></div>
     <script>
-        // Additional JS functions here
-//        window.fbAsyncInit = function() {
-//            FB.init({
-//                appId: "359445744178937",
-//                channelUrl: '//WWW.localhost/prjj-learningenglish/channel.html',
-//                status: true, // check login status
-//                cookie: true, // enable cookies to allow the server to access the session
-//                xfbml: true  // parse XFBML
-//            });
-//            // Additional init code here
-//            FB.getLoginStatus(function(response) {
-//                onFacebookReady();
-//                getFbUserData();
-//            });
-//
-//        };
         // Load the SDK asynchronously
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -77,7 +63,22 @@ include 'BLL/articleBll.php';
             <div class="form-head">
                 <span>Learning-English</span><span class="form-head-gray">Home</span>
             </div>
+            <div class="form-head-task">
+                // ------------ Check user login----------------//
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo '<div class="form-head-account">
+                                <div class="form-head-account-wrapper">
+                                        <div class="form-head-profile">
+                                                <span>' . $_SESSION["email"] . '</span>
+                                                <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span>
+                                        </div><div class="form-head-logout"><a>Profile</a><a id="btn-logout">Logout</a></div>
+                                </div>
+                                </div>';
+                }
+                ?>
 
+            </div>
             <div class="panel-video">
                 <div class="video-control">
                     <div class="video-control-metro back5">5 seconds</div>
@@ -116,7 +117,7 @@ include 'BLL/articleBll.php';
                     <div id="btnOpenReportDialog" class="control-button error">Notify Error
                     </div>
                 </div>
-                <div class="control-rank-recent">
+                <div class="control-rank-recent  play">
                     <div id="feedbackDialog" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -143,12 +144,35 @@ include 'BLL/articleBll.php';
                         </div>
 
                     </div>
-                    <div class="control-rank-head"></div>
+                    <div class="control-rank-head cup"></div>
                     <ul class="control-rank-list">
-                        <li class="control-rank-item">User 1</li>
-                        <li class="control-rank-item">User 2</li>
-                        <li class="control-rank-item">User 3</li>
-                        <li class="control-rank-item">User 4</li>
+                        <li class="rank-row-item head">
+                            <span href="" class="rank-row-name">Name</span>
+                            <span class="rank-row-point">Points </span>
+                            <span href="" class="rank-row-time">Date time</span>
+                        </li>
+                        <?php
+                        $activityHistoryList = getActivityHistoryByArticleId($_GET['id']);
+                        for ($i = 0; $i < count($activityHistoryList); $i++) {
+                            $user = getInforUserById($activityHistoryList[$i]->userid);
+//                            echo '<script>alert("' . $activityHistoryList[$i]->userid . '")</script>';
+                            if ($i < 3)
+                                echo '<li class="rank-row-item top">';
+                            else
+                                echo '<li class="rank-row-item">';
+                            echo '<span class="rank-row-num">' . ($i + 1) . '</span>
+                                        <span class="rank-row-avt" style="background-image:url(' . $user->avatar . ')"></span>
+                                        <a href="profile.php?id=' . $user->id . '" class="rank-row-name">' . $user->name . '</a>
+                                        <span class="rank-row-point">' . $activityHistoryList[$i]->score . '</span>
+                                        <span class="rank-row-time">' . date_format(new DateTime($activityHistoryList[$i]->datesubmit), 'd/m/Y') . '</span>
+                                    </li>';
+                        }
+                        ?>
+
+
+                        <li class="rank-row-item more">
+                            <span class="rank-row-button more">More</span>
+                        </li>
                     </ul>
                 </div>
             </div>
