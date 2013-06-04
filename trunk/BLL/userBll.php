@@ -97,4 +97,20 @@ function getAllInforUser () {
     return $result;
 }
 
+function updateUser ($id, $status){
+    $sql = " UPDATE tbl_user SET status = $status WHERE id = $id";              
+    $queryResult = mysql_query($sql) or die(mysql_error());
+    
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+    
+    if ($queryResult)
+        return 1;
+    else
+        return -1;
+}
+
+
 ?>
