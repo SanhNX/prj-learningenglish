@@ -104,75 +104,9 @@ include 'BLL/activityHistoryBLL.php';
               //  header("location: index.php");
             }
             ?>
-<div class="popup disable">
-	<div class="popup-back"></div>
-	<div class="popup-form login">
-		<div class="popup-wrapper">
-			<div class="login-avt"></div>
-			<div class="login-info">
-				<div class="login-info-title">
-					<span>Đăng nhập</span>
-
-					<div class="popup-progress" style="display: block"></div>
-				</div>
-				<div class="login-info-row"><span class="login-info-label">Tên tài khoản:</span>
-					<input class="login-info-input" type="text" value=""/>
-				</div>
-				<div class="login-info-row"><span class="login-info-label">Mật khẩu:</span>
-					<input class="login-info-input" type="password" value=""/>
-				</div>
-				<div class="login-info-row large">
-					<a class="login-info-link">Quên mật khẩu?</a>
-					<a class="login-info-button">Đăng nhập</a>
-				</div>
-				<div class="login-info-row">
-					<a class="login-info-link" id="login-info-link-register">Chưa có tài khoản?</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="popup-form register">
-		<div class="popup-wrapper">
-			<div class="login-info">
-				<div class="login-info-title">
-					<span>Đăng kí</span>
-
-					<div class="popup-progress" style="display: block"></div>
-				</div>
-				<div class="login-info-row error">
-					<span class="login-info-label">Tên tài khoản:</span>
-					<input class="login-info-input" placeholder="Không quá 12 ký tự" type="text" value=""/>
-				</div>
-				<div class="login-info-row error">
-					<span class="login-info-label">Email:</span>
-					<input class="login-info-input" type="text" value=""/>
-				</div>
-				<div class="login-info-row">
-					<span class="login-info-label">Xác nhận email:</span>
-					<input class="login-info-input" type="text" value=""/>
-				</div>
-				<div class="login-info-row ok"><span class="login-info-label">Mật khẩu:</span>
-					<input class="login-info-input" type="password" value=""/>
-				</div>
-				<div class="login-info-row"><span class="login-info-label">Xác nhận mật khẩu:</span>
-					<input class="login-info-input" type="password" value=""/>
-				</div>
-				<div class="login-info-row large">
-					<a class="login-info-button">Đăng kí</a>
-				</div>
-			</div>
-			<div class="login-message">
-				<div class="login-message-content">
-					Xảy ra sự cố trong quá trình đăng kí...<br/>
-					- Tên đăng nhập không hợp lệ<br/>
-					- Email không hợp lệ<br/>
-					- ...<br/>
-				</div>
-				<div class="login-message-footer"></div>
-			</div>
-		</div>
-	</div>
-</div>
+    <?php
+            include 'common/login-register.php';
+            ?>
 </div>
 </body>
 </html>
