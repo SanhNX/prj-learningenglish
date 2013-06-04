@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    $('#btn-logout').on('click', function(e) {
+        var r = confirm("Do you really want to log out ?");
+        if (r === true) {
+            FB.logout();
+            $.post("./BLL/logoutBll.php", function(resp) {
+                if (resp === "success") {
+                    alert("Logout Success !");
+                    location.reload();
+                }
+            });
+        }
+    });
+
     $('#btn-login').on('click', function(e) {
 
         var email = $("#txtemail").val();
@@ -38,7 +51,7 @@ $(document).ready(function() {
                         }
                         if (dto === 'fail') {
                             $("#email").focus();
-                            $(".login-popup-error-mess").html('<i></i> Email or password is not valid');
+                            $(".login-popup-error-mess").html('<i></i> Email or password is not valid or had blocked');
                             $(".popup-progress").addClass("undisplayed");
                             return false;
                         }
@@ -146,7 +159,7 @@ $(document).ready(function() {
 
 function startResCallback() {
     // viết code khi click nút upload và bắt đầu upload.
-    
+
 }
 function completeResCallback(dto_res) {
 // viết code xử lý sau khi đã upload xong,

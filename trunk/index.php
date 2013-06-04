@@ -47,7 +47,7 @@ include 'BLL/articleBLL.php';
             <?php
             include 'common/menu.php';
             ?>
-           
+
             <div class="form-head">
                 <span>Learning-English</span><span class="form-head-gray">Home</span>
                 <div class="form-head-task">
@@ -55,8 +55,13 @@ include 'BLL/articleBLL.php';
                     <?php
                     if (isset($_SESSION["email"])) {
                         echo '<div class="form-head-account">
-                                <span>' . $_SESSION["email"] . '</span>
-                                <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span></div>';
+                                <div class="form-head-account-wrapper">
+                                        <div class="form-head-profile">
+                                                <span>' . $_SESSION["email"] . '</span>
+                                                <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span>
+                                        </div><div class="form-head-logout"><a>Profile</a><a id="btn-logout">Logout</a></div>
+                                </div>
+                                </div>';
                     }
                     ?>
 
@@ -70,7 +75,7 @@ include 'BLL/articleBLL.php';
 
                 </div>
             </div>
-             <div class="form">
+            <div class="form">
                 <ul class="metro-list" id ="listvideo">
                     //----------------- Show list video--------------------//
                     <?php

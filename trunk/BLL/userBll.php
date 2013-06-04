@@ -55,7 +55,7 @@ function insertUser ($fname, $email, $pword, $joindate, $gender, $avatar){
 }
 
 function getInforUserById ($id) {
-    $sql = "SELECT * FROM tbl_user Where Id = $id";
+    $sql = "SELECT * FROM tbl_user Where id = '".$id."'";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . $id . mysql_error();
