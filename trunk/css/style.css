@@ -743,10 +743,9 @@ body {
 }
 
 .control-rank-recent {
-    float: left;
-    height: 360px;
+    height: 200px;
     width: 620px;
-    margin-bottom: 20px;
+
     background-color: #d92266;
     font-size: 0;
     overflow: hidden;
@@ -792,6 +791,20 @@ body {
     text-indent: 20px;
     text-align: left;
     color: #FFF;
+}
+/**/
+
+.control-rank-recent.play {
+	width: 99%;
+	height: 360px;
+	margin-bottom: 20px;
+}
+
+.control-rank-recent.play .control-rank-head {
+	width: 7%;
+}
+.control-rank-recent.play .control-rank-list {
+	width: 93%;
 }
 
 /* ??????????????????????? PLAY ?????????????????????????????*/
