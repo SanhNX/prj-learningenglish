@@ -1,0 +1,219 @@
+.admin-tag {
+	background: #3F2AD6;
+	width: 280px;
+	height: 500px;
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+.admin-panel {
+	width: 720px;
+	height: 500px;
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.admin-panel-content {
+	padding: 10px;
+}
+
+.admin-title {
+	font-size: 16px;
+	text-align: left;
+	text-indent: 0px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	color: #3F3F3F;
+}
+
+.nav-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 90px;
+}
+
+.nav-item {
+	display: inline-block;
+	height: 100%;
+	width: 160px;
+	line-height: 90px;
+	background: #858585;
+	text-align: center;
+}
+
+.nav-item:hover {
+	background: #B6B6B6;
+}
+
+.nav-item {
+	display: inline-block;
+	height: 100%;
+	width: 160px;
+	line-height: 90px;
+	background: #858585;
+}
+
+.nav-item>a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.gap {
+	margin-bottom: 10px;
+}
+/*CHECK-BOX*/
+input[type=checkbox].admin-checkbox {
+	display: none;
+}
+
+input[type=checkbox].admin-checkbox + label.admin-checkbox-label {
+	padding-left: 20px;
+	height: 20px;
+	display: inline-block;
+	line-height: 17px;
+	font-size: 15px;
+	vertical-align: middle;
+	cursor: pointer;
+	text-indent: 10px;
+}
+
+input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
+	background-position: 0 0;
+}
+
+.admin-checkbox-label {
+	background: url('../images/bg/check-bg.png') no-repeat 0 -20px;
+}
+/*FILE-UPLOAD*/
+.admin-upload {
+	display: block;
+	margin: auto;
+	width: 222px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #16499A;
+	border: 2px solid #16499A;
+	font-size: 16px;
+	position: relative;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+
+.admin-upload:hover {
+	background-color: #D8E5FF;
+}
+
+.admin-upload:active {
+	background-color: #0025BE;
+}
+
+.admin-upload input {
+	opacity: 0;
+	filter: alpha(opacity:0);
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	display: block;
+}
+
+.admin-upload>span {
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	display: block;
+}
+
+.admin-upload>span.photo {
+	background: url('../images/icon/photo-ico.png') no-repeat 20px center;
+}
+
+.admin-upload>span.file {
+	background: url('../images/icon/file-ico.png') no-repeat 20px center;
+}
+/*TEXT-BOX*/
+.admin-text-input:focus {
+	border-color: #455CEE;
+	outline: none;
+}
+.admin-text-input {
+	border: 2px solid #999;
+	height: 30px;
+	line-height: 30px;
+	width: 300px;
+	font-size: 18px;
+	vertical-align: middle;
+	font-family: "Segoe UI";
+	padding-left: 5px;
+}
+.admin-text-input.area {
+	height: 90px;
+	max-height: 90px;
+	width: 300px;
+	max-width: 298px;
+}
+.admin-text-label {
+	height: 20px;
+	font-size: 14px;
+	display: block;
+}
+.admin-text-label.inline {
+	height: 40px;
+	line-height: 40px;
+	width: 150px;
+	display: inline-block;
+}
+/*BUTTON*/
+.admin-button {
+	color: #16499A;
+	border: 2px solid #16499A;
+	height: 40px;
+	width: 170px;
+	background: no-repeat 20px center #FFF;
+
+	margin-left: 10px;
+	vertical-align: middle;
+	display: inline-block;
+	padding: 0px 20px;
+	font-weight: bold;
+	color: #16499A;
+	font-size: 16px;
+	font-family: "Segoe UI";
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+
+.admin-button:hover {
+	background-color: #D8E5FF;
+}
+
+.admin-button:active {
+	background-color: #0025BE;
+}
+
+.admin-button.add {
+	background-image: url('../images/icon/add-ico.png');
+}
+.admin-button.edit {
+	background-image: url('../images/icon/edit-blue-ico.png');
+}
+.admin-button.delete {
+	background-image: url('../images/icon/delete-ico.png');
+}
+.admin-button.cancel {
+	background-image: url('../images/icon/cancel-ico.png');
+}
+.admin-button.submit {
+	background-image: url('../images/icon/submit-ico.png');
+}
