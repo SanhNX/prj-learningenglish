@@ -20,6 +20,7 @@ include 'BLL/userBll.php';
 	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
+        <script type="text/javascript" src="scripts/admin_user.js"></script>
 </head>
 <body>
 <div class="page">
@@ -79,14 +80,14 @@ include 'BLL/userBll.php';
                                     <span href="" class="rank-row-time" style="font-size: 16px;">'.$gender.'</span>
                                     ';
                                 if ($itemUserInfor->status == 1) {
-                                    echo '<span href="" class="rank-row-time" style="font-size: 16px;">
-                                            <input class="admin-button submit" type="button" style="height: 34px;" value="Active"/>
+                                    echo '<span href="" class="rank-row-time" id="'.$itemUserInfor->id.'" style="font-size: 16px;">
+                                            <input class="admin-button submit" type="button" onclick="updateUser('.$itemUserInfor->id.','.$itemUserInfor->status.');" style="height: 34px;" value="Active"/>
                                         </span>
                                          </li>
                                         ';
                                 } else {
-                                    echo '<span href="" class="rank-row-time" style="font-size: 16px;">
-                                            <input class="admin-button cancel" type="button" style="height: 34px;" value="Inactive"/>
+                                    echo '<span href="" class="rank-row-time" id="'.$itemUserInfor->id.'" style="font-size: 16px;">
+                                            <input class="admin-button cancel" type="button" onclick="updateUser('.$itemUserInfor->id.','.$itemUserInfor->status.');" style="height: 34px;" value="Inactive"/>
                                         </span>
                                          </li>
                                         ';
