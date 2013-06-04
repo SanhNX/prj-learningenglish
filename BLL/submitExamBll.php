@@ -1,9 +1,11 @@
 <?php
+
 session_start();
 include '../DAO/connection.php';
 include '../BLL/activityHistoryBLL.php';
+include '../BLL/articleBll.php';
 
-$userid = 1;
+$userid = $_SESSION['userid'];
 $now = getdate();
 $datesubmit = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"];
 
@@ -11,7 +13,12 @@ $excuteQuery = addActivityHistory($userid, $_POST['articleid'], $datesubmit, $_P
 if ($excuteQuery == -1) {
     echo 'false';
 } else {
-    echo 'true';
+    // update timesplay for tbl_article
+    $isEdit = updateArticle($_POST['articleid']);
+    if ($isEdit != 1)
+        echo 'false';
+    else
+        echo 'true';
 }
 ?>
 

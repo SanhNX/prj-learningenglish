@@ -15,7 +15,7 @@ if(!$usingfb)
 
         //Store the name in the session
         $_SESSION['email'] = $user->email;
-        $_SESSION['userId'] = $user->id;
+        $_SESSION['userid'] = $user->id;
         $_SESSION['avatar'] = $user->avatar;
         echo 'success';    
         //    redirect($_SERVER['REQUEST_URI']);
@@ -23,7 +23,7 @@ if(!$usingfb)
 } else {
      //Store the name in the session
     $_SESSION['email'] = $_POST['email'];
-    $_SESSION['userId'] = $_POST['fbid'];
+    $_SESSION['userid'] = $_POST['fbid'];
     $_SESSION['avatar'] = 'https://graph.facebook.com/'.$_POST['fbid'].'/picture?type=large';
     echo 'success_fb'; 
 }
