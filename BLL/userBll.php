@@ -1,7 +1,7 @@
 <?php
 
 function login ($email, $pword) {
-    $sql = "SELECT * FROM tbl_user Where Password = $pword AND Email = '".$email."'";
+    $sql = "SELECT * FROM tbl_user Where Password = $pword AND Email = '".$email."' AND status = 1";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . $id . mysql_error();
