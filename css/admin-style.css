@@ -184,7 +184,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .admin-button {
 	color: #16499A;
 	border: 2px solid #16499A;
-	height: 40px;
+	height: 36px;
 	width: 170px;
 	background: no-repeat 20px center #FFF;
 
