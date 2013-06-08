@@ -338,8 +338,8 @@ body {
     background: url("../images/icon/laurel-ico.png")no-repeat 21px 0px;
     background-size: 45px;
 }.rank-row-item.top .rank-row-point{
-     font-weight: bold;
- }
+    font-weight: bold;
+}
 .rank-row-item.head {
     height: 30px;
     line-height: 30px;
@@ -795,16 +795,16 @@ body {
 /**/
 
 .control-rank-recent.play {
-	width: 99%;
-	height: 360px;
-	margin-bottom: 20px;
+    width: 99%;
+    height: 360px;
+    margin-bottom: 20px;
 }
 
 .control-rank-recent.play .control-rank-head {
-	width: 7%;
+    width: 7%;
 }
 .control-rank-recent.play .control-rank-list {
-	width: 93%;
+    width: 93%;
 }
 
 /* ??????????????????????? PLAY ?????????????????????????????*/
@@ -910,8 +910,18 @@ body {
 
 .video-comment {
     height: 200px;
-    background-color: #AAA;
+    background-color: #EEE;
     margin: 0px 5px;
+}
+
+.fb-like {
+    position: absolute;
+    margin: 5px;
+}
+
+.google-plus {
+    position: absolute;
+    margin: 6px 100px;
 }
 
 /*Play*/

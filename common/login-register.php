@@ -17,9 +17,14 @@
                 <div class="login-info-row large">
                     <a class="login-info-link">Forgot password ?</a>
                     <input id="btn-login" class="login-info-button" name='btn-login'  type='submit' value='Submit'/>
-                    <div class="fb-btnLogin">
-                        <fb:login-button show-faces="false" width="400" max-rows="1" perms="email"></fb:login-button>
-                    </div>
+                    <?php
+                    if (!isset($_SESSION["email"])) {
+                        echo '<div id="btn-loginFB" class="fb-btnLogin">
+                                    <fb:login-button show-faces="false" width="400" max-rows="1" perms="email"></fb:login-button>
+                                </div>';
+                    }
+                    ?>
+
                 </div>
                 <div class="login-info-row">
                     <a class="login-info-link" id="login-info-link-register">Register account </a>

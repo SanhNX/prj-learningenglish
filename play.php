@@ -18,7 +18,9 @@ include 'BLL/userBll.php';
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive-style.css" rel="stylesheet" type="text/css">
-
+        <?php
+            echo '<link rel="canonical" href="http://flewup.com/play.php?id='.$_GET["id"].'"/>';
+        ?>
         <script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
         <script type="text/javascript" src="scripts/facebookAPI.js"></script>
@@ -43,7 +45,7 @@ include 'BLL/userBll.php';
     echo '<body onload = "getDataYT(' . $idArticle . ')">';
     ?>
     <div id="fb-root"></div>
-    <script>
+    <script type = "text/javascript" >
         // Load the SDK asynchronously
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -54,6 +56,17 @@ include 'BLL/userBll.php';
             js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+        window.___gcfg = {
+            lang: 'en-US'
+        };
+        (function() {
+            var po = document.createElement('script');
+            po.type = 'text/javascript';
+            po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
     </script>
     <div class="page">
         <?php
@@ -93,9 +106,14 @@ include 'BLL/userBll.php';
                         <div class="video-player">
                             <iframe id="player" width="100%" height="100%" src="' . $article->link . '" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="video-social"></div>
+                        <div class="video-social">
+                            <div class="fb-like"><div class="fb-like" data-href="http://www.flewup.com/play.php?id=' . $article->idArticle . '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div></div>
+                            <div class="google-plus">
+                                <g:plusone></g:plusone>
+                            </div>
+                        </div>
                         <div class="video-comment">
-                            <div class="fb-comments" data-href="' . $article->link . '" data-width="730" data-num-posts="5" ></div>
+                            <div class="fb-comments" data-href="http://www.flewup.com/play.php?id=' . $article->idArticle . '" data-width="730" data-num-posts="5" ></div>
                         </div>';
                 ?>
             </div>
@@ -123,22 +141,22 @@ include 'BLL/userBll.php';
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h3 id="myModalLabel">Report Error</h3>
                         </div>
-                        <div class="modal-body">            
+                        <div class="modal-body">
                             <p>So glad you have informed us of the fault site . All comments will be taken seriously and fix as quickly as possible .</p>
-                            <form class="form-vertical" id="yw2" action="/play/197/video/start" method="post">            	
+                            <form class="form-vertical" id="yw2" action="/play/197/video/start" method="post">
                                 <label for="Report_url" class="required">Url <span class="required">*</span></label>
-                                <input class="span4" style="color:black;" name="Report[url]" id="Report_url" type="text" maxlength="100" 
+                                <input class="span4" style="color:black;" name="Report[url]" id="Report_url" type="text" maxlength="100"
                                        value="http://localhost/prj-learningenglish/play.php">
                                 <label for="Report_message" class="required">Message <span class="required">*</span></label>
-                                <textarea class="span4" name="Report[message]" id="Report_message"></textarea>            	
+                                <textarea class="span4" name="Report[message]" id="Report_message"></textarea>
                                 <p>Your email is required but can help us notify you in case of error recovery</p>
                                 <label for="Report_email">Email</label>
-                                <input class="span4" style="color:black;" name="Report[email]" id="Report_email" type="text" maxlength="100">            	
-                            </form>            
+                                <input class="span4" style="color:black;" name="Report[email]" id="Report_email" type="text" maxlength="100">
+                            </form>
                         </div>
                         <div class="modal-footer">
 
-                            <a href="#" class="btn btn-primary" id="btnSendReport"><i class="icon-ok icon-white"></i> Submit</a>            
+                            <a href="#" class="btn btn-primary" id="btnSendReport"><i class="icon-ok icon-white"></i> Submit</a>
                             <a href="#" data-dismiss="modal" class="btn">Exit</a>
 
                         </div>

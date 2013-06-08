@@ -501,7 +501,7 @@ function informPlayerScore(score, rank, time) {
                     },
                     type: 'post',
                     success: function(resp) {
-                        if(resp){
+                        if(trim(resp) === 'true'){
                             bootbox.hideAll();
                             bootbox.alert('This exam saved success !')
                         }
@@ -511,6 +511,19 @@ function informPlayerScore(score, rank, time) {
         });
     }
 
+}
+function LTrim(value) {
+    var re = /\s*((\S+\s*)*)/;
+    return value.replace(re, "$1");
+}
+// Hàm cắt ký tự trắng ở cuối chuỗi
+function RTrim(value) {
+    var re = /((\s*\S+)*)\s*/;
+    return value.replace(re, "$1");
+}
+// Cắt các ký tự trắng ở đầu và cuối chuỗi
+function trim(value) {
+    return LTrim(RTrim(value));
 }
 function reloadHighScore(videoId) {
     $.ajax({
