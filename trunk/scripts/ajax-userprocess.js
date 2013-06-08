@@ -2,7 +2,8 @@ $(document).ready(function() {
     $('#btn-logout').on('click', function(e) {
         var r = confirm("Do you really want to log out ?");
         if (r === true) {
-            FB.logout();
+            if(FB)
+                FB.logout();
             $.post("./BLL/logoutBll.php", function(resp) {
                 if (resp === "success") {
                     alert("Logout Success !");

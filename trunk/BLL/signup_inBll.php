@@ -23,7 +23,8 @@ if(!$usingfb)
 } else {
      //Store the name in the session
     $_SESSION['email'] = $_POST['email'];
-    $_SESSION['userid'] = $_POST['fbid'];
+    $_SESSION['userid'] = $_POST['id'];
+    $_SESSION['fbid'] = $_POST['fbid'];
     $_SESSION['avatar'] = 'https://graph.facebook.com/'.$_POST['fbid'].'/picture?type=large';
     echo 'success_fb'; 
 }

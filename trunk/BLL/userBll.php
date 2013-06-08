@@ -36,11 +36,28 @@ function emailExist($email) {
         return -1;
 }
 
+function checkExistFBID($fbid) {
+    $sql = "SELECT * FROM tbl_user Where facebookid = '".$fbid."'";
+    $queryResult = mysql_query($sql);
 
-function insertUser ($fname, $email, $pword, $joindate, $gender, $avatar){
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+
+    if (mysql_num_rows($queryResult) > 0){
+        $seletedItem = mysql_fetch_array($queryResult);
+        return  $seletedItem['id'];
+    }
+    else
+        return -1;
+}
+
+
+function insertUser ($fname, $email, $pword, $joindate, $gender, $avatar, $fbid){
     $sql = "INSERT INTO tbl_user 
-                ( name, email, password, joindate, gender, avatar, status) 
-                VALUES ('$fname', '$email', '$pword', '$joindate', '$gender', '$avatar', '1')";              
+                ( facebookid, name, email, password, joindate, gender, avatar, status)
+                VALUES ('$fbid','$fname', '$email', '$pword', '$joindate', '$gender', '$avatar', '1')";
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {

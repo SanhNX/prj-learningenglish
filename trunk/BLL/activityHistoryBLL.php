@@ -61,6 +61,7 @@ function getInforTestofUser($id) {
 }
 
 function addActivityHistory($userid, $articleid, $datesubmit, $score) {
+//    echo '<script>alert("' . strlen($userid) . '")</script>';
     $sql = "INSERT INTO tbl_activityhistory (userid, articleid, datesubmit, score) VALUES ('$userid', '$articleid', '$datesubmit', '$score')";
     $queryResult = mysql_query($sql) or die(mysql_error());
 
