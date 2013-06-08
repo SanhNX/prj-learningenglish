@@ -454,6 +454,7 @@ body {
     text-align: center;
     font-size: 0;
     z-index: 0;
+    margin-left: 250px;
 }
 
 .form-head {
@@ -1489,7 +1490,7 @@ body {
     vertical-align: top;
 }
 .profile-panel {
-    background: #D5D5D5;
+    background: rgb(137, 140, 155);;
     width: 845px;
     height: 500px;
     display: inline-block;
@@ -1512,6 +1513,7 @@ body {
     text-indent: 20px;
     text-align: left;
     font-size: 30px;
+    font-weight: bold;
 }
 .profile-title {
     font-size: 16px;
