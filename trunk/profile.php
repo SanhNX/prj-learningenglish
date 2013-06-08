@@ -72,7 +72,7 @@ include 'BLL/activityHistoryBLL.php';
                             <div class="profile-title white">Gender :</div>
                             <div class="profile-text white">' . $gender . '</div>
                             <div class="profile-title white">Join Date :</div>
-                            <div class="profile-text white">' . $itemUser->joindate . '</div>
+                            <div class="profile-text white">' . date_format(new DateTime($itemUser->joindate), 'd/m/Y') . '</div>
                     </div>
                     <div class="profile-panel">
                             <div class="profile-head">Result</div>
