@@ -10,6 +10,7 @@ create table tbl_category
 create table tbl_user
 (
     id int auto_increment primary key not null,
+	facebookid varchar(20),
 	name varchar(30) not null,
     email varchar(50) not null,
     password varchar(50) not null,
@@ -67,8 +68,7 @@ create table tbl_activityhistory
     articleid int not null,
     datesubmit datetime,
     score int,
-	CONSTRAINT FOREIGN KEY(articleid) references tbl_article(id),
-	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id)
+	CONSTRAINT FOREIGN KEY(articleid) references tbl_article(id)
 );
 
 
