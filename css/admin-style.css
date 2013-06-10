@@ -68,7 +68,15 @@
 .min-gap {
 	margin-bottom: 5px;
 }
-
+.trend-right {
+	text-align: right;
+}
+.trend-left {
+	text-align: left;
+}
+.trend-center {
+	text-align: center;
+}
 /*CHECK-BOX*/
 input[type=checkbox].admin-checkbox {
 	display: none;
@@ -182,6 +190,14 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	line-height: 40px;
 	width: 150px;
 	display: inline-block;
+}
+.admin-text-input.hint {
+	height: 25px;
+	line-height: 25px;
+	width: 100px;
+	font-size: 13px;
+	margin: 0px 5px 5px 0px;
+	text-align: center;
 }
 
 /*BUTTON*/
@@ -352,7 +368,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	background: #999;
 	line-height: 30px;
 	text-indent: 10px;
-	width: 170px;
+	width: 180px;
 	padding: 0px 5px;
 	text-align: right;
 }
@@ -367,14 +383,19 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	height: 90px;
 	margin: 0px 0px 0px 5px;
 }
-
+.admin-text-label.hint {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0px 20px;
+	line-height: 25px;
+}
 .admin-text-label.keyword {
 	height: 36px;
 	vertical-align: top;
 	background: #FFF;
 	line-height: 30px;
 	text-indent: 10px;
-	width: 170px;
+	width: 180px;
 	padding-right: 10px;
 	text-align: right;
  }
@@ -409,6 +430,10 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	position: absolute;
 	bottom: -12px;
 	left: 40px;
+}
+.admin-hint{
+	display: inline-block;
+	width: 690px;
 }
 .admin-time-row {
 	font-size: 0;
