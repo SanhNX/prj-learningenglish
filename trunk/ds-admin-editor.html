@@ -76,10 +76,19 @@
 				</div>
 				<div class="table-row gap">
 					<div class="admin-text-label new-row inline">
-						<span> Start time:</span>
-						<input class="admin-table-button time" type="text" value="00:00:00">
-						<span> End time:</span>
-						<input class="admin-table-button time" type="text" value="00:00:45">
+						<div class="admin-time-row center">
+							<span class="admin-current-time">00:05:23</span>
+						</div>
+						<div class="admin-time-row">
+							<span>Start: </span>
+							<input class="admin-table-text" type="text" value="00:00:00">
+							<a class="admin-table-button time" id="admin-add-end-time"></a>
+						</div>
+						<div class="admin-time-row">
+							<span>End: </span>
+							<input class="admin-table-text" type="text" value="00:00:00">
+							<a class="admin-table-button time" id="admin-add-start-time"></a>
+						</div>
 					</div>
 					<textarea class="admin-text-input new-row area" maxlength="500"></textarea>
 					<input class="admin-button new-row add" type="button" value="Add"/>

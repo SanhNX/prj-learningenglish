@@ -350,16 +350,11 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	height: 90px;
 	vertical-align: top;
 	background: #999;
-	line-height: 45px;
+	line-height: 30px;
 	text-indent: 10px;
 	width: 170px;
 	padding: 0px 5px;
 	text-align: right;
-}
-
-.admin-text-label.new-row .admin-table-button{
-	width: 90px;
-	text-indent: 30px;
 }
 .admin-text-input.new-row {
 	width: 400px;
@@ -414,4 +409,55 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	position: absolute;
 	bottom: -12px;
 	left: 40px;
+}
+.admin-time-row {
+	font-size: 0;
+}
+.center{
+	text-align: center;
+}
+.admin-time-row>span {
+	font-size: 13px;
+	vertical-align: middle;
+}
+.admin-time-row .admin-table-button {
+	width: 40px;
+	cursor: pointer;
+	background-color: #EEE;
+	background-position: center;
+	display: inline-block;
+	vertical-align: top;
+}
+.admin-time-row .admin-table-button:hover {
+	background-color: #99C6FF;
+}
+
+.admin-time-row .admin-table-button:active {
+	background-color: #FFF;
+}
+
+.admin-table-text {
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	background-color: #FFF;
+	height: 23px;
+	width: 100px;
+	background-size: 20px;
+	color: #16499A;
+	font-family: "Segoe UI";
+	font-weight: bold;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
+.admin-time-row .admin-table-text {
+	width: 80px;
+	text-indent: 10px;
+	vertical-align: top;
+}
+.admin-time-row>span.admin-current-time {
+	font-size: 25px;
+	font-family: "Segoe UI light","segoe ui";
+	color: #FFF;
 }
