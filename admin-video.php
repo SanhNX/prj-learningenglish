@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
+    <script type="text/javascript" src="scripts/admin-video.js"></script>
 	<script type="text/javascript" src="scripts/date.js"></script>
 	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -28,7 +29,7 @@
 	</div>
 
 	<div class="form-head">
-		<span>Learning-English</span><span class="form-head-gray">Profile</span>
+		<span>Learning-English</span><span class="form-head-gray"> • Manager Video</span>
 
 		<div class="form-head-task">
 			<div class="form-head-account">
@@ -52,29 +53,28 @@
 	</div>
 	<div class="form">
 		<div class="admin-panel">
-			<div class="profile-head">Control panel</div>
+			<div class="profile-head">Add New Video</div>
 			<div class="admin-panel-content">
 
-				<div class="admin-title">Text field</div>
+				<div class="admin-title">* Input URL and press "validate" button to fetch data video from youtube site & enable form input !</div>
 				<div class="table-row gap">
-					<span class="admin-text-label">Text name 1</span>
-					<input class="admin-text-input" type="text">
-					<input class="admin-button submit" type="button" value="Validate"/>
+					<span class="admin-text-label">URL Address</span>
+					<input id="url" class="admin-text-input" type="text">
+					<input id="btn-validate" class="admin-button submit" type="button" value="Validate"/>
 				</div>
 				<div class="video-player">
-					<iframe width="100%" height="100%" src="http://www.youtube.com/embed/NiHNlNSrupg" frameborder="0"
-					        allowfullscreen></iframe>
+					<iframe id="admin-player" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="table-row min-gap">
+				<div id="keyword-panel" class="table-row min-gap undisplayed">
 					<div class="admin-text-label keyword inline">
 						<span> Keyword:</span>
 					</div>
 					<div class="admin-keyword">
-						<input class="admin-text-input keyword" type="text"/>
+						<input id="admin-keyword-input" class="admin-text-input keyword" type="text"/>
 						<input class="admin-button keyword add" type="button" value="Insert"/>
 					</div>
 				</div>
-				<div class="table-row min-gap">
+				<div id="rows-panel" class="table-row min-gap undisplayed">
 					<div class="admin-text-label new-row inline">
 						<div class="admin-time-row center">
 							<span class="admin-current-time">00:05:23</span>
@@ -90,10 +90,11 @@
 							<a class="admin-table-button time" id="admin-add-start-time"></a>
 						</div>
 					</div>
-					<textarea class="admin-text-input new-row area" maxlength="500"></textarea>
+					<textarea id="admin-textarea-input" class="admin-text-input new-row area" maxlength="500"></textarea>
 					<input class="admin-button new-row add" type="button" value="Add"/>
 				</div>
-				<div class="table-row gap trend-right">
+                <div id="hint-title" class="admin-title undisplayed">* Input hints list for keyword of current row !</div>
+				<div id="hints-panel" class="table-row gap trend-right undisplayed">
 					<div class="admin-text-label hint"><span>Hints:</span></div>
 					<div class="admin-hint">
 					<input class="admin-text-input hint" type="text" value="keyword 1">
@@ -110,7 +111,7 @@
 					<input class="admin-text-input hint" type="text" value="">
 					</div>
 				</div>
-				<table class="admin-table gap">
+				<table id="tbContent-panel" class="admin-table gap undisplayed">
 					<thead class="admin-table-head">
 					<tr>
 						<td class="admin-table-cell">Head</td>
