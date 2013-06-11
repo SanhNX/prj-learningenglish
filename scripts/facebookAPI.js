@@ -87,6 +87,21 @@ function makeSession() {
 //    console.log(JSON.parse($.cookie("temp")));
 }
 
+
+function LTrim(value) {
+    var re = /\s*((\S+\s*)*)/;
+    return value.replace(re, "$1");
+}
+// Hàm cắt ký tự trắng ở cuối chuỗi
+function RTrim(value) {
+    var re = /((\s*\S+)*)\s*/;
+    return value.replace(re, "$1");
+}
+// Cắt các ký tự trắng ở đầu và cuối chuỗi
+function trim(value) {
+    return LTrim(RTrim(value));
+}
+
 /**
  *
  *  MD5 (Message-Digest Algorithm)

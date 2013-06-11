@@ -30,8 +30,8 @@ include 'BLL/userBll.php';
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
-        <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/video-control.js"></script>
+        <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
@@ -113,7 +113,7 @@ include 'BLL/userBll.php';
                             </div>
                         </div>
                         <div class="video-comment">
-                            <div class="fb-comments" data-href="http://www.flewup.com/play.php?id=' . $article->idArticle . '" data-width="730" data-num-posts="5" ></div>
+                            <div class="fb-comments" data-href="http://www.flewup.com/play.php?id=' . $article->idArticle . '" data-width="550" data-num-posts="5" ></div>
                         </div>';
                 ?>
             </div>

@@ -114,7 +114,7 @@ function getRankingByDate($paramDate1, $paramDate2) {
             success: function(dto) {
                 $("#rank-list-day").html('');
                 initScrollBar();
-                if (dto.trim() != "")
+                if (trim(dto) != "")
                     $("#rank-list-day").html(dto);
                 else 
                     $("#rank-list-day").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
@@ -131,7 +131,7 @@ function getRankingByDate($paramDate1, $paramDate2) {
         
                 $("#rank-list-week").html('');
                 initScrollBar();
-                if (dto.trim() != "")
+                if (trim(dto) != "")
                      $("#rank-list-week").html(dto);
                 else 
                     $("#rank-list-week").html('<span style="text-align: center;display: block;font-weight: bold;">NOT FOUND</span>');
@@ -140,4 +140,18 @@ function getRankingByDate($paramDate1, $paramDate2) {
         });
     }
 
+}
+
+function LTrim(value) {
+    var re = /\s*((\S+\s*)*)/;
+    return value.replace(re, "$1");
+}
+// Hàm cắt ký tự trắng ở cuối chuỗi
+function RTrim(value) {
+    var re = /((\s*\S+)*)\s*/;
+    return value.replace(re, "$1");
+}
+// Cắt các ký tự trắng ở đầu và cuối chuỗi
+function trim(value) {
+    return LTrim(RTrim(value));
 }
