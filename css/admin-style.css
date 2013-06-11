@@ -486,3 +486,14 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	font-family: "Segoe UI light","segoe ui";
 	color: #FFF;
 }
+.admin-answer {
+	border: none;
+	line-height: 20px;
+	font-size: 13px;
+	text-align: center;
+	display: inline-block;
+	max-width: 116px;
+	color: #16499A;
+	font-weight: bold;
+	background: url("../images/icon/pin-map-blue-ico.png") no-repeat 5px center #FFF;
+}
