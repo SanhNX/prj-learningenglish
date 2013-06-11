@@ -62,6 +62,7 @@
 					<input id="url" class="admin-text-input" type="text">
 					<input id="btn-validate" class="admin-button submit" type="button" value="Validate"/>
 				</div>
+                <div id="admin-video-title" class="video-title undisplayed"></div>
 				<div class="video-player">
 					<iframe id="admin-player" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 				</div>
