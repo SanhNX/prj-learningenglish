@@ -26,7 +26,7 @@
 	font-weight: bold;
 	height: 40px;
 	line-height: 40px;
-	color: #3F3F3F;
+	color: #ff0000;
 }
 
 .nav-list {
@@ -64,6 +64,7 @@
 
 .gap {
 	margin-bottom: 10px;
+    margin-left: 5px;
 }
 .min-gap {
 	margin-bottom: 5px;
@@ -164,7 +165,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	border: 2px solid #999;
 	height: 30px;
 	line-height: 30px;
-	width: 300px;
+	width: 580px;
 	font-size: 18px;
 	vertical-align: middle;
 	font-family: "Segoe UI";

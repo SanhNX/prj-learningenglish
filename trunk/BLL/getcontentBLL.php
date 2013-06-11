@@ -1,13 +1,15 @@
 <?php
 
 //getYoutubeImage($_GET["y"]);
-function getVideoContent($e){
+$v = $_POST['v'];
+getVideoContent($v);
+function getVideoContent($v){
     //GET THE URL
-    $url = $e;
+//    $url = $e;
 //    $queryString = parse_url($url, PHP_URL_QUERY);
 //    parse_str($queryString, $params);
 //    $v = $params['v'];
-    $v = _get_video_id($url);
+//    $v = _get_video_id($url);
     // get video ID from $_GET
     if (!isset($v)) {
         echo '<script>alert("ERROR: Missing video ID")</script>';
@@ -27,7 +29,7 @@ function getVideoContent($e){
     // echo "<p>{$video->title}</p>";
 //     echo "<p>".sprintf("%0.2f", $video->length/60) . " min. </p>";
 //     echo "<p>".customizeTime($video->length) . " min. </p>";
-    return $video;
+    echo json_encode($video);
 }
 
 // function to parse a video <entry>

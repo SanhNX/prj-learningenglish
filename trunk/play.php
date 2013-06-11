@@ -35,7 +35,6 @@ include 'BLL/userBll.php';
         <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
-        <script type="text/javascript" src="scripts/main.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
         <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
 

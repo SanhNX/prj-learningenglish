@@ -35,7 +35,7 @@ include 'BLL/userBll.php';
 	</div>
 
 	<div class="form-head">
-		<span>Learning-English</span><span class="form-head-gray">Manager User</span>
+		<span>Learning-English</span><span class="form-head-gray"> • Manager User</span>
 
 		<div class="form-head-task">
 			<div class="form-head-account">
