@@ -1501,7 +1501,7 @@ body {
 .profile-head {
     font-family: "Segoe UI light";
     text-align: left;
-    background: #FFF;
+    /*background: #FFF;*/
     height: 50px;
     font-size: 30px;
     line-height: 50px;
