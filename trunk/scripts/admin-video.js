@@ -44,6 +44,10 @@ var startTime = 0;
 var endTime = 0;
 var hintList = [];
 var rows = [];
+var answers = {};
+var index = 1;
+var timeList = {};
+var indexTimeList = 1;
 $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
@@ -76,7 +80,6 @@ $(document).ready(function() {
     });
     $('#btn-newRow').on('click', function(e) {
         var str_format = '00:00:00';
-
         if($("#startTime")[0].value === str_format || $("#endTime")[0].value === str_format || $("#admin-textarea-input")[0].value === '')
             bootbox.alert('• Press <a class="admin-alert-button time"></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to get start, end time from video.<br/>• End time must required larger than start time.' +
                 '<br/>• Row content can not blank.');
@@ -85,21 +88,41 @@ $(document).ready(function() {
             row.start_time = Math.floor(startTime);
             row.end_time = Math.floor(endTime);
             row.caption_text = $("#admin-textarea-input")[0].value;
-            rows.push(row);
 
-            var hintTemp = {};
-            var j = 1;
-            for(var i = 1; i < $(".hint").length; i++){
-                if($(".hint")[i].value != '')
-                    hintTemp[j] = $(".hint")[i].value;
-                else
-                    continue;
-                j++;
+            var answer = $("#admin-keyword-input")[0].value;
+            if(answer.length > 0 && row.caption_text.match(answer)){
+                var hintTemp = {};
+                var j = 1;
+                for(var i = 1; i < $(".hint").length; i++){
+                    if($(".hint")[i].value != ''){
+                        hintTemp[j] = $(".hint")[i].value;
+                        j++;
+                    }
+                    else
+                        continue;
+                }
+                if(j != 1){
+                    row.caption_text = row.caption_text.replace(answer, '<input type="text" class="admin-answer" value="'+ answer +'" readonly="readonly">');
+                    answers[index] = answer;
+                    answers.length = index;
+                    index++;
+                    hintTemp.length = j - 1;
+                    hintList.push(hintTemp);
+                }
+                else{
+                    bootbox.alert('If this row have keyword, please fill some hint item !');
+                    return;
+                }
             }
-            hintTemp.length = j - 1;
-            hintList.push(hintTemp);
-            console.log(JSON.stringify(rows));
+            timeList[Math.floor(startTime)] = ''+ indexTimeList;
+            indexTimeList++;
+            rows.push(row);
+            resetAllInput();
+
+            console.log(JSON.stringify(rows).replace(/\\/gi, ""));
             console.log(JSON.stringify(hintList));
+            console.log(JSON.stringify(answers));
+            console.log(JSON.stringify(timeList));
             var rowHtml = '<tr class="admin-table-row">' +
                 '<td class="admin-table-cell">'+formatTime(row.start_time)+'→'+formatTime(row.end_time)+'</td>' +
                 '<td class="admin-table-cell-full">' +
@@ -120,20 +143,22 @@ $(document).ready(function() {
     });
     $('#btn-getStartTime').on('click', function(e) {
         startTime = player.getCurrentTime();
-        $('#startTime')[0].value = formatTime(player.getCurrentTime());
+        endTime = player.getCurrentTime() + 1;
+        $('#startTime')[0].value = formatTime(startTime);
+        $('#endTime')[0].value = formatTime(endTime);
     });
     $('#btn-getEndTime').on('click', function(e) {
         endTime = player.getCurrentTime();
         if(endTime < startTime)
             bootbox.alert('End time must required larger than start time. Please get time again ! ');
         else
-            $('#endTime')[0].value = formatTime(player.getCurrentTime());
+            $('#endTime')[0].value = formatTime(endTime);
     });
 
     $('.delete').live('click', function() {
         var arrButtonRemove = $(this);
         var index = arrButtonRemove.index('.delete') + 1;
-        bootbox.confirm('Are you sure delete this row ?', function(result) {
+        bootbox.confirm('Are you want sure to delete this row ?', function(result) {
             if (result) {
                 removeTR(index);
             }
@@ -141,6 +166,18 @@ $(document).ready(function() {
     });
 
 });
+
+function resetAllInput() {
+    startTime = player.getCurrentTime();
+    $('#startTime')[0].value = formatTime(startTime);
+    endTime = player.getCurrentTime() + 1;
+    $('#endTime')[0].value = formatTime(endTime);
+    $("#admin-keyword-input")[0].value = '';
+    $("#admin-textarea-input")[0].value = '';
+    for(var i = 1; i < $(".hint").length; i++)
+        $(".hint")[i].value = '';
+
+}
 
 function removeTR(pos) {
     $('tr')[pos].remove();
