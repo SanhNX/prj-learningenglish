@@ -535,7 +535,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	height: 40px;
 	background-color: #DDD;
 	text-align: left;
-	padding: 0px 10px;
+	padding: 0px 0px 0px 10px;
 	cursor: pointer;
 	-webkit-transition: background 100ms linear;
 	-moz-transition: background 100ms linear;
@@ -575,4 +575,22 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .admin-item:hover .admin-item-name,
 .admin-item:hover .admin-item-time{
 	color: #FFF;
+}
+
+.admin-item-button {
+	height: 40px ;
+	width: 40px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: rgba(238, 238, 238, 0.6);
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	transition: background 100ms linear;
+}
+.admin-item-button:hover {
+	background-color: #EEE;
+}
+.admin-item-button:active {
+	background-color: #0046A9;
 }
