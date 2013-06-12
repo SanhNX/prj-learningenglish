@@ -987,7 +987,7 @@ input[type="reset"],
 input[type="button"],
 /*input[type="radio"],*/
 input[type="checkbox"] {
-  width: auto;
+  /*width: auto;*/
 }
 select,
 input[type="file"] {

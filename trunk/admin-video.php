@@ -4,13 +4,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title></title>
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<link href="css/admin-style.css" rel="stylesheet" type="text/css"/>
 	<link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
 	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-fieldselection.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="scripts/admin-video.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
-    <script type="text/javascript" src="scripts/admin-video.js"></script>
 	<script type="text/javascript" src="scripts/date.js"></script>
 	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -71,45 +75,45 @@
 						<span> Keyword:</span>
 					</div>
 					<div class="admin-keyword">
-						<input id="admin-keyword-input" class="admin-text-input keyword" type="text"/>
-						<input class="admin-button keyword add" type="button" value="Insert"/>
+						<input id="admin-keyword-input" class="admin-text-input keyword" type="text" readonly="true"/>
+						<input id="btn-clear" class="admin-button keyword cancel" type="button" value="Clear"/>
 					</div>
 				</div>
 				<div id="rows-panel" class="table-row min-gap undisplayed">
 					<div class="admin-text-label new-row inline">
 						<div class="admin-time-row center">
-							<span class="admin-current-time">00:05:23</span>
+							<span class="admin-current-time">00:05:23 </span>
 						</div>
 						<div class="admin-time-row">
 							<span>Start: </span>
-							<input class="admin-table-text" type="text" value="00:00:00">
-							<a class="admin-table-button time" id="admin-add-end-time"></a>
+							<input id="startTime" class="admin-table-text" type="text" value="00:00:00" readonly="true">
+							<a id="btn-getStartTime" class="admin-table-button time" id="admin-add-end-time" title="Press to get start time"></a>
 						</div>
 						<div class="admin-time-row">
 							<span>End: </span>
-							<input class="admin-table-text" type="text" value="00:00:00">
-							<a class="admin-table-button time" id="admin-add-start-time"></a>
+							<input id="endTime" class="admin-table-text" type="text" value="00:00:00" readonly="true">
+							<a id="btn-getEndTime" class="admin-table-button time" id="admin-add-start-time" title="Press to get end time"></a>
 						</div>
 					</div>
-					<textarea id="admin-textarea-input" class="admin-text-input new-row area" maxlength="500"></textarea>
-					<input class="admin-button new-row add" type="button" value="Add"/>
+					<textarea id="admin-textarea-input" class="admin-text-input new-row area" maxlength="500" placeholder="Input caption text here..."></textarea>
+					<input id="btn-newRow" class="admin-button new-row add" type="button" value="Add"/>
 				</div>
                 <div id="hint-title" class="admin-title undisplayed">* Input hints list for keyword of current row !</div>
 				<div id="hints-panel" class="table-row gap trend-right undisplayed">
 					<div class="admin-text-label hint"><span>Hints:</span></div>
 					<div class="admin-hint">
-					<input class="admin-text-input hint" type="text" value="keyword 1">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="">
-					<input class="admin-text-input hint" type="text" value="keyword ">
-					<input class="admin-text-input hint" type="text" value="">
-					<input class="admin-text-input hint" type="text" value="">
-					<input class="admin-text-input hint" type="text" value="">
-					<input class="admin-text-input hint" type="text" value="">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
+					<input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
 					</div>
 				</div>
 				<table id="tbContent-panel" class="admin-table gap undisplayed">
@@ -121,62 +125,22 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr class="admin-table-row">
-						<td class="admin-table-cell">2:00→2:30</td>
-						<td class="admin-table-cell-full">
+                    <tr class="admin-table-row">
+                        <td class="admin-table-cell">2:00→2:30</td>
+                        <td class="admin-table-cell-full">
 						<span class="table-long-text">
-						Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa.
+						Nam cursus. Morbi ut mi. Nullam enim leo,
+							<input type="text" class="admin-answer" value="mauris" readonly="readonly"/>
+							egestas id, condimentum at, laoreet mattis, massa.
 						Duis tincidunt lectus quis dui viverra vestibulum.
 						</span>
-						</td>
-						<td class="admin-table-cell">
-							<input class="admin-table-button edit" type="button" value="Edit">
-							<input class="admin-table-button delete" type="button" value="Remove">
-						</td>
-					</tr>
-					<tr class="admin-table-row">
-						<td class="admin-table-cell">2:30→3:10</td>
-						<td class="admin-table-cell-full">
-						<span class="table-long-text">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-						Sed eleifend nonummy diam. Praesent mauris ante, elementum et.
-						</span>
-						</td>
-						<td class="admin-table-cell">
-							<input class="admin-table-button edit" type="button" value="Edit">
-							<input class="admin-table-button delete" type="button" value="Remove">
-						</td>
-					</tr>
-					<tr class="admin-table-row">
-						<td class="admin-table-cell">3:10→3:20</td>
-						<td class="admin-table-cell-full">
-						<span class="table-long-text">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-						Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa.
-						Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh.
-						Duis tincidunt lectus quis dui viverra vestibulum.
-						</span>
-						</td>
-						<td class="admin-table-cell">
-							<input class="admin-table-button edit" type="button" value="Edit">
-							<input class="admin-table-button delete" type="button" value="Remove">
-						</td>
-					</tr>
-					<tr class="admin-table-row">
-						<td class="admin-table-cell">3:20→4:40</td>
-						<td class="admin-table-cell-full">
-						<span class="table-long-text">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-						Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa.
-						Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh.
-						Duis tincidunt lectus quis dui viverra vestibulum.
-						</span>
-						</td>
-						<td class="admin-table-cell">
-							<input class="admin-table-button edit" type="button" value="Edit">
-							<input class="admin-table-button delete" type="button" value="Remove">
-						</td>
-					</tr>
+                        </td>
+                        <td class="admin-table-cell">
+                            <input class="admin-table-button edit" type="button" value="Edit">
+                            <input id="btn-removeRow" class="admin-table-button delete" type="button" value="Remove">
+                        </td>
+                    </tr>
+
 					</tbody>
 					<tfoot class="admin-table-foot">
 					<tr>
