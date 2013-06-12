@@ -1,3 +1,6 @@
+#admin-keyword-input {
+    background-color: rgba(15, 15, 15, 0.16);
+}
 .admin-tag {
 	background: #3F2AD6;
 	width: 280px;
@@ -309,6 +312,20 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	-moz-transition: background 250ms linear;
 	transition: background 250ms linear;
 }
+.admin-alert-button {
+    position: absolute;
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	background-color: #FFF;
+	height: 25px;
+	width: 30px;
+	background-size: 20px;
+	color: #16499A;
+	-webkit-transition: background 250ms linear;
+	-moz-transition: background 250ms linear;
+	transition: background 250ms linear;
+}
 .admin-table-button:hover {
 	background-color: #B6B6FF;
 }
@@ -401,7 +418,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	text-align: right;
  }
 .admin-text-input.keyword {
-	width: 240px;
+	width: 241px;
 	text-indent: 15px;
 	background: url("../images/icon/pin-map-blue-ico.png") no-repeat 5px center;
 }
@@ -481,11 +498,14 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	width: 80px;
 	text-indent: 10px;
 	vertical-align: top;
+    text-align: center;
 }
 .admin-time-row>span.admin-current-time {
 	font-size: 25px;
 	font-family: "Segoe UI light","segoe ui";
 	color: #FFF;
+    margin-left: 40px;
+    font-weight: bold;
 }
 .admin-answer {
 	border: none;
