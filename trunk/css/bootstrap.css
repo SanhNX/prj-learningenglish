@@ -5432,11 +5432,11 @@ input[type="tel"],
 input[type="color"] {
   color: #080808;
 }*/
-.control-group.warning .control-label,
-.control-group.warning .help-block,
-.control-group.warning .help-inline {
-  color: #ff7518;
-}
+/*.control-group.warning .control-label,*/
+/*.control-group.warning .help-block,*/
+/*.control-group.warning .help-inline {*/
+  /*color: #ff7518;*/
+/*}*/
 .control-group.warning input,
 .control-group.warning select,
 .control-group.warning textarea {
