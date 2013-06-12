@@ -1,6 +1,11 @@
 #admin-keyword-input {
     background-color: rgba(15, 15, 15, 0.16);
 }
+#select-cate {
+    float: left;
+    width: 350px;
+    margin-left: 95px;
+}
 .admin-tag {
 	background: #3F2AD6;
 	width: 280px;
@@ -25,7 +30,7 @@
 .admin-title {
 	font-size: 16px;
 	text-align: left;
-	text-indent: 0px;
+	text-indent: 10px;
 	font-weight: bold;
 	height: 40px;
 	line-height: 40px;
@@ -353,7 +358,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 }
 
 .admin-select {
-	width: 240px;
+	width: 200px;
 	height: 34px;
 	overflow: hidden;
 	background: url("../images/icon/drop-down-ico.png") no-repeat right center #FFF;
@@ -361,7 +366,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 }
 .admin-select>select {
 	background: transparent;
-	width: 268px;
+	width: 205px;
 	padding: 5px;
 	font-size: 16px;
 	line-height: 1;

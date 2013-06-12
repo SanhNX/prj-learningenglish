@@ -40,6 +40,8 @@ function stopVideo() {
     player.stopVideo();
 }
 // ------------------------- END Load Iframe Player API --------------------------
+var v = null;
+var jsonSTR = '';
 var startTime = 0;
 var endTime = 0;
 var hintList = [];
@@ -52,7 +54,7 @@ $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
         var re = /(\?v=|\/\d\/|\/embed\/|\/v\/|\.be\/)([a-zA-Z0-9\-\_]+)/;
-        var v = url.match(re)[2];
+        v = url.match(re)[2];
         $.ajax({
             type: "POST",
             url: "./BLL/getcontentBLL.php",
@@ -102,7 +104,7 @@ $(document).ready(function() {
                         continue;
                 }
                 if(j != 1){
-                    row.caption_text = row.caption_text.replace(answer, '<input type="text" class="admin-answer" value="'+ answer +'" readonly="readonly">');
+                    row.caption_text = row.caption_text.replace(answer, "<input type='text' class='admin-answer' value='"+answer +"' readonly='readonly'>");
                     answers[index] = answer;
                     answers.length = index;
                     index++;
@@ -119,12 +121,14 @@ $(document).ready(function() {
             rows.push(row);
             resetAllInput();
 
-            console.log(JSON.stringify(rows).replace(/\\/gi, ""));
-            console.log(JSON.stringify(hintList));
-            console.log(JSON.stringify(answers));
-            console.log(JSON.stringify(timeList));
+//            console.log(JSON.stringify(rows).replace(/\\/gi, ""));
+//            console.log(JSON.stringify(hintList));
+//            console.log(JSON.stringify(answers));
+//            console.log(JSON.stringify(timeList));
+            jsonSTR = '{"content":	[{"answers": '+JSON.stringify(answers)+'},{"timeList": '+JSON.stringify(timeList)+',"hintList": '+JSON.stringify(hintList)+',"rows": '+JSON.stringify(rows).replace(/\\/gi, "")+'}]}';
+            console.log(JSON.parse(jsonSTR));
             var rowHtml = '<tr class="admin-table-row">' +
-                '<td class="admin-table-cell">'+formatTime(row.start_time)+'→'+formatTime(row.end_time)+'</td>' +
+                '<td class="admin-table-cell">'+formatTime(row.start_time)+'?'+formatTime(row.end_time)+'</td>' +
                 '<td class="admin-table-cell-full">' +
                 '<span class="table-long-text">'+ row.caption_text +'</span>' +
                 '</td>' +
@@ -140,6 +144,9 @@ $(document).ready(function() {
 
     $('#btn-clear').on('click', function(e) {
         $('#admin-keyword-input')[0].value = '';
+    });
+    $('#btn-save').on('click', function(e) {
+        writeData(jsonSTR);
     });
     $('#btn-getStartTime').on('click', function(e) {
         startTime = player.getCurrentTime();
@@ -166,6 +173,25 @@ $(document).ready(function() {
     });
 
 });
+
+function writeData(content) {
+//    document.getElementById("value-cate").value;
+
+    $.ajax({
+        type: 'post',
+        cache: false,
+        url: './BLL/adminVideoBll.php',
+        data: {
+            v: v,
+            content: content
+        },
+        success: function(resp) {
+            bootbox.alert('Create File Success.');
+        },
+        complete: function() {
+        }
+    });
+}
 
 function resetAllInput() {
     startTime = player.getCurrentTime();
@@ -209,17 +235,17 @@ function formatTime(start_time) {
 $(document).ready(function(){
     // install the event handler for #debug #output
     $('textarea').keyup(update).mousedown(update).mousemove(update).mouseup(update);
-});
+    });
 function update(e) {
     var range = $(this).getSelection();
     if(range.text != ''){
 //        console.log('-----------'+range.text);
-        this.start = range.start;
-        this.end = range.end;
-        $('#admin-keyword-input')[0].value = range.text;
+    this.start = range.start;
+    this.end = range.end;
+    $('#admin-keyword-input')[0].value = range.text;
     }
 }
 
 //--><!]]>
 
-// ------------------------------ END Progress binding keyword from textare -----------------------
+    // ------------------------------ END Progress binding keyword from textare -----------------------
