@@ -498,3 +498,61 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	font-weight: bold;
 	background: url("../images/icon/pin-map-blue-ico.png") no-repeat 5px center #FFF;
 }
+
+
+.admin-right-side{
+	display: inline-block;
+	width: 300px;
+	min-height: 500px;
+}
+.admin-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.admin-item {
+	height: 40px;
+	background-color: #DDD;
+	text-align: left;
+	padding: 0px 10px;
+	cursor: pointer;
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	transition: background 100ms linear;
+}
+.admin-item:nth-child(2n) {
+	background-color: #C0C0C0;
+}
+
+.admin-item-name {
+	font-size: 12px;
+	line-height: 20px;
+	height: 40px;
+	color: #313131;
+	width: 210px;
+	overflow: hidden;
+	display: -webkit-inline-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.admin-item-time {
+	font-family: "segoe ui light","segoe ui";
+	font-size: 25px;
+	line-height: 40px;
+	color: #0025BE;
+	width: 60px;
+	display: inline-block;
+	vertical-align: top;
+}
+.admin-item:hover {
+	background-color: #0046A9;
+}
+.admin-item:active {
+	background-color: #EEE;
+}
+.admin-item:hover .admin-item-name,
+.admin-item:hover .admin-item-time{
+	color: #FFF;
+}
