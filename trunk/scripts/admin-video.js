@@ -56,7 +56,20 @@ $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
         var re = /(\?v=|\/\d\/|\/embed\/|\/v\/|\.be\/)([a-zA-Z0-9\-\_]+)/;
-        v = url.match(re)[2];
+        if(!url.match(re)){
+            bootbox.alert('<a style="color: #ff0000">♦ URL is not match with format list.</a><br/>' +
+                '<br/><a style="color: blue">Suggest :</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/watch?v=0zM3nApSvMg&feature=feedrec_grec_index</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/user/IngridMichaelsonVEVO#p/a/u/1/QdK8U-VIH_o</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/v/0zM3nApSvMg?fs=1&amp;hl=en_US&amp;rel=0</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/watch?v=0zM3nApSvMg#t=0m10s</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/embed/0zM3nApSvMg?rel=0</a>' +
+                '<br/><a style="color: blue">• http://www.youtube.com/watch?v=0zM3nApSvMg</a>' +
+                '<br/><a style="color: blue">• http://youtu.be/0zM3nApSvMg</a>');
+            return;
+        } else {
+            v = url.match(re)[2];
+        }
         $.ajax({
             type: "POST",
             url: "./BLL/getcontentBLL.php",
@@ -85,6 +98,7 @@ $(document).ready(function() {
         });
     });
     $('#btn-newRow').on('click', function(e) {
+        $(".admin-table-foot").removeClass("undisplayed");
         var str_format = '00:00:00';
         if($("#startTime")[0].value === str_format || $("#endTime")[0].value === str_format || $("#admin-textarea-input")[0].value === '')
             bootbox.alert('• Press <a class="admin-alert-button time"></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to get start, end time from video.<br/>• End time must required larger than start time.' +
@@ -220,11 +234,12 @@ function resetAllInput() {
     $("#admin-textarea-input")[0].value = '';
     for(var i = 1; i < $(".hint").length; i++)
         $(".hint")[i].value = '';
-
 }
 
 function removeTR(pos) {
     $('tr')[pos].remove();
+    if(pos == 1)
+        $(".admin-table-foot").addClass("undisplayed");
 }
 
 function formatTime(start_time) {

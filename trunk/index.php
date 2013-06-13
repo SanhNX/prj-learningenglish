@@ -10,6 +10,7 @@ include 'BLL/articleBLL.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title></title>
+        <link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>

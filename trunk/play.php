@@ -12,6 +12,7 @@ include 'BLL/userBll.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title></title>
+        <link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap-yii.css" rel="stylesheet" type="text/css"/>
