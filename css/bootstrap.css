@@ -873,7 +873,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Open Sans", Calibri, Candara, Arial, sans-serif;
+  /*font-family: "Open Sans", Calibri, Candara, Arial, sans-serif;*/
 }
 label {
   display: block;
@@ -5118,9 +5118,9 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
-body {
-  font-weight: 300;
-}
+/*body {*/
+  /*font-weight: 300;*/
+/*}*/
 h1 {
   font-size: 50px;
 }
