@@ -131,7 +131,7 @@ include 'BLL/categoryBll.php';
 
                                 for ($i = 0; $i < count($categoryList); $i++) {
                                     $item = $categoryList[$i];
-                                    echo '<option>'. $item->name .'</option>';
+                                    echo '<option value="'. $item->id .'">'. $item->name .'</option>';
                                 }
                                 ?>
                             </select>
@@ -143,9 +143,9 @@ include 'BLL/categoryBll.php';
                     <div class="table-row gap">
                         <div class="admin-select">
                             <select  id="value-level">
-                                <option>Hardly</option>
-                                <option>Medium</option>
-                                <option>Easy</option>
+                                <option value="3">Hardly</option>
+                                <option value="2">Medium</option>
+                                <option value="1">Easy</option>
                             </select>
                         </div>
                     </div>
@@ -160,7 +160,7 @@ include 'BLL/categoryBll.php';
                     </thead>
                     <tbody>
                     <tr class="admin-table-row">
-                        <td class="admin-table-cell">2:00?2:30</td>
+                        <td class="admin-table-cell">2:00→2:30</td>
                         <td class="admin-table-cell-full">
 						<span class="table-long-text">
 						Nam cursus. Morbi ut mi. Nullam enim leo,

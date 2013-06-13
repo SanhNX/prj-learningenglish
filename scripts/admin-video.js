@@ -50,6 +50,8 @@ var answers = {};
 var index = 1;
 var timeList = {};
 var indexTimeList = 1;
+var duration = null;
+var title = '';
 $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
@@ -65,8 +67,10 @@ $(document).ready(function() {
                 this.videoContent = JSON.parse(dto);
                 $("#admin-player")[0].src = 'http://www.youtube.com/embed/'+v;
 //                player.loadVideoByUrl('http://www.youtube.com/embed/'+v);
-                $(".admin-current-time")[0].innerText = formatTime(this.videoContent.length[0]) + ' min';
-                $("#admin-video-title")[0].innerText = this.videoContent.title[0];
+                duration = formatTime(this.videoContent.length[0]);
+                $(".admin-current-time")[0].innerText = duration + ' min';
+                title = this.videoContent.title[0]
+                $("#admin-video-title")[0].innerText = title;
 
                 $("#admin-video-title").removeClass("undisplayed");
                 $("#keyword-panel").removeClass("undisplayed");
@@ -104,7 +108,7 @@ $(document).ready(function() {
                         continue;
                 }
                 if(j != 1){
-                    row.caption_text = row.caption_text.replace(answer, "<input type='text' class='admin-answer' value='"+answer +"' readonly='readonly'>");
+                    row.caption_text = row.caption_text.replace(answer, "<input class='play-exam-answer' type='text' value='"+answer +"' name='answer[]' readonly='true'>");
                     answers[index] = answer;
                     answers.length = index;
                     index++;
@@ -128,7 +132,7 @@ $(document).ready(function() {
             jsonSTR = '{"content":	[{"answers": '+JSON.stringify(answers)+'},{"timeList": '+JSON.stringify(timeList)+',"hintList": '+JSON.stringify(hintList)+',"rows": '+JSON.stringify(rows).replace(/\\/gi, "")+'}]}';
             console.log(JSON.parse(jsonSTR));
             var rowHtml = '<tr class="admin-table-row">' +
-                '<td class="admin-table-cell">'+formatTime(row.start_time)+'?'+formatTime(row.end_time)+'</td>' +
+                '<td class="admin-table-cell">'+formatTime(row.start_time)+'→'+formatTime(row.end_time)+'</td>' +
                 '<td class="admin-table-cell-full">' +
                 '<span class="table-long-text">'+ row.caption_text +'</span>' +
                 '</td>' +
@@ -183,10 +187,18 @@ function writeData(content) {
         url: './BLL/adminVideoBll.php',
         data: {
             v: v,
+            title: title,
+            duration: duration,
+            level: document.getElementById("value-level").value,
+            cateid: document.getElementById("value-cate").value,
             content: content
         },
         success: function(resp) {
-            bootbox.alert('Create File Success.');
+            if(trim(resp) === 'true')
+                bootbox.alert('• Create new video success.');
+            else
+                bootbox.alert('<a style="color: #ff0000">Action has been occurs one or some error in below list :<a><br/>&nbsp&nbsp&nbsp&nbsp• This video is exists in database' +
+                    '<br/>&nbsp&nbsp&nbsp&nbsp• Action has been interrupt<br/>&nbsp&nbsp&nbsp&nbsp• Please try again with another video');
         },
         complete: function() {
         }
@@ -229,6 +241,19 @@ function formatTime(start_time) {
     return minute + ":" + second;
 }
 
+function LTrim(value) {
+    var re = /\s*((\S+\s*)*)/;
+    return value.replace(re, "$1");
+}
+// Hàm cắt ký tự trắng ở cuối chuỗi
+function RTrim(value) {
+    var re = /((\s*\S+)*)\s*/;
+    return value.replace(re, "$1");
+}
+// Cắt các ký tự trắng ở đầu và cuối chuỗi
+function trim(value) {
+    return LTrim(RTrim(value));
+}
 // ------------------------------ START Progress binding keyword from textare -----------------------
 <!--//--><![CDATA[//><!--
 
