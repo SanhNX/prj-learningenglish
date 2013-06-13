@@ -194,8 +194,14 @@ function writeData(content) {
             content: content
         },
         success: function(resp) {
-            if(trim(resp) === 'true')
-                bootbox.alert('• Create new video success.');
+            if(trim(resp) === 'true'){
+                bootbox.confirm('• Create new video success.' +
+                    '<br/> • <a style="color: #ff0000">Do you want update this video into current video list to manager continues ?</a>', function(result) {
+                    if (result) {
+                        window.location.reload();
+                    }
+                });
+            }
             else
                 bootbox.alert('<a style="color: #ff0000">Action has been occurs one or some error in below list :<a><br/>&nbsp&nbsp&nbsp&nbsp• This video is exists in database' +
                     '<br/>&nbsp&nbsp&nbsp&nbsp• Action has been interrupt<br/>&nbsp&nbsp&nbsp&nbsp• Please try again with another video');
