@@ -9,6 +9,7 @@ include 'BLL/articleBLL.php';
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="css/admin-style.css" rel="stylesheet" type="text/css"/>
@@ -159,25 +160,8 @@ include 'BLL/articleBLL.php';
                         <td class="admin-table-cell">Control</td>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="admin-table-row">
-                        <td class="admin-table-cell">2:00→2:30</td>
-                        <td class="admin-table-cell-full">
-						<span class="table-long-text">
-						Nam cursus. Morbi ut mi. Nullam enim leo,
-							<input type="text" class="admin-answer" value="mauris" readonly="readonly"/>
-							egestas id, condimentum at, laoreet mattis, massa.
-						Duis tincidunt lectus quis dui viverra vestibulum.
-						</span>
-                        </td>
-                        <td class="admin-table-cell">
-                            <input class="admin-table-button edit" type="button" value="Edit">
-                            <input id="btn-removeRow" class="admin-table-button delete" type="button" value=" Remove">
-                        </td>
-                    </tr>
-
-                    </tbody>
-                    <tfoot class="admin-table-foot">
+                    <tbody></tbody>
+                    <tfoot class="admin-table-foot undisplayed">
                     <tr>
                         <td class="admin-table-cell-full" colspan="3">
                             <input class="admin-table-button prev unable" type="button" value="Cancel">
