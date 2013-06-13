@@ -98,7 +98,7 @@ $(document).ready(function() {
         });
     });
     $('#btn-newRow').on('click', function(e) {
-        $(".admin-table-foot").removeClass("undisplayed");
+
         var str_format = '00:00:00';
         if($("#startTime")[0].value === str_format || $("#endTime")[0].value === str_format || $("#admin-textarea-input")[0].value === '')
             bootbox.alert('• Press <a class="admin-alert-button time"></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to get start, end time from video.<br/>• End time must required larger than start time.' +
@@ -138,7 +138,7 @@ $(document).ready(function() {
             indexTimeList++;
             rows.push(row);
             resetAllInput();
-
+            $(".admin-table-foot").removeClass("undisplayed");
 //            console.log(JSON.stringify(rows).replace(/\\/gi, ""));
 //            console.log(JSON.stringify(hintList));
 //            console.log(JSON.stringify(answers));
