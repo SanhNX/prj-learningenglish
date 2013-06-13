@@ -138,7 +138,7 @@ $(document).ready(function() {
                 '</td>' +
                 '<td class="admin-table-cell">' +
                 '<input class="admin-table-button edit" type="button" value="Edit">' +
-                '<input class="admin-table-button delete" type="button" value="Remove">' +
+                '<input class="admin-table-button delete" type="button" value=" Remove">' +
                 '</td>' +
                 '</tr>';
             $('tbody')[0].innerHTML += rowHtml;

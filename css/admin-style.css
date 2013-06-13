@@ -21,6 +21,7 @@
 	margin-left: 10px;
 	vertical-align: top;
 	text-align: left;
+    zoom: 0.9;
 }
 
 .admin-panel-content {
@@ -527,8 +528,9 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 
 .admin-right-side{
 	display: inline-block;
-	width: 300px;
+	width: 360px;
 	min-height: 500px;
+    margin-top: 100px;
 }
 .admin-list {
 	margin: 0;
@@ -560,6 +562,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	display: -webkit-inline-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
+    vertical-align: top;
 }
 
 .admin-item-time {

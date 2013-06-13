@@ -120,5 +120,34 @@ function updateArticle($articleid) {
     
     return $queryResult;
 }
+function getAllArticle() {
+    $sql = "SELECT * FROM tbl_article ORDER BY datecreate DESC";
 
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo $sql;
+        exit;
+    }
+
+    $i = 0;
+    $result = null;
+    while ($seletedItem = mysql_fetch_array($queryResult)) {
+        $item = new Article();
+        $item->idArticle = $seletedItem['id'];
+        $item->idvideo = $seletedItem['idvideo'];
+        $item->categoryid = $seletedItem['categoryid'];
+
+        $item->title = $seletedItem['title'];
+        $item->link = $seletedItem['link'];
+        $item->thumbnail = $seletedItem['thumbnail'];
+        $item->duration = $seletedItem['duration'];
+        $item->level = $seletedItem['level'];
+        $item->timesplay = $seletedItem['timesplay'];
+        $item->datecreate = $seletedItem['datecreate'];
+
+        $result[$i] = $item;
+        $i++;
+    }
+    return $result;
+}
 ?>

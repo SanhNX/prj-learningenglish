@@ -3,6 +3,7 @@
 include 'DAO/connection.php';
 include 'DTO/object.php';
 include 'BLL/categoryBll.php';
+include 'BLL/articleBLL.php';
 ?>
 <html>
 <head>
@@ -171,7 +172,7 @@ include 'BLL/categoryBll.php';
                         </td>
                         <td class="admin-table-cell">
                             <input class="admin-table-button edit" type="button" value="Edit">
-                            <input id="btn-removeRow" class="admin-table-button delete" type="button" value="Remove">
+                            <input id="btn-removeRow" class="admin-table-button delete" type="button" value=" Remove">
                         </td>
                     </tr>
 
@@ -188,6 +189,26 @@ include 'BLL/categoryBll.php';
 
             </div>
 
+        </div>
+
+        <div class="admin-right-side">
+            <div class="profile-head">Current video</div>
+            <ul class="admin-list">
+                <?php
+                    $articleList = getAllArticle();
+
+                    for($i = 0; $i < count($articleList); $i++){
+                        $item = $articleList[$i];
+                        echo '<li class="admin-item">
+                                <span class="admin-item-name">'.$item->title.'</span>
+                                <span class="admin-item-time">'.$item->duration.'</span>
+                                <span class="admin-item-button edit"></span>
+                                <span class="admin-item-button delete"></span>
+                            </li>';
+                    }
+                ?>
+
+            </ul>
         </div>
         <div class="admin-footer"></div>
     </div>
