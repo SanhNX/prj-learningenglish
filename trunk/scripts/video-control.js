@@ -80,11 +80,7 @@ $(document).ready(function() {
         $('#btnSubmitVideoAnswer').button('reset').show();
 
         // getVideoContent();
-        $(".play-exam-answer").each(function(index) {
-            $(this).val('');
-        });
-        answeredField = 0;
-        $('.video-control .video-control-score').html(answeredField + "/" + totalField);
+        resetFormExam();
     });
 
     $('#btnSubmitVideoAnswer').click(function(e) {
@@ -170,6 +166,14 @@ $(document).ready(function() {
     });
 });
 
+function resetFormExam() {
+    $(".play-exam-answer").each(function(index) {
+        $(this).val('');
+    });
+    answeredField = 0;
+    $('.video-control .video-control-score').html(answeredField + "/" + totalField);
+}
+
 function getDataYT(id) {
     articleid = id;
     captionContainer = $('#play-exam');
@@ -219,6 +223,7 @@ function getDataYT(id) {
             }
             setTimeout(function() {
                 $(".play-exam-list").append(html);
+                resetFormExam();
                 $('.play-exam-answer:eq(0)').focus();
                 startCountTimer();
             }, 10);
