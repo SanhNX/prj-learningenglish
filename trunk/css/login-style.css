@@ -18,6 +18,18 @@ html,body {
 	padding:0;
 	height: 80%;
 }
+.undisplayed {
+    display: none;
+}
+.admin-progress {
+    position: absolute;
+    height: 100px;
+    width: 80px;
+    vertical-align: top;
+    background: url("../images/icon/spinner_admin.gif") no-repeat left center;
+    margin: -20px 500px 0px 160px;
+    background-size: 80% 80%;
+}
 table {
 	border-collapse:collapse;
 	border-spacing:0;
@@ -239,9 +251,9 @@ input {
 #wrapper input:not([type="checkbox"]):focus{
 	border: 1px solid rgba(91, 90, 90, 0.7);
 	background: rgba(238, 236, 240, 0.2);	
-	-webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
-	   -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
-	        box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(22, 126, 221, 0.9) inset;
+	   -moz-box-shadow: 0px 1px 4px 0px rgba(22, 126, 221, 0.9) inset;
+	        box-shadow: 0px 1px 4px 0px rgba(22, 126, 221, 0.9) inset;
 } 
 
 /** the magic icon trick ! **/
@@ -402,7 +414,7 @@ p.change_link{
 	width: 88%;	
 	padding: 18px 6% 60px 6%;
 	margin: 0 0 35px 0;
-	background: rgb(247, 247, 247);
+	background: #ffffff;
 	border: 1px solid rgba(147, 184, 189,0.8);
 	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;

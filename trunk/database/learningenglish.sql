@@ -71,6 +71,16 @@ create table tbl_activityhistory
 	CONSTRAINT FOREIGN KEY(articleid) references tbl_article(id)
 );
 
+create table tbl_admin
+(
+    id int auto_increment primary key not null,
+    email varchar(50) not null,
+    password varchar(50) not null,
+	name varchar(30) not null
+);
+
+INSERT INTO tbl_admin(email, password, name) VALUES('admin@gmail.com', 'admin', 'Administrator');
+
 
 INSERT INTO tbl_category(name) VALUES('Entertainment');
 INSERT INTO tbl_category(name) VALUES('Music');
