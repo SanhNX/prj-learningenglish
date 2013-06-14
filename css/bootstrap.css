@@ -877,9 +877,9 @@ textarea {
 }
 label {
   display: block;
-  margin-bottom: 10px;
-  float: left;
-  margin-left: 5px;
+  /*margin-bottom: 10px;*/
+  /*float: left;*/
+  /*margin-left: 5px;*/
 }
 select,
 /*textarea,
@@ -4320,7 +4320,7 @@ input[type="submit"].btn.btn-mini {
   z-index: 1050;
   width: 655px;
   margin-left: -280px;
-  background-color: #ffffff;
+  background-color: rgb(233, 233, 233);
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
   *border: 1px solid #999;

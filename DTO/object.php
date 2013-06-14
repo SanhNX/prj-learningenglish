@@ -11,6 +11,12 @@ class User{
 	var $status;
 }
 
+class Admin{
+    var $id;
+    var $name;
+    var $email;
+}
+
 class Category{
 	var $id;
 	var $name;

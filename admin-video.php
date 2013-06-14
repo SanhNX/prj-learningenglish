@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <?php
 include 'DAO/connection.php';
@@ -43,23 +44,20 @@ include 'BLL/articleBLL.php';
         <span>Learning-English</span><span class="form-head-gray"> • Manager Video</span>
 
         <div class="form-head-task">
-            <div class="form-head-account">
-                <div class="form-head-account-wrapper">
-                    <div class="form-head-profile">
-                        <span>Username</span>
-                        <span class="menu-popup-avt" style="background-image:url('images/resource/avt0.jpg')"></span>
-                    </div>
-                    <div class="form-head-logout"><a>Profile</a><a>Logout</a></div>
-                </div>
-            </div>
-            <div class="form-head-search">
-                <div class="form-head-search-mask">
-                    <input class="search-text" type="text" placeholder="Nh?p n?i dung tìm ki?m" value=""/>
-
-                    <div class="search-button"></div>
-                </div>
-            </div>
-
+            <?php
+            $avatar = 'images/resource/admin.gif';
+            if (isset($_SESSION["admin_email"])) {
+                echo '<div class="form-head-account">
+                        <div class="form-head-account-wrapper">
+                            <div class="form-head-profile">
+                                <span>'.$_SESSION['admin_name'].'</span>
+                                <span class="menu-popup-avt" style="background-image:url('.$avatar.')"></span>
+                            </div>
+                            <div class="form-head-logout"><a id="btn-admin-logout">Logout</a></div>
+                        </div>
+                    </div>';
+            }
+            ?>
         </div>
     </div>
     <div class="form">
