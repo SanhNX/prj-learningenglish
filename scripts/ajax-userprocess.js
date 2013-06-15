@@ -1,16 +1,25 @@
 $(document).ready(function() {
     $('#btn-logout').on('click', function(e) {
-        var r = confirm("Do you really want to log out ?");
-        if (r === true) {
-            if(FB)
-                FB.logout();
-            $.post("./BLL/logoutBll.php", function(resp) {
-                if (resp === "success") {
-                    alert("Logout Success !");
-                    location.reload();
-                }
-            });
-        }
+
+        bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to log out ?</a><br/>', function(result){
+            if(result){
+                if(FB)
+                    FB.logout();
+                $.post("./BLL/logoutBll.php", function(resp) {
+                    if (resp === "success") {
+                        bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Logout successful! Press "OK" to refresh page</a><br/>', function(){
+                            location.reload();
+                        });
+                        setTimeout(function(){
+                            $(".modal")[0].style.width = '655px';
+                            $(".modal")[0].style.left = '40%';
+                        },300);
+                    }
+                });
+            }
+        });
+        $(".modal")[0].style.width = '500px';
+        $(".modal")[0].style.left = '52%';
     });
 
     $('#btn-login').on('click', function(e) {
