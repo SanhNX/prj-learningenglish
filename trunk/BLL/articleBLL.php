@@ -105,6 +105,31 @@ function getArticleById($id) {
     return $item;
 }
 
+function deleteArticleById($id) {
+    $sql = "DELETE FROM tbl_article WHERE id = '".$id."' ";
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
+
+function checkExistArticleInActivity($id) {
+    $sql = "SELECT * FROM tbl_activityhistory Where articleid = '".$id."'";
+    $queryResult = mysql_query($sql);
+
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+
+    if (mysql_num_rows($queryResult) > 0)
+        return  1;
+    else
+        return -1;
+}
+
 function updateArticle($articleid) {
     $sql = "SELECT * FROM tbl_article Where id = '" . $articleid . "' ";
     $query = mysql_query($sql) or die("Couldn't execute query.");

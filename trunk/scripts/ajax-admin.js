@@ -2,23 +2,23 @@ $(document).ready(function() {
     $('#btn-admin-logout').on('click', function(e) {
 
         bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to log out ?</a><br/>', function(result){
-                if(result){
+            if(result){
 
-                    $.post("./BLL/adminUnAuthorizeBLL.php", function(resp) {
-                        if (resp === "success") {
-                            bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Logout successful! Press "OK" to return login page</a><br/>', function(){
-                                window.location.href = 'admin-login.php';
-                            });
-                            setTimeout(function(){
-                                $(".modal")[0].style.width = '655px';
-                                $(".modal")[0].style.left = '40%';
-                            },300);
-                        }
-                    });
-                }
-            });
-            $(".modal")[0].style.width = '500px';
-            $(".modal")[0].style.left = '52%';
+                $.post("./BLL/adminUnAuthorizeBLL.php", function(resp) {
+                    if (resp === "success") {
+                        bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Logout successful! Press "OK" to return login page</a><br/>', function(){
+                            window.location.href = 'admin-login.php';
+                        });
+                        setTimeout(function(){
+                            $(".modal")[0].style.width = '655px';
+                            $(".modal")[0].style.left = '40%';
+                        },300);
+                    }
+                });
+            }
+        });
+        $(".modal")[0].style.width = '500px';
+        $(".modal")[0].style.left = '52%';
 
     });
 

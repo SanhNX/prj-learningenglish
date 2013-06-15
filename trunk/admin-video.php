@@ -168,6 +168,7 @@ include 'BLL/articleBLL.php';
                         <td class="admin-table-cell-full" colspan="3">
                             <input class="admin-table-button prev unable" type="button" value="Cancel">
                             <input id="btn-save" class="admin-table-button next" type="button" value="Save">
+                            <input id="btn-edit" class="admin-table-button next undisplayed" type="button" value="Edit">
                         </td>
                     </tr>
                     </tfoot>
@@ -186,10 +187,11 @@ include 'BLL/articleBLL.php';
                     for($i = 0; $i < count($articleList); $i++){
                         $item = $articleList[$i];
                         echo '<li class="admin-item">
+                                <input class="idArticle" type="hidden" value="'.$item->idArticle.'"/>
                                 <span class="admin-item-name">'.$item->title.'</span>
                                 <span class="admin-item-time">'.$item->duration.'</span>
                                 <span class="admin-item-button edit"></span>
-                                <span class="admin-item-button delete"></span>
+                                <span class="admin-item-button admin-delete"></span>
                             </li>';
                     }
                 ?>
