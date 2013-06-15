@@ -82,7 +82,7 @@ $(document).ready(function() {
 //                player.loadVideoByUrl('http://www.youtube.com/embed/'+v);
                 duration = formatTime(this.videoContent.length[0]);
                 $(".admin-current-time")[0].innerText = duration + ' min';
-                title = this.videoContent.title[0]
+                title = this.videoContent.title[0];
                 $("#admin-video-title")[0].innerText = title;
 
                 $("#admin-video-title").removeClass("undisplayed");
@@ -188,6 +188,78 @@ $(document).ready(function() {
                 removeTR(index);
             }
         });
+    });
+    $('.edit').live('click', function() {
+        var arrButtonRemove = $(this);
+        var index = arrButtonRemove.index('.edit');
+        $.ajax({
+            type: 'post',
+            cache: false,
+            url: './BLL/getArticleByIdBLL.php',
+            data: {
+                idArticle: $('.idArticle')[index].value
+            },
+            success: function(resp) {
+                if(resp){
+                    var article = JSON.parse(resp);
+                    $("#admin-player")[0].src = article.link;
+                    duration = article.duration;
+                    $(".admin-current-time")[0].innerText = duration + ' min';
+                    title = article.title;
+                    $("#admin-video-title")[0].innerText = title;
+
+                    $("#admin-video-title").removeClass("undisplayed");
+                    $("#keyword-panel").removeClass("undisplayed");
+                    $("#rows-panel").removeClass("undisplayed");
+                    $("#hints-panel").removeClass("undisplayed");
+                    $("#hint-title").removeClass("undisplayed");
+                    $("#tbContent-panel").removeClass("undisplayed");
+                    $(".admin-table-foot").removeClass("undisplayed");
+                    $("#btn-save").addClass('undisplayed');
+                    $("#btn-edit").removeClass('undisplayed');
+                    $('body,html').animate({
+                        scrollTop: 350
+                    }, 800);
+                }
+            },
+            complete: function() {
+            }
+        });
+    });
+
+    $('.admin-delete').live('click', function () {
+        var arrButtonRemove = $(this);
+        var index = arrButtonRemove.index('.admin-delete');
+        bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to delete this article?</a><br/>', function (result) {
+            if (result) {
+                $.ajax({
+                    type: 'post',
+                    cache: false,
+                    url: './BLL/deleteArticleByIdBLL.php',
+                    data: {
+                        idArticle: $('.idArticle')[index].value
+                    },
+                    success: function (resp) {
+                        if (resp === "success") {
+                            bootbox.alert('<br/><a style="color: blue">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Delete successful! Press "OK" to refresh page</a><br/>', function () {
+                                window.location.reload();
+                            });
+                            setTimeout(function () {
+                                $(".modal")[0].style.width = '655px';
+                                $(".modal")[0].style.left = '40%';
+                            }, 300);
+                        } else {
+                            bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Delete Fail. Action has been interrupt.' +
+                                '<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Or this article had exist in activity history.' +
+                                '<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Please try again.');
+                        }
+                    },
+                    complete: function () {}
+                });
+            }
+        });
+        $(".modal")[0].style.width = '500px';
+        $(".modal")[0].style.left = '52%';
     });
 
 });
