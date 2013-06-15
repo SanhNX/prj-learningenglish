@@ -1,16 +1,25 @@
 $(document).ready(function() {
     $('#btn-admin-logout').on('click', function(e) {
-        var r = confirm("Do you really want to log out ?");
-        if (r === true) {
-            if(FB)
-                FB.logout();
-            $.post("./BLL/adminUnAuthorizeBLL.php", function(resp) {
-                if (resp === "success") {
-                    alert("Logout Success !");
-                    location.reload();
+
+        bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to log out ?</a><br/>', function(result){
+                if(result){
+
+                    $.post("./BLL/adminUnAuthorizeBLL.php", function(resp) {
+                        if (resp === "success") {
+                            bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Logout successful! Press "OK" to return login page</a><br/>', function(){
+                                window.location.href = 'admin-login.php';
+                            });
+                            setTimeout(function(){
+                                $(".modal")[0].style.width = '655px';
+                                $(".modal")[0].style.left = '40%';
+                            },300);
+                        }
+                    });
                 }
             });
-        }
+            $(".modal")[0].style.width = '500px';
+            $(".modal")[0].style.left = '52%';
+
     });
 
     $('#btn-admin-login').on('click', function(e) {
@@ -51,7 +60,7 @@ $(document).ready(function() {
                                     setTimeout(function(){
                                         $(".modal")[0].style.width = '655px';
                                         $(".modal")[0].style.left = '40%';
-                                        window.location.href = 'admin-video.php';
+                                        window.location.href = 'admin-index.php';
                                     },300);
                                 });
                                 $(".modal")[0].style.width = '500px';
@@ -83,3 +92,16 @@ $(document).ready(function() {
         return false;
     });
 });
+
+function warningAuthorize (){
+    bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbspSorry ! You must login to use control panel.</a>' +
+        '<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbspPlease login now .</a>', function(){
+        window.location.href = "admin-login.php"
+        setTimeout(function(){
+            $(".modal")[0].style.width = '655px';
+            $(".modal")[0].style.left = '40%';
+        },300);
+    });
+    $(".modal")[0].style.width = '500px';
+    $(".modal")[0].style.left = '52%';
+}

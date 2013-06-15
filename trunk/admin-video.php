@@ -27,16 +27,17 @@ include 'BLL/articleBLL.php';
     <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
     <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="scripts/effect.js"></script>
+    <script type="text/javascript" src="scripts/ajax-admin.js"></script>
 </head>
 <body>
 <div class="page">
     <div class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a href="#">Navigate 1</a></li>
-            <li class="nav-item"><a href="#">Navigate 2</a></li>
-            <li class="nav-item"><a href="#">Navigate 3</a></li>
-            <li class="nav-item"><a href="#">Navigate 4</a></li>
-            <li class="nav-item"><a href="#">Navigate 5</a></li>
+            <li class="nav-item"><a href="admin-video.php">Manager Video</a></li>
+            <li class="nav-item"><a href="admin-user.php">Manager User</a></li>
+            <li class="nav-item"><a href="#">...</a></li>
+            <li class="nav-item"><a href="#">...</a></li>
+            <li class="nav-item"><a href="#">...</a></li>
         </ul>
     </div>
 
@@ -56,6 +57,9 @@ include 'BLL/articleBLL.php';
                             <div class="form-head-logout"><a id="btn-admin-logout">Logout</a></div>
                         </div>
                     </div>';
+            }  else {
+                echo '<script type="text/javascript">warningAuthorize()</script>';
+                exit();
             }
             ?>
         </div>
