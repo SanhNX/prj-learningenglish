@@ -7,7 +7,7 @@ body {
 }
 
 .undisplayed {
-    display: none;
+    display: none !important;
 }
 
 .page {
