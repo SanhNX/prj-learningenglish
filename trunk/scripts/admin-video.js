@@ -91,6 +91,9 @@ $(document).ready(function() {
                 $("#hints-panel").removeClass("undisplayed");
                 $("#hint-title").removeClass("undisplayed");
                 $("#tbContent-panel").removeClass("undisplayed");
+                $(".admin-table-foot").addClass("undisplayed");
+                $("#btn-save").removeClass('undisplayed');
+                $("#btn-edit").addClass('undisplayed');
                 $('body,html').animate({
                     scrollTop: 350
                 }, 800);
@@ -134,7 +137,8 @@ $(document).ready(function() {
                     return;
                 }
             }
-            timeList[Math.floor(startTime)] = ''+ indexTimeList;
+            timeList[indexTimeList] = Math.floor(startTime);
+            timeList.length = indexTimeList;
             indexTimeList++;
             rows.push(row);
             resetAllInput();
@@ -151,7 +155,7 @@ $(document).ready(function() {
                 '<span class="table-long-text">'+ row.caption_text +'</span>' +
                 '</td>' +
                 '<td class="admin-table-cell">' +
-                '<input class="admin-table-button edit" type="button" value="Edit">' +
+                '<input class="admin-table-button edit undisplayed" type="button" value="Edit">' +
                 '<input class="admin-table-button delete" type="button" value=" Remove">' +
                 '</td>' +
                 '</tr>';
@@ -189,9 +193,9 @@ $(document).ready(function() {
             }
         });
     });
-    $('.edit').live('click', function() {
+    $('.admin-edit').live('click', function() {
         var arrButtonRemove = $(this);
-        var index = arrButtonRemove.index('.edit');
+        var index = arrButtonRemove.index('.admin-edit');
         $.ajax({
             type: 'post',
             cache: false,
@@ -207,6 +211,8 @@ $(document).ready(function() {
                     $(".admin-current-time")[0].innerText = duration + ' min';
                     title = article.title;
                     $("#admin-video-title")[0].innerText = title;
+                    $("#value-cate")[0].value = article.categoryid;
+                    $("#value-level")[0].value = article.level;
 
                     $("#admin-video-title").removeClass("undisplayed");
                     $("#keyword-panel").removeClass("undisplayed");
@@ -309,9 +315,48 @@ function resetAllInput() {
 }
 
 function removeTR(pos) {
+    var currCaption = rows[pos - 1].caption_text;
+    var answerIndex = null;
+    for(var i = 0;i < rows.length; i++){
+        var tempCaption = rows[i].caption_text;
+        if(tempCaption.match("<input class='play-exam-answer' type='text'")){
+            answerIndex = 0;
+            answerIndex += 1;
+            if(tempCaption === currCaption)
+                break;
+        }
+
+    }
+    if(answerIndex != null){
+        for(var i = 1; i <= answers.length;i++){
+            if(i == pos){
+                for(var j = pos; j < answers.length;j++){
+                    answers[j] = answers[j+1];
+                }
+                delete answers[answers.length];
+                answers.length -= 1;
+                break;
+            }
+        }
+        for(var i = 1; i <= timeList.length;i++){
+            if(i == pos){
+                for(var j = pos; j < timeList.length;j++){
+                    timeList[j] = timeList[j+1];
+                }
+                delete timeList[timeList.length];
+                timeList.length -= 1;
+                break;
+            }
+        }
+        hintList.splice(answerIndex, 1);
+    }
+    rows.splice(pos - 1, 1);
+
     $('tr')[pos].remove();
     if(pos == 1)
         $(".admin-table-foot").addClass("undisplayed");
+    jsonSTR = '{"content":	[{"answers": '+JSON.stringify(answers)+'},{"timeList": '+JSON.stringify(timeList)+',"hintList": '+JSON.stringify(hintList)+',"rows": '+JSON.stringify(rows).replace(/\\/gi, "")+'}]}';
+    console.log(JSON.parse(jsonSTR));
 }
 
 function formatTime(start_time) {

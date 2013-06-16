@@ -244,6 +244,9 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 .edit {
 	background-image: url('../images/icon/edit-blue-ico.png');
 }
+.admin-edit {
+    background-image: url('../images/icon/edit-blue-ico.png');
+}
 .delete {
 	background-image: url('../images/icon/delete-ico.png');
 }

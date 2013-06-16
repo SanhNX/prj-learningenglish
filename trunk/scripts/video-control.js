@@ -239,9 +239,9 @@ setInterval(checkVideoTime, 500);
 function checkVideoTime() {
     currentTime = player.getCurrentTime();
     number = null;
-    for (p in timeList) {
-        p = parseInt(p);
-        number = timeList[p];
+    for (var i = 1; i <= timeList.length; i++) {
+        p = parseInt(timeList[i]);
+        number = i;
 //        console.log("-------------------------" + lastCaptionTime);
         if (currentTime > p && p > lastCaptionTime) {
             lastCaptionTime = p;
