@@ -192,7 +192,7 @@ include 'BLL/articleBLL.php';
                                 <input class="idArticle" type="hidden" value="'.$item->idArticle.'"/>
                                 <span class="admin-item-name">'.$item->title.'</span>
                                 <span class="admin-item-time">'.$item->duration.'</span>
-                                <span class="admin-item-button admin-edit undisplayed"></span>
+                                <span class="admin-item-button admin-edit"></span>
                                 <span class="admin-item-button admin-delete"></span>
                             </li>';
                     }

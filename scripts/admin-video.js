@@ -52,6 +52,7 @@ var timeList = {};
 var indexTimeList = 1;
 var duration = null;
 var title = '';
+var articleid = null;
 $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
@@ -178,6 +179,9 @@ $(document).ready(function() {
     $('#btn-save').on('click', function(e) {
         writeData(jsonSTR);
     });
+    $('#btn-edit').on('click', function(e) {
+        updateData(jsonSTR, articleid);
+    });
     $('#btn-getStartTime').on('click', function(e) {
         startTime = player.getCurrentTime();
         endTime = player.getCurrentTime() + 1;
@@ -243,6 +247,40 @@ $(document).ready(function() {
     $('.admin-edit').live('click', function() {
         var arrButton = $(this);
         var index = arrButton.index('.admin-edit');
+        articleid = $('.idArticle')[index].value;
+        $.ajax({
+            url: './BLL/getDataJSONBll.php',
+            data: {
+                id: $('.idArticle')[index].value
+            },
+            type: 'post',
+            complete: function() {
+            },
+            success: function(resp) {
+                var jsonParse = JSON.parse(resp);
+                jsonSTR = resp;
+                answers = jsonParse.content[0].answers;
+                hintList = jsonParse.content[1].hintList;
+                timeList = jsonParse.content[1].timeList;
+                rows = jsonParse.content[1].rows;
+                $('tbody')[0].innerHTML = '';
+                for(var i = 0; i < rows.length; i++){
+
+                    var rowHtml = '<tr class="admin-table-row">' +
+                        '<td class="admin-table-cell">'+formatTime(rows[i].start_time)+'→'+formatTime(rows[i].end_time)+'</td>' +
+                        '<td class="admin-table-cell-full">' +
+                        '<span class="table-long-text" title="Click on text field to show hint keyword of this row">'+ rows[i].caption_text +'</span>' +
+                        '</td>' +
+                        '<td class="admin-table-cell">' +
+                        '<input class="admin-table-button edit undisplayed" type="button" value="Edit">' +
+                        '<input class="admin-table-button delete" type="button" value=" Remove">' +
+                        '</td>' +
+                        '</tr>';
+
+                    $('tbody')[0].innerHTML += rowHtml;
+                }
+            }
+        });
         $.ajax({
             type: 'post',
             cache: false,
@@ -253,6 +291,7 @@ $(document).ready(function() {
             success: function(resp) {
                 if(resp){
                     var article = JSON.parse(resp);
+
                     $("#admin-player")[0].src = article.link;
                     duration = article.duration;
                     $(".admin-current-time")[0].innerText = duration + ' min';
@@ -318,8 +357,6 @@ $(document).ready(function() {
 });
 
 function writeData(content) {
-//    document.getElementById("value-cate").value;
-
     $.ajax({
         type: 'post',
         cache: false,
@@ -344,6 +381,35 @@ function writeData(content) {
             else
                 bootbox.alert('<a style="color: #ff0000">Action has been occurs one or some error in below list :<a><br/>&nbsp&nbsp&nbsp&nbsp• This video is exists in database' +
                     '<br/>&nbsp&nbsp&nbsp&nbsp• Action has been interrupt<br/>&nbsp&nbsp&nbsp&nbsp• Please try again with another video');
+        },
+        complete: function() {
+        }
+    });
+}
+
+function updateData(content, idArticle) {
+    $.ajax({
+        type: 'post',
+        cache: false,
+        url: './BLL/adminEditVideoBll.php',
+        data: {
+            idArticle: idArticle,
+            level: document.getElementById("value-level").value,
+            cateid: document.getElementById("value-cate").value,
+            content: content
+        },
+        success: function(resp) {
+            if(trim(resp) === 'true'){
+                bootbox.confirm('• Edit this video successful.' +
+                    '<br/> • <a style="color: #ff0000">Do you want update this video into current video list to manager continues ?</a>', function(result) {
+                    if (result) {
+                        window.location.reload();
+                    }
+                });
+            }
+            else
+                bootbox.alert('<a style="color: #ff0000">• Edit fail. Action has been interrupt<a>' +
+                    '<br/>&nbsp&nbsp&nbsp&nbsp• Please try again.');
         },
         complete: function() {
         }
@@ -400,7 +466,7 @@ function removeTR(pos) {
     rows.splice(pos - 1, 1);
 
     $('tr')[pos].remove();
-    if(pos == 1)
+    if($(".admin-table-row").length == 0)
         $(".admin-table-foot").addClass("undisplayed");
     jsonSTR = '{"content":	[{"answers": '+JSON.stringify(answers)+'},{"timeList": '+JSON.stringify(timeList)+',"hintList": '+JSON.stringify(hintList)+',"rows": '+JSON.stringify(rows).replace(/\\/gi, "")+'}]}';
     console.log(JSON.parse(jsonSTR));
