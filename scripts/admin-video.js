@@ -152,7 +152,7 @@ $(document).ready(function() {
             var rowHtml = '<tr class="admin-table-row">' +
                 '<td class="admin-table-cell">'+formatTime(row.start_time)+'→'+formatTime(row.end_time)+'</td>' +
                 '<td class="admin-table-cell-full">' +
-                '<span class="table-long-text">'+ row.caption_text +'</span>' +
+                '<span class="table-long-text" title="Click on text field to show hint keyword of this row">'+ row.caption_text +'</span>' +
                 '</td>' +
                 '<td class="admin-table-cell">' +
                 '<input class="admin-table-button edit undisplayed" type="button" value="Edit">' +
@@ -184,6 +184,21 @@ $(document).ready(function() {
             $('#endTime')[0].value = formatTime(endTime);
     });
 
+    $('.play-exam-answer').live('click', function() {
+        var arrButtonRemove = $(this);
+        var index = arrButtonRemove.index('.play-exam-answer');
+        var hintHTML = '';
+        for(var i = 1; i <= hintList[index].length; i++)
+            hintHTML += '<br><a style="color: blue">• '+ hintList[index][i] +'</a>';
+        bootbox.alert(hintHTML,function(){
+            setTimeout(function(){
+                $(".modal")[0].style.width = '655px';
+                $(".modal")[0].style.left = '40%';
+            },300);
+        });
+        $(".modal")[0].style.width = '250px';
+        $(".modal")[0].style.left = '52%';
+    });
     $('.delete').live('click', function() {
         var arrButtonRemove = $(this);
         var index = arrButtonRemove.index('.delete') + 1;
