@@ -164,6 +164,14 @@ $(document).ready(function() {
     });
 
 
+    $('#btn-cancelEdit').on('click', function(e) {
+
+        $("#btn-newRow").removeClass('undisplayed');
+        $("#btn-editRow").addClass('undisplayed');
+        $("#btn-cancelEdit").addClass('undisplayed');
+        resetAllInput();
+    });
+
     $('#btn-clear').on('click', function(e) {
         $('#admin-keyword-input')[0].value = '';
     });
@@ -185,11 +193,11 @@ $(document).ready(function() {
     });
 
     $('.play-exam-answer').live('click', function() {
-        var arrButtonRemove = $(this);
-        var index = arrButtonRemove.index('.play-exam-answer');
+        var arrButton = $(this);
+        var index = arrButton.index('.play-exam-answer');
         var hintHTML = '';
         for(var i = 1; i <= hintList[index].length; i++)
-            hintHTML += '<br><a style="color: blue">• '+ hintList[index][i] +'</a>';
+            hintHTML += '<br><a style="color: blue">'+i+'. '+hintList[index][i] +'</a>';
         bootbox.alert(hintHTML,function(){
             setTimeout(function(){
                 $(".modal")[0].style.width = '655px';
@@ -199,9 +207,33 @@ $(document).ready(function() {
         $(".modal")[0].style.width = '250px';
         $(".modal")[0].style.left = '52%';
     });
+
+    $('.edit').live('click', function(e) {
+        var arrButton = $(this);
+        var index = arrButton.index('.edit');
+
+//        $("#admin-keyword-input")[0].value = '';
+//        $("#admin-textarea-input")[0].value = '';
+//        $("#startTime")[0].value = '';
+//        $("#endTime")[0].value = '';
+//        for(var i = 1; i < $(".hint").length; i++){
+//            if($(".hint")[i].value != ''){
+//                hintTemp[j] = $(".hint")[i].value;
+//                j++;
+//            }
+//            else
+//                continue;
+//        }
+
+        bootbox.alert(index);
+        $("#btn-newRow").addClass('undisplayed');
+        $("#btn-editRow").removeClass('undisplayed');
+        $("#btn-cancelEdit").removeClass('undisplayed');
+    });
+
     $('.delete').live('click', function() {
-        var arrButtonRemove = $(this);
-        var index = arrButtonRemove.index('.delete') + 1;
+        var arrButton = $(this);
+        var index = arrButton.index('.delete') + 1;
         bootbox.confirm('Are you want sure to delete this row ?', function(result) {
             if (result) {
                 removeTR(index);
@@ -209,8 +241,8 @@ $(document).ready(function() {
         });
     });
     $('.admin-edit').live('click', function() {
-        var arrButtonRemove = $(this);
-        var index = arrButtonRemove.index('.admin-edit');
+        var arrButton = $(this);
+        var index = arrButton.index('.admin-edit');
         $.ajax({
             type: 'post',
             cache: false,
@@ -249,8 +281,8 @@ $(document).ready(function() {
     });
 
     $('.admin-delete').live('click', function () {
-        var arrButtonRemove = $(this);
-        var index = arrButtonRemove.index('.admin-delete');
+        var arrButton = $(this);
+        var index = arrButton.index('.admin-delete');
         bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to delete this article?</a><br/>', function (result) {
             if (result) {
                 $.ajax({
