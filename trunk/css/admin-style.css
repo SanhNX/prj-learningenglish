@@ -271,7 +271,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 }
 
 .admin-table {
-	width: 100%;
+	max-width: 770px;
 	border-spacing: 0px;
 	border-collapse: collapse;
 	font-size: 20px;
@@ -283,7 +283,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	margin: 0px;
 	padding: 0px 10px 5px 10px;
 	height: 30px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .admin-table-cell-full {
@@ -435,7 +435,7 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	background: url("../images/icon/pin-map-blue-ico.png") no-repeat 5px center;
 }
 .admin-button.keyword{
-	margin: 0px;
+	margin: 0px 2px;
 	background-color: #999;
 	border-color: #999;
 	color: #FFF;

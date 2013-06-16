@@ -86,6 +86,7 @@ include 'BLL/articleBLL.php';
                     <div class="admin-keyword">
                         <input id="admin-keyword-input" class="admin-text-input keyword" type="text" readonly="true"/>
                         <input id="btn-clear" class="admin-button keyword cancel" type="button" value="Clear"/>
+                        <input id="btn-cancelEdit" class="admin-button keyword cancel undisplayed" type="button" value="Cancel"/>
                     </div>
                 </div>
                 <div id="rows-panel" class="table-row min-gap undisplayed">
@@ -106,6 +107,7 @@ include 'BLL/articleBLL.php';
                     </div>
                     <textarea id="admin-textarea-input" class="admin-text-input new-row area" maxlength="500" placeholder="Input caption text here..."></textarea>
                     <input id="btn-newRow" class="admin-button new-row add" type="button" value="Add"/>
+                    <input id="btn-editRow" class="admin-button new-row edit undisplayed" type="button" value="Edit Row"/>
                 </div>
                 <div id="hint-title" class="admin-title undisplayed">* Input hints list for keyword of current row !</div>
                 <div id="hints-panel" class="table-row gap trend-right undisplayed">
