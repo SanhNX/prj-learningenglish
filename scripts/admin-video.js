@@ -47,12 +47,12 @@ var endTime = 0;
 var hintList = [];
 var rows = [];
 var answers = {};
-var index = 1;
 var timeList = {};
-var indexTimeList = 1;
 var duration = null;
 var title = '';
 var articleid = null;
+var timeListLength = 0;
+var answersLength = 0;
 $(document).ready(function() {
     $('#btn-validate').on('click', function(e) {
         var url = $("#url")[0].value;
@@ -127,9 +127,9 @@ $(document).ready(function() {
                 }
                 if(j != 1){
                     row.caption_text = row.caption_text.replace(answer, "<input class='play-exam-answer' type='text' value='"+answer +"' name='answer[]' readonly='true'>");
-                    answers[index] = answer;
-                    answers.length = index;
-                    index++;
+                    answers[answersLength + 1] = answer;
+                    answers.length = answersLength + 1;
+                    answersLength ++;
                     hintTemp.length = j - 1;
                     hintList.push(hintTemp);
                 }
@@ -138,9 +138,9 @@ $(document).ready(function() {
                     return;
                 }
             }
-            timeList[indexTimeList] = Math.floor(startTime);
-            timeList.length = indexTimeList;
-            indexTimeList++;
+            timeList[timeListLength + 1] = ''+Math.floor(startTime);
+            timeList.length = timeListLength + 1;
+            timeListLength ++;
             rows.push(row);
             resetAllInput();
             $(".admin-table-foot").removeClass("undisplayed");
@@ -260,8 +260,10 @@ $(document).ready(function() {
                 var jsonParse = JSON.parse(resp);
                 jsonSTR = resp;
                 answers = jsonParse.content[0].answers;
+                answersLength = answers.length;
                 hintList = jsonParse.content[1].hintList;
                 timeList = jsonParse.content[1].timeList;
+                timeListLength = timeList.length;
                 rows = jsonParse.content[1].rows;
                 $('tbody')[0].innerHTML = '';
                 for(var i = 0; i < rows.length; i++){
@@ -430,20 +432,25 @@ function resetAllInput() {
 function removeTR(pos) {
     var currCaption = rows[pos - 1].caption_text;
     var answerIndex = null;
-    for(var i = 0;i < rows.length; i++){
-        var tempCaption = rows[i].caption_text;
-        if(tempCaption.match("<input class='play-exam-answer' type='text'")){
-            answerIndex = 0;
-            answerIndex += 1;
-            if(tempCaption === currCaption)
-                break;
+    var tempi = 0;
+    if(currCaption.match("<input class='play-exam-answer' type='text'")){
+        for(var i = 0;i < rows.length; i++){
+            var tempCaption = rows[i].caption_text;
+
+            if(tempCaption.match("<input class='play-exam-answer' type='text'")){
+                tempi ++;
+                if(tempCaption === currCaption){
+                    answerIndex = tempi;
+                    break;
+                }
+            }
         }
 
     }
     if(answerIndex != null){
         for(var i = 1; i <= answers.length;i++){
-            if(i == pos){
-                for(var j = pos; j < answers.length;j++){
+            if(i == answerIndex){
+                for(var j = answerIndex; j < answers.length;j++){
                     answers[j] = answers[j+1];
                 }
                 delete answers[answers.length];
@@ -451,17 +458,18 @@ function removeTR(pos) {
                 break;
             }
         }
-        for(var i = 1; i <= timeList.length;i++){
-            if(i == pos){
-                for(var j = pos; j < timeList.length;j++){
-                    timeList[j] = timeList[j+1];
-                }
-                delete timeList[timeList.length];
-                timeList.length -= 1;
-                break;
+
+        hintList.splice(answerIndex - 1, 1);
+    }
+    for(var i = 1; i <= timeList.length;i++){
+        if(i == pos){
+            for(var j = pos; j < timeList.length;j++){
+                timeList[j] = timeList[j+1];
             }
+            delete timeList[timeList.length];
+            timeList.length -= 1;
+            break;
         }
-        hintList.splice(answerIndex, 1);
     }
     rows.splice(pos - 1, 1);
 
