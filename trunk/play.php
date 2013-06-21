@@ -85,7 +85,7 @@ include 'BLL/userBll.php';
                                         <div class="form-head-profile">
                                                 <span>' . $_SESSION["email"] . '</span>
                                                 <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span>
-                                        </div><div class="form-head-logout"><a>Profile</a><a id="btn-logout">Logout</a></div>
+                                        </div><div class="form-head-logout"><a href="profile.php?id='.$_SESSION['userid'].'">Profile</a><a id="btn-logout">Logout</a></div>
                                 </div>
                                 </div>';
                 }
