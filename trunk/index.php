@@ -54,7 +54,7 @@ include 'BLL/articleBLL.php';
             ?>
 
             <div class="form-head">
-                <span>Learning-English</span><span class="form-head-gray">Home</span>
+                <span>Learning-English</span><span class="form-head-gray"> • Home</span>
                 <div class="form-head-task">
                     // ------------ Check user login----------------//
                     <?php
