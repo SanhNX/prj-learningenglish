@@ -73,7 +73,9 @@ include 'BLL/userBll.php';
         include 'common/menu.php';
         ?>
         <div class="form">
-            <span>Learning-English</span><span class="form-head-gray"> • Examination</span>
+            <div class="form-head">
+                <span>Learning-English</span><span class="form-head-gray"> • Examination</span>
+            </div>
             <div class="form-head-task">
                 // ------------ Check user login----------------//
                 <?php
