@@ -4,7 +4,7 @@
 include 'DAO/connection.php';
 include 'DTO/object.php';
 include 'BLL/categoryBll.php';
-include 'BLL/userBLL.php';
+include 'BLL/userBll.php';
 include 'BLL/activityHistoryBLL.php';
 ?>
 <html>

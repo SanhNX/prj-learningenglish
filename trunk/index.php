@@ -12,6 +12,8 @@ include 'BLL/articleBLL.php';
         <title></title>
         <link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap-yii.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
 
@@ -22,6 +24,8 @@ include 'BLL/articleBLL.php';
         <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
         <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
         <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>

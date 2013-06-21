@@ -90,6 +90,7 @@ $(document).ready(function() {
                 $("#keyword-panel").removeClass("undisplayed");
                 $("#rows-panel").removeClass("undisplayed");
                 $("#hints-panel").removeClass("undisplayed");
+                $("#selection-title").removeClass("undisplayed");
                 $("#hint-title").removeClass("undisplayed");
                 $("#tbContent-panel").removeClass("undisplayed");
                 $(".admin-table-foot").addClass("undisplayed");
@@ -104,8 +105,9 @@ $(document).ready(function() {
     $('#btn-newRow').on('click', function(e) {
 
         var str_format = '00:00:00';
-        if($("#startTime")[0].value === str_format || $("#endTime")[0].value === str_format || $("#admin-textarea-input")[0].value === '')
+        if($("#startTime")[0].value === str_format || $("#endTime")[0].value === str_format || $("#admin-textarea-input")[0].value === '' || timeList[timeList.length] >= Math.floor(startTime))
             bootbox.alert('• Press <a class="admin-alert-button time"></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to get start, end time from video.<br/>• End time must required larger than start time.' +
+                '<br/>• Start time of this row must required larger than start time of last row in exam table.' +
                 '<br/>• Row content can not blank.');
         else {
             var row = {};
@@ -306,6 +308,7 @@ $(document).ready(function() {
                     $("#keyword-panel").removeClass("undisplayed");
                     $("#rows-panel").removeClass("undisplayed");
                     $("#hints-panel").removeClass("undisplayed");
+                    $("#selection-title").removeClass("undisplayed");
                     $("#hint-title").removeClass("undisplayed");
                     $("#tbContent-panel").removeClass("undisplayed");
                     $(".admin-table-foot").removeClass("undisplayed");

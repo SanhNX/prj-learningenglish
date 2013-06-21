@@ -109,7 +109,7 @@ include 'BLL/articleBLL.php';
                     <input id="btn-newRow" class="admin-button new-row add" type="button" value="Add"/>
                     <input id="btn-editRow" class="admin-button new-row edit undisplayed" type="button" value="Edit Row"/>
                 </div>
-                <div id="hint-title" class="admin-title undisplayed">* Input hints list for keyword of current row !</div>
+                <div id="selection-title" class="admin-title undisplayed">* You can select characters in the text field above to create answers !</div>
                 <div id="hints-panel" class="table-row gap trend-right undisplayed">
                     <div class="admin-text-label hint"><span>Hints:</span></div>
                     <div class="admin-hint">
@@ -127,6 +127,7 @@ include 'BLL/articleBLL.php';
                         <input class="admin-text-input hint" type="text" value="" placeholder="Input hint here..." title="Input hints keyword">
                     </div>
                 </div>
+                <div id="hint-title" class="admin-title undisplayed">* Input hints list for keyword of current row !</div>
                 <div id="select-cate">
                     <div class="admin-title">Category</div>
                     <div class="table-row gap">
