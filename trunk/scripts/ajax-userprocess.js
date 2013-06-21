@@ -50,7 +50,7 @@ $(document).ready(function() {
                 success: function(dto) {
                     setTimeout(function() {
                         if (dto === 'success') {
-                            $(".login-popup-error-mess").html('<i></i> LOGIN SUCCESSFULL. Please wait a minutes to return page.');
+                            $(".login-popup-error-mess").html('<i></i> LOGIN SUCCESSFULL. Please wait ...');
                             setTimeout(function() {
                                 $(".popup-progress").addClass("undisplayed");
                                 $(".login-popup-error-mess").html('');
