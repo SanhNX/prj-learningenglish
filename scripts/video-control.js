@@ -18,30 +18,31 @@ var autoscroll;
 var timeIdentity = null;
 var BASE_URL = "";
 
-$(document).ready(function() {
+
+$(document).ready(function () {
     $('.fb-comments').attr('data-width', $('.span6').width());
-    $('#btnAutoScroll').click(function() {
+    $('#btnAutoScroll').click(function () {
     });
-    $('.play-exam-item .play-exam-tag').live('click', function() {
+    $('.play-exam-item .play-exam-tag').live('click', function () {
         var item = $(this).parent();
         startTime = item.find('.startTime').val();
         lastCaptionTime = startTime;
         player.seekTo(startTime, true);
         activeCaptionTime(item);
     });
-    $('.video-control .back5').live('click', function(e) {
+    $('.video-control .back5').live('click', function (e) {
         e.preventDefault();
         player.seekTo(player.getCurrentTime() - 5);
     });
-    $('.video-control .skip5').live('click', function(e) {
+    $('.video-control .skip5').live('click', function (e) {
         e.preventDefault();
         player.seekTo(player.getCurrentTime() + 5);
     });
     getVideoContent();
     //$('#hintList').show();
-    $('.play-exam-answer').live('blur keyup focus', function() {
+    $('.play-exam-answer').live('blur keyup focus', function () {
         answeredField = 0;
-        $('.play-exam-answer').each(function(index) {
+        $('.play-exam-answer').each(function (index) {
 
             if ($(this).val().trim().length > 0) {
                 answeredField++;
@@ -50,7 +51,7 @@ $(document).ready(function() {
         });
     });
 
-    $('.play-exam-answer').live('focus', function() {
+    $('.play-exam-answer').live('focus', function () {
         lastAnswerField = $(this);
         var html = '';
         var txtAnswer = $(this);
@@ -69,13 +70,13 @@ $(document).ready(function() {
         }
     });
 
-    $('.play-keyword-item').live('click', function(e) {
+    $('.play-keyword-item').live('click', function (e) {
         e.preventDefault();
         lastAnswerField.val($(this).html());
         lastAnswerField.focus();
     });
 
-    $('#btnReset').click(function(e) {
+    $('#btnReset').click(function (e) {
         e.preventDefault();
         $('#btnSubmitVideoAnswer').button('reset').show();
 
@@ -83,7 +84,7 @@ $(document).ready(function() {
         resetFormExam();
     });
 
-    $('#btnSubmitVideoAnswer').click(function(e) {
+    $('#btnSubmitVideoAnswer').click(function (e) {
         e.preventDefault();
         var button = $(this);
         var score = 0;
@@ -92,7 +93,7 @@ $(document).ready(function() {
 
             $(this).button('loading');
             var answer = [];
-            $(".play-exam-answer").each(function(index) {
+            $(".play-exam-answer").each(function (index) {
                 value = $(this).val();
                 answer.push(value);
             });
@@ -114,12 +115,12 @@ $(document).ready(function() {
             return false;
         }
     });
-    $('#btnReset').click(function(e) {
+    $('#btnReset').click(function (e) {
         timeIdentity = 0;
         startCountTimer();
     });
 
-    $('#btnSavePlayerName').click(function(e) {
+    $('#btnSavePlayerName').click(function (e) {
         $.ajax({
             url: BASE_URL + '/video/saveScore',
             data: {
@@ -127,24 +128,24 @@ $(document).ready(function() {
                 videoId: video.id
             },
             type: 'post',
-            success: function(json) {
+            success: function (json) {
                 var data = $.parseJSON(json);
                 if (data.success) {
                     $('#highScoreContent').html(data.msg.scoreHtml);
 
                 }
             },
-            complete: function() {
+            complete: function () {
                 $('#highscoreDialog').modal('hide');
             }
         });
         e.preventDefault();
     });
 
-    $('#btnOpenReportDialog').click(function() {
+    $('#btnOpenReportDialog').click(function () {
         $('#feedbackDialog').modal('show');
     });
-    $('#btnSendReport').click(function(e) {
+    $('#btnSendReport').click(function (e) {
         e.preventDefault();
         $.ajax({
             url: BASE_URL + '/video/sendFeedback',
@@ -155,11 +156,11 @@ $(document).ready(function() {
                 email: $('#Report_email').val()
             },
             type: 'post',
-            success: function(json) {
+            success: function (json) {
                 var data = $.parseJSON(json);
                 bootbox.alert(data.msg);
             },
-            complete: function() {
+            complete: function () {
                 $('#feedbackDialog').modal('hide');
             }
         });
@@ -167,7 +168,7 @@ $(document).ready(function() {
 });
 
 function resetFormExam() {
-    $(".play-exam-answer").each(function(index) {
+    $(".play-exam-answer").each(function (index) {
         $(this).val('');
     });
     answeredField = 0;
@@ -175,6 +176,38 @@ function resetFormExam() {
 }
 
 function getDataYT(id) {
+// ------------------------- START Load Iframe Player API --------------------------
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var player = null;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: id,
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+//    event.target.playVideo();
+    }
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+//        setTimeout(stopVideo, 6000);
+//        done = true;
+        }
+    }
+    function stopVideo() {
+        player.stopVideo();
+    }
+// ------------------------- END Load Iframe Player API --------------------------
     articleid = id;
     captionContainer = $('#play-exam');
     captionContent = $('#play-exam-list');
@@ -185,9 +218,9 @@ function getDataYT(id) {
             id: id
         },
         type: 'post',
-        complete: function() {
+        complete: function () {
         },
-        success: function(resp) {
+        success: function (resp) {
             var jsonParse = JSON.parse(resp);
             var data = jsonParse.content[1];
             ansContent = jsonParse.content[0].answers;
@@ -210,18 +243,18 @@ function getDataYT(id) {
             var html = "";
             for (var i = 0; i < data.rows.length; i++) {
                 var row = '<div class="play-exam-item" id="captionItem-' + (i + 1) + '" data-number="' + i + '" data-start="' + data.rows[i].start_time + '" data-end="' + data.rows[i].end_time + '">' +
-                        '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
-                        '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
-                        '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
-                        '<a class="play-exam-tag" title="click to seek">' +
-                        '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
-                        '</a>' +
-                        '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
-                        '</div>';
+                    '<input type="hidden" class="timeValue" value="00:00:06,860 --&gt; 00:00:08,369">' +
+                    '<input type="hidden" class="startTime" value="' + data.rows[i].start_time + '">' +
+                    '<input type="hidden" class="endTime" value="' + data.rows[i].end_time + '">' +
+                    '<a class="play-exam-tag" title="click to seek">' +
+                    '<span class="caption-time">' + formatTime(data.rows[i].start_time) + '</span>' +
+                    '</a>' +
+                    '<div class="play-exam-text">' + data.rows[i].caption_text + '</div>' +
+                    '</div>';
                 // console.log(row);
                 html += row;
             }
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".play-exam-list").append(html);
                 resetFormExam();
                 $('.play-exam-answer:eq(0)').focus();
@@ -325,7 +358,7 @@ function saveHighScore(score) {
 function checkEmptyField() {
     $('.play-exam-answer').removeClass('inputError');
     var result = false;
-    $(".play-exam-answer").each(function(index) {
+    $(".play-exam-answer").each(function (index) {
 
         value = $(this).val();
 
@@ -338,63 +371,12 @@ function checkEmptyField() {
     return result;
 }
 
-
-var tag = document.createElement('script');
-
-// This is a protocol-relative URL as described here:
-//     http://paulirish.com/2010/the-protocol-relative-url/
-// If you're testing a local page accessed via a file:/// URL, please set tag.src to
-//     "https://www.youtube.com/iframe_api" instead.
-tag.src = "//www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '385',
-        width: '100%',
-//	  	videoId: youtubeId,
-        playerVars: {
-            showinfo: 0
-        },
-        events: {
-//		    'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-
-function onPlayerReady() {
-    $('#btnBack5Sec').click(function(e) {
-        e.preventDefault();
-        player.seekTo(player.getCurrentTime() - 5);
-    });
-
-    $('#btnNext5Sec').click(function(e) {
-        e.preventDefault();
-        player.seekTo(player.getCurrentTime() + 5);
-    });
-}
-
-function onPlayerStateChange(event) {
-    if (event.data === 1) {
-        startCheckVideoTime();
-    } else {
-        stopCheckVideoTime();
-    }
-}
-
-
-
-$(document).ready(function() {
+$(document).ready(function () {
     btnAutoScroll = $('#btnAutoScroll');
     autoscroll = $.cookie('autoscroll');
     $.cookie('autoscroll', 0);
     setAutoScrollText();
-    btnAutoScroll.click(function(e) {
+    btnAutoScroll.click(function (e) {
         e.preventDefault();
         console.log("before -----------" + autoscroll);
         changeAutoScroll();
@@ -424,8 +406,8 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-    $('#btnYourPosition').click(function() {
+$(document).ready(function () {
+    $('#btnYourPosition').click(function () {
 
     });
 });
@@ -438,7 +420,7 @@ function shareScore(score, rank, video) {
             'message': message,
             'link': video.website_url,
             'description': 'Số điểm: ' + score + '\r\n' + 'Xếp hạng: ' + rank
-        }, function(response) {
+        }, function (response) {
             console.log(response);
         });
     }
@@ -452,10 +434,10 @@ function increasePlayCount() {
 
 }
 function getFbUserData(callback) {
-    callback = callback || function() {
+    callback = callback || function () {
     };
     if (fbUserData == null) {
-        FB.api('/me', function(response) {
+        FB.api('/me', function (response) {
             if (!response || response.error) {
                 console.log('error get user data');
                 console.log(response);
@@ -487,16 +469,16 @@ function informPlayerScore(score, rank, time) {
     if (fbUserData !== null) {
         bootbox.hideAll();
         bootbox.confirm('Chúc mừng bạn đã đạt được ' + score + ' điểm. '
-                + rankText + '.<br/>'
-                + 'Thời gian hoàn thành của bạn là ' + time
-                + '. Bạn có muốn chia sẽ kết quả này ?', 'Để lát nữa.', 'Post lên Facebook liền !', function(result) {
+            + rankText + '.<br/>'
+            + 'Thời gian hoàn thành của bạn là ' + time
+            + '. Bạn có muốn chia sẽ kết quả này ?', 'Để lát nữa.', 'Post lên Facebook liền !', function (result) {
             if (result) {
                 shareScore(score, rank, video);
             }
         });
     } else {
         bootbox.hideAll();
-        bootbox.confirm('Congratulations on getting  ' + score + ' points. Your Completion time is ' + time + '.<br/>Do you want save this result ??', function(result) {
+        bootbox.confirm('Congratulations on getting  ' + score + ' points. Your Completion time is ' + time + '.<br/>Do you want save this result ??', function (result) {
             if (result) {
                 $.ajax({
                     url: './BLL/submitExamBll.php',
@@ -505,8 +487,8 @@ function informPlayerScore(score, rank, time) {
                         score: score
                     },
                     type: 'post',
-                    success: function(resp) {
-                        if(trim(resp) === 'true'){
+                    success: function (resp) {
+                        if (trim(resp) === 'true') {
                             bootbox.hideAll();
                             bootbox.alert('This exam saved success !')
                         }
@@ -537,7 +519,7 @@ function reloadHighScore(videoId) {
             videoId: videoId
         },
         type: 'get',
-        success: function(json) {
+        success: function (json) {
             var data = $.parseJSON(json);
             if (data.success) {
                 $('#highscoreList').html(data.msg.html);
@@ -546,8 +528,8 @@ function reloadHighScore(videoId) {
     });
 }
 
-$(document).ready(function() {
-    $('#btnShowResult').click(function(e) {
+$(document).ready(function () {
+    $('#btnShowResult').click(function (e) {
         e.preventDefault();
         seeResult(video);
     });
@@ -559,7 +541,7 @@ var isShowResult = false;
 
 function seeResult(video) {
     if (isShowResult === false) {
-        bootbox.confirm('Bạn đang yêu cầu xem đáp án của video: ' + video.title + '. <br/>Đáp án video chỉ được xem <strong>một lần</strong> duy nhất. <br/>Bạn chỉ có <strong>30 giây</strong> để xem kết quả. <br/>Hãy quan sát thật kỹ những từ mà bạn muốn xem đáp án.', 'Thôi', 'Tiếp tục xem', function(confirm) {
+        bootbox.confirm('Bạn đang yêu cầu xem đáp án của video: ' + video.title + '. <br/>Đáp án video chỉ được xem <strong>một lần</strong> duy nhất. <br/>Bạn chỉ có <strong>30 giây</strong> để xem kết quả. <br/>Hãy quan sát thật kỹ những từ mà bạn muốn xem đáp án.', 'Thôi', 'Tiếp tục xem', function (confirm) {
             if (confirm) {
                 getResult(video.id);
             }
@@ -575,7 +557,7 @@ function getResult(videoId) {
             id: videoId
         },
         type: 'post',
-        success: function(json) {
+        success: function (json) {
             var data = $.parseJSON(json);
             if (data.success) {
                 $('#displayContent').html(data.msg.resultContent);
@@ -589,7 +571,7 @@ function getResult(videoId) {
 
 function startCountDown() {
     var time = 30;
-    var showResultIntervalId = setInterval(function() {
+    var showResultIntervalId = setInterval(function () {
 
         time--;
         $('#btnShowResult').text('Kết thúc trong ' + '(' + time + ')');
@@ -607,7 +589,7 @@ function setTimerToRestoreResult() {
 }
 
 function getVideoContent(callback) {
-    callback = callback || function() {
+    callback = callback || function () {
     };
 
     $.ajax({
@@ -616,7 +598,7 @@ function getVideoContent(callback) {
 //            id: video.id
         },
         type: 'post',
-        success: function(json) {
+        success: function (json) {
             var data = $.parseJSON(json);
             if (data.success) {
                 timeIdentity = data.msg.timeIdentity;
@@ -652,24 +634,20 @@ function getVideoContent(callback) {
 var timeIdentity = 0;
 var t;
 var timer_is_on = 0;
-function timedCount()
-{
+function timedCount() {
 //    document.getElementById('txt').value=c;
     timeIdentity += 1;
     t = setTimeout("timedCount()", 1000);
 }
 
-function startCountTimer()
-{
-    if (!timer_is_on)
-    {
+function startCountTimer() {
+    if (!timer_is_on) {
         timer_is_on = 1;
         timedCount();
     }
 }
 
-function stopCountTimer()
-{
+function stopCountTimer() {
     clearTimeout(t);
     timer_is_on = 0;
 }

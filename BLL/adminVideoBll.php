@@ -3,7 +3,7 @@ include '../DAO/connection.php';
 
 $idvideo = $_POST['v'];
 $cateid = $_POST['cateid'];
-$title = $_POST['title'];
+$title = str_replace("'", "", $_POST['title']);
 $link = 'http://www.youtube.com/embed/'.$idvideo;
 $thumbnail = 'http://img.youtube.com/vi/'.$idvideo.'/mqdefault.jpg';
 $duration = $_POST['duration'];
