@@ -13,6 +13,8 @@ include 'BLL/activityHistoryBLL.php';
         <title></title>
         <link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap-yii.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive-style.css" rel="stylesheet" type="text/css"/>
         <link href="css/date-picker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
@@ -22,6 +24,8 @@ include 'BLL/activityHistoryBLL.php';
         <script type="text/javascript" src="scripts/ajax-userprocess.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
         <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
         <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -35,7 +39,7 @@ include 'BLL/activityHistoryBLL.php';
             ?>
 
             <div class="form-head">
-                <span>Learning-English</span><span class="form-head-gray">Profile</span>
+                <span>Learning-English</span><span class="form-head-gray"> • Profile</span>
 
                 <div class="form-head-task">
                     // ------------ Check user login----------------//
@@ -46,7 +50,7 @@ include 'BLL/activityHistoryBLL.php';
                                         <div class="form-head-profile">
                                                 <span>' . $_SESSION["email"] . '</span>
                                                 <span class="menu-popup-avt" style="background-image:url(' . $_SESSION["avatar"] . ')"></span>
-                                        </div><div class="form-head-logout"><a></a><a id="btn-logout">Logout</a></div>
+                                        </div><div class="form-head-logout"><a href="profile.php?id='.$_SESSION['userid'].'">Profile</a><a id="btn-logout">Logout</a></div>
                                 </div>
                                 </div>';
                     }
