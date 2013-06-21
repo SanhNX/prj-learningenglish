@@ -74,7 +74,7 @@ include 'BLL/userBll.php';
         ?>
         <div class="form">
             <div class="form-head">
-                <span>Learning-English</span><span class="form-head-gray">Home</span>
+                <span>Learning-English</span><span class="form-head-gray"> • Examination</span>
             </div>
             <div class="form-head-task">
                 // ------------ Check user login----------------//
