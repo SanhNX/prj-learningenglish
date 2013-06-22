@@ -31,13 +31,13 @@ include 'BLL/userBll.php';
         <script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
         <script type="text/javascript" src="scripts/bootstrap.js"></script>
-        <script type="text/javascript" src="scripts/video-control.js"></script>
         <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
         <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="scripts/effect.js"></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/date.js"></script>
         <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
+        <script type="text/javascript" src="scripts/video-control.js"></script>
 
     </head>
     <?php
