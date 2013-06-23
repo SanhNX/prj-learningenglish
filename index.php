@@ -213,7 +213,7 @@ include 'BLL/articleBLL.php';
                     </div>
                 </div>
                 <div class="fb-bar">
-                    <div class="fb-like-box" data-href="http://www.facebook.com/voalearningenglish" data-width="1040" data-height="210" data-show-faces="true" data-stream="false" data-header="false"></div>
+                    <div class="fb-like-box" data-href="http://www.facebook.com/Flewup" data-width="1040" data-height="210" data-show-faces="true" data-stream="false" data-header="false"></div>
                 </div>
             </div>
             <?php
