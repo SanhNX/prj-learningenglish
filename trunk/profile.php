@@ -84,7 +84,7 @@ include 'BLL/activityHistoryBLL.php';
                     </div>
                     <div class="profile-panel">
                             <div class="profile-head">Result</div>
-                            <div class="profile-name">lIST OF COMPLETED VIDEOS</div>
+                            <div class="profile-name">LIST OF COMPLETED VIDEOS</div>
                             <div class="profile-title">Total score : ' . countScore($id) . ' points  </div>
                             <ul class="control-rank-list profile">
                  ';
