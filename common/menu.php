@@ -9,11 +9,11 @@
 
             <div class="menu-arrow"></div>
         </li>
-        <li class="menu-item menu-group day" id="day"><a href="#">Ranking in day</a>
+        <li class="menu-item menu-group day" id="day"><a href="#">Today rankings</a>
 
             <div class="menu-arrow"></div>
         </li>
-        <li class="menu-item menu-group week" id="week"><a href="#">Ranking in week</a>
+        <li class="menu-item menu-group week" id="week"><a href="#">Weekly rankings</a>
 
             <div class="menu-arrow"></div>
         </li>
