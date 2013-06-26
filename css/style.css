@@ -1218,8 +1218,9 @@ body {
     width: 295px;
     display: inline-block;
     vertical-align: middle;
-    position: relative;
-    margin: 100px 0px 0px 20px;
+    position: absolute;
+    margin: 125px 0px 0px -35px;
+    zoom: 0.9;
 }
 
 .login-message-content {
