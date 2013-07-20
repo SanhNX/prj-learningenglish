@@ -70,6 +70,7 @@ $(function () {
 	resetCalendarDate();
 	resetCalendarWeek();
 	initScrollBar();
+	initMessage();
 });
 var fbUserData = null;
 function getFbUserData(callback) {
@@ -263,4 +264,10 @@ function initScrollBar() {
 			theme: "light-thin"
 		});
 	});
+}
+function initMessage() {
+	$(".contact-item").click(function(){
+		$(".contact-item").removeClass("active");
+		$(this).addClass("active");
+	})
 }

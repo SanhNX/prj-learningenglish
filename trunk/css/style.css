@@ -1588,3 +1588,96 @@ body {
 .control-rank-list.profile .rank-row-item.head .rank-row-name {
     width: 425px;
 }
+/*MESSAGE-----*/
+.panel-contact {
+	width: 350px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 5px;
+}
+.panel-message {
+	width: 400px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 5px;
+}
+.contact-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.contact-item {
+	height: 80px;
+	text-align: left;
+	overflow: hidden;
+	cursor: pointer;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	transition: all 200ms ease-out;
+}
+.contact-item:nth-child(2n) {
+	background: #EEE;
+}
+.contact-item:hover {
+	box-shadow: 2px 0px 0px 0px #008299;
+}
+
+.contact-avt {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	background-size: cover;
+}
+.contact-info {
+	display: inline-block;
+	vertical-align: top;
+	width: 270px;
+}
+.contact-info-head {
+	text-indent: 5px;
+	width: 100%;
+	display: block;
+}
+.contact-name {
+	font-size: 20px;
+	color: #005766;
+	width: 180px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.contact-time {
+	font-size: 14px;
+	text-transform: uppercase;
+	float: right;
+	line-height: 30px;
+	width: 75px;
+	padding-right: 5px;
+	text-align: right;
+}
+.contact-message {
+	font-size: 13px;
+	clear: both;
+	display: inline-block;
+	display: -webkit-box;
+	width: 260px;
+	padding: 0px 5px;
+	color: #6F6F6F;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+.contact-item.active {
+	background: #008299;
+	box-shadow: 0px 0px 0px 0px;
+}
+.contact-item.active .contact-time{
+	color: #FFF;
+}
+.contact-item.active .contact-name{
+	color: #FFF;
+}
+.contact-item.active .contact-message{
+	color: #FFF;
+	color: rgba(255, 255, 255, 0.59);
+}
