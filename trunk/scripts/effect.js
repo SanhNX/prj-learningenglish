@@ -270,4 +270,7 @@ function initMessage() {
 		$(".contact-item").removeClass("active");
 		$(this).addClass("active");
 	})
+	$(".emo-item").click(function(){
+		$("#message-input").append($(this).text());
+	})
 }
