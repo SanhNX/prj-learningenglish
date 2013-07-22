@@ -1799,6 +1799,7 @@ body {
 	visibility: visible;
 	color: #005766;
 }
+
 .message-item.friend .message-time {
 	color: #FFF;
 	background: url("../images/icon/chat-ico.png") no-repeat left 0px;
@@ -1819,4 +1820,106 @@ body {
 
 .message-item.friend+.message-item.friend .message-avt {
 	visibility: hidden;
+}
+
+.message-compose {
+	height: 75px;
+	margin: 0px auto;
+	width: 430px;
+	padding: 5px;
+	background: #008299;
+}
+
+.message-input {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	height: 40px;
+	border: 0px;
+}
+
+.message-input:focus {
+	outline: none;
+}
+
+.message-btn-send {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	background: #EAFAFD;
+	margin-top: 5px;
+	float: right;
+	cursor: pointer;
+}
+.message-btn-send:hover {
+	background: #b5bdfd;
+}
+
+.message-control-avt {
+	height: 30px;
+	width: 30px;
+	background: no-repeat center;
+	background-size: cover;
+	float: left;
+	margin-top: 5px;
+}
+
+.message-control-quote {
+	height: 35px;
+	width: 40px;
+	background: url("../images/icon/quos-white-ico.png") no-repeat center 0px;
+	float: left;
+}
+
+.message-control-emoticon {
+	height: 30px;
+	width: 30px;
+	background: url("../images/icon/emo-ico.png") no-repeat center 0px;
+	float: right;
+	padding: 5px;
+	position: relative;
+}
+
+.message-control-emoticon:hover {
+	background: url("../images/icon/emo-ico.png") no-repeat center -40px;
+}
+
+.message-emo-popup {
+	display: none;
+	width: 200px;
+	height: 120px;
+	bottom: 40px;
+	background: url("../images/icon/emo-bg.png") no-repeat center #EEE;
+	position: absolute;
+}
+
+.message-control-emoticon:hover .message-emo-popup {
+	display: block;
+}
+
+.emo-list {
+	list-style: none;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.emo-item {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	float: left;
+	cursor: default;
+	-webkit-transition: background 150ms linear;
+	-moz-transition: background 150ms linear;
+	-o-transition: background 150ms linear;
+	transition: background 150ms linear;
+}
+.emo-item:hover{
+	background: rgba(17, 128, 146, 0.33);
 }
