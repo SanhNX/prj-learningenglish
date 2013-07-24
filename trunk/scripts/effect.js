@@ -1,10 +1,15 @@
 //window.onhashchange = function() {
 //    if (location.hash != ""){
-//        
+//
 //    }
-//       
+//
 //}
 $(function () {
+
+
+    $("#createMessage").click(function (){
+        window.location.href = 'message.php';
+    });
 
 	$(".menu-group").each(function () {
 		$(this).hover(function () {
@@ -252,6 +257,12 @@ function initScrollBar() {
                             updateOnContentResize: true
                         }
 		});
+
+        $("#messageList").mCustomScrollbar({
+            autoHideScrollbar: false,
+            theme: "light-thin",
+            advanced: {updateOnContentResize: true}
+        });
                 
 		$("#rank-list-week").mCustomScrollbar({
 			autoHideScrollbar: false,

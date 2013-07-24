@@ -51,4 +51,11 @@ class UserInfor{
         var $date;
 }
 
+class Message{
+    var $messid;
+    var $userid;
+    var $friendid;
+    var $message;
+    var $senddate;
+}
 ?>

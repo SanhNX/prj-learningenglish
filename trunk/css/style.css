@@ -1734,6 +1734,11 @@ body {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+    height: 300px;
+    overflow: hidden;
+}
+#messageList .mCSB_container {
+    padding-right: 20px;
 }
 
 .message-item {
@@ -1751,7 +1756,7 @@ body {
 
 .message-content {
 	display: inline-block;
-	width: 430px;
+	width: 415px;
 	padding: 0px 5px 5px 5px;
 	background: #EEE;
 	position: relative;
@@ -1823,11 +1828,11 @@ body {
 }
 
 .message-compose {
-	height: 75px;
-	margin: 0px auto;
-	width: 430px;
-	padding: 5px;
-	background: #008299;
+    height: 75px;
+    margin: 0px 0px 0px 53px;
+    width: 415px;
+    padding: 5px;
+    background: #008299;
 }
 
 .message-input {
@@ -1838,6 +1843,7 @@ body {
 	min-width: 100%;
 	height: 40px;
 	border: 0px;
+    max-height: 40px;
 }
 
 .message-input:focus {
