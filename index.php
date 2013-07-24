@@ -179,7 +179,7 @@ include 'BLL/articleBLL.php';
                                 <div class="front">
                                     <!-- front content -->
                                 </div>
-                                <div class="back">
+                                <div id="createMessage" class="back">
                                     <!-- back content -->
                                 </div>
                             </div>
@@ -197,19 +197,7 @@ include 'BLL/articleBLL.php';
                     </div>
                     <div class=control-rank-recent-index>
                         <div class="control-rank-head"></div>
-                        <ul class="control-rank-list">
-                            <!--                            <li class="control-rank-item">User 1111111111111111111111111111111111111111<a href="#"> thanh</a></li>
-                                                        <li class="control-rank-item">User1111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 31111111111111111111111</li>
-                                                        <li class="control-rank-item">User 41111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 51111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 61111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 71111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 81111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 91111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 101111111111111111111111111111</li>
-                                                        <li class="control-rank-item">User 11111111111111111111111111111</li>-->
-                        </ul>
+                        <ul class="control-rank-list"></ul>
                     </div>
                 </div>
                 <div class="fb-bar">
