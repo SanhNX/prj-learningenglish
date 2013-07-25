@@ -1929,3 +1929,36 @@ body {
 .emo-item:hover{
 	background: rgba(17, 128, 146, 0.33);
 }
+/*FRIEND LIST*/
+.panel-friend {
+	display: inline-block;
+	width: 250px;
+}
+
+.friend-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 20px;
+}
+.friend-item {
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+}
+.friend-item:nth-child(2n) {
+	background-color: #DDD;
+}
+.friend-avt {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	background: no-repeat center;
+	background-size: cover;
+}
+.friend-name {
+	vertical-align: top;
+	display: inline-block;
+	color: #007286;
+}
