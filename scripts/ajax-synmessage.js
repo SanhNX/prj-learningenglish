@@ -3,6 +3,19 @@ $(document).ready(function() {
         synMessage();
     });
     $("#btnSend").click(function() {
+        sendMessage();
+    });
+
+    $('#message-input').keypress(function(event) {
+        if (event.keyCode == '13') {
+            sendMessage();
+        }
+    });
+
+});
+
+function sendMessage() {
+    if($("#message-input").val().trim() != ""){
         var message = $("#message-input").val();
         var str_string = 'flag=sendMessage&message=' + message;
         var now = new Date();
@@ -29,10 +42,10 @@ $(document).ready(function() {
                 }
             }
         });
-    });
-
-
-});
+    } else {
+        return;
+    }
+}
 
 function synMessage(){
     var str_string = 'flag=initConversation';
