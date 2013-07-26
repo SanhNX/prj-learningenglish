@@ -2,19 +2,20 @@
 session_start();
 include '../DAO/connection.php';
 include '../DTO/object.php';
-
+$flag = $_POST['flag'];
 $userid = $_SESSION['userid'];
 $friendid = 2;
+if($flag == 'initConversation'){
 
-$result = getAllMessageWithFriend($userid, $friendid);
-$messageList = "";
-$avt0 = "images/resource/avt0.jpg";
-$avt5 = "images/resource/metro/m5.jpg";
-for ($i = 0; $i < count($result); $i++) {
-    $item = $result[$i];
-    $messageItem = "";
-    if($item->UserId == $userid){
-        $messageItem = '<li class="message-item">
+    $result = getAllMessageWithFriend($userid, $friendid);
+    $messageList = "";
+    $avt0 = "images/resource/avt0.jpg";
+    $avt5 = "images/resource/metro/m5.jpg";
+    for ($i = 0; $i < count($result); $i++) {
+        $item = $result[$i];
+        $messageItem = "";
+        if($item->UserId == $userid){
+            $messageItem = '<li class="message-item">
 				<div class="message-avt" style="background-image: url('.$avt0.')"></div>
 				<div class="message-content">
 					<div class="message-info">
@@ -25,8 +26,8 @@ for ($i = 0; $i < count($result); $i++) {
 				</div>
 			</li>';
 
-    } else {
-        $messageItem = '<li class="message-item friend">
+        } else {
+            $messageItem = '<li class="message-item friend">
 				<div class="message-avt" style="background-image: url('.$avt5.')"></div>
 				<div class="message-content">
 					<div class="message-info">
@@ -36,11 +37,23 @@ for ($i = 0; $i < count($result); $i++) {
 					<div class="message-text">'.$item->Message.'</div>
 				</div>
 			</li>';
+        }
+        $messageList = $messageList . $messageItem;
     }
-    $messageList = $messageList . $messageItem;
+
+    echo $messageList;
 }
 
-echo $messageList;
+if($flag == 'sendMessage'){
+    $now = getdate();
+    $senddate = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"] . " " . ($now["hours"] + 1) . ":" . $now["minutes"] . ":" . $now["seconds"];
+    $result = sendMessage($userid, $friendid, $_POST['message'], $senddate);
+    if($result == -1)
+        echo 'fail';
+    else
+        echo 'success';
+}
+
 
 function getAllMessageWithFriend ($userid, $friendid) {
     $sql = "select * from tbl_message where (userid = '".$userid."' OR userid = '".$friendid."') AND (friendid = '".$userid."' OR friendid = '".$friendid."') ORDER BY senddate ASC";
@@ -62,6 +75,21 @@ function getAllMessageWithFriend ($userid, $friendid) {
         $i++;
     }
     return $result;
+}
+
+function sendMessage ($userid, $friendid, $message, $senddate){
+    $sql = "INSERT INTO tbl_message ( userid, friendid, message, senddate) VALUES ('$userid','$friendid', '$message', '$senddate')";
+    $queryResult = mysql_query($sql) or die(mysql_error());
+
+    if (!$queryResult) {
+        echo 'Error: ' . mysql_error();
+        return -1;
+    }
+
+    if ($queryResult)
+        return mysql_insert_id();
+    else
+        return -1;
 }
 
 ?>

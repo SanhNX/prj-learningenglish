@@ -24,9 +24,10 @@ include 'BLL/categoryBll.php';
     <script type="text/javascript" src="scripts/webtoolkit.aim.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.10.2.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-colors-min.js"></script>
-	<script type="text/javascript" src="scripts/date.js"></script>
-	<script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
-	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="scripts/date.js"></script>
+    <script type="text/javascript" src="scripts/date.format.js"></script>
+    <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
     <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
     <script type="text/javascript" src="scripts/ajax-index.js"></script>
@@ -140,7 +141,7 @@ include 'BLL/categoryBll.php';
 			<div class="message-control">
 				<div class="message-control-avt" style="background-image: url('images/resource/avt0.jpg')"></div>
 				<div class="message-control-quote"></div>
-				<a class="message-btn-send">Send</a>
+				<a id="btnSend" class="message-btn-send">Send</a>
 
 				<div class="message-control-emoticon">
 					<div class="message-emo-popup">
