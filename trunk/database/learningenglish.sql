@@ -40,13 +40,11 @@ create table tbl_message
 );
 create table tbl_followuser
 (
-    followid int auto_increment primary key not null,
     userid int not null,
-    followuser int,
-    userfollow int,    
+    followid int not null,   
 	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id),
-	CONSTRAINT FOREIGN KEY(followuser) references tbl_user(id),
-	CONSTRAINT FOREIGN KEY(userfollow) references tbl_user(id)
+	CONSTRAINT FOREIGN KEY(followid) references tbl_user(id),
+	primary key(userid, followid)
 );
 create table tbl_article
 (

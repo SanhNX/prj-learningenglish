@@ -128,6 +128,16 @@ function updateUser ($id, $status){
     else
         return -1;
 }
-
+function checkUserFollow($userid, $followid) {
+    $sql = "SELECT * FROM  tbl_followuser WHERE userid = '" . $userid . "' AND followid = '" . $followid . "'";
+    $result = mysql_query($sql);
+    if (!$result) {
+        echo 'Could not run query: ' . $email . mysql_error();
+        exit;
+    }
+    // Mysql_num_row is counting table row
+    $count = mysql_num_rows($result);
+    return $count;
+}
 
 ?>

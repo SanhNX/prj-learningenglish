@@ -18,6 +18,15 @@ if($flag == 'getAllFriend'){
     echo $friendListHTML;
 }
 
+if($flag == 'followUser'){
+    $followid = $_POST['followid'];
+    $excuteQuery = addFollowUser($userid, $followid);
+    if($excuteQuery == -1)
+        echo 'fail';
+    else
+        echo 'success';
+}
+
 
 function getAllFriendListFromUser ($userid) {
     $sql = "select * from tbl_friendlist where userid = '".$userid."' ORDER BY dateaccept DESC";
@@ -40,5 +49,21 @@ function getAllFriendListFromUser ($userid) {
     }
     return $result;
 }
+
+function addFollowUser ($userid, $followid){
+    $sql = "INSERT INTO tbl_followuser (userid, followid) VALUES ('$userid','$followid')";
+    $queryResult = mysql_query($sql) or die(mysql_error());
+
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+
+    if ($queryResult)
+        return mysql_insert_id();
+    else
+        return -1;
+}
+
 
 ?>
