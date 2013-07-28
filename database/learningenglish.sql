@@ -1,5 +1,4 @@
-create database learningenglish;
-use learningenglish;
+
 
 create table tbl_category
 (
@@ -22,11 +21,13 @@ create table tbl_user
 
 create table tbl_friendlist
 (
-    friendlistid int not null, 
+    friendlistid int auto_increment not null, 
     userid int not null,
+	friendid int not null,
     dateaccept datetime,
 	CONSTRAINT FOREIGN KEY(userid) references tbl_user(id),
-    primary key(friendlistid, userid)
+	CONSTRAINT FOREIGN KEY(friendid) references tbl_user(id),	
+    primary key(friendlistid, userid, friendid)
 );
 create table tbl_message
 (

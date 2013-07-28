@@ -1,23 +1,68 @@
+var friendid = null;
 $(document).ready(function() {
     $("#contactList").click(function() {
-        synMessage();
+//        synMessage();
     });
-    $("#btnSend").click(function() {
-        sendMessage();
+    $("#btnSyn").click(function() {
+        if(friendid != null)
+            synMessage(friendid);
+        else
+            bootbox.alert("Please choose a friend in friend list to begin send message.");
     });
 
     $('#message-input').keypress(function(event) {
         if (event.keyCode == '13') {
-            sendMessage();
+            if(friendid != null)
+                sendMessage();
+            else {
+                $("#noConversation").removeClass("undisplayed");
+                bootbox.alert("Please choose a friend in friend list to begin send message.");
+            }
         }
     });
 
+    $('.friend-item').live('click', function(e){
+        var index = $(this).index('.friend-item');
+        var nodeId = $('.friend-item')[index].getAttribute("id");
+        friendid = $('#id' + nodeId).val();
+        synMessage(friendid);
+    });
+
 });
+window.onload=function(){
+    getAllFriend();
+};
+
+function getAllFriend() {
+    var str_string = 'flag=getAllFriend';
+    $.ajax({
+        type: "POST",
+        url: "./BLL/friendListBll.php",
+        data: str_string,
+        cache: false,
+        success: function(dto) {
+            $("#friend-list").html('');
+            if (dto.trim() != ""){
+                $("#friend-list").html(dto);
+                setTimeout(function(){
+                    $("#friend-list").mCustomScrollbar({
+                        autoHideScrollbar: false,
+                        theme: "dark-thin",
+                        advanced: {updateOnContentResize: true}
+                    });
+                },350);
+            }
+//                else
+//                    $("#messageList").html('<span class="mess-no-result">* Not found result matched. Please input another keyword !</span>');
+
+        }
+    });
+}
 
 function sendMessage() {
     if($("#message-input").val().trim() != ""){
         var message = $("#message-input").val();
-        var str_string = 'flag=sendMessage&message=' + message;
+        var str_string = 'flag=sendMessage&friendid='+friendid+'&message=' + message;
         var now = new Date();
         $.ajax({
             type: "POST",
@@ -47,8 +92,11 @@ function sendMessage() {
     }
 }
 
-function synMessage(){
-    var str_string = 'flag=initConversation';
+
+
+function synMessage(friendid){
+
+    var str_string = 'flag=initConversation&friendid='+friendid;
     $.ajax({
         type: "POST",
         url: "./BLL/messageBll.php",
@@ -56,9 +104,11 @@ function synMessage(){
         cache: false,
         success: function(dto) {
             $("#messageList").html('');
+            $(".noConversation").addClass("undisplayed");
             if (dto.trim() != ""){
                 $("#messageList").html(dto);
-                $("#messageCompose").removeClass("undisplayed");
+//                $("#messageCompose").removeClass("undisplayed");
+                $(".noMessage").addClass("undisplayed");
                 setTimeout(function(){
                     $("#messageList").mCustomScrollbar({
                         autoHideScrollbar: false,
@@ -67,9 +117,10 @@ function synMessage(){
                     });
                     $("#messageList").mCustomScrollbar("scrollTo","bottom");
                 },350);
+            } else {
+                $(".noMessage").removeClass("undisplayed");
+//                $("#messageCompose").addClass("undisplayed");
             }
-//                else
-//                    $("#messageList").html('<span class="mess-no-result">* Not found result matched. Please input another keyword !</span>');
 
         }
     });

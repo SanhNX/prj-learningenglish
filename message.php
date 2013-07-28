@@ -29,6 +29,8 @@ include 'BLL/categoryBll.php';
     <script type="text/javascript" src="scripts/jquery.date-picker.js"></script>
     <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="scripts/effect.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.bootbox.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/ajax-rankingdate.js"></script>
     <script type="text/javascript" src="scripts/ajax-index.js"></script>
     <script type="text/javascript" src="scripts/ajax-synmessage.js"></script>
@@ -132,16 +134,25 @@ include 'BLL/categoryBll.php';
 			</li>
 		</ul>
 	</div>
+    <div class="panel-friend">
+        <div class="profile-head">Friends List</div>
+        <ul id="friend-list" class="friend-list">
+
+        </ul>
+    </div>
 	<div class="panel-message">
 		<div class="profile-head">Message</div>
+        <div class="noConversation">No Conversation Selected. Please choose a friend in friend list to begin send message.</div>
+        <div class="noMessage undisplayed">No Message displayed</div>
 		<ul id="messageList" class="message-list"></ul>
-		<div id="messageCompose" class="message-compose undisplayed">
+		<div id="messageCompose" class="message-compose">
 			<textarea class="message-input" id="message-input"></textarea>
 
 			<div class="message-control">
 				<div class="message-control-avt" style="background-image: url('images/resource/avt0.jpg')"></div>
 				<div class="message-control-quote"></div>
-				<a id="btnSend" class="message-btn-send">Send</a>
+                <div class="message-control-text"> Press enter to send message</div>
+				<a id="btnSyn" class="message-btn-send">Get new message</a>
 
 				<div class="message-control-emoticon">
 					<div class="message-emo-popup">
@@ -164,8 +175,9 @@ include 'BLL/categoryBll.php';
 				</div>
 			</div>
 
-		</div>
-	</div>
+        </div>
+    </div>
+
 
 </div>
 </div>
