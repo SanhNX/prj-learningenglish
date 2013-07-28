@@ -58,4 +58,11 @@ class Message{
     var $message;
     var $senddate;
 }
+
+class FriendList{
+    var $friendListid;
+    var $userid;
+    var $friendid;
+    var $dateaccept;
+}
 ?>

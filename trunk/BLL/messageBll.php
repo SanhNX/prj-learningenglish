@@ -2,21 +2,24 @@
 session_start();
 include '../DAO/connection.php';
 include '../DTO/object.php';
+include '../BLL/userBll.php';
 $flag = $_POST['flag'];
 $userid = $_SESSION['userid'];
-$friendid = 2;
+$friendid = $_POST['friendid'];
 if($flag == 'initConversation'){
 
     $result = getAllMessageWithFriend($userid, $friendid);
     $messageList = "";
     $avt0 = "images/resource/avt0.jpg";
     $avt5 = "images/resource/metro/m5.jpg";
+    $user = getInforUserById($userid);
+    $friend = getInforUserById($friendid);
     for ($i = 0; $i < count($result); $i++) {
         $item = $result[$i];
         $messageItem = "";
         if($item->UserId == $userid){
             $messageItem = '<li class="message-item">
-				<div class="message-avt" style="background-image: url('.$avt0.')"></div>
+				<div class="message-avt" style="background-image: url('.$_SESSION['avatar'].')"></div>
 				<div class="message-content">
 					<div class="message-info">
 						<span class="message-name">Me</span>
@@ -28,7 +31,7 @@ if($flag == 'initConversation'){
 
         } else {
             $messageItem = '<li class="message-item friend">
-				<div class="message-avt" style="background-image: url('.$avt5.')"></div>
+				<div class="message-avt" style="background-image: url('.$friend->avatar.')"></div>
 				<div class="message-content">
 					<div class="message-info">
 						<span class="message-name">F. Possimus</span>
