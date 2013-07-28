@@ -65,4 +65,17 @@ class FriendList{
     var $friendid;
     var $dateaccept;
 }
+
+class FollowList{
+    var $userid;
+    var $followid;
+}
+
+class FollowItem{
+    var $friendFollowid;
+    var $articleid;
+    var $avatar;
+    var $title;
+    var $datesubmit;
+}
 ?>

@@ -100,5 +100,29 @@ function getActivityHistoryByArticleId($id) {
     return $result;
 }
 
+function getActivityHistoryByUserId($id) {
+    $sql = "SELECT * FROM tbl_activityhistory WHERE userid = '" . $id . "' ORDER BY score DESC";
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+    $i = 0;
+    $result = null;
+    while ($seletedItem = mysql_fetch_array($queryResult)) {
+//        echo '<script>alert("' . $seletedItem['userid'] . '")</script>';
+        $item = new ActivityHistory();
+        $item->historyid = $seletedItem['historyid'];
+        $item->userid = $seletedItem['userid'];
+        $item->articleid = $seletedItem['articleid'];
+        $item->datesubmit = $seletedItem['datesubmit'];
+        $item->score = $seletedItem['score'];
+
+        $result[$i] = $item;
+        $i++;
+    }
+    return $result;
+}
+
 ?>
                             

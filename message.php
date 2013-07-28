@@ -76,63 +76,8 @@ include 'BLL/categoryBll.php';
 	</div>
 
 	<div class="panel-contact">
-		<div class="profile-head">Recent Contact</div>
-		<ul id="contactList" class="contact-list">
-			<li class="contact-item active">
-				<div class="contact-avt" style="background-image:url('images/resource/avt0.jpg')"></div>
-				<div class="contact-info">
-					<div class="contact-info-head">
-						<span class="contact-name">H. Rackham</span>
-						<span class="contact-time">12:03 AM</span>
-					</div>
-					<span class="contact-message">Sint occaecati cupiditate non provident, similique</span>
-				</div>
-			</li>
-			<li class="contact-item">
-				<div class="contact-avt" style="background-image:url('images/resource/avt1.jpg')"></div>
-				<div class="contact-info">
-					<div class="contact-info-head">
-						<span class="contact-name">Mary</span>
-						<span class="contact-time">12:03 AM</span>
-					</div>
-					<span class="contact-message">But in certain circumstances and owing to the claims
-						of duty or the obligations :)</span>
-				</div>
-			</li>
-			<li class="contact-item">
-				<div class="contact-avt" style="background-image:url('images/resource/metro/m10.jpg')"></div>
-				<div class="contact-info">
-					<div class="contact-info-head">
-						<span class="contact-name">Occur Ditate</span>
-						<span class="contact-time">12:03 AM</span>
-					</div>
-					<span class="contact-message">Circumstances occur in which toil and pain can procure
-						him some great pleasure.-_-</span>
-				</div>
-			</li>
-			<li class="contact-item">
-				<div class="contact-avt" style="background-image:url('images/resource/admin.gif')"></div>
-				<div class="contact-info">
-					<div class="contact-info-head">
-						<span class="contact-name">Optio Cumque</span>
-						<span class="contact-time">12:03 AM</span>
-					</div>
-					<span class="contact-message">To take a trivial example, which of us ever undertakes
-						laborious physical exercise</span>
-				</div>
-			</li>
-			<li class="contact-item">
-				<div class="contact-avt" style="background-image: url('images/resource/avt0.jpg')"></div>
-				<div class="contact-info">
-					<div class="contact-info-head">
-						<span class="contact-name">Tempore soluta</span>
-						<span class="contact-time">12:03 AM</span>
-					</div>
-					<span class="contact-message">libero tempore, cum soluta nobis est eligendi optio cumque nihil
-						impedit quo minus id quod maxime placeat facere possimus</span>
-				</div>
-			</li>
-		</ul>
+		<div class="profile-head">Recent Activity's Friends</div>
+		<ul id="contactList" class="contact-list"></ul>
 	</div>
     <div class="panel-friend">
         <div class="profile-head">Friends List</div>

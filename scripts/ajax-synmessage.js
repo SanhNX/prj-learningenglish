@@ -31,7 +31,34 @@ $(document).ready(function() {
 });
 window.onload=function(){
     getAllFriend();
+    getDataUserFollow();
 };
+
+function getDataUserFollow() {
+    var str_string = 'flag=getDataUserFollow';
+    $.ajax({
+        type: "POST",
+        url: "./BLL/followFriendBll.php",
+        data: str_string,
+        cache: false,
+        success: function(dto) {
+            $("#contactList").html('');
+            if (dto.trim() != ""){
+                $("#contactList").html(dto);
+                setTimeout(function(){
+                    $("#contactList").mCustomScrollbar({
+                        autoHideScrollbar: false,
+                        theme: "dark-thin",
+                        advanced: {updateOnContentResize: true}
+                    });
+                },350);
+            }
+//                else
+//                    $("#messageList").html('<span class="mess-no-result">* Not found result matched. Please input another keyword !</span>');
+
+        }
+    });
+}
 
 function getAllFriend() {
     var str_string = 'flag=getAllFriend';

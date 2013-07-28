@@ -4,6 +4,40 @@
 //    }
 //
 //}
+$(document).ready(function() {
+    $("#btnFollow").click(function() {
+        var followid = getURLParam("id");
+        if(followid != ""){
+            var str_string = 'flag=followUser&followid='+ followid;
+            $.ajax({
+                type: "POST",
+                url: "./BLL/friendListBll.php",
+                data: str_string,
+                cache: false,
+                success: function(dto) {
+                    if(dto.trim() == 'success'){
+                        $("#btnFollow").addClass("following");
+                    } else {
+                        bootbox.alert("At the moment, You can't follow this user. Please try again!");
+                    }
+                }
+            });
+        } else{
+            bootbox.alert("Can not get information's user who you want follow.");
+        }
+    });
+});
+function getURLParam( name ){
+    var name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( window.location.href );
+    if( results == null )
+        return "";
+    else
+        return results[1];
+}
+
 $(function () {
 
 

@@ -1412,6 +1412,10 @@ body {
 .disable {
 	display: none;
 }
+.disableButton{
+    opacity: 0.5;
+    pointer-events: none;
+}
 
 .fb-bar {
 	margin: 0px 425px 10px 10px;
@@ -1636,10 +1640,12 @@ body {
 	padding: 0px 5px;
 }
 .panel-message .noMessage,.noConversation {
+    position: absolute;
     font-size: 20px;
     height: 30px;
-    width: 100%;
-    margin-top: 150px;
+    width: 30%;
+    top: 215px;
+    left: 745px;
     display: inline-block;
     color: #007286;
 }
@@ -1647,10 +1653,15 @@ body {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+    height: 400px;
+}
+#contactList .mCSB_container {
+    /*padding-right: 20px;*/
 }
 
 .contact-item {
 	height: 80px;
+    width: 335px;
 	text-align: left;
 	overflow: hidden;
 	cursor: pointer;
@@ -1678,7 +1689,7 @@ body {
 .contact-info {
 	display: inline-block;
 	vertical-align: top;
-	width: 270px;
+	width: 245px;
 }
 
 .contact-info-head {
@@ -1690,10 +1701,11 @@ body {
 .contact-name {
 	font-size: 20px;
 	color: #005766;
-	width: 180px;
+	width: 230px;
 	display: inline-block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+    overflow: hidden;
 }
 
 .contact-time {
@@ -1701,21 +1713,24 @@ body {
 	text-transform: uppercase;
 	float: right;
 	line-height: 30px;
-	width: 75px;
+	width: 160px;
 	padding-right: 5px;
 	text-align: right;
 }
 
 .contact-message {
-	font-size: 13px;
-	clear: both;
-	display: inline-block;
-	display: -webkit-box;
-	width: 260px;
-	padding: 0px 5px;
-	color: #6F6F6F;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
+    font-size: 13px;
+    clear: both;
+    display: inline-block;
+    display: -webkit-box;
+    width: 240px;
+    padding: 0px 5px;
+    color: #6F6F6F;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .contact-item.active {
@@ -1741,7 +1756,7 @@ body {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
 }
 #messageList .mCSB_container {
@@ -1991,4 +2006,33 @@ body {
     width: 180px;
     text-indent: 5px;
     overflow: hidden;
+}
+
+.button {
+    position: absolute;
+    font-size: 15px;
+    line-height: 30px;
+    vertical-align: middle !important;
+    min-width: 90px;
+    min-height: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    padding: 4px 10px;
+    margin: 455px 175px;
+}
+.button.default {
+    background-color: #e3a21a;
+    color: #fff;
+}
+.button.default:hover {
+    color: inherit;
+}
+.following{
+    text-indent: 20px;
+    text-align: inherit!important;
+    background: url("../images/icon/tick.png") no-repeat 5px center;
+    background-size: 20% 80%;
+    opacity: 0.7;
+    pointer-events: none;
 }

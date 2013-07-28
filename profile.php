@@ -69,7 +69,13 @@ include 'BLL/activityHistoryBLL.php';
                     } else {
                         $gender = "Male";
                     }
-                    echo '    
+                    $isFollow = checkUserFollow($_SESSION['userid'], $_GET["id"]);
+//                    echo "<script>alert('".$isFollow."')</script>";
+                    if($isFollow > 0)
+                        echo '<a id="btnFollow" class="button default following">Follow Me</a>';
+                    else
+                        echo '<a id="btnFollow" class="button default">Follow Me</a>';
+                    echo '
                     <div class="profile-tag">
                             <div class="profile-head">Infomation</div>
                             <div class="profile-avt" style="background-image:url(' . $itemUser->avatar . ')"></div>
@@ -81,6 +87,7 @@ include 'BLL/activityHistoryBLL.php';
                             <div class="profile-text white">' . $gender . '</div>
                             <div class="profile-title white">Join Date :</div>
                             <div class="profile-text white">' . date_format(new DateTime($itemUser->joindate), 'd/m/Y') . '</div>
+
                     </div>
                     <div class="profile-panel">
                             <div class="profile-head">Result</div>
