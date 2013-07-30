@@ -26,6 +26,27 @@ $(document).ready(function() {
             bootbox.alert("Can not get information's user who you want follow.");
         }
     });
+    $("#btnAddFriend").click(function() {
+        var friendid = getURLParam("id");
+        if(friendid != ""){
+            var str_string = 'flag=addFriend&friendid='+ friendid;
+            $.ajax({
+                type: "POST",
+                url: "./BLL/friendListBll.php",
+                data: str_string,
+                cache: false,
+                success: function(dto) {
+                    if(dto.trim() == 'success'){
+                        $("#btnAddFriend").addClass("disableButton");
+                    } else {
+                        bootbox.alert("At the moment, You can't add friend this user. Please try again!");
+                    }
+                }
+            });
+        } else{
+            bootbox.alert("Can not get information's user who you want add friend.");
+        }
+    });
 });
 function getURLParam( name ){
     var name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");

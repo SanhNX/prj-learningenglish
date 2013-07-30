@@ -70,7 +70,13 @@ include 'BLL/activityHistoryBLL.php';
                         $gender = "Male";
                     }
                     $isFollow = checkUserFollow($_SESSION['userid'], $_GET["id"]);
+                    $isFriend = checkIsFriend($_SESSION['userid'], $_GET["id"]);
 //                    echo "<script>alert('".$isFollow."')</script>";
+                    if($isFriend > 0)
+                        echo '<a id="btnAddFriend" class="button add addfriend disableButton">Add Friend</a>';
+                    else
+                        echo '<a id="btnAddFriend" class="button add addfriend">Add Friend</a>';
+
                     if($isFollow > 0)
                         echo '<a id="btnFollow" class="button default following">Follow Me</a>';
                     else
