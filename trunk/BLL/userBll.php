@@ -140,4 +140,16 @@ function checkUserFollow($userid, $followid) {
     return $count;
 }
 
+function checkIsFriend($userid, $friendid) {
+    $sql = "SELECT * FROM  tbl_friendlist WHERE userid = '" . $userid . "' AND friendid = '" . $friendid . "'";
+    $result = mysql_query($sql);
+    if (!$result) {
+        echo 'Could not run query: ' . $email . mysql_error();
+        exit;
+    }
+    // Mysql_num_row is counting table row
+    $count = mysql_num_rows($result);
+    return $count;
+}
+
 ?>

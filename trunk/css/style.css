@@ -2019,17 +2019,23 @@ body {
     text-align: center;
     cursor: pointer;
     padding: 4px 10px;
-    margin: 455px 175px;
+    margin: 510px 165px;
 }
-.button.default {
-     background-color: #e3a21a;
-     color: #fff;
- }
 .button.btnreload {
     background-color: #008299;
     color: #fff;
 }
-.button.default,.button.btnreload:hover {
+.button.add,.button.default {
+     background-color: #e3a21a;
+     color: #fff;
+ }
+.button.default:hover {
+    color: inherit;
+}
+.button.btnreload:hover {
+    color: inherit;
+}
+.button.add:hover {
     color: inherit;
 }
 .following{
@@ -2037,12 +2043,21 @@ body {
     text-align: inherit!important;
     background: url("../images/icon/tick.png") no-repeat 5px center;
     background-size: 20% 80%;
-    opacity: 0.7;
+    opacity: 0.5;
     pointer-events: none;
+    margin: 510px 165px;
 }
 .reload {
     text-indent: 20px;
     margin: 430px 55px;
     background: url("../images/icon/reload.png") no-repeat 5px center;
     background-size: 20% 80%;
+}
+.addfriend {
+    text-indent: 20px;
+    text-align: inherit!important;
+    margin: 510px 10px;
+    background: url("../images/icon/add.png") no-repeat 5px center;
+    background-size: 20% 80%;
+    margin: 510px 23px;
 }

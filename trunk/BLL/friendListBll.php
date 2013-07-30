@@ -5,7 +5,8 @@ include '../DTO/object.php';
 include '../BLL/userBll.php';
 $flag = $_POST['flag'];
 $userid = $_SESSION['userid'];
-
+$now = getdate();
+$date = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"] . " " . ($now["hours"] + 1) . ":" . $now["minutes"] . ":" . $now["seconds"];
 if($flag == 'getAllFriend'){
     $friendList = getAllFriendListFromUser($userid);
     $friendListHTML = "";
@@ -21,6 +22,15 @@ if($flag == 'getAllFriend'){
 if($flag == 'followUser'){
     $followid = $_POST['followid'];
     $excuteQuery = addFollowUser($userid, $followid);
+    if($excuteQuery == -1)
+        echo 'fail';
+    else
+        echo 'success';
+}
+
+if($flag == 'addFriend'){
+    $friendid = $_POST['friendid'];
+    $excuteQuery = addFriend($userid, $friendid, $date);
     if($excuteQuery == -1)
         echo 'fail';
     else
@@ -65,5 +75,19 @@ function addFollowUser ($userid, $followid){
         return -1;
 }
 
+function addFriend ($userid, $friendid, $dateaccept){
+    $sql = "INSERT INTO tbl_friendlist (userid, friendid, dateaccept) VALUES ('$userid','$friendid', '$dateaccept')";
+    $queryResult = mysql_query($sql) or die(mysql_error());
+
+    if (!$queryResult) {
+        echo 'Error: ' . $id . mysql_error();
+        return -1;
+    }
+
+    if ($queryResult)
+        return mysql_insert_id();
+    else
+        return -1;
+}
 
 ?>
