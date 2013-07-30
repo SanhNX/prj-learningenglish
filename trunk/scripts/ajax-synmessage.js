@@ -27,11 +27,16 @@ $(document).ready(function() {
         friendid = $('#id' + nodeId).val();
         synMessage(friendid);
     });
+    $('#btnReload').live('click', function(e){
+        getDataUserFollow();
+    });
 
 });
+//var interval;
 window.onload=function(){
     getAllFriend();
     getDataUserFollow();
+//    interval = setInterval(getDataUserFollow,10000);
 };
 
 function getDataUserFollow() {
@@ -45,13 +50,11 @@ function getDataUserFollow() {
             $("#contactList").html('');
             if (dto.trim() != ""){
                 $("#contactList").html(dto);
-                setTimeout(function(){
-                    $("#contactList").mCustomScrollbar({
-                        autoHideScrollbar: false,
-                        theme: "dark-thin",
-                        advanced: {updateOnContentResize: true}
-                    });
-                },350);
+                $("#contactList").mCustomScrollbar({
+                    autoHideScrollbar: false,
+                    theme: "dark-thin",
+                    advanced: {updateOnContentResize: true}
+                });
             }
 //                else
 //                    $("#messageList").html('<span class="mess-no-result">* Not found result matched. Please input another keyword !</span>');

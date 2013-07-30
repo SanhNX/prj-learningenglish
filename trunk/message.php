@@ -77,6 +77,7 @@ include 'BLL/categoryBll.php';
 
 	<div class="panel-contact">
 		<div class="profile-head">Recent Activity's Friends</div>
+        <a id="btnReload" class="button btnreload reload">Reload</a>
 		<ul id="contactList" class="contact-list"></ul>
 	</div>
     <div class="panel-friend">

@@ -13,10 +13,10 @@ if($flag == 'getDataUserFollow'){
     $friends_UserFollow = getAllFriend_UserFollow($userid);
     $index = 0;
     for($i = 0; $i < count($friends_UserFollow); $i++){
-        $followItem = new FollowItem();
         $friendFollowId = $friends_UserFollow[$i]->FollowId;
         $activityListByFriendFollow = getActivityHistoryByUserId($friendFollowId);
         for($j = 0; $j < count($activityListByFriendFollow); $j++){
+            $followItem = new FollowItem();
             $activity = $activityListByFriendFollow[$j];
             $article = getArticleById($activity->articleid);
             $followItem->friendFollowid = $friendFollowId;
@@ -25,7 +25,7 @@ if($flag == 'getDataUserFollow'){
             $followItem->name = getInforUserById($friendFollowId)->name;
             $followItem->title = $article->title;
             $followItem->datesubmit = $activity->datesubmit;
-            echo "<script>alert('".date_format(new DateTime($followItem->datesubmit), 'd/m/Y H:i A')."')</script>";
+//            echo "<script>alert('".date_format(new DateTime($followItem->datesubmit), 'd/m/Y H:i A')."')</script>";
             $followList[$index] = $followItem;
             $index++;
         }
@@ -34,10 +34,10 @@ if($flag == 'getDataUserFollow'){
     $contactList = "";
     for($i = 0; $i < count($followList); $i++){
         $item = $followList[$i];
-        $itemHTML = '<li id='.$item->friendFollowid.' class="contact-item "><div class="contact-avt" style="background-image:url('.$item->avatar.')"></div>
+        $itemHTML = '<a id='.$item->friendFollowid.' href="play.php?id='.$item->articleid.'" title="'.$item->title.'" target="_blank" class="contact-item "><div class="contact-avt" style="background-image:url('.$item->avatar.')"></div>
         <div class="contact-info"><div class="contact-info-head"><span class="contact-name">'.$item->name.'</span>
         <span class="contact-time">'.date_format(new DateTime($item->datesubmit), 'd/m/Y H:i A').'</span></div>
-        <span id='.$item->articleid.' class="contact-message">'.$item->title.'</span></div></li>';
+        <span id='.$item->articleid.' class="contact-message">'.$item->title.'</span></div></a>';
         $contactList = $contactList . $itemHTML;
     }
     echo $contactList;

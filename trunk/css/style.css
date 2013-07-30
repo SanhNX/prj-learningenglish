@@ -2022,10 +2022,14 @@ body {
     margin: 455px 175px;
 }
 .button.default {
-    background-color: #e3a21a;
+     background-color: #e3a21a;
+     color: #fff;
+ }
+.button.btnreload {
+    background-color: #008299;
     color: #fff;
 }
-.button.default:hover {
+.button.default,.button.btnreload:hover {
     color: inherit;
 }
 .following{
@@ -2035,4 +2039,10 @@ body {
     background-size: 20% 80%;
     opacity: 0.7;
     pointer-events: none;
+}
+.reload {
+    text-indent: 20px;
+    margin: 430px 55px;
+    background: url("../images/icon/reload.png") no-repeat 5px center;
+    background-size: 20% 80%;
 }
