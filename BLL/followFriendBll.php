@@ -34,10 +34,10 @@ if($flag == 'getDataUserFollow'){
     $contactList = "";
     for($i = 0; $i < count($followList); $i++){
         $item = $followList[$i];
-        $itemHTML = '<a id='.$item->friendFollowid.' href="play.php?id='.$item->articleid.'" title="'.$item->title.'" target="_blank" class="contact-item "><div class="contact-avt" style="background-image:url('.$item->avatar.')"></div>
+        $itemHTML = '<li id='.$item->friendFollowid.'  title="'.$item->title.'" class="contact-item "><a href="play.php?id='.$item->articleid.'" target="_blank"><div class="contact-avt" style="background-image:url('.$item->avatar.')"></div>
         <div class="contact-info"><div class="contact-info-head"><span class="contact-name">'.$item->name.'</span>
         <span class="contact-time">'.date_format(new DateTime($item->datesubmit), 'd/m/Y H:i A').'</span></div>
-        <span id='.$item->articleid.' class="contact-message">'.$item->title.'</span></div></a>';
+        <span id='.$item->articleid.' class="contact-message">'.$item->title.'</span></div></a></li>';
         $contactList = $contactList . $itemHTML;
     }
     echo $contactList;

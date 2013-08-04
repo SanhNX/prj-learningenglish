@@ -72,12 +72,12 @@ include 'BLL/activityHistoryBLL.php';
                     $isFollow = checkUserFollow($_SESSION['userid'], $_GET["id"]);
                     $isFriend = checkIsFriend($_SESSION['userid'], $_GET["id"]);
 //                    echo "<script>alert('".$isFollow."')</script>";
-                    if($isFriend > 0)
+                    if($isFriend > 0 || getInforUserById( $_GET["id"])->id == $_SESSION['userid'])
                         echo '<a id="btnAddFriend" class="button add addfriend disableButton">Add Friend</a>';
                     else
                         echo '<a id="btnAddFriend" class="button add addfriend">Add Friend</a>';
 
-                    if($isFollow > 0)
+                    if($isFollow > 0 || getInforUserById( $_GET["id"])->id == $_SESSION['userid'])
                         echo '<a id="btnFollow" class="button default following">Follow Me</a>';
                     else
                         echo '<a id="btnFollow" class="button default">Follow Me</a>';
