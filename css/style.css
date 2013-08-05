@@ -162,7 +162,12 @@ body {
 	right: 0;
 	top: 0;
 }
-
+.menu-popup-list-head {
+	line-height: 30px;
+	text-indent: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
 .menu-popup-item {
 	height: 35px;
 	line-height: 35px;
@@ -205,6 +210,9 @@ body {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
+#popup-category-list {
+	height: 510px;
+}
 .menu-popup-avt {
 	display: inline-block;
 	height: 40px;

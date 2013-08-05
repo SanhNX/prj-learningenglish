@@ -319,6 +319,12 @@ function initScrollBar() {
             advanced: {updateOnContentResize: true}
         });
                 
+		$("#popup-category-list").mCustomScrollbar({
+			autoHideScrollbar: false,
+			theme: "light-thin",
+			advanced: {updateOnContentResize: true}
+		});
+
 		$("#rank-list-week").mCustomScrollbar({
 			autoHideScrollbar: false,
 			theme: "light-thin",
