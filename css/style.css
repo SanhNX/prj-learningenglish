@@ -955,6 +955,7 @@ body {
 .play-keywords {
 	clear: both;
 	min-height: 100px;
+    min-width: 740px;
 }
 
 .play-keyword-item {
