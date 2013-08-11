@@ -78,7 +78,7 @@ $(document).ready(function() {
         var pass = $("#pass").val();
         var cpass = $("#cpass").val();
         var email_regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-        var errString = "----- Occurs error in registration process -----<br/>";
+        var errString = "----- Error occurs during registration -----<br/>";
         var err1 = "- Email can not blank and must be valid</br>";
         var err2 = "- Email is existing. Please choose another email</br>";
         var err3 = "- Full name can not blank and less than or equal 15 character</br>";
