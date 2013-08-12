@@ -81,19 +81,19 @@ create table tbl_admin
 INSERT INTO tbl_admin(email, password, name) VALUES('admin@gmail.com', 'admin', 'Administrator');
 
 
-INSERT INTO tbl_category(name) VALUES('Entertainment');
-INSERT INTO tbl_category(name) VALUES('Music');
-INSERT INTO tbl_category(name) VALUES('How to...');
-INSERT INTO tbl_category(name) VALUES('Science');
-INSERT INTO tbl_category(name) VALUES('The natural world');
-INSERT INTO tbl_category(name) VALUES('Sport');
-INSERT INTO tbl_category(name) VALUES('Psychology');
-INSERT INTO tbl_category(name) VALUES('Computer');
-INSERT INTO tbl_category(name) VALUES('Communication');
-INSERT INTO tbl_category(name) VALUES('For children');
-INSERT INTO tbl_category(name) VALUES('World');
-INSERT INTO tbl_category(name) VALUES('The Love');
-INSERT INTO tbl_category(name) VALUES('In the kitchen');
+INSERT INTO tbl_category(name, description) VALUES('Entertainment', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('Music', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('How to...', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('Science', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('The natural world', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('Sport', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('Psychology', 'For Everyone');
+INSERT INTO tbl_category(name, description) VALUES('Computer', 'For Kids');
+INSERT INTO tbl_category(name, description) VALUES('Communication', 'For Kids');
+INSERT INTO tbl_category(name, description) VALUES('For children', 'For Kids');
+INSERT INTO tbl_category(name, description) VALUES('World', 'For Kids');
+INSERT INTO tbl_category(name, description) VALUES('The Love', 'For Kids');
+INSERT INTO tbl_category(name, description) VALUES('In the kitchen', 'For Kids');
 
 
 INSERT INTO tbl_user(name,email, password, joindate, avatar, gender, status) VALUES('ThanhTC1','justinnguyen@gmail.com', '123456', '2012-04-05', 'images/resource/avt1.jpg', 0, 1);
