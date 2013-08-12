@@ -30,15 +30,21 @@
         <div class="menu-popup-form cate">
             <ul class="menu-popup-list">
                 <?php
-                $categoryList = getAllCategory();
-
-                for ($i = 0; $i < count($categoryList); $i++) {
-                    $item = $categoryList[$i];
-                    echo '
-                            <a href="index.php?category=' . $item->id . '" style="text-decoration: initial;">
+                $categoryListForEveryone = getAllCategoryForEveryone();
+                $categoryListForKids = getAllCategoryForKids();
+                echo '<li class="menu-popup-list-head">For Everyone</li>';
+                for ($i = 0; $i < count($categoryListForEveryone); $i++) {
+                    $item = $categoryListForEveryone[$i];
+                    echo '<a href="index.php?category=' . $item->id . '" style="text-decoration: initial;">
                                 <li class="menu-popup-item simple">' . $item->name . '</li>
-                            </a>
-                            ';
+                            </a>';
+                }
+                echo '<li class="menu-popup-list-head">For Kids</li>';
+                for ($i = 0; $i < count($categoryListForKids); $i++) {
+                    $item = $categoryListForKids[$i];
+                    echo '<a href="index.php?category=' . $item->id . '" style="text-decoration: initial;">
+                                <li class="menu-popup-item simple">' . $item->name . '</li>
+                            </a>';
                 }
                 ?>
             </ul>
