@@ -271,6 +271,8 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 }
 
 .admin-table {
+    position: absolute;
+    margin-top: 25px;
 	max-width: 770px;
 	border-spacing: 0px;
 	border-collapse: collapse;
@@ -362,6 +364,20 @@ input[type=checkbox].admin-checkbox:checked + label.admin-checkbox-label {
 	height: 30px;
 	line-height: 30px;
 	color: #FFF;
+}
+.admin-radio-group{
+    margin-top: 5px;
+    font-family: "Segoe UI";
+    font-size: 13px;
+    color: #ff0000;
+    font-weight: bold;
+    -webkit-transition: background 250ms linear;
+    -moz-transition: background 250ms linear;
+    transition: background 250ms linear;
+}
+
+.admin-radio{
+    margin-left: 10px;
 }
 
 .admin-select {

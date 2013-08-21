@@ -134,7 +134,7 @@ include 'BLL/articleBLL.php';
                         <div class="admin-select">
                             <select id="value-cate">
                                 <?php
-                                $categoryList = getAllCategory();
+                                $categoryList = getAllCategoryForEveryone();
 
                                 for ($i = 0; $i < count($categoryList); $i++) {
                                     $item = $categoryList[$i];
@@ -142,6 +142,10 @@ include 'BLL/articleBLL.php';
                                 }
                                 ?>
                             </select>
+                        </div>
+                        <div class="admin-radio-group">
+                            <input id="forEveryone" class="admin-radio" type="radio" name="radio" value="E" checked="checked"/>For Everyone
+                            <input id="forKids" class="admin-radio" type="radio" name="radio" value="K"/>For Kids
                         </div>
                     </div>
                 </div>

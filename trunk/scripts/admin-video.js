@@ -166,6 +166,41 @@ $(document).ready(function() {
         }
     });
 
+    $('#forEveryone').on('click', function(e) {
+        $.ajax({
+            type: "POST",
+            url: "./BLL/adminChooseCategoryBll.php",
+            data: {
+                flag: 'chooseCate',
+                chooseValue : 'E'
+            },
+            cache: false,
+            success: function(dto) {
+                if(trim(dto) != ''){
+                    $("#value-cate")[0].innerHTML = '';
+                    $("#value-cate")[0].innerHTML = dto;
+                }
+            }
+        });
+    });
+    $('#forKids').on('click', function(e) {
+        $.ajax({
+            type: "POST",
+            url: "./BLL/adminChooseCategoryBll.php",
+            data: {
+                flag: 'chooseCate',
+                chooseValue : 'K'
+            },
+            cache: false,
+            success: function(dto) {
+                if(trim(dto) != ''){
+                    $("#value-cate")[0].innerHTML = '';
+                    $("#value-cate")[0].innerHTML = dto;
+                }
+            }
+        });
+    });
+
 
     $('#btn-cancelEdit').on('click', function(e) {
 

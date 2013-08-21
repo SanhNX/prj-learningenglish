@@ -230,7 +230,7 @@ function getDataYT(id) {
             totalField = data.hintList.length;
             hintList = data.hintList;
             hintItem = data.hintList[0];
-            if (hintItem[1] !== undefined && hintItem.length > 0) {
+            if (hintItem != undefined && hintItem[1] !== undefined && hintItem.length > 0) {
                 hintHtml = '';
                 for (i = 0; i < hintItem.length; i++) {
                     hint = hintItem[i + 1];

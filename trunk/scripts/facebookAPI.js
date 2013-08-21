@@ -70,7 +70,7 @@ function makeSession() {
                                     $(".popup-progress").addClass("undisplayed");
                                     $(".login-popup-error-mess").html('');
                                     hideLogin();
-//                        location.reload();
+//                                    location.reload();
                                 }, 3000);
                                 return true;
                             }
